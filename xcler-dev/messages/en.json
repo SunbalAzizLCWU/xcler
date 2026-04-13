@@ -1,0 +1,11 @@
+{
+  "common": {
+    "siteName": "XCLER",
+    "language": "English",
+    "cta": "Let's Talk"
+  },
+  "home": {
+    "heroTitle": "We build",
+    "heroSubtitle": "digital products that actually work."
+  }
+}

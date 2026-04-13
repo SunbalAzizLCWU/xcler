@@ -58,7 +58,7 @@ export function FAQSection() {
                 <br />
                 <span className="text-terracotta">Answers.</span>
               </h2>
-              <p className="mt-4 text-richblack/70 dark:text-gray-200">
+              <p className="mt-4 text-richblack dark:text-gray-200">
                 If your question isn&apos;t here, just{" "}
                 <a
                   href="https://wa.me/923154823517"
@@ -111,7 +111,7 @@ export function FAQSection() {
                         transition={{ duration: 0.3 }}
                         className="overflow-hidden"
                       >
-                        <p className="pb-6 text-richblack/70 dark:text-gray-200 leading-relaxed">
+                        <p className="pb-6 text-richblack dark:text-gray-200 leading-relaxed">
                           {faq.answer}
                         </p>
                       </motion.div>

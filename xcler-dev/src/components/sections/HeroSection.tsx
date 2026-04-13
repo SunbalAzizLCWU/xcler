@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { AnimatePresence, motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import { MagneticButton } from "@/components/ui/MagneticButton";
 
 const words = [
@@ -15,6 +15,7 @@ const words = [
 
 export function HeroSection() {
   const [currentWord, setCurrentWord] = useState(0);
+  const shouldReduceMotion = useReducedMotion();
   const containerRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -24,11 +25,14 @@ export function HeroSection() {
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
   useEffect(() => {
+    if (shouldReduceMotion) return;
+
     const interval = setInterval(() => {
       setCurrentWord((prev) => (prev + 1) % words.length);
     }, 2500);
+
     return () => clearInterval(interval);
-  }, []);
+  }, [shouldReduceMotion]);
 
   return (
     <section
@@ -36,10 +40,10 @@ export function HeroSection() {
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
       {/* Background Elements */}
-      <div className="absolute inset-0">
+      <div className="absolute inset-0 pointer-events-none" style={{ contain: "paint" }} aria-hidden="true">
         {/* Gradient orbs */}
-        <div className="absolute top-20 left-10 w-72 h-72 bg-terracotta/10 rounded-full blur-3xl animate-float" />
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-sage/10 rounded-full blur-3xl animate-float animate-delay-300" />
+        <div className="absolute top-20 left-10 w-72 h-72 bg-terracotta/10 rounded-full blur-3xl motion-safe:animate-float will-change-transform" />
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-sage/10 rounded-full blur-3xl motion-safe:animate-float animate-delay-300 will-change-transform" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-stone/5 rounded-full blur-3xl" />
 
         {/* Grid */}
@@ -52,49 +56,52 @@ export function HeroSection() {
         />
       </div>
 
-      <motion.div style={{ y, opacity }} className="relative z-10 container-custom pt-24">
+      <motion.div
+        style={
+          shouldReduceMotion
+            ? { opacity: 1 }
+            : { y, opacity }
+        }
+        className="relative z-10 container-custom pt-24"
+      >
         <div className="max-w-5xl mx-auto text-center">
           {/* Badge */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.6 }}
-            className="inline-flex items-center gap-2 rounded-full border border-stone/25 bg-white/40 dark:border-white/35 dark:bg-black/45 px-4 py-1.5 mb-8"
+            className="inline-flex items-center gap-2 rounded-full border border-stone/25 bg-white/75 dark:border-white/35 dark:bg-black/45 px-4 py-1.5 mb-8"
           >
             <span className="relative flex h-2 w-2">
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-sage opacity-75" />
               <span className="relative inline-flex h-2 w-2 rounded-full bg-sage" />
             </span>
-            <span className="font-mono text-xs tracking-wider text-richblack/70 dark:text-white">
+            <span className="font-mono text-xs tracking-wider text-richblack dark:text-white">
               AVAILABLE FOR NEW PROJECTS
             </span>
           </motion.div>
 
           {/* Main Heading */}
           <motion.h1
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 1, y: shouldReduceMotion ? 0 : 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ delay: shouldReduceMotion ? 0 : 0.2, duration: shouldReduceMotion ? 0 : 0.7, ease: [0.16, 1, 0.3, 1] }}
             className="font-heading text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-[0.95] text-richblack dark:text-cream"
           >
             <span className="block">We build</span>
-            <span className="relative inline-block h-[1.1em] overflow-hidden">
-              {words.map((word, i) => (
+            <span className="relative inline-flex min-w-[9ch] justify-center">
+              <AnimatePresence mode="wait">
                 <motion.span
-                  key={word}
-                  className="absolute left-0 right-0 text-terracotta"
-                  initial={{ y: "100%" }}
-                  animate={{
-                    y: currentWord === i ? "0%" : "-100%",
-                  }}
-                  transition={{
-                    duration: 0.5,
-                    ease: [0.16, 1, 0.3, 1],
-                  }}
+                  key={words[currentWord]}
+                  className="inline-block text-terracotta"
+                  initial={{ y: "100%", opacity: 0 }}
+                  animate={{ y: "0%", opacity: 1 }}
+                  exit={{ y: "-100%", opacity: 0 }}
+                  transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
                 >
-                  {word}
+                  {words[currentWord]}
                 </motion.span>
-              ))}
+              </AnimatePresence>
             </span>
             <span className="block mt-2">
               that <span className="text-stone italic font-light dark:text-cream/85">actually</span> work.
@@ -106,7 +113,7 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.7, duration: 0.6 }}
-            className="mt-8 text-lg md:text-xl text-richblack/70 dark:text-cream/85 max-w-2xl mx-auto leading-relaxed"
+            className="mt-8 text-lg md:text-xl text-richblack dark:text-cream/85 max-w-2xl mx-auto leading-relaxed"
           >
             A small team of dedicated developers and automation experts.
             We turn your business ideas into digital products that generate

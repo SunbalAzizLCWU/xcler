@@ -78,23 +78,40 @@ export const metadata: Metadata = {
 // JSON-LD Structured Data
 const jsonLd = {
   "@context": "https://schema.org",
-  "@type": "Organization",
+  "@type": "WebDesignCompany",
+  "@id": "https://xcler.dev/#webdesigncompany",
   name: "XCLER",
   url: "https://xcler.dev",
   logo: "https://xcler.dev/logo.png",
+  image: "https://xcler.dev/og-image.png",
   description:
-    "Web & App Development Agency specializing in custom websites, apps, WordPress, Shopify, AI chatbots, and workflow automation.",
+    "Web design and development company delivering conversion-focused websites, UX-first interfaces, and technical SEO for Berlin, Germany, and DACH businesses.",
   address: {
     "@type": "PostalAddress",
+    streetAddress: "Friedrichstrasse 68",
+    postalCode: "10117",
+    addressLocality: "Berlin",
+    addressRegion: "Berlin",
     addressCountry: "DE",
   },
-  contactPoint: {
-    "@type": "ContactPoint",
-    telephone: "+923154823517",
-    contactType: "customer service",
-    email: "hello@xcler.dev",
-    availableLanguage: ["English", "German"],
-  },
+  contactPoint: [
+    {
+      "@type": "ContactPoint",
+      telephone: "+923154823517",
+      contactType: "customer service",
+      email: "hello@xcler.dev",
+      availableLanguage: ["English", "German"],
+      areaServed: ["Berlin", "Germany"],
+    },
+    {
+      "@type": "ContactPoint",
+      telephone: "+923154823517",
+      contactType: "technical support",
+      email: "hello@xcler.dev",
+      availableLanguage: ["English", "German"],
+      areaServed: ["Berlin", "Germany"],
+    },
+  ],
   sameAs: [
     "https://www.facebook.com/xclerdev",
     "https://www.instagram.com/xclerdev",
@@ -116,23 +133,113 @@ const jsonLd = {
     },
   ],
   knowsAbout: [
-    "Web Development",
-    "App Development",
-    "WordPress Development",
-    "Shopify Development",
-    "Workflow Automation",
-    "AI Chatbots",
-    "n8n",
-    "Make.com",
-    "Next.js",
-    "Python",
-    "RAG Agents",
+    "Webentwicklung",
+    "Webdesign Agentur Berlin",
+    "WordPress Entwicklung",
+    "Shopify Entwicklung",
+    "KI-Chatbot Agentur",
+    "Prozessautomatisierung mit n8n",
+    "Automatisierung mit Make.com",
+    "Technisches SEO",
+    "Conversion-Optimierung",
+    "Next.js Agentur",
+    "App Entwicklung",
+    "UX/UI Design",
   ],
-  areaServed: {
-    "@type": "Country",
-    name: "Germany",
+  areaServed: [
+    {
+      "@type": "City",
+      name: "Berlin",
+    },
+    {
+      "@type": "Country",
+      name: "Germany",
+    },
+    {
+      "@type": "AdministrativeArea",
+      name: "Bavaria",
+    },
+    {
+      "@type": "AdministrativeArea",
+      name: "Hesse",
+    },
+    {
+      "@type": "City",
+      name: "Munich",
+    },
+    {
+      "@type": "City",
+      name: "Hamburg",
+    },
+    {
+      "@type": "City",
+      name: "Frankfurt am Main",
+    },
+    {
+      "@type": "City",
+      name: "Vienna",
+    },
+    {
+      "@type": "City",
+      name: "Zurich",
+    },
+  ],
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "Premium Web Design and Development Services",
+    itemListElement: [
+      {
+        "@type": "Offer",
+        priceCurrency: "EUR",
+        itemOffered: {
+          "@type": "Service",
+          name: "Custom Web Design",
+          serviceType: "Web Design",
+          description:
+            "High-performance, conversion-focused website design tailored for Berlin and DACH markets.",
+          areaServed: "Berlin",
+        },
+      },
+      {
+        "@type": "Offer",
+        priceCurrency: "EUR",
+        itemOffered: {
+          "@type": "Service",
+          name: "UX and Conversion Optimization",
+          serviceType: "User Experience Design",
+          description:
+            "UX architecture and CRO implementation to improve lead quality and revenue outcomes.",
+          areaServed: "Germany",
+        },
+      },
+      {
+        "@type": "Offer",
+        priceCurrency: "EUR",
+        itemOffered: {
+          "@type": "Service",
+          name: "Technical SEO Implementation",
+          serviceType: "Technical SEO",
+          description:
+            "Structured data, crawl optimization, and semantic SEO engineering for scalable visibility.",
+          areaServed: "Germany",
+        },
+      },
+      {
+        "@type": "Offer",
+        priceCurrency: "EUR",
+        itemOffered: {
+          "@type": "Service",
+          name: "WordPress and Shopify Development",
+          serviceType: "Web Development",
+          description:
+            "Custom platform builds for growth-stage brands across Berlin and surrounding tech hubs.",
+          areaServed: "DACH",
+        },
+      },
+    ],
   },
   priceRange: "€€",
+  currenciesAccepted: "EUR",
 };
 
 export default function RootLayout({

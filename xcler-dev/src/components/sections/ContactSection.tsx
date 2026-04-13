@@ -91,7 +91,7 @@ export function ContactSection() {
               <br />
               <span className="text-terracotta">something together.</span>
             </h2>
-            <p className="mt-4 text-lg text-richblack/70 dark:text-gray-200 max-w-md">
+            <p className="mt-4 text-lg text-richblack dark:text-gray-200 max-w-md">
               Fill out the form. We&apos;ll get back to you within 24 hours
               via WhatsApp or email. No sales pitch — just a real
               conversation about your project.
@@ -115,7 +115,7 @@ export function ContactSection() {
                   </svg>
                 </div>
                 <div>
-                  <p className="text-xs text-richblack/60 dark:text-gray-300">
+                  <p className="text-xs text-richblack dark:text-gray-300">
                     Email
                   </p>
                   <a
@@ -138,7 +138,7 @@ export function ContactSection() {
                   </svg>
                 </div>
                 <div>
-                  <p className="text-xs text-richblack/60 dark:text-gray-300">
+                  <p className="text-xs text-richblack dark:text-gray-300">
                     WhatsApp
                   </p>
                   <a
@@ -172,7 +172,7 @@ export function ContactSection() {
                   </svg>
                 </div>
                 <div>
-                  <p className="text-xs text-richblack/60 dark:text-gray-300">
+                  <p className="text-xs text-richblack dark:text-gray-300">
                     Location
                   </p>
                   <p className="font-medium text-richblack dark:text-white">Serving Germany & EU</p>

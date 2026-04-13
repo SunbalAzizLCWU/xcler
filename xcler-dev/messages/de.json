@@ -1,0 +1,11 @@
+{
+  "common": {
+    "siteName": "XCLER",
+    "language": "Deutsch",
+    "cta": "Lass uns reden"
+  },
+  "home": {
+    "heroTitle": "Wir bauen",
+    "heroSubtitle": "digitale Produkte, die wirklich funktionieren."
+  }
+}

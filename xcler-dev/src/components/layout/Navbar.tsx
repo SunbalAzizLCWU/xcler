@@ -45,7 +45,7 @@ export function Navbar() {
           "fixed left-0 right-0 top-0 z-[100] transition-all duration-500",
           scrolled
             ? "bg-cream/90 dark:bg-richblack/90 backdrop-blur-xl border-b border-stone/10 dark:border-white/10"
-            : "bg-cream/70 dark:bg-richblack/85 backdrop-blur-md border-b border-stone/10 dark:border-white/10"
+            : "bg-cream/95 dark:bg-richblack/85 backdrop-blur-md border-b border-stone/10 dark:border-white/10"
         )}
       >
         <div className="container-custom flex h-20 items-center justify-between">
@@ -67,7 +67,7 @@ export function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="group relative font-heading text-sm font-medium tracking-wide text-richblack/80 transition-colors hover:text-richblack dark:text-cream dark:hover:text-white"
+                className="group relative font-heading text-sm font-medium tracking-wide text-richblack transition-colors hover:text-richblack dark:text-cream dark:hover:text-white"
               >
                 {link.label}
                 <span className="absolute -bottom-1 left-0 h-[2px] w-0 bg-terracotta transition-all duration-300 group-hover:w-full" />

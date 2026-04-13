@@ -1,11 +1,19 @@
 // src/app/layout.tsx
 import type { Metadata } from "next";
+import { NextIntlClientProvider } from "next-intl";
+import { getMessages } from "next-intl/server";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
 import { GrainOverlay } from "@/components/ui/GrainOverlay";
-import "./globals.css";
+import "../globals.css";
+
+// This tells Next.js to pre-build both the /en and /de versions of the site
+export function generateStaticParams() {
+  return [{ locale: "en" }, { locale: "de" }];
+}
+
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://xcler.dev"),
@@ -242,44 +250,72 @@ const jsonLd = {
   currenciesAccepted: "EUR",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
+  params,
   children,
 }: {
+  params: Promise<{ locale: string }>;
   children: React.ReactNode;
 }) {
+  const { locale } = await params;
+  const messages = await getMessages({ locale });
+
   const hydrationSanitizerScript = `
     (() => {
-      const clean = (root) => {
-        if (!root || !root.querySelectorAll) return;
-        const nodes = [root, ...root.querySelectorAll("*")];
+      const removeNoiseAttrs = (el) => {
+        if (!(el instanceof Element)) return;
 
-        for (const el of nodes) {
-          if (!(el instanceof Element)) continue;
+        if (el.hasAttribute("bis_skin_checked")) {
+          el.removeAttribute("bis_skin_checked");
+        }
 
-          if (el.hasAttribute("bis_skin_checked")) {
-            el.removeAttribute("bis_skin_checked");
-          }
+        if (el.hasAttribute("bis_register")) {
+          el.removeAttribute("bis_register");
+        }
 
-          if (el.hasAttribute("bis_register")) {
-            el.removeAttribute("bis_register");
-          }
-
-          for (const name of el.getAttributeNames()) {
-            if (name.startsWith("__processed_") && name.endsWith("__")) {
-              el.removeAttribute(name);
-            }
+        for (const name of el.getAttributeNames()) {
+          if (name.startsWith("__processed_") && name.endsWith("__")) {
+            el.removeAttribute(name);
           }
         }
       };
 
-      clean(document.documentElement);
+      const cleanTree = (root) => {
+        if (!root || !root.querySelectorAll) return;
+        removeNoiseAttrs(root);
+        for (const node of root.querySelectorAll("*")) {
+          removeNoiseAttrs(node);
+        }
+      };
+
+      cleanTree(document.documentElement);
+
+      const observer = new MutationObserver((mutations) => {
+        for (const mutation of mutations) {
+          if (mutation.type === "attributes") {
+            removeNoiseAttrs(mutation.target);
+          }
+
+          for (const node of mutation.addedNodes) {
+            if (node instanceof Element) {
+              cleanTree(node);
+            }
+          }
+        }
+      });
+
+      observer.observe(document.documentElement, {
+        subtree: true,
+        childList: true,
+        attributes: true,
+      });
     })();
   `;
 
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang={locale} suppressHydrationWarning>
       <head>
-        <script dangerouslySetInnerHTML={{ __html: hydrationSanitizerScript }} />
+        <script id="hydration-sanitizer" dangerouslySetInnerHTML={{ __html: hydrationSanitizerScript }} />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -289,18 +325,20 @@ export default function RootLayout({
         <link rel="manifest" href="/manifest.json" />
       </head>
       <body className="font-body antialiased" suppressHydrationWarning>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="light"
-          enableSystem
-          disableTransitionOnChange={false}
-        >
-          <GrainOverlay />
-          <Navbar />
-          <main>{children}</main>
-          <Footer />
-          <WhatsAppButton />
-        </ThemeProvider>
+        <NextIntlClientProvider locale={locale} messages={messages}>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="light"
+            enableSystem
+            disableTransitionOnChange={false}
+          >
+            <GrainOverlay />
+            <Navbar />
+            <main>{children}</main>
+            <Footer />
+            <WhatsAppButton />
+          </ThemeProvider>
+        </NextIntlClientProvider>
       </body>
     </html>
   );

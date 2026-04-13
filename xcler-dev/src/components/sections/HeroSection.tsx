@@ -8,13 +8,10 @@ import { MagneticButton } from "@/components/ui/MagneticButton";
 export function HeroSection() {
   const t = useTranslations("Hero");
   const shouldReduceMotion = useReducedMotion();
-  const containerRef = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end start"],
-  });
-  const y = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
-  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
+  const containerRef = useRef<HTMLElement | null>(null);
+  const { scrollY } = useScroll();
+  const y = useTransform(scrollY, [0, 900], ["0%", "30%"]);
+  const opacity = useTransform(scrollY, [0, 450], [1, 0]);
 
   return (
     <section

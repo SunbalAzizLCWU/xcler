@@ -121,6 +121,301 @@
       "description": "Intelligente Chatbots und KI-Agenten für Support, Lead-Qualifizierung und Vertrieb - 24/7 einsatzbereit, RAG-basiert, kontextsensitiv und mit hoher Präzision in jeder Interaktion."
     }
   },
+  "Process": {
+    "eyebrow": "So arbeiten wir",
+    "headingLine1": "Klarer Prozess.",
+    "headingLine2": "Messbare Resultate.",
+    "step1": {
+      "title": "Analysieren",
+      "description": "Wir analysieren Ihr Geschäftsmodell, Ihre Zielgruppe und Ihre Prioritäten. Sie erhalten einen klaren Scope, belastbare Ziele und eine saubere Entscheidungsbasis.",
+      "duration": "1-2 Tage"
+    },
+    "step2": {
+      "title": "Strategie & Design entwickeln",
+      "description": "Wir entwickeln Architektur, Nutzerflüsse und Interface-Richtung, bevor die Umsetzung beginnt. Sie sehen alle zentralen Entscheidungen frühzeitig und steuern strategisch mit.",
+      "duration": "3-5 Tage"
+    },
+    "step3": {
+      "title": "Entwickeln & optimieren",
+      "description": "Wir entwickeln in fokussierten Zyklen mit wöchentlichen Abstimmungen. Sie prüfen Zwischenstände laufend, und wir optimieren schnell auf Basis realer Rückmeldung.",
+      "duration": "2-6 Wochen"
+    },
+    "step4": {
+      "title": "Launchen & skalieren",
+      "description": "Wir launchen strukturiert, analysieren Performance-Daten und skalieren gezielt weiter. Sie gewinnen Stabilität im Betrieb und Wachstumspotenzial für die nächste Phase.",
+      "duration": "Laufend"
+    }
+  },
+  "Portfolio": {
+    "eyebrow": "Ausgewählte Projekte",
+    "headingLine1": "Entwickelt.",
+    "headingLine2": "Ausgeliefert.",
+    "headingLine3": "Bewährt.",
+    "viewAll": "Alle Projekte ansehen",
+    "viewProject": "Projekt ansehen",
+    "project1": {
+      "title": "Green Navigator",
+      "category": "B2B SaaS • Carbon Reporting",
+      "description": "Eine Premium-B2B-SaaS-Plattform für lokalisiertes Carbon Reporting. Nutzt Gemini Flash OCR, um Versorgerrechnungen in auditfähige Umweltinformationen zu überführen.",
+      "tags": {
+        "tag1": "Maßgeschneiderte Webentwicklung",
+        "tag2": "KI-Integration",
+        "tag3": "OCR",
+        "tag4": "Datenvisualisierung"
+      }
+    },
+    "project2": {
+      "title": "AegisFlow",
+      "category": "FinTech SaaS • Risikomanagement",
+      "description": "Enterprise-Finanz-SaaS mit LSTM-Neuronalen Netzen und GANs für prognostische Liquiditätsplanung und KI-gestütztes Risikomanagement.",
+      "tags": {
+        "tag1": "Python",
+        "tag2": "LSTM",
+        "tag3": "GANs",
+        "tag4": "FastAPI"
+      }
+    },
+    "project3": {
+      "title": "VisaPath",
+      "category": "B2C SaaS • Travel Tech",
+      "description": "Eine Plattform für digitale Nomaden zur Optimierung von Visa-Strategien durch globale Zugangskarten und KI-optimierte Routenintelligenz.",
+      "tags": {
+        "tag1": "React",
+        "tag2": "Node.js",
+        "tag3": "Maps API",
+        "tag4": "KI-Integration"
+      }
+    },
+    "project4": {
+      "title": "Overwatch AI",
+      "category": "Sicherheit • Bedrohungserkennung",
+      "description": "Ein KI-Command-Center mit Gemini Flash zur multimodalen Betrugserkennung in Echtzeit über Audio-, Bild- und Textanalyse.",
+      "tags": {
+        "tag1": "Gemini AI",
+        "tag2": "WebSockets",
+        "tag3": "Python",
+        "tag4": "React"
+      }
+    }
+  },
+  "Team": {
+    "eyebrow": "Das Team",
+    "headingLine1": "Kleines Team.",
+    "headingLine2": "Große Wirkung.",
+    "intro": "Sie arbeiten direkt mit den Spezialisten, die Ihr Produkt entwickeln. Keine Umwege, keine Kommunikationsverluste, klare Verantwortung.",
+    "member1": {
+      "role": "Gründer & KI-Automation Engineer",
+      "expertise": "Prozessautomatisierung • KI-Agenten • RAG-Systeme",
+      "bio": "Entwickelt Automationssysteme, die manuelle Abläufe reduzieren und die operative Geschwindigkeit skalierbar erhöhen."
+    },
+    "member2": {
+      "role": "Full-Stack Engineer",
+      "expertise": "Web- & App-Entwicklung • API-Architektur",
+      "bio": "Entwickelt performante Web- und App-Produkte mit wartbarer Architektur und produktionsreifer Qualität."
+    },
+    "member3": {
+      "role": "CMS & Frontend Engineer",
+      "expertise": "WordPress • Shopify • E-Commerce",
+      "bio": "Realisiert conversion-starke CMS- und Commerce-Erlebnisse mit klarer Struktur und nachhaltiger Wartbarkeit."
+    }
+  },
+  "Testimonials": {
+    "eyebrow": "Kundenstimmen",
+    "headingLine1": "Verlassen Sie sich nicht nur",
+    "headingLine2": "auf unser Wort.",
+    "dotLabel": "Kundenstimme",
+    "review1": {
+      "quote": "Die Plattform wurde zwei Wochen vor Termin live geschaltet. Bereits im ersten Monat stieg unser Umsatz um 40%. Die Umsetzung war präzise und absolut verlässlich.",
+      "name": "Ahmed K.",
+      "companyRole": "Gründer, E-Commerce-Unternehmen",
+      "industry": "Einzelhandel"
+    },
+    "review2": {
+      "quote": "Die Automatisierung hat über 25 Stunden manuelle Arbeit pro Woche eliminiert. Prozesse, die vorher drei Personen gebunden haben, laufen jetzt stabil und effizient.",
+      "name": "Dr. Sarah M.",
+      "companyRole": "Operations Director, Gesundheitsklinik",
+      "industry": "Gesundheitswesen"
+    },
+    "review3": {
+      "quote": "Nach mehreren Agenturerfahrungen war XCLER das erste Team, das wirklich zugehört, termintreu geliefert und auch nach dem Launch Verantwortung übernommen hat.",
+      "name": "Rashid A.",
+      "companyRole": "Inhaber, Restaurantgruppe",
+      "industry": "Food & Beverage"
+    },
+    "review4": {
+      "quote": "Professionell, schnell und strategisch klar. Die neue Website hat unsere Anfragen für Einschreibungen im ersten Zyklus um 60% erhöht.",
+      "name": "Fatima N.",
+      "companyRole": "Leitung, Early Learning Academy",
+      "industry": "Bildung"
+    }
+  },
+  "FAQ": {
+    "eyebrow": "FAQ",
+    "headingLine1": "Fragen?",
+    "headingLine2": "Antworten.",
+    "contactPrefix": "Wenn Ihre Frage hier nicht dabei ist,",
+    "contactLink": "schreiben Sie uns auf WhatsApp",
+    "contactSuffix": "In der Regel antworten wir sehr schnell.",
+    "faq1": {
+      "question": "Was kostet eine Website?",
+      "answer": "Einfache Websites starten ab 150 EUR. Individuelle Webanwendungen, E-Commerce-Lösungen und Automatisierungsprojekte werden abhängig von Komplexität und Zielsetzung kalkuliert. Nach einem fokussierten 15-Minuten-Gespräch erhalten Sie ein transparentes Angebot ohne versteckte Kosten."
+    },
+    "faq2": {
+      "question": "Wie lange dauert ein Projekt?",
+      "answer": "Eine klassische Website dauert in der Regel 2 bis 4 Wochen. Eine individuelle Webanwendung benötigt meist 4 bis 8 Wochen. Automatisierungs-Setups sind häufig in 1 bis 2 Wochen umsetzbar. Die finale Timeline erhalten Sie nach klarer Scope-Definition."
+    },
+    "faq3": {
+      "question": "Arbeiten Sie mit Kunden in Deutschland?",
+      "answer": "Ja. Wir arbeiten aktiv mit Unternehmen in Deutschland und im gesamten EU-Raum. Wir kennen die Anforderungen des DACH-Marktes, verstehen regulatorische Vorgaben wie die DSGVO und kommunizieren sicher auf Deutsch und Englisch."
+    },
+    "faq4": {
+      "question": "Was passiert nach dem Launch?",
+      "answer": "Nach dem Go-live endet die Zusammenarbeit nicht. Wir bieten strukturierte Retainer für Wartung, Weiterentwicklung und Performance-Optimierung. Damit bleibt Ihre Plattform stabil, sicher und auf Ihre Wachstumsziele ausgerichtet."
+    },
+    "faq5": {
+      "question": "Können Sie Website und Automatisierung gemeinsam umsetzen?",
+      "answer": "Ja. Wir entwickeln sowohl die sichtbare Website als auch die dahinterliegenden Automatisierungsprozesse, inklusive CRM-Workflows, Lead-Handling, Buchungslogik, Nachrichtenstrecken und KI-gestützten Abläufen. Sie erhalten ein durchgängiges Gesamtsystem statt isolierter Einzellösungen."
+    },
+    "faq6": {
+      "question": "Welche Technologien setzen Sie ein?",
+      "answer": "Für Web- und App-Projekte nutzen wir Next.js, React, TypeScript, Python und FastAPI. Für CMS- und Commerce-Lösungen arbeiten wir mit WordPress und Shopify. Für Automatisierung verwenden wir Make.com, n8n, Zapier und GoHighLevel. Für KI-Anwendungsfälle implementieren wir RAG-Agenten, Chatbots und Voice-Agents. Die Auswahl richtet sich konsequent nach Ihren Zielen, nicht nach kurzfristigen Trends."
+    }
+  },
+  "CTA": {
+    "eyebrow": "Projekt starten",
+    "headingLine1": "Lassen Sie uns",
+    "headingLine2": "skalieren.",
+    "description": "Senden Sie uns Ihre Eckdaten und Sie erhalten innerhalb von 24 Stunden eine klare Rückmeldung per WhatsApp oder E-Mail. Kein Verkaufsgespräch, sondern ein präziser Austausch über Ihr Vorhaben.",
+    "button": "Nachricht senden ->",
+    "buttonLoading": "Wird gesendet...",
+    "locationLabel": "Standort",
+    "locationValue": "Für Deutschland und die EU"
+  },
+  "ContactForm": {
+    "nameLabel": "Ihr Name",
+    "namePlaceholder": "Max Mustermann",
+    "emailLabel": "E-Mail",
+    "emailPlaceholder": "kontakt@unternehmen.de",
+    "companyLabel": "Unternehmen / Website",
+    "companyPlaceholder": "Name Ihres Unternehmens oder Website",
+    "serviceLabel": "Was benötigen Sie?",
+    "servicePlaceholder": "Leistung auswählen",
+    "budgetLabel": "Budgetrahmen",
+    "messageLabel": "Beschreiben Sie Ihr Vorhaben",
+    "messagePlaceholder": "Was möchten Sie umsetzen? Welche Timeline planen Sie? Gibt es spezifische Anforderungen?",
+    "button": "Nachricht senden ->",
+    "buttonLoading": "Wird gesendet...",
+    "footer": "Wir antworten innerhalb von 24 Stunden. Kein Spam. Keine Kaltakquise.",
+    "serviceOptions": {
+      "option1": "Webentwicklung",
+      "option2": "App-Entwicklung",
+      "option3": "WordPress / Shopify",
+      "option4": "Prozessautomatisierung",
+      "option5": "KI-Chatbot / Agent",
+      "option6": "Sonstiges"
+    },
+    "budgetOptions": {
+      "option1": "€150 – €500",
+      "option2": "€500 – €2,000",
+      "option3": "€2,000 – €5,000",
+      "option4": "€5,000 – €10,000",
+      "option5": "€10,000+"
+    }
+  },
+  "Impressum": {
+    "metaTitle": "Impressum | XCLER",
+    "eyebrow": "Rechtliches",
+    "title": "Impressum",
+    "intro": "[HIER KURZE EINLEITUNG ZUM IMPRESSUM EINFUEGEN]",
+    "providerTitle": "Angaben gemaess § 5 TMG",
+    "providerBody": "[HIER VOLLSTAENDIGE ANBIETERKENNZEICHNUNG EINFUEGEN]",
+    "contactTitle": "Kontakt",
+    "contactBody": "[HIER KONTAKTDATEN EINFUEGEN]",
+    "registerTitle": "Registereintrag / USt-IdNr.",
+    "registerBody": "[HIER HANDELSREGISTER, REGISTERNUMMER UND UST-ID EINFUEGEN]",
+    "responsibleTitle": "Verantwortlich fuer den Inhalt",
+    "responsibleBody": "[HIER VERANTWORTLICHE PERSON GEM. § 18 ABS. 2 MStV EINFUEGEN]",
+    "disputeTitle": "Streitbeilegung",
+    "disputeBody": "[HIER HINWEISE ZUR EU-OS-PLATTFORM UND VERBRAUCHERSTREITBEILEGUNG EINFUEGEN]"
+  },
+  "AGB": {
+    "metaTitle": "AGB | XCLER",
+    "eyebrow": "Rechtliches",
+    "title": "Allgemeine Geschaeftsbedingungen",
+    "intro": "[HIER EINLEITUNG ZU DEN AGB EINFUEGEN]",
+    "scopeTitle": "1. Geltungsbereich",
+    "scopeBody": "[HIER GELTUNGSBEREICH EINFUEGEN]",
+    "servicesTitle": "2. Leistungen",
+    "servicesBody": "[HIER LEISTUNGSUMFANG EINFUEGEN]",
+    "contractTitle": "3. Vertragsschluss und Laufzeit",
+    "contractBody": "[HIER REGELUNGEN ZU VERTRAGSSCHLUSS UND LAUFZEIT EINFUEGEN]",
+    "paymentTitle": "4. Verguetung und Zahlungsbedingungen",
+    "paymentBody": "[HIER ZAHLUNGSBEDINGUNGEN EINFUEGEN]",
+    "liabilityTitle": "5. Haftung",
+    "liabilityBody": "[HIER HAFTUNGSREGELUNGEN EINFUEGEN]",
+    "finalTitle": "6. Schlussbestimmungen",
+    "finalBody": "[HIER SCHLUSSBESTIMMUNGEN EINFUEGEN]"
+  },
+  "Cookies": {
+    "metaTitle": "Cookie-Richtlinie | XCLER",
+    "eyebrow": "Datenschutz",
+    "title": "Cookie-Richtlinie",
+    "intro": "[HIER EINLEITUNG ZUR COOKIE-RICHTLINIE EINFUEGEN]",
+    "whatAreCookiesTitle": "1. Was sind Cookies?",
+    "whatAreCookiesBody": "[HIER ERKLAERUNG ZU COOKIES EINFUEGEN]",
+    "cookieTypesTitle": "2. Welche Cookies wir verwenden",
+    "cookieTypesBody": "[HIER KATEGORIEN UND ZWECKE DER COOKIES EINFUEGEN]",
+    "consentTitle": "3. Einwilligung und Rechtsgrundlage",
+    "consentBody": "[HIER INFORMATIONEN ZU EINWILLIGUNG UND RECHTSGRUNDLAGE EINFUEGEN]",
+    "managementTitle": "4. Cookie-Einstellungen verwalten",
+    "managementBody": "[HIER HINWEISE ZUR VERWALTUNG ODER WIDERRUF DER EINWILLIGUNG EINFUEGEN]",
+    "updatesTitle": "5. Aktualisierungen dieser Richtlinie",
+    "updatesBody": "[HIER HINWEIS ZU AENDERUNGEN DER COOKIE-RICHTLINIE EINFUEGEN]"
+  },
+  "AboutPage": {
+    "metaTitle": "Über Uns | XCLER KI-Agentur",
+    "metaDescription": "XCLER ist Ihr Premium-B2B-Partner für Webplattformen, KI-Agenten und Automatisierungssysteme mit Fokus auf Effizienz, Präzision und Skalierbarkeit.",
+    "eyebrow": "Über Uns",
+    "heroTitleLine1": "Entwickelt für Unternehmen,",
+    "heroTitleLine2": "die auf Skalierung setzen.",
+    "mission": "Wir arbeiten mit anspruchsvollen Unternehmen, die mehr erwarten als Standardlösungen. XCLER realisiert digitale Systeme, in denen technische Exzellenz, operative Klarheit und nachhaltiges Wachstum nahtlos zusammenwirken.",
+    "valuesHeading": "Kernwerte",
+    "values": {
+      "efficiency": {
+        "title": "Effizienz",
+        "description": "Wir reduzieren Reibung in Prozessen, Kommunikation und Umsetzung. Jede Iteration ist darauf ausgelegt, Ihr Unternehmen messbar voranzubringen."
+      },
+      "precision": {
+        "title": "Präzision",
+        "description": "Unsere Entscheidungen basieren auf Daten, Architektur und klaren technischen Standards. So entsteht ein Produkt, das auch unter realer Last verlässlich performt."
+      },
+      "scalability": {
+        "title": "Skalierbarkeit",
+        "description": "Vom MVP bis zur etablierten Plattform entwickeln wir für langfristige Entwicklung. Ihre Systeme bleiben anpassungsfähig, wenn Komplexität, Traffic und Prozesse wachsen."
+      }
+    }
+  },
+  "ContactPage": {
+    "metaTitle": "Kontakt | Starten Sie Ihr KI-Projekt",
+    "metaDescription": "Kontaktieren Sie XCLER, um Ihr nächstes KI-, Automatisierungs- oder Webplattform-Projekt mit einem Premium-B2B-Team umzusetzen.",
+    "eyebrow": "Kontakt",
+    "headingLine1": "Starten Sie Ihr",
+    "headingLine2": "KI-Projekt.",
+    "intro": "Für Unternehmen mit hohem Anspruch an Struktur, Tempo und strategische Umsetzung bieten wir Ihnen direkten Zugang zu erfahrenen Spezialisten.",
+    "emailLabel": "E-Mail",
+    "hoursLabel": "Geschäftszeiten",
+    "hoursValue": "Mo-Fr, 09:00-18:00 CET",
+    "addressLabel": "Adresse",
+    "addressValue": "[Muenchen/Berlin Adress-Platzhalter]\nDeutschland",
+    "responseTime": "Wir antworten an Werktagen innerhalb von 24 Stunden."
+  },
+  "CookieBanner": {
+    "eyebrow": "Cookie-Einstellungen",
+    "message": "Wir verwenden essentielle Cookies, damit diese Website sicher und technisch einwandfrei funktioniert. Mit Ihrer Einwilligung setzen wir zusaetzlich Analyse-Cookies ein, um Leistung und Nutzererlebnis zu verbessern.",
+    "policyLink": "Cookie-Richtlinie",
+    "decline": "Ablehnen",
+    "accept": "Akzeptieren"
+  },
   "About": {
     "eyebrow": "Über uns",
     "headingLine1": "Kleines Team.",

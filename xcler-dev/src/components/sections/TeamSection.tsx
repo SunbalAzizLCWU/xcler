@@ -3,32 +3,38 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
-
-const team = [
-  {
-    name: "Musharraf Aziz",
-    role: "Founder & Automation Lead",
-    expertise: "Workflow Automation • AI Agents • RAG Systems",
-    tools: "Make.com, n8n, Zapier, GoHighLevel",
-    image: "/team/musharraf.jpg", // Add your photo here
-  },
-  {
-    name: "Abeel Mehr",
-    role: "Full Stack Developer",
-    expertise: "Web & App Development • API Architecture",
-    tools: "Next.js, Python, FastAPI, Flask, CI/CD",
-    image: "/team/abeel.jpg", // Add photo here
-  },
-  {
-    name: "Mehru Seemab",
-    role: "CMS & Frontend Developer",
-    expertise: "WordPress • Shopify • E-commerce",
-    tools: "WordPress, Shopify, WooCommerce, Liquid",
-    image: "/team/mehru.jpg", // Add photo here
-  },
-];
+import { useTranslations } from "next-intl";
 
 export function TeamSection() {
+  const t = useTranslations("Team");
+
+  const team = [
+    {
+      name: "Musharraf Aziz",
+      role: t("member1.role"),
+      expertise: t("member1.expertise"),
+      bio: t("member1.bio"),
+      tools: "Make.com, n8n, Zapier, GoHighLevel",
+      image: "/team/musharraf.jpg",
+    },
+    {
+      name: "Abeel Mehr",
+      role: t("member2.role"),
+      expertise: t("member2.expertise"),
+      bio: t("member2.bio"),
+      tools: "Next.js, Python, FastAPI, Flask, CI/CD",
+      image: "/team/abeel.jpg",
+    },
+    {
+      name: "Mehru Seemab",
+      role: t("member3.role"),
+      expertise: t("member3.expertise"),
+      bio: t("member3.bio"),
+      tools: "WordPress, Shopify, WooCommerce, Liquid",
+      image: "/team/mehru.jpg",
+    },
+  ];
+
   return (
     <section className="section-padding" id="team">
       <div className="container-custom">
@@ -36,18 +42,16 @@ export function TeamSection() {
           <div className="flex items-center gap-4 mb-4">
             <div className="line-decoration" />
             <span className="font-mono text-xs tracking-[0.3em] text-richblack/40 dark:text-cream/40 uppercase">
-              The Team
+              {t("eyebrow")}
             </span>
           </div>
           <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
-            Small team.
+            {t("headingLine1")}
             <br />
-            <span className="text-terracotta">Big output.</span>
+            <span className="text-terracotta">{t("headingLine2")}</span>
           </h2>
           <p className="mt-4 text-lg text-richblack/50 dark:text-cream/50 max-w-xl">
-            We&apos;re not a 200-person agency where you talk to a PM who
-            talks to a dev who never talks to you. You work directly with
-            the people building your product.
+            {t("intro")}
           </p>
         </AnimatedSection>
 
@@ -85,6 +89,9 @@ export function TeamSection() {
                   </p>
                   <p className="mt-3 text-sm text-richblack/50 dark:text-cream/50">
                     {member.expertise}
+                  </p>
+                  <p className="mt-3 text-sm text-richblack/50 dark:text-cream/50">
+                    {member.bio}
                   </p>
                   <div className="mt-4 pt-4 border-t border-stone/10 dark:border-stone-dark/10">
                     <p className="font-mono text-xs text-richblack/30 dark:text-cream/30">

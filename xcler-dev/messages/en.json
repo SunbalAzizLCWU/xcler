@@ -121,6 +121,301 @@
       "description": "Intelligent chatbots and AI agents for support, lead qualification, and sales. RAG-powered, context-aware, and designed for precise 24/7 customer interactions."
     }
   },
+  "Process": {
+    "eyebrow": "How We Work",
+    "headingLine1": "Simple process.",
+    "headingLine2": "Serious results.",
+    "step1": {
+      "title": "Discovery",
+      "description": "We listen first. Then we align on your business model, customer reality, and growth goals. Clear scope, clear priorities, zero guesswork.",
+      "duration": "1-2 days"
+    },
+    "step2": {
+      "title": "Strategy & Design",
+      "description": "We define architecture, user flows, and interface direction before development starts. You review key decisions early and keep full strategic visibility.",
+      "duration": "3-5 days"
+    },
+    "step3": {
+      "title": "Build & Iterate",
+      "description": "We develop in focused cycles with weekly progress checkpoints. You validate outcomes continuously, and we refine quickly based on real feedback.",
+      "duration": "2-6 weeks"
+    },
+    "step4": {
+      "title": "Launch & Scale",
+      "description": "We launch with monitoring, optimize based on data, and support your next growth stage. Stable operations today, scalable systems for tomorrow.",
+      "duration": "Ongoing"
+    }
+  },
+  "Portfolio": {
+    "eyebrow": "Selected Work",
+    "headingLine1": "Built.",
+    "headingLine2": "Shipped.",
+    "headingLine3": "Proven.",
+    "viewAll": "View all projects",
+    "viewProject": "View Project",
+    "project1": {
+      "title": "Green Navigator",
+      "category": "B2B SaaS • Carbon Reporting",
+      "description": "A premium B2B SaaS platform for localized carbon reporting. Uses Gemini Flash OCR to transform utility bills into audit-ready environmental intelligence.",
+      "tags": {
+        "tag1": "Custom Web Development",
+        "tag2": "AI Integration",
+        "tag3": "OCR",
+        "tag4": "Data Visualization"
+      }
+    },
+    "project2": {
+      "title": "AegisFlow",
+      "category": "FinTech SaaS • Risk Management",
+      "description": "Enterprise-grade financial SaaS integrating LSTM neural networks and GANs for predictive liquidity forecasting and AI-driven risk management.",
+      "tags": {
+        "tag1": "Python",
+        "tag2": "LSTM",
+        "tag3": "GANs",
+        "tag4": "FastAPI"
+      }
+    },
+    "project3": {
+      "title": "VisaPath",
+      "category": "B2C SaaS • Travel Tech",
+      "description": "A platform for digital nomads to optimize visa strategies through global access maps and AI-optimized route intelligence.",
+      "tags": {
+        "tag1": "React",
+        "tag2": "Node.js",
+        "tag3": "Maps API",
+        "tag4": "AI Integration"
+      }
+    },
+    "project4": {
+      "title": "Overwatch AI",
+      "category": "Security • Threat Detection",
+      "description": "A cinematic AI command center leveraging Gemini Flash for multimodal scam detection through real-time audio, image, and text analysis.",
+      "tags": {
+        "tag1": "Gemini AI",
+        "tag2": "WebSockets",
+        "tag3": "Python",
+        "tag4": "React"
+      }
+    }
+  },
+  "Team": {
+    "eyebrow": "The Team",
+    "headingLine1": "Small team.",
+    "headingLine2": "Big output.",
+    "intro": "You work directly with the specialists building your product. No layers, no handoffs, no communication gap.",
+    "member1": {
+      "role": "Founder & AI Automation Engineer",
+      "expertise": "Workflow Automation • AI Agents • RAG Systems",
+      "bio": "Designs automation systems that reduce manual operations and improve execution speed at scale."
+    },
+    "member2": {
+      "role": "Full Stack Engineer",
+      "expertise": "Web & App Development • API Architecture",
+      "bio": "Builds high-performance web and app products with maintainable architecture and production readiness."
+    },
+    "member3": {
+      "role": "CMS & Frontend Engineer",
+      "expertise": "WordPress • Shopify • E-commerce",
+      "bio": "Delivers conversion-focused CMS and commerce experiences with clear structure and long-term maintainability."
+    }
+  },
+  "Testimonials": {
+    "eyebrow": "Kind Words",
+    "headingLine1": "Don\u2019t take",
+    "headingLine2": "our word for it.",
+    "dotLabel": "Testimonial",
+    "review1": {
+      "quote": "They delivered our e-commerce platform two weeks ahead of schedule. Revenue increased by 40% in the first month. Precision execution from day one.",
+      "name": "Ahmed K.",
+      "companyRole": "E-commerce Founder",
+      "industry": "Retail"
+    },
+    "review2": {
+      "quote": "The automation system reduced more than 25 hours of manual work per week. What used to require three people now runs with reliable consistency.",
+      "name": "Dr. Sarah M.",
+      "companyRole": "Operations Director, Healthcare Clinic",
+      "industry": "Healthcare"
+    },
+    "review3": {
+      "quote": "After working with multiple agencies, XCLER was the first team that listened carefully, delivered on time, and stayed accountable after launch.",
+      "name": "Rashid A.",
+      "companyRole": "Owner, Restaurant Group",
+      "industry": "Food & Beverage"
+    },
+    "review4": {
+      "quote": "Professional delivery, fast communication, and clear strategic thinking. Our new website increased enrollment inquiries by 60% within the first cycle.",
+      "name": "Fatima N.",
+      "companyRole": "Director, Early Learning Academy",
+      "industry": "Education"
+    }
+  },
+  "FAQ": {
+    "eyebrow": "FAQ",
+    "headingLine1": "Questions?",
+    "headingLine2": "Answers.",
+    "contactPrefix": "If your question is not listed here,",
+    "contactLink": "message us on WhatsApp",
+    "contactSuffix": "We usually reply quickly.",
+    "faq1": {
+      "question": "How much does a website cost?",
+      "answer": "Projects start at 150 EUR for simple websites. Custom web applications, e-commerce stores, and automation systems are scoped based on complexity and business requirements. After a focused 15-minute call, you receive a clear quote with no hidden costs."
+    },
+    "faq2": {
+      "question": "How long does a project take?",
+      "answer": "A standard website usually takes 2 to 4 weeks. A custom web application typically takes 4 to 8 weeks. Workflow automation setups are often delivered in 1 to 2 weeks. Timelines are confirmed after scope alignment."
+    },
+    "faq3": {
+      "question": "Do you work with clients in Germany?",
+      "answer": "Yes. We actively work with companies in Germany and across the EU. We understand regional business expectations, GDPR requirements, and operational standards for the DACH market. Communication is available in English and German."
+    },
+    "faq4": {
+      "question": "What happens after launch?",
+      "answer": "Support does not stop at launch. We offer ongoing maintenance and improvement retainers covering updates, monitoring, and iteration. Your platform remains stable, secure, and aligned with growth objectives."
+    },
+    "faq5": {
+      "question": "Can you build both the website and the automation?",
+      "answer": "Yes. We design the front-end experience and build the automation layer behind it, including CRM workflows, lead handling, booking logic, messaging sequences, and AI-assisted processes. You get one coordinated system instead of fragmented tools."
+    },
+    "faq6": {
+      "question": "Which technologies do you use?",
+      "answer": "For web and app projects we use Next.js, React, TypeScript, Python, and FastAPI. For CMS and commerce we work with WordPress and Shopify. For automation we use Make.com, n8n, Zapier, and GoHighLevel. For AI use cases we implement RAG agents, chatbots, and voice agents. Tooling is selected based on your goals, not trends."
+    }
+  },
+  "CTA": {
+    "eyebrow": "Start a Project",
+    "headingLine1": "Let's build",
+    "headingLine2": "something together.",
+    "description": "Fill out the form and we'll reply within 24 hours via WhatsApp or email. No sales pitch, just a focused conversation about your project.",
+    "button": "Send Message ->",
+    "buttonLoading": "Sending...",
+    "locationLabel": "Location",
+    "locationValue": "Serving Germany & EU"
+  },
+  "ContactForm": {
+    "nameLabel": "Your Name",
+    "namePlaceholder": "John Müller",
+    "emailLabel": "Email",
+    "emailPlaceholder": "john@company.de",
+    "companyLabel": "Company / Website",
+    "companyPlaceholder": "Your company name or website",
+    "serviceLabel": "What do you need?",
+    "servicePlaceholder": "Select a service",
+    "budgetLabel": "Budget Range",
+    "messageLabel": "Tell us about your project",
+    "messagePlaceholder": "What are you building? What's the timeline? Any specific requirements?",
+    "button": "Send Message ->",
+    "buttonLoading": "Sending...",
+    "footer": "We respond within 24 hours. No spam. No cold calls.",
+    "serviceOptions": {
+      "option1": "Website Development",
+      "option2": "App Development",
+      "option3": "WordPress / Shopify",
+      "option4": "Workflow Automation",
+      "option5": "AI Chatbot / Agent",
+      "option6": "Other"
+    },
+    "budgetOptions": {
+      "option1": "€150 – €500",
+      "option2": "€500 – €2,000",
+      "option3": "€2,000 – €5,000",
+      "option4": "€5,000 – €10,000",
+      "option5": "€10,000+"
+    }
+  },
+  "Impressum": {
+    "metaTitle": "Imprint | XCLER",
+    "eyebrow": "Legal",
+    "title": "Imprint",
+    "intro": "[ADD A SHORT INTRODUCTION FOR THE IMPRINT PAGE]",
+    "providerTitle": "Provider information pursuant to Section 5 TMG",
+    "providerBody": "[ADD FULL LEGAL ENTITY DETAILS]",
+    "contactTitle": "Contact",
+    "contactBody": "[ADD CONTACT DETAILS]",
+    "registerTitle": "Commercial register / VAT ID",
+    "registerBody": "[ADD COMMERCIAL REGISTER AND VAT DETAILS]",
+    "responsibleTitle": "Responsible for content",
+    "responsibleBody": "[ADD RESPONSIBLE PERSON DETAILS PURSUANT TO SECTION 18(2) MStV]",
+    "disputeTitle": "Dispute resolution",
+    "disputeBody": "[ADD INFORMATION ABOUT EU ODR PLATFORM AND CONSUMER DISPUTE RESOLUTION]"
+  },
+  "AGB": {
+    "metaTitle": "Terms | XCLER",
+    "eyebrow": "Legal",
+    "title": "General Terms and Conditions",
+    "intro": "[ADD INTRODUCTION FOR TERMS PAGE]",
+    "scopeTitle": "1. Scope",
+    "scopeBody": "[ADD SCOPE OF APPLICATION]",
+    "servicesTitle": "2. Services",
+    "servicesBody": "[ADD DESCRIPTION OF SERVICES]",
+    "contractTitle": "3. Contract formation and duration",
+    "contractBody": "[ADD CONTRACT RULES AND TERM CONDITIONS]",
+    "paymentTitle": "4. Fees and payment terms",
+    "paymentBody": "[ADD PAYMENT TERMS]",
+    "liabilityTitle": "5. Liability",
+    "liabilityBody": "[ADD LIABILITY LIMITATIONS]",
+    "finalTitle": "6. Final provisions",
+    "finalBody": "[ADD FINAL PROVISIONS]"
+  },
+  "Cookies": {
+    "metaTitle": "Cookie Policy | XCLER",
+    "eyebrow": "Privacy",
+    "title": "Cookie Policy",
+    "intro": "[ADD INTRODUCTION FOR COOKIE POLICY]",
+    "whatAreCookiesTitle": "1. What are cookies?",
+    "whatAreCookiesBody": "[ADD EXPLANATION OF COOKIES]",
+    "cookieTypesTitle": "2. Which cookies we use",
+    "cookieTypesBody": "[ADD COOKIE CATEGORIES AND PURPOSES]",
+    "consentTitle": "3. Consent and legal basis",
+    "consentBody": "[ADD CONSENT AND LEGAL BASIS INFORMATION]",
+    "managementTitle": "4. Managing cookie settings",
+    "managementBody": "[ADD HOW USERS CAN MANAGE OR WITHDRAW CONSENT]",
+    "updatesTitle": "5. Updates to this policy",
+    "updatesBody": "[ADD NOTE ABOUT POLICY UPDATES]"
+  },
+  "AboutPage": {
+    "metaTitle": "About Us | XCLER AI Agency",
+    "metaDescription": "XCLER is your premium B2B partner for web platforms, AI agents, and automation systems built with efficiency, precision, and scalability.",
+    "eyebrow": "About Us",
+    "heroTitleLine1": "Built for teams that",
+    "heroTitleLine2": "operate at scale.",
+    "mission": "We partner with ambitious companies that expect more than generic execution. XCLER designs and ships digital systems where engineering discipline, operational clarity, and long-term growth work as one.",
+    "valuesHeading": "Core Values",
+    "values": {
+      "efficiency": {
+        "title": "Efficiency",
+        "description": "We eliminate friction in processes, communication, and delivery. Every sprint is designed to move your business forward with measurable momentum."
+      },
+      "precision": {
+        "title": "Precision",
+        "description": "Decisions are rooted in data, architecture, and technical standards. We build with intent so your product performs reliably under real-world pressure."
+      },
+      "scalability": {
+        "title": "Scalability",
+        "description": "From MVP to mature platform, we engineer for sustainable growth. Your systems stay adaptable as complexity, traffic, and operations expand."
+      }
+    }
+  },
+  "ContactPage": {
+    "metaTitle": "Contact | Start Your AI Project",
+    "metaDescription": "Contact XCLER to plan your next AI, automation, or web platform initiative with a premium B2B delivery team.",
+    "eyebrow": "Contact",
+    "headingLine1": "Start your",
+    "headingLine2": "AI project.",
+    "intro": "For teams that value structure, speed, and strategic execution, we provide direct access to senior builders from day one.",
+    "emailLabel": "Email",
+    "hoursLabel": "Business Hours",
+    "hoursValue": "Mon-Fri, 09:00-18:00 CET",
+    "addressLabel": "Address",
+    "addressValue": "[Munich/Berlin Address Placeholder]\nGermany",
+    "responseTime": "We reply within 24 hours on business days."
+  },
+  "CookieBanner": {
+    "eyebrow": "Cookie Preferences",
+    "message": "We use essential cookies to keep this site secure and functional. With your consent, we also use analytics cookies to improve performance and user experience.",
+    "policyLink": "Cookie Policy",
+    "decline": "Decline Non-Essential",
+    "accept": "Accept All"
+  },
   "About": {
     "eyebrow": "About Us",
     "headingLine1": "Small team.",

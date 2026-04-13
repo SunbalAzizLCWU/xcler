@@ -3,40 +3,38 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
-
-const testimonials = [
-  {
-    quote:
-      "They delivered our e-commerce store 2 weeks ahead of schedule. Revenue increased 40% in the first month. These guys mean business.",
-    name: "Ahmed K.",
-    company: "E-commerce Store Owner",
-    industry: "Retail",
-  },
-  {
-    quote:
-      "The automation Musharraf built saved us 25+ hours per week. What we were doing manually with 3 people, now runs automatically. Incredible ROI.",
-    name: "Dr. Sarah M.",
-    company: "Healthcare Clinic",
-    industry: "Healthcare",
-  },
-  {
-    quote:
-      "I've worked with 4 agencies before XCLER. They're the first ones who actually listened, delivered on time, and didn't disappear after launch.",
-    name: "Rashid A.",
-    company: "Restaurant Chain",
-    industry: "Food & Beverage",
-  },
-  {
-    quote:
-      "Professional, fast, and genuinely cared about our school's online presence. The website they built increased our enrollment inquiries by 60%.",
-    name: "Fatima N.",
-    company: "Early Learning Academy",
-    industry: "Education",
-  },
-];
+import { useTranslations } from "next-intl";
 
 export function TestimonialsSection() {
+  const t = useTranslations("Testimonials");
   const [active, setActive] = useState(0);
+
+  const testimonials = [
+    {
+      quote: t("review1.quote"),
+      name: t("review1.name"),
+      company: t("review1.companyRole"),
+      industry: t("review1.industry"),
+    },
+    {
+      quote: t("review2.quote"),
+      name: t("review2.name"),
+      company: t("review2.companyRole"),
+      industry: t("review2.industry"),
+    },
+    {
+      quote: t("review3.quote"),
+      name: t("review3.name"),
+      company: t("review3.companyRole"),
+      industry: t("review3.industry"),
+    },
+    {
+      quote: t("review4.quote"),
+      name: t("review4.name"),
+      company: t("review4.companyRole"),
+      industry: t("review4.industry"),
+    },
+  ];
 
   return (
     <section className="section-padding bg-cream dark:bg-charcoal" id="testimonials">
@@ -45,13 +43,13 @@ export function TestimonialsSection() {
           <div className="flex items-center gap-4 mb-4">
             <div className="line-decoration" />
             <span className="font-mono text-xs tracking-[0.3em] text-richblack/40 dark:text-cream/40 uppercase">
-              Kind Words
+              {t("eyebrow")}
             </span>
           </div>
           <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-richblack dark:text-cream">
-            Don&apos;t take
+            {t("headingLine1")}
             <br />
-            <span className="text-terracotta">our word for it.</span>
+            <span className="text-terracotta">{t("headingLine2")}</span>
           </h2>
         </AnimatedSection>
 
@@ -105,7 +103,7 @@ export function TestimonialsSection() {
                     ? "w-8 bg-terracotta"
                     : "w-2 bg-stone/30 dark:bg-stone-dark/30 hover:bg-stone/50"
                 }`}
-                aria-label={`Testimonial ${i + 1}`}
+                aria-label={`${t("dotLabel")} ${i + 1}`}
               />
             ))}
           </div>

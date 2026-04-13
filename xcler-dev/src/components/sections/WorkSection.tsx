@@ -3,51 +3,70 @@
 import { motion } from "framer-motion";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import Link from "next/link";
-
-const projects = [
-  {
-    title: "Green Navigator",
-    category: "B2B SaaS • Carbon Reporting",
-    description:
-      "A premium B2B SaaS for localized carbon reporting. Uses Gemini Flash OCR to transform utility bills into audit-ready environmental intelligence.",
-    tech: ["Next.js", "Gemini AI", "OCR", "Data Viz"],
-    image: "/projects/green-navigator.jpg",
-    href: "/work/green-navigator",
-    color: "from-sage/20 to-sage/5",
-  },
-  {
-    title: "AegisFlow",
-    category: "FinTech SaaS • Risk Management",
-    description:
-      "Enterprise-grade financial SaaS integrating LSTM neural networks and GANs for predictive liquidity forecasting and AI-driven risk management.",
-    tech: ["Python", "LSTM", "GANs", "FastAPI"],
-    image: "/projects/aegisflow.jpg",
-    href: "/work/aegisflow",
-    color: "from-terracotta/20 to-terracotta/5",
-  },
-  {
-    title: "VisaPath",
-    category: "B2C SaaS • Travel Tech",
-    description:
-      "A platform for digital nomads to optimize visa strategies with global access maps and AI-optimized travel routes.",
-    tech: ["React", "Node.js", "Maps API", "AI"],
-    image: "/projects/visapath.jpg",
-    href: "/work/visapath",
-    color: "from-stone/20 to-stone/5",
-  },
-  {
-    title: "Overwatch AI",
-    category: "Security • Threat Detection",
-    description:
-      "A cinematic AI command center leveraging Gemini Flash for multimodal scam detection through real-time audio, image, and text analysis.",
-    tech: ["Gemini AI", "WebSockets", "Python", "React"],
-    image: "/projects/overwatch.jpg",
-    href: "/work/overwatch-ai",
-    color: "from-richblack/20 to-richblack/5",
-  },
-];
+import { useTranslations } from "next-intl";
 
 export function WorkSection() {
+  const t = useTranslations("Portfolio");
+
+  const projects = [
+    {
+      title: t("project1.title"),
+      category: t("project1.category"),
+      description: t("project1.description"),
+      tech: [
+        t("project1.tags.tag1"),
+        t("project1.tags.tag2"),
+        t("project1.tags.tag3"),
+        t("project1.tags.tag4"),
+      ],
+      image: "/projects/green-navigator.jpg",
+      href: "/work/green-navigator",
+      color: "from-sage/20 to-sage/5",
+    },
+    {
+      title: t("project2.title"),
+      category: t("project2.category"),
+      description: t("project2.description"),
+      tech: [
+        t("project2.tags.tag1"),
+        t("project2.tags.tag2"),
+        t("project2.tags.tag3"),
+        t("project2.tags.tag4"),
+      ],
+      image: "/projects/aegisflow.jpg",
+      href: "/work/aegisflow",
+      color: "from-terracotta/20 to-terracotta/5",
+    },
+    {
+      title: t("project3.title"),
+      category: t("project3.category"),
+      description: t("project3.description"),
+      tech: [
+        t("project3.tags.tag1"),
+        t("project3.tags.tag2"),
+        t("project3.tags.tag3"),
+        t("project3.tags.tag4"),
+      ],
+      image: "/projects/visapath.jpg",
+      href: "/work/visapath",
+      color: "from-stone/20 to-stone/5",
+    },
+    {
+      title: t("project4.title"),
+      category: t("project4.category"),
+      description: t("project4.description"),
+      tech: [
+        t("project4.tags.tag1"),
+        t("project4.tags.tag2"),
+        t("project4.tags.tag3"),
+        t("project4.tags.tag4"),
+      ],
+      image: "/projects/overwatch.jpg",
+      href: "/work/overwatch-ai",
+      color: "from-richblack/20 to-richblack/5",
+    },
+  ];
+
   return (
     <section className="section-padding" id="work">
       <div className="container-custom">
@@ -57,20 +76,20 @@ export function WorkSection() {
               <div className="flex items-center gap-4 mb-4">
                 <div className="line-decoration" />
                 <span className="font-mono text-xs tracking-[0.3em] text-richblack/40 dark:text-cream/40 uppercase">
-                  Selected Work
+                  {t("eyebrow")}
                 </span>
               </div>
               <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
-                Built.{" "}
-                <span className="text-terracotta">Shipped.</span>{" "}
-                <span className="text-stone">Proven.</span>
+                {t("headingLine1")} {" "}
+                <span className="text-terracotta">{t("headingLine2")}</span>{" "}
+                <span className="text-stone">{t("headingLine3")}</span>
               </h2>
             </div>
             <Link
               href="/work"
               className="inline-flex items-center gap-2 font-heading text-sm font-medium text-terracotta transition-all hover:gap-3"
             >
-              View all projects
+              {t("viewAll")}
               <svg
                 className="h-4 w-4"
                 fill="none"
@@ -107,7 +126,7 @@ export function WorkSection() {
                     {/* Hover overlay */}
                     <div className="absolute inset-0 bg-richblack/60 opacity-0 transition-opacity duration-500 group-hover:opacity-100 flex items-center justify-center">
                       <span className="font-heading text-sm text-white border border-white/30 rounded-full px-6 py-2 translate-y-4 opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
-                        View Project
+                        {t("viewProject")}
                       </span>
                     </div>
                   </div>

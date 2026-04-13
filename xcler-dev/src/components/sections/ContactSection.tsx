@@ -2,26 +2,12 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 
-const budgetRanges = [
-  "€150 – €500",
-  "€500 – €2,000",
-  "€2,000 – €5,000",
-  "€5,000 – €10,000",
-  "€10,000+",
-];
-
-const serviceOptions = [
-  "Website Development",
-  "App Development",
-  "WordPress / Shopify",
-  "Workflow Automation",
-  "AI Chatbot / Agent",
-  "Other",
-];
-
 export function ContactSection() {
+  const t = useTranslations("CTA");
+  const tForm = useTranslations("ContactForm");
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -32,6 +18,23 @@ export function ContactSection() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+
+  const budgetRanges = [
+    tForm("budgetOptions.option1"),
+    tForm("budgetOptions.option2"),
+    tForm("budgetOptions.option3"),
+    tForm("budgetOptions.option4"),
+    tForm("budgetOptions.option5"),
+  ];
+
+  const serviceOptions = [
+    tForm("serviceOptions.option1"),
+    tForm("serviceOptions.option2"),
+    tForm("serviceOptions.option3"),
+    tForm("serviceOptions.option4"),
+    tForm("serviceOptions.option5"),
+    tForm("serviceOptions.option6"),
+  ];
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -83,18 +86,16 @@ export function ContactSection() {
             <div className="flex items-center gap-4 mb-4">
               <div className="line-decoration" />
               <span className="font-mono text-xs tracking-[0.3em] text-richblack/40 dark:text-cream/40 uppercase">
-                Start a Project
+                {t("eyebrow")}
               </span>
             </div>
             <h2 className="font-heading text-4xl md:text-5xl font-bold tracking-tight text-richblack dark:text-white">
-              Let&apos;s build
+              {t("headingLine1")}
               <br />
-              <span className="text-terracotta">something together.</span>
+              <span className="text-terracotta">{t("headingLine2")}</span>
             </h2>
             <p className="mt-4 text-lg text-richblack dark:text-gray-200 max-w-md">
-              Fill out the form. We&apos;ll get back to you within 24 hours
-              via WhatsApp or email. No sales pitch — just a real
-              conversation about your project.
+              {t("description")}
             </p>
 
             <div className="mt-10 space-y-6">
@@ -173,9 +174,9 @@ export function ContactSection() {
                 </div>
                 <div>
                   <p className="text-xs text-richblack dark:text-gray-300">
-                    Location
+                    {t("locationLabel")}
                   </p>
-                  <p className="font-medium text-richblack dark:text-white">Serving Germany & EU</p>
+                  <p className="font-medium text-richblack dark:text-white">{t("locationValue")}</p>
                 </div>
               </div>
             </div>
@@ -222,7 +223,7 @@ export function ContactSection() {
                     htmlFor="name"
                     className="block text-sm font-medium mb-2 text-richblack dark:text-cream"
                   >
-                    Your Name <span className="text-terracotta">*</span>
+                    {tForm("nameLabel")} <span className="text-terracotta">*</span>
                   </label>
                   <input
                     type="text"
@@ -232,7 +233,7 @@ export function ContactSection() {
                     value={formData.name}
                     onChange={handleChange}
                     className="w-full rounded-xl border border-stone/20 dark:border-stone-dark/20 bg-transparent px-4 py-3 font-body text-sm outline-none transition-all focus:border-terracotta focus:ring-1 focus:ring-terracotta/20 placeholder:text-richblack/30 dark:placeholder:text-cream/30"
-                    placeholder="John Müller"
+                    placeholder={tForm("namePlaceholder")}
                   />
                 </div>
 
@@ -242,7 +243,7 @@ export function ContactSection() {
                     htmlFor="email"
                     className="block text-sm font-medium mb-2 text-richblack dark:text-cream"
                   >
-                    Email <span className="text-terracotta">*</span>
+                    {tForm("emailLabel")} <span className="text-terracotta">*</span>
                   </label>
                   <input
                     type="email"
@@ -252,7 +253,7 @@ export function ContactSection() {
                     value={formData.email}
                     onChange={handleChange}
                     className="w-full rounded-xl border border-stone/20 dark:border-stone-dark/20 bg-transparent px-4 py-3 font-body text-sm outline-none transition-all focus:border-terracotta focus:ring-1 focus:ring-terracotta/20 placeholder:text-richblack/30 dark:placeholder:text-cream/30"
-                    placeholder="john@company.de"
+                    placeholder={tForm("emailPlaceholder")}
                   />
                 </div>
 
@@ -262,7 +263,7 @@ export function ContactSection() {
                     htmlFor="company"
                     className="block text-sm font-medium mb-2 text-richblack dark:text-cream"
                   >
-                    Company / Website
+                    {tForm("companyLabel")}
                   </label>
                   <input
                     type="text"
@@ -271,7 +272,7 @@ export function ContactSection() {
                     value={formData.company}
                     onChange={handleChange}
                     className="w-full rounded-xl border border-stone/20 dark:border-stone-dark/20 bg-transparent px-4 py-3 font-body text-sm outline-none transition-all focus:border-terracotta focus:ring-1 focus:ring-terracotta/20 placeholder:text-richblack/30 dark:placeholder:text-cream/30"
-                    placeholder="Your company name or website"
+                    placeholder={tForm("companyPlaceholder")}
                   />
                 </div>
 
@@ -281,7 +282,7 @@ export function ContactSection() {
                     htmlFor="service"
                     className="block text-sm font-medium mb-2 text-richblack dark:text-cream"
                   >
-                    What do you need?{" "}
+                    {tForm("serviceLabel")} {" "}
                     <span className="text-terracotta">*</span>
                   </label>
                   <select
@@ -293,7 +294,7 @@ export function ContactSection() {
                     className="w-full rounded-xl border border-stone/20 dark:border-stone-dark/20 bg-transparent px-4 py-3 font-body text-sm outline-none transition-all focus:border-terracotta focus:ring-1 focus:ring-terracotta/20 text-richblack dark:text-cream"
                   >
                     <option value="" disabled>
-                      Select a service
+                      {tForm("servicePlaceholder")}
                     </option>
                     {serviceOptions.map((option) => (
                       <option key={option} value={option}>
@@ -306,7 +307,7 @@ export function ContactSection() {
                 {/* Budget */}
                 <div>
                   <label className="block text-sm font-medium mb-3 text-richblack dark:text-cream">
-                    Budget Range
+                    {tForm("budgetLabel")}
                   </label>
                   <div className="flex flex-wrap gap-2">
                     {budgetRanges.map((range) => (
@@ -337,7 +338,7 @@ export function ContactSection() {
                     htmlFor="message"
                     className="block text-sm font-medium mb-2 text-richblack dark:text-cream"
                   >
-                    Tell us about your project{" "}
+                    {tForm("messageLabel")} {" "}
                     <span className="text-terracotta">*</span>
                   </label>
                   <textarea
@@ -348,7 +349,7 @@ export function ContactSection() {
                     value={formData.message}
                     onChange={handleChange}
                     className="w-full rounded-xl border border-stone/20 dark:border-stone-dark/20 bg-transparent px-4 py-3 font-body text-sm outline-none transition-all focus:border-terracotta focus:ring-1 focus:ring-terracotta/20 resize-none placeholder:text-richblack/30 dark:placeholder:text-cream/30"
-                    placeholder="What are you building? What's the timeline? Any specific requirements?"
+                    placeholder={tForm("messagePlaceholder")}
                   />
                 </div>
 
@@ -381,15 +382,15 @@ export function ContactSection() {
                           d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"
                         />
                       </svg>
-                      Sending...
+                      {tForm("buttonLoading")}
                     </span>
                   ) : (
-                    "Send Message →"
+                    tForm("button")
                   )}
                 </motion.button>
 
                 <p className="text-center text-xs text-richblack/40 dark:text-cream/60">
-                  We respond within 24 hours. No spam. No cold calls.
+                  {tForm("footer")}
                 </p>
               </form>
             )}

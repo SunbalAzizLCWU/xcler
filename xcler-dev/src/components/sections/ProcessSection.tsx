@@ -1,39 +1,38 @@
 "use client";
 
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
-
-const steps = [
-  {
-    number: "01",
-    title: "Discovery",
-    description:
-      "We listen. You talk. We understand your business, your customers, your goals. No 47-page questionnaire. A real conversation.",
-    duration: "1-2 days",
-  },
-  {
-    number: "02",
-    title: "Strategy & Design",
-    description:
-      "We map out the architecture, wireframe the flows, and design the interfaces. You see everything before a single line of code is written.",
-    duration: "3-5 days",
-  },
-  {
-    number: "03",
-    title: "Build & Iterate",
-    description:
-      "We code, you review. Weekly updates. No surprises. You get access to the staging environment from day one.",
-    duration: "2-6 weeks",
-  },
-  {
-    number: "04",
-    title: "Launch & Support",
-    description:
-      "We launch together. We monitor. We optimize. And we stick around for when you need us. Long-term retention packages available.",
-    duration: "Ongoing",
-  },
-];
+import { useTranslations } from "next-intl";
 
 export function ProcessSection() {
+  const t = useTranslations("Process");
+
+  const steps = [
+    {
+      number: "01",
+      title: t("step1.title"),
+      description: t("step1.description"),
+      duration: t("step1.duration"),
+    },
+    {
+      number: "02",
+      title: t("step2.title"),
+      description: t("step2.description"),
+      duration: t("step2.duration"),
+    },
+    {
+      number: "03",
+      title: t("step3.title"),
+      description: t("step3.description"),
+      duration: t("step3.duration"),
+    },
+    {
+      number: "04",
+      title: t("step4.title"),
+      description: t("step4.description"),
+      duration: t("step4.duration"),
+    },
+  ];
+
   return (
     <section className="section-padding bg-cream dark:bg-charcoal" id="process">
       <div className="container-custom">
@@ -41,13 +40,13 @@ export function ProcessSection() {
           <div className="flex items-center gap-4 mb-4">
             <div className="line-decoration" />
             <span className="font-mono text-xs tracking-[0.3em] text-richblack/40 dark:text-cream/40 uppercase">
-              How We Work
+              {t("eyebrow")}
             </span>
           </div>
           <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
-            Simple process.
+            {t("headingLine1")}
             <br />
-            <span className="text-terracotta">Serious results.</span>
+            <span className="text-terracotta">{t("headingLine2")}</span>
           </h2>
         </AnimatedSection>
 

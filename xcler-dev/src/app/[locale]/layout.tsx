@@ -7,6 +7,7 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
 import { GrainOverlay } from "@/components/ui/GrainOverlay";
+import { CookieBanner } from "@/components/ui/CookieBanner";
 import "../globals.css";
 
 // This tells Next.js to pre-build both the /en and /de versions of the site
@@ -326,7 +327,7 @@ export default async function RootLayout({
   `;
 
   return (
-    <html lang={locale} suppressHydrationWarning>
+    <html lang={locale} data-scroll-behavior="smooth" suppressHydrationWarning>
       <head>
         <script
           id="hydration-sanitizer"
@@ -354,6 +355,7 @@ export default async function RootLayout({
             <Navbar />
             <main>{children}</main>
             <Footer />
+            <CookieBanner />
             <WhatsAppButton />
           </ThemeProvider>
         </NextIntlClientProvider>

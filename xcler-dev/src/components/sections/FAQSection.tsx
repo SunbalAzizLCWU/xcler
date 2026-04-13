@@ -2,43 +2,21 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useTranslations } from "next-intl";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 
-const faqs = [
-  {
-    question: "How much does a website cost?",
-    answer:
-      "Projects start from €150 for simple websites. Custom web apps, e-commerce stores, and automation projects are scoped individually based on complexity. We'll give you an honest quote after a 15-minute conversation — no hidden fees, no surprises.",
-  },
-  {
-    question: "How long does a project take?",
-    answer:
-      "A standard website takes 2-4 weeks. A web application takes 4-8 weeks. Automation setups can be done in 1-2 weeks. We're fast because we're a focused team, not a bloated agency with 17 layers of management.",
-  },
-  {
-    question: "Do you work with clients in Germany?",
-    answer:
-      "Yes! While our team works remotely, we specifically serve the German and EU market. We understand German business requirements, GDPR compliance, and can communicate in English and German.",
-  },
-  {
-    question: "What happens after the website is launched?",
-    answer:
-      "We don't disappear. We offer long-term retention packages for maintenance, updates, and improvements. Your website isn't a one-time project — it's a living product, and we treat it that way.",
-  },
-  {
-    question: "Can you build both the website AND the automation?",
-    answer:
-      "That's literally our superpower. Most agencies do one or the other. We build your website, connect it to your CRM, set up automated email sequences, chatbots, booking systems — the whole ecosystem.",
-  },
-  {
-    question: "What technologies do you use?",
-    answer:
-      "For web: Next.js, React, TypeScript, Python, FastAPI. For CMS: WordPress, Shopify. For automation: Make.com, n8n, Zapier, GoHighLevel. For AI: RAG agents, chatbots, call agents. We pick the right tool for your specific needs — not whatever's trendy.",
-  },
-];
-
 export function FAQSection() {
+  const t = useTranslations("FAQ");
   const [openIndex, setOpenIndex] = useState<number | null>(0);
+
+  const faqs = [
+    { question: t("faq1.question"), answer: t("faq1.answer") },
+    { question: t("faq2.question"), answer: t("faq2.answer") },
+    { question: t("faq3.question"), answer: t("faq3.answer") },
+    { question: t("faq4.question"), answer: t("faq4.answer") },
+    { question: t("faq5.question"), answer: t("faq5.answer") },
+    { question: t("faq6.question"), answer: t("faq6.answer") },
+  ];
 
   return (
     <section className="section-padding bg-cream dark:bg-richblack" id="faq">
@@ -50,23 +28,23 @@ export function FAQSection() {
               <div className="flex items-center gap-4 mb-4">
                 <div className="line-decoration" />
                 <span className="font-mono text-xs tracking-[0.3em] text-richblack/40 dark:text-cream/40 uppercase">
-                  FAQ
+                  {t("eyebrow")}
                 </span>
               </div>
               <h2 className="font-heading text-4xl md:text-5xl font-bold tracking-tight text-richblack dark:text-white">
-                Questions?
+                {t("headingLine1")}
                 <br />
-                <span className="text-terracotta">Answers.</span>
+                <span className="text-terracotta">{t("headingLine2")}</span>
               </h2>
               <p className="mt-4 text-richblack dark:text-gray-200">
-                If your question isn&apos;t here, just{" "}
+                {t("contactPrefix")} {" "}
                 <a
                   href="https://wa.me/923154823517"
                   className="text-terracotta underline underline-offset-2"
                 >
-                  WhatsApp us
+                  {t("contactLink")}
                 </a>
-                . We reply fast.
+                . {t("contactSuffix")}
               </p>
             </div>
           </AnimatedSection>

@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
+import { useTranslations } from "next-intl";
 import Link from "next/link";
 
 export const metadata: Metadata = {
@@ -8,73 +9,74 @@ export const metadata: Metadata = {
     "Transparent pricing for web development, app development, WordPress, Shopify, automation, and AI services. Projects start from €150. No hidden fees.",
 };
 
-const packages = [
-  {
-    name: "Starter",
-    price: "€150",
-    period: "starting from",
-    description: "Perfect for small businesses needing an online presence.",
-    features: [
-      "Landing page or single-page website",
-      "Mobile responsive design",
-      "Basic SEO setup",
-      "Contact form integration",
-      "1 round of revisions",
-      "Delivery in 1-2 weeks",
-    ],
-    cta: "Get Started",
-    popular: false,
-  },
-  {
-    name: "Professional",
-    price: "€1,500",
-    period: "starting from",
-    description: "For businesses ready to scale with a full digital presence.",
-    features: [
-      "Multi-page custom website or web app",
-      "Custom design & branding",
-      "Advanced SEO optimization",
-      "CMS integration (WordPress/Shopify)",
-      "Workflow automation setup",
-      "3 rounds of revisions",
-      "Delivery in 3-5 weeks",
-      "30 days post-launch support",
-    ],
-    cta: "Most Popular",
-    popular: true,
-  },
-  {
-    name: "Enterprise",
-    price: "€5,000+",
-    period: "starting from",
-    description:
-      "Full-scale digital ecosystems for businesses that demand the best.",
-    features: [
-      "Custom web application",
-      "Mobile app (iOS & Android)",
-      "AI chatbot / call agent integration",
-      "Full workflow automation",
-      "API development & integrations",
-      "Unlimited revisions",
-      "Dedicated project manager",
-      "Priority support & maintenance",
-      "Training & documentation",
-    ],
-    cta: "Let's Talk",
-    popular: false,
-  },
-];
-
-const addons = [
-  { name: "Workflow Automation Setup", price: "From €200" },
-  { name: "AI Chatbot Integration", price: "From €300" },
-  { name: "AI Call Agent Setup", price: "From €500" },
-  { name: "Monthly Maintenance", price: "From €50/mo" },
-  { name: "SEO Content Writing (per article)", price: "From €50" },
-  { name: "Additional Pages", price: "From €50/page" },
-];
-
 export default function PricingPage() {
+  const t = useTranslations("Pricing");
+
+  const packages = [
+    {
+      name: t("package1.name"),
+      price: "€150",
+      period: t("startingFrom"),
+      description: t("package1.description"),
+      features: [
+        t("package1.features.feature1"),
+        t("package1.features.feature2"),
+        t("package1.features.feature3"),
+        t("package1.features.feature4"),
+        t("package1.features.feature5"),
+        t("package1.features.feature6"),
+      ],
+      cta: t("package1.cta"),
+      popular: false,
+    },
+    {
+      name: t("package2.name"),
+      price: "€1,500",
+      period: t("startingFrom"),
+      description: t("package2.description"),
+      features: [
+        t("package2.features.feature1"),
+        t("package2.features.feature2"),
+        t("package2.features.feature3"),
+        t("package2.features.feature4"),
+        t("package2.features.feature5"),
+        t("package2.features.feature6"),
+        t("package2.features.feature7"),
+        t("package2.features.feature8"),
+      ],
+      cta: t("package2.cta"),
+      popular: true,
+    },
+    {
+      name: t("package3.name"),
+      price: "€5,000+",
+      period: t("startingFrom"),
+      description: t("package3.description"),
+      features: [
+        t("package3.features.feature1"),
+        t("package3.features.feature2"),
+        t("package3.features.feature3"),
+        t("package3.features.feature4"),
+        t("package3.features.feature5"),
+        t("package3.features.feature6"),
+        t("package3.features.feature7"),
+        t("package3.features.feature8"),
+        t("package3.features.feature9"),
+      ],
+      cta: t("package3.cta"),
+      popular: false,
+    },
+  ];
+
+  const addons = [
+    { name: t("addons.item1.name"), price: t("addons.item1.price") },
+    { name: t("addons.item2.name"), price: t("addons.item2.price") },
+    { name: t("addons.item3.name"), price: t("addons.item3.price") },
+    { name: t("addons.item4.name"), price: t("addons.item4.price") },
+    { name: t("addons.item5.name"), price: t("addons.item5.price") },
+    { name: t("addons.item6.name"), price: t("addons.item6.price") },
+  ];
+
   return (
     <section className="section-padding pt-32">
       <div className="container-custom">
@@ -83,18 +85,17 @@ export default function PricingPage() {
             <div className="flex items-center justify-center gap-4 mb-4">
               <div className="line-decoration" />
               <span className="font-mono text-xs tracking-[0.3em] text-richblack/40 dark:text-cream/40 uppercase">
-                Pricing
+                {t("eyebrow")}
               </span>
               <div className="line-decoration" />
             </div>
             <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
-              Honest pricing.
+              {t("headingLine1")}
               <br />
-              <span className="text-terracotta">No surprises.</span>
+              <span className="text-terracotta">{t("headingLine2")}</span>
             </h1>
             <p className="mt-4 text-lg text-richblack/50 dark:text-cream/50">
-              Every project is unique. These are starting points — we&apos;ll give
-              you an exact quote after understanding your needs.
+              {t("introDescription")}
             </p>
           </div>
         </AnimatedSection>
@@ -112,7 +113,7 @@ export default function PricingPage() {
               >
                 {pkg.popular && (
                   <span className="absolute -top-3 left-6 rounded-full bg-terracotta px-4 py-1 text-xs font-heading font-medium text-white">
-                    Most Popular
+                    {t("popularBadge")}
                   </span>
                 )}
 
@@ -169,7 +170,7 @@ export default function PricingPage() {
         <AnimatedSection>
           <div className="mt-20">
             <h2 className="font-heading text-2xl font-bold text-center mb-8">
-              Add-ons & Extras
+              {t("addonsHeading")}
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-4xl mx-auto">
               {addons.map((addon) => (
@@ -191,14 +192,14 @@ export default function PricingPage() {
         <AnimatedSection>
           <div className="mt-20 text-center">
             <p className="text-richblack/50 dark:text-cream/50 text-lg">
-              Not sure which package fits?{" "}
+              {t("bottomCtaPrefix")} {" "}
               <a
                 href="https://wa.me/923154823517"
                 className="text-terracotta underline underline-offset-2"
               >
-                WhatsApp us
+                {t("bottomCtaLink")}
               </a>{" "}
-              and we&apos;ll help you figure it out in 5 minutes.
+              {t("bottomCtaSuffix")}
             </p>
           </div>
         </AnimatedSection>

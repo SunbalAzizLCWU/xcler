@@ -1,7 +1,7 @@
 // src/app/layout.tsx
 import type { Metadata } from "next";
 import { NextIntlClientProvider } from "next-intl";
-import { getMessages } from "next-intl/server";
+import { getMessages, getTranslations } from "next-intl/server";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
@@ -14,74 +14,85 @@ export function generateStaticParams() {
   return [{ locale: "en" }, { locale: "de" }];
 }
 
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "Metadata" });
 
-export const metadata: Metadata = {
-  metadataBase: new URL("https://xcler.dev"),
-  title: {
-    default: "XCLER — Web & App Development Agency | Germany",
-    template: "%s | XCLER",
-  },
-  description:
-    "We build exceptional websites, apps, and automation systems. Based team serving Germany and beyond. Web development, WordPress, Shopify, AI chatbots, workflow automation.",
-  keywords: [
-    "web development agency Germany",
-    "app development Germany",
-    "WordPress developer Germany",
-    "Shopify developer Germany",
-    "workflow automation",
-    "AI chatbot development",
-    "n8n automation",
-    "make.com automation",
-    "Next.js development",
-    "full stack development Germany",
-    "Webentwicklung Deutschland",
-    "App Entwicklung Deutschland",
-    "Website erstellen lassen",
-    "Webdesign Agentur",
-  ],
-  authors: [{ name: "XCLER", url: "https://xcler.dev" }],
-  creator: "XCLER",
-  publisher: "XCLER",
-  openGraph: {
-    type: "website",
-    locale: "en_US",
-    alternateLocale: "de_DE",
-    url: "https://xcler.dev",
-    siteName: "XCLER",
-    title: "XCLER — We Build What Others Prototype",
-    description:
-      "Exceptional websites, apps, and automation systems. Web development, WordPress, Shopify, AI chatbots, workflow automation.",
-    images: [
-      {
-        url: "/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: "XCLER — Web & App Development Agency",
+  return {
+    metadataBase: new URL("https://xcler.dev"),
+    title: {
+      default: t("siteTitle"),
+      template: "%s | XCLER",
+    },
+    description: t("siteDescription"),
+    alternates: {
+      languages: {
+        "en-US": "/en",
+        "de-DE": "/de",
       },
+    },
+    keywords: [
+      "web development agency Germany",
+      "app development Germany",
+      "WordPress developer Germany",
+      "Shopify developer Germany",
+      "workflow automation",
+      "AI chatbot development",
+      "n8n automation",
+      "make.com automation",
+      "Next.js development",
+      "full stack development Germany",
+      "Webentwicklung Deutschland",
+      "App Entwicklung Deutschland",
+      "Website erstellen lassen",
+      "Webdesign Agentur",
     ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "XCLER — We Build What Others Prototype",
-    description:
-      "Exceptional websites, apps, and automation systems for businesses.",
-    images: ["/og-image.png"],
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
+    authors: [{ name: "XCLER", url: "https://xcler.dev" }],
+    creator: "XCLER",
+    publisher: "XCLER",
+    openGraph: {
+      type: "website",
+      locale: locale === "de" ? "de_DE" : "en_US",
+      alternateLocale: locale === "de" ? "en_US" : "de_DE",
+      url: "https://xcler.dev",
+      siteName: "XCLER",
+      title: t("siteTitle"),
+      description: t("siteDescription"),
+      images: [
+        {
+          url: "/og-image.png",
+          width: 1200,
+          height: 630,
+          alt: "XCLER — Web & App Development Agency",
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: t("siteTitle"),
+      description: t("siteDescription"),
+      images: ["/og-image.png"],
+    },
+    robots: {
       index: true,
       follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-video-preview": -1,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+      },
     },
-  },
-  verification: {
-    google: "your-google-verification-code", // Add later
-  },
-};
+    verification: {
+      google: "your-google-verification-code", // Add later
+    },
+  };
+}
 
 // JSON-LD Structured Data
 const jsonLd = {

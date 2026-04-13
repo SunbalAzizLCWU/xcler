@@ -2,11 +2,17 @@
   "common": {
     "siteName": "XCLER",
     "language": "English",
-    "cta": "Let's Talk"
+    "cta": "Book a Strategy Call"
+  },
+  "Metadata": {
+    "siteTitle": "XCLER - Web Development and Automation Agency Germany",
+    "siteDescription": "XCLER builds high-performance websites, apps, and workflow automation systems for businesses in Germany and across Europe, with a focus on efficiency, precision, and scalable growth.",
+    "homeTitle": "Web Development Agency Germany | XCLER",
+    "homeDescription": "XCLER delivers custom web development, app development, Shopify and WordPress solutions, plus AI automation for businesses ready to scale."
   },
   "home": {
     "heroTitle": "We build",
-    "heroSubtitle": "digital products that actually work."
+    "heroSubtitle": "digital products with measurable impact."
   },
   "Navigation": {
     "home": "Home",
@@ -16,5 +22,171 @@
     "blog": "Blog",
     "pricing": "Pricing",
     "contactBtn": "Let's Talk"
+  },
+  "Hero": {
+    "availabilityBadge": "AVAILABLE FOR NEW PROJECTS",
+    "lineOne": "We build",
+    "lineTwoPrefix": "that",
+    "lineTwoEmphasis": "actually",
+    "lineTwoSuffix": "work.",
+    "description": "A focused team for web development and automation. We turn business goals into digital products with measurable outcomes. Efficiency in delivery. Precision in execution. Built for scale.",
+    "primaryCta": "Request a Project",
+    "secondaryCta": "View Our Work",
+    "scrollLabel": "Scroll",
+    "trust": {
+      "projectsFrom": "Projects from €150",
+      "experience": "3+ Years Experience",
+      "region": "Serving Germany and the EU"
+    },
+    "rotatingWords": {
+      "websites": "Websites",
+      "webApps": "Web Apps",
+      "mobileApps": "Mobile Apps",
+      "automations": "Automations",
+      "chatbots": "Chatbots",
+      "stores": "Stores"
+    }
+  },
+  "Services": {
+    "eyebrow": "What We Do",
+    "headingLine1": "Services with",
+    "headingLine2": "clear business impact.",
+    "ledBy": "Led by",
+    "learnMore": "Details",
+    "service1": {
+      "title": "Web Development",
+      "description": "Custom websites built with Next.js, React, and modern frameworks. Fast, responsive, and SEO-optimized for visibility, performance, and conversion."
+    },
+    "service2": {
+      "title": "App Development",
+      "description": "Cross-platform and native applications, from MVP to scalable product. Clean architecture, precise UX, and production-ready engineering."
+    },
+    "service3": {
+      "title": "WordPress & Shopify",
+      "description": "E-commerce stores and content websites built for conversion. Custom themes, targeted integrations, and performance optimization for sustainable scale."
+    },
+    "service4": {
+      "title": "Workflow Automation",
+      "description": "Reduce repetitive work, connect your tools, and reclaim execution time. We build automation workflows for operational efficiency, precision, and reliable scaling."
+    },
+    "service5": {
+      "title": "AI Chatbots & Agents",
+      "description": "Intelligent chatbots and AI agents for support, lead qualification, and sales. RAG-powered, context-aware, and designed for precise 24/7 customer interactions."
+    }
+  },
+  "About": {
+    "eyebrow": "About Us",
+    "headingLine1": "Small team.",
+    "headingLine2": "Clear outcomes.",
+    "introDescription": "We are not a 200-person agency with layers of management. We are three specialists focused on digital systems that deliver measurable value. When you work with XCLER, you work directly with the people building and scaling your product.",
+    "teamHeading": "The People Behind the Code",
+    "expertiseLabel": "Expertise",
+    "toolsLabel": "Tools",
+    "valuesHeading": "How We Work",
+    "ctaHeading": "Ready for your next scaling step?",
+    "ctaDescription": "We work with ambitious teams and clear business goals. If you are planning a high-impact digital project, let us talk.",
+    "ctaButton": "Request a Project ->",
+    "team": {
+      "member1": {
+        "role": "Founder & Automation Lead",
+        "expertise": "Workflow Automation • AI Agents • RAG Systems",
+        "tools": "Make.com, n8n, Zapier, GoHighLevel, AI Call Agents",
+        "bio": "3+ years transforming manual operations into scalable automation systems, with a focus on efficiency, precision, and measurable business value."
+      },
+      "member2": {
+        "role": "Full Stack Developer",
+        "expertise": "Web & App Development • API Architecture • CI/CD",
+        "tools": "Next.js, React, Python, FastAPI, Flask, Docker",
+        "bio": "Builds web and mobile applications designed for speed, maintainability, and scale. Clean architecture and production-grade code are non-negotiable."
+      },
+      "member3": {
+        "role": "CMS & Frontend Developer",
+        "expertise": "WordPress • Shopify • E-commerce",
+        "tools": "WordPress, Shopify, WooCommerce, Liquid, PHP",
+        "bio": "Specializes in CMS and e-commerce solutions teams can manage with confidence, combining conversion logic, technical precision, and organic visibility."
+      }
+    },
+    "values": {
+      "value1": {
+        "title": "Clarity",
+        "description": "We communicate directly and realistically. If a project takes 4 weeks, we say 4 weeks, not 2 to close a deal."
+      },
+      "value2": {
+        "title": "Business Focus",
+        "description": "Your business goals drive every decision. We do not build what is trendy. We build what performs."
+      },
+      "value3": {
+        "title": "Operational Efficiency",
+        "description": "A focused team means less friction. Direct communication, fast delivery, and reliable execution."
+      },
+      "value4": {
+        "title": "Sustainable Scaling",
+        "description": "Our work does not end at launch. We support ongoing optimization, performance, and long-term product scaling."
+      }
+    }
+  },
+  "Pricing": {
+    "eyebrow": "Pricing",
+    "headingLine1": "Clear pricing.",
+    "headingLine2": "No surprises.",
+    "introDescription": "Every project is different. These packages are starting points. You receive a precise quote after a focused requirements review.",
+    "startingFrom": "starting from",
+    "popularBadge": "Most Selected",
+    "addonsHeading": "Add-ons & Extras",
+    "bottomCtaPrefix": "Not sure which package fits?",
+    "bottomCtaLink": "Message us on WhatsApp",
+    "bottomCtaSuffix": "and get a clear recommendation in minutes.",
+    "package1": {
+      "name": "Starter",
+      "description": "Ideal for businesses that need a professional online presence quickly.",
+      "cta": "Get Started",
+      "features": {
+        "feature1": "Landing page or single-page website",
+        "feature2": "Mobile responsive design",
+        "feature3": "Basic SEO setup",
+        "feature4": "Contact form integration",
+        "feature5": "1 round of revisions",
+        "feature6": "Delivery in 1-2 weeks"
+      }
+    },
+    "package2": {
+      "name": "Professional",
+      "description": "For businesses building a complete digital presence and preparing for scale.",
+      "cta": "Most Popular",
+      "features": {
+        "feature1": "Multi-page custom website or web app",
+        "feature2": "Custom design & branding",
+        "feature3": "Advanced SEO optimization",
+        "feature4": "CMS integration (WordPress/Shopify)",
+        "feature5": "Workflow automation setup",
+        "feature6": "3 rounds of revisions",
+        "feature7": "Delivery in 3-5 weeks",
+        "feature8": "30 days post-launch support"
+      }
+    },
+    "package3": {
+      "name": "Enterprise",
+      "description": "Full digital ecosystems for businesses that require precision, reliability, and enterprise-grade scale.",
+      "cta": "Let's Talk",
+      "features": {
+        "feature1": "Custom web application",
+        "feature2": "Mobile app (iOS & Android)",
+        "feature3": "AI chatbot / call agent integration",
+        "feature4": "Full workflow automation",
+        "feature5": "API development & integrations",
+        "feature6": "Unlimited revisions",
+        "feature7": "Dedicated project manager",
+        "feature8": "Priority support & maintenance",
+        "feature9": "Training & documentation"
+      }
+    },
+    "addons": {
+      "item1": {"name": "Workflow Automation Implementation", "price": "From €200"},
+      "item2": {"name": "AI Chatbot Integration", "price": "From €300"},
+      "item3": {"name": "AI Call Agent Implementation", "price": "From €500"},
+      "item4": {"name": "Monthly Maintenance", "price": "From €50/mo"},
+      "item5": {"name": "SEO Content Writing (per article)", "price": "From €50"},
+      "item6": {"name": "Additional Pages", "price": "From €50/page"}
+    }
   }
 }

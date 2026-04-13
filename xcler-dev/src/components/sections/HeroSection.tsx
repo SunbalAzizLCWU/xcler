@@ -2,18 +2,20 @@
 
 import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
+import { useTranslations } from "next-intl";
 import { MagneticButton } from "@/components/ui/MagneticButton";
 
-const words = [
-  "Websites",
-  "Web Apps",
-  "Mobile Apps",
-  "Automations",
-  "Chatbots",
-  "Stores",
-];
-
 export function HeroSection() {
+  const t = useTranslations("Hero");
+  const words = [
+    t("rotatingWords.websites"),
+    t("rotatingWords.webApps"),
+    t("rotatingWords.mobileApps"),
+    t("rotatingWords.automations"),
+    t("rotatingWords.chatbots"),
+    t("rotatingWords.stores"),
+  ];
+
   const [currentWord, setCurrentWord] = useState(0);
   const shouldReduceMotion = useReducedMotion();
   const containerRef = useRef(null);
@@ -77,7 +79,7 @@ export function HeroSection() {
               <span className="relative inline-flex h-2 w-2 rounded-full bg-sage" />
             </span>
             <span className="font-mono text-xs tracking-wider text-richblack dark:text-white">
-              AVAILABLE FOR NEW PROJECTS
+              {t("availabilityBadge")}
             </span>
           </motion.div>
 
@@ -88,7 +90,7 @@ export function HeroSection() {
             transition={{ delay: shouldReduceMotion ? 0 : 0.2, duration: shouldReduceMotion ? 0 : 0.7, ease: [0.16, 1, 0.3, 1] }}
             className="font-heading text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-[0.95] text-richblack dark:text-cream"
           >
-            <span className="block">We build</span>
+            <span className="block">{t("lineOne")}</span>
             <span className="relative inline-flex min-w-[9ch] justify-center">
               <AnimatePresence mode="wait">
                 <motion.span
@@ -104,7 +106,7 @@ export function HeroSection() {
               </AnimatePresence>
             </span>
             <span className="block mt-2">
-              that <span className="text-stone italic font-light dark:text-cream/85">actually</span> work.
+              {t("lineTwoPrefix")} <span className="text-stone italic font-light dark:text-cream/85">{t("lineTwoEmphasis")}</span> {t("lineTwoSuffix")}
             </span>
           </motion.h1>
 
@@ -115,9 +117,7 @@ export function HeroSection() {
             transition={{ delay: 0.7, duration: 0.6 }}
             className="mt-8 text-lg md:text-xl text-richblack dark:text-cream/85 max-w-2xl mx-auto leading-relaxed"
           >
-            A small team of dedicated developers and automation experts.
-            We turn your business ideas into digital products that generate
-            real revenue. No templates. No shortcuts. No bullshit.
+            {t("description")}
           </motion.p>
 
           {/* CTAs */}
@@ -128,7 +128,7 @@ export function HeroSection() {
             className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4"
           >
             <MagneticButton href="/contact" variant="primary" size="lg">
-              Start Your Project
+              {t("primaryCta")}
               <svg
                 className="h-4 w-4"
                 fill="none"
@@ -144,7 +144,7 @@ export function HeroSection() {
               </svg>
             </MagneticButton>
             <MagneticButton href="/work" variant="outline" size="lg">
-              See Our Work
+              {t("secondaryCta")}
             </MagneticButton>
           </motion.div>
 
@@ -163,7 +163,7 @@ export function HeroSection() {
                   clipRule="evenodd"
                 />
               </svg>
-              <span>Projects from €150</span>
+              <span>{t("trust.projectsFrom")}</span>
             </div>
             <div className="flex items-center gap-2">
               <svg className="h-4 w-4 text-sage" fill="currentColor" viewBox="0 0 20 20">
@@ -173,7 +173,7 @@ export function HeroSection() {
                   clipRule="evenodd"
                 />
               </svg>
-              <span>3+ Years Experience</span>
+              <span>{t("trust.experience")}</span>
             </div>
             <div className="flex items-center gap-2">
               <svg className="h-4 w-4 text-sage" fill="currentColor" viewBox="0 0 20 20">
@@ -183,7 +183,7 @@ export function HeroSection() {
                   clipRule="evenodd"
                 />
               </svg>
-              <span>Serving Germany & EU</span>
+              <span>{t("trust.region")}</span>
             </div>
           </motion.div>
         </div>
@@ -201,7 +201,7 @@ export function HeroSection() {
             className="flex flex-col items-center gap-2"
           >
             <span className="font-mono text-[10px] tracking-widest text-richblack/50 dark:text-cream/70 uppercase">
-              Scroll
+              {t("scrollLabel")}
             </span>
             <div className="h-8 w-[1px] bg-gradient-to-b from-richblack/30 to-transparent dark:from-cream/40" />
           </motion.div>

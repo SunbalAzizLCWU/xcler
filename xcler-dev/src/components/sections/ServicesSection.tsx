@@ -3,62 +3,55 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
+import { useTranslations } from "next-intl";
 import Link from "next/link";
 
-const services = [
-  {
-    number: "01",
-    title: "Web Development",
-    shortTitle: "Web",
-    description:
-      "Custom websites built with Next.js, React, and modern frameworks. Fast, responsive, SEO-optimized. No WordPress templates — unless you want WordPress done right.",
-    tech: ["Next.js", "React", "TypeScript", "Tailwind"],
-    href: "/services/web-development",
-    lead: "Abeel Mehr",
-  },
-  {
-    number: "02",
-    title: "App Development",
-    shortTitle: "Apps",
-    description:
-      "Cross-platform and native mobile applications. From MVP to full-scale product. Clean architecture, smooth UX, production-ready.",
-    tech: ["React Native", "Flutter", "Python", "APIs"],
-    href: "/services/app-development",
-    lead: "Abeel Mehr",
-  },
-  {
-    number: "03",
-    title: "WordPress & Shopify",
-    shortTitle: "CMS",
-    description:
-      "E-commerce stores and content-driven websites that actually convert. Custom themes, plugins, and performance optimization that your competitors wish they had.",
-    tech: ["WordPress", "Shopify", "WooCommerce", "Liquid"],
-    href: "/services/wordpress-shopify",
-    lead: "Mehru Seemab",
-  },
-  {
-    number: "04",
-    title: "Workflow Automation",
-    shortTitle: "Automation",
-    description:
-      "Eliminate repetitive tasks. Connect your tools. Save 20+ hours per week. We build automated workflows that run your business while you sleep.",
-    tech: ["Make.com", "n8n", "Zapier", "GoHighLevel"],
-    href: "/services/workflow-automation",
-    lead: "Musharraf Aziz",
-  },
-  {
-    number: "05",
-    title: "AI Chatbots & Agents",
-    shortTitle: "AI",
-    description:
-      "Intelligent chatbots and AI call agents that handle customer support, lead qualification, and sales 24/7. RAG-powered, context-aware, actually useful.",
-    tech: ["RAG", "LLMs", "Call Agents", "Chatbots"],
-    href: "/services/ai-chatbots-agents",
-    lead: "Musharraf Aziz",
-  },
-];
-
 export function ServicesSection() {
+  const t = useTranslations("Services");
+
+  const services = [
+    {
+      number: "01",
+      title: t("service1.title"),
+      description: t("service1.description"),
+      tech: ["Next.js", "React", "TypeScript", "Tailwind"],
+      href: "/services/web-development",
+      lead: "Abeel Mehr",
+    },
+    {
+      number: "02",
+      title: t("service2.title"),
+      description: t("service2.description"),
+      tech: ["React Native", "Flutter", "Python", "APIs"],
+      href: "/services/app-development",
+      lead: "Abeel Mehr",
+    },
+    {
+      number: "03",
+      title: t("service3.title"),
+      description: t("service3.description"),
+      tech: ["WordPress", "Shopify", "WooCommerce", "Liquid"],
+      href: "/services/wordpress-shopify",
+      lead: "Mehru Seemab",
+    },
+    {
+      number: "04",
+      title: t("service4.title"),
+      description: t("service4.description"),
+      tech: ["Make.com", "n8n", "Zapier", "GoHighLevel"],
+      href: "/services/workflow-automation",
+      lead: "Musharraf Aziz",
+    },
+    {
+      number: "05",
+      title: t("service5.title"),
+      description: t("service5.description"),
+      tech: ["RAG", "LLMs", "Call Agents", "Chatbots"],
+      href: "/services/ai-chatbots-agents",
+      lead: "Musharraf Aziz",
+    },
+  ];
+
   const [activeService, setActiveService] = useState(0);
 
   return (
@@ -68,13 +61,13 @@ export function ServicesSection() {
           <div className="flex items-center gap-4 mb-4">
             <div className="line-decoration" />
             <span className="font-mono text-xs tracking-[0.3em] text-richblack/40 dark:text-cream/40 uppercase">
-              What We Do
+              {t("eyebrow")}
             </span>
           </div>
           <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
-            Services that
+            {t("headingLine1")}
             <br />
-            <span className="text-terracotta">move the needle.</span>
+            <span className="text-terracotta">{t("headingLine2")}</span>
           </h2>
         </AnimatedSection>
 
@@ -189,7 +182,7 @@ export function ServicesSection() {
                     <div className="h-8 w-8 rounded-full bg-stone/20" />
                     <div>
                       <p className="text-xs text-richblack/40 dark:text-cream/40">
-                        Led by
+                        {t("ledBy")}
                       </p>
                       <p className="text-sm font-medium">
                         {services[activeService].lead}
@@ -201,7 +194,7 @@ export function ServicesSection() {
                     href={services[activeService].href}
                     className="mt-8 inline-flex items-center gap-2 font-heading text-sm font-medium text-terracotta transition-all hover:gap-3"
                   >
-                    Learn more
+                    {t("learnMore")}
                     <svg
                       className="h-4 w-4"
                       fill="none"

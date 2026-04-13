@@ -2,11 +2,17 @@
   "common": {
     "siteName": "XCLER",
     "language": "Deutsch",
-    "cta": "Lass uns reden"
+    "cta": "Lassen Sie uns sprechen"
+  },
+  "Metadata": {
+    "siteTitle": "XCLER - Agentur für Web- und App-Entwicklung in Deutschland",
+    "siteDescription": "Wir entwickeln leistungsstarke Websites, Apps und Automatisierungssysteme für Unternehmen in Deutschland und Europa - mit Fokus auf Effizienz, Präzision und Skalierung.",
+    "homeTitle": "Web- und App-Entwicklung in Deutschland | XCLER",
+    "homeDescription": "XCLER realisiert Websites, Apps, Shopify- und WordPress-Lösungen sowie KI-Automatisierung für Unternehmen mit klaren Skalierungszielen."
   },
   "home": {
     "heroTitle": "Wir bauen",
-    "heroSubtitle": "digitale Produkte, die wirklich funktionieren."
+    "heroSubtitle": "digitale Produkte mit messbarer Wirkung."
   },
   "Navigation": {
     "home": "Startseite",
@@ -16,5 +22,171 @@
     "blog": "Blog",
     "pricing": "Preise",
     "contactBtn": "Kontakt"
+  },
+  "Hero": {
+    "availabilityBadge": "JETZT FÜR NEUE PROJEKTE VERFÜGBAR",
+    "lineOne": "Wir entwickeln",
+    "lineTwoPrefix": "die",
+    "lineTwoEmphasis": "wirklich",
+    "lineTwoSuffix": "funktionieren.",
+    "description": "Ein fokussiertes Team für Entwicklung und Automatisierung. Wir übersetzen Ihre Geschäftsziele in digitale Produkte mit messbarem Ergebnis. Effizienz in der Umsetzung. Präzision im Detail. Skalierung im Betrieb.",
+    "primaryCta": "Projekt anfragen",
+    "secondaryCta": "Projekte ansehen",
+    "scrollLabel": "Scrollen",
+    "trust": {
+      "projectsFrom": "Projekte ab 150 €",
+      "experience": "Über 3 Jahre Erfahrung",
+      "region": "Für Deutschland und die EU"
+    },
+    "rotatingWords": {
+      "websites": "Websites",
+      "webApps": "Web-Apps",
+      "mobileApps": "Mobile Apps",
+      "automations": "Automationen",
+      "chatbots": "Chatbots",
+      "stores": "Onlineshops"
+    }
+  },
+  "Services": {
+    "eyebrow": "Unsere Leistungen",
+    "headingLine1": "Leistungen mit",
+    "headingLine2": "klarer Wirkung.",
+    "ledBy": "Verantwortet von",
+    "learnMore": "Details",
+    "service1": {
+      "title": "Webentwicklung",
+      "description": "Individuelle Websites mit Next.js, React und modernem Tech-Stack. Schnell, responsiv und SEO-stark. Keine Standard-Templates - außer Sie wünschen WordPress auf Premium-Niveau."
+    },
+    "service2": {
+      "title": "App-Entwicklung",
+      "description": "Cross-Platform- und native Anwendungen - vom MVP bis zur skalierbaren Produktplattform. Saubere Architektur, hohe Präzision in der UX und produktionsreife Qualität."
+    },
+    "service3": {
+      "title": "WordPress & Shopify",
+      "description": "E-Commerce- und Content-Plattformen mit klarer Conversion-Strategie. Individuelle Themes, gezielte Erweiterungen und Performance-Optimierung für nachhaltige Skalierung."
+    },
+    "service4": {
+      "title": "Prozessautomatisierung",
+      "description": "Reduzieren Sie manuelle Arbeit, verknüpfen Sie Ihre Systeme und gewinnen Sie jede Woche wertvolle Zeit zurück. Wir entwickeln Workflows für maximale Effizienz, stabile Abläufe und verlässliche Skalierung."
+    },
+    "service5": {
+      "title": "KI-Chatbots & Agenten",
+      "description": "Intelligente Chatbots und KI-Agenten für Support, Lead-Qualifizierung und Vertrieb - 24/7 einsatzbereit, RAG-basiert, kontextsensitiv und mit hoher Präzision in jeder Interaktion."
+    }
+  },
+  "About": {
+    "eyebrow": "Über uns",
+    "headingLine1": "Kleines Team.",
+    "headingLine2": "Klare Wirkung.",
+    "introDescription": "Wir sind keine 200-Personen-Agentur mit langen Entscheidungswegen. Wir sind drei spezialisierte Experten für digitale Lösungen mit Substanz. Bei XCLER arbeiten Sie direkt mit den Menschen, die Ihr Produkt planen, entwickeln und skalieren.",
+    "teamHeading": "Das Team hinter der Umsetzung",
+    "expertiseLabel": "Expertise",
+    "toolsLabel": "Tools",
+    "valuesHeading": "Unser Arbeitsprinzip",
+    "ctaHeading": "Bereit für den nächsten Skalierungsschritt?",
+    "ctaDescription": "Wir arbeiten mit ambitionierten Unternehmen und klaren Business-Zielen. Wenn Sie ein anspruchsvolles Vorhaben planen, sprechen wir darüber.",
+    "ctaButton": "Projekt starten ->",
+    "team": {
+      "member1": {
+        "role": "Gründer & Automation Lead",
+        "expertise": "Prozessautomatisierung • KI-Agenten • RAG-Systeme",
+        "tools": "Make.com, n8n, Zapier, GoHighLevel, AI Call Agents",
+        "bio": "Seit über 3 Jahren spezialisiert auf die Transformation manueller Abläufe in skalierbare Automationssysteme - mit Fokus auf Effizienz, Präzision und messbaren Geschäftswert."
+      },
+      "member2": {
+        "role": "Full-Stack-Entwickler",
+        "expertise": "Web- & App-Entwicklung • API-Architektur • CI/CD",
+        "tools": "Next.js, React, Python, FastAPI, Flask, Docker",
+        "bio": "Entwickelt performante Web- und Mobile-Lösungen mit klarer Architektur. Wartbarkeit, Präzision und produktionsreife Skalierung stehen dabei kompromisslos im Mittelpunkt."
+      },
+      "member3": {
+        "role": "CMS- & Frontend-Entwicklung",
+        "expertise": "WordPress • Shopify • E-Commerce",
+        "tools": "WordPress, Shopify, WooCommerce, Liquid, PHP",
+        "bio": "Fokussiert auf CMS- und Commerce-Lösungen, die Teams effizient verwalten können - mit klarer Conversion-Logik, technischer Präzision und nachhaltiger Sichtbarkeit."
+      }
+    },
+    "values": {
+      "value1": {
+        "title": "Klarheit",
+        "description": "Wir kommunizieren präzise und realistisch. Wenn ein Projekt vier Wochen benötigt, sagen wir vier Wochen - nicht zwei, um kurzfristig zu überzeugen."
+      },
+      "value2": {
+        "title": "Geschäftsorientierung",
+        "description": "Jede Entscheidung orientiert sich an Ihren geschäftlichen Zielen. Wir bauen nicht das Lauteste, sondern das Wirksamste für Ihr Unternehmen."
+      },
+      "value3": {
+        "title": "Operative Effizienz",
+        "description": "Ein fokussiertes Team bedeutet weniger Reibung. Direkte Kommunikation, schnelle Umsetzung und verlässliche Lieferung."
+      },
+      "value4": {
+        "title": "Nachhaltige Skalierung",
+        "description": "Unser Anspruch endet nicht mit dem Launch. Für stabile Performance und planbare Skalierung bieten wir strukturierte Weiterentwicklung und Betreuung."
+      }
+    }
+  },
+  "Pricing": {
+    "eyebrow": "Preise",
+    "headingLine1": "Klare Preise.",
+    "headingLine2": "Ohne Überraschungen.",
+    "introDescription": "Jedes Projekt ist individuell. Die folgenden Pakete dienen als Orientierung - ein verbindliches Angebot erhalten Sie nach einer gezielten Anforderungsanalyse.",
+    "startingFrom": "ab",
+    "popularBadge": "Meistgewählt",
+    "addonsHeading": "Add-ons & Erweiterungen",
+    "bottomCtaPrefix": "Sie sind unsicher, welches Paket passt?",
+    "bottomCtaLink": "Schreiben Sie uns auf WhatsApp",
+    "bottomCtaSuffix": "und Sie erhalten in wenigen Minuten eine klare Empfehlung.",
+    "package1": {
+      "name": "Starter",
+      "description": "Ideal für Unternehmen, die schnell und professionell online sichtbar werden möchten.",
+      "cta": "Jetzt starten",
+      "features": {
+        "feature1": "Landingpage oder One-Page-Website",
+        "feature2": "Mobile-optimiertes Design",
+        "feature3": "SEO-Basis-Setup",
+        "feature4": "Kontaktformular-Integration",
+        "feature5": "1 Korrekturschleife",
+        "feature6": "Lieferung in 1 bis 2 Wochen"
+      }
+    },
+    "package2": {
+      "name": "Professional",
+      "description": "Für Unternehmen, die ihre digitale Präsenz strategisch ausbauen und auf Skalierung vorbereiten wollen.",
+      "cta": "Am häufigsten gewählt",
+      "features": {
+        "feature1": "Mehrseitige Website oder Web-App",
+        "feature2": "Individuelles Design & Markenführung",
+        "feature3": "Fortgeschrittene SEO-Optimierung",
+        "feature4": "CMS-Integration (WordPress/Shopify)",
+        "feature5": "Einrichtung von Automations-Workflows",
+        "feature6": "3 Korrekturschleifen",
+        "feature7": "Lieferung in 3 bis 5 Wochen",
+        "feature8": "30 Tage Support nach Launch"
+      }
+    },
+    "package3": {
+      "name": "Enterprise",
+      "description": "Für Unternehmen, die ein leistungsstarkes digitales Ökosystem mit höchster Präzision und Skalierbarkeit erwarten.",
+      "cta": "Projekt besprechen",
+      "features": {
+        "feature1": "Individuelle Web-Applikation",
+        "feature2": "Mobile App (iOS & Android)",
+        "feature3": "Integration von KI-Chatbot / Call-Agent",
+        "feature4": "Ganzheitliche Prozessautomatisierung",
+        "feature5": "API-Entwicklung & Integrationen",
+        "feature6": "Unbegrenzte Korrekturen",
+        "feature7": "Dedizierter Projektverantwortlicher",
+        "feature8": "Priorisierter Support & Wartung",
+        "feature9": "Schulung & Dokumentation"
+      }
+    },
+    "addons": {
+      "item1": {"name": "Einrichtung Prozessautomatisierung", "price": "ab 200 €"},
+      "item2": {"name": "Integration KI-Chatbot", "price": "ab 300 €"},
+      "item3": {"name": "Einrichtung KI-Call-Agent", "price": "ab 500 €"},
+      "item4": {"name": "Monatliche Wartung", "price": "ab 50 €/Monat"},
+      "item5": {"name": "SEO-Content (pro Artikel)", "price": "ab 50 €"},
+      "item6": {"name": "Zusätzliche Seiten", "price": "ab 50 €/Seite"}
+    }
   }
 }

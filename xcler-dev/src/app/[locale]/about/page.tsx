@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 
 export const metadata: Metadata = {
@@ -8,50 +9,52 @@ export const metadata: Metadata = {
     "Meet the team behind XCLER. A small, dedicated team of developers and automation experts building exceptional digital products for businesses in Germany and EU.",
 };
 
-const team = [
-  {
-    name: "Musharraf Aziz",
-    role: "Founder & Automation Lead",
-    expertise: "Workflow Automation • AI Agents • RAG Systems",
-    tools: "Make.com, n8n, Zapier, GoHighLevel, AI Call Agents",
-    bio: "3+ years turning manual business processes into automated systems. Obsessed with efficiency and making technology work for people, not against them.",
-  },
-  {
-    name: "Abeel Mehr",
-    role: "Full Stack Developer",
-    expertise: "Web & App Development • API Architecture • CI/CD",
-    tools: "Next.js, React, Python, FastAPI, Flask, Docker",
-    bio: "Builds web applications and mobile apps that are fast, scalable, and maintainable. Strong focus on clean architecture and production-ready code.",
-  },
-  {
-    name: "Mehru Seemab",
-    role: "CMS & Frontend Developer",
-    expertise: "WordPress • Shopify • E-commerce",
-    tools: "WordPress, Shopify, WooCommerce, Liquid, PHP",
-    bio: "Specializes in CMS-based solutions that clients can actually manage themselves. E-commerce stores that convert and content sites that rank.",
-  },
-];
-
-const values = [
-  {
-    title: "No Bullshit",
-    description: "We say what we mean. If something will take 4 weeks, we say 4 weeks — not 2 weeks to win the deal.",
-  },
-  {
-    title: "Customer First",
-    description: "Your business goals drive every decision. We don't build what's trendy — we build what works for YOU.",
-  },
-  {
-    title: "Fast Delivery",
-    description: "Small team = no bureaucracy. We move fast, communicate directly, and ship ahead of schedule.",
-  },
-  {
-    title: "Long-Term Thinking",
-    description: "We don't disappear after launch. We offer retention packages because your product needs ongoing care.",
-  },
-];
-
 export default function AboutPage() {
+  const t = useTranslations("About");
+
+  const team = [
+    {
+      name: "Musharraf Aziz",
+      role: t("team.member1.role"),
+      expertise: t("team.member1.expertise"),
+      tools: t("team.member1.tools"),
+      bio: t("team.member1.bio"),
+    },
+    {
+      name: "Abeel Mehr",
+      role: t("team.member2.role"),
+      expertise: t("team.member2.expertise"),
+      tools: t("team.member2.tools"),
+      bio: t("team.member2.bio"),
+    },
+    {
+      name: "Mehru Seemab",
+      role: t("team.member3.role"),
+      expertise: t("team.member3.expertise"),
+      tools: t("team.member3.tools"),
+      bio: t("team.member3.bio"),
+    },
+  ];
+
+  const values = [
+    {
+      title: t("values.value1.title"),
+      description: t("values.value1.description"),
+    },
+    {
+      title: t("values.value2.title"),
+      description: t("values.value2.description"),
+    },
+    {
+      title: t("values.value3.title"),
+      description: t("values.value3.description"),
+    },
+    {
+      title: t("values.value4.title"),
+      description: t("values.value4.description"),
+    },
+  ];
+
   return (
     <section className="section-padding pt-32">
       <div className="container-custom">
@@ -61,18 +64,16 @@ export default function AboutPage() {
             <div className="flex items-center gap-4 mb-4">
               <div className="line-decoration" />
               <span className="font-mono text-xs tracking-[0.3em] text-richblack/40 dark:text-cream/40 uppercase">
-                About Us
+                {t("eyebrow")}
               </span>
             </div>
             <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
-              Small team.
+              {t("headingLine1")}
               <br />
-              <span className="text-terracotta">Big ambitions.</span>
+              <span className="text-terracotta">{t("headingLine2")}</span>
             </h1>
             <p className="mt-6 text-lg text-richblack/50 dark:text-cream/50">
-              We&apos;re not a 200-person agency with 17 layers of management.
-              We&apos;re three specialists who love building things that work. When
-              you hire XCLER, you work directly with the people writing the code.
+              {t("introDescription")}
             </p>
           </div>
         </AnimatedSection>
@@ -81,7 +82,7 @@ export default function AboutPage() {
         <div className="mt-20">
           <AnimatedSection>
             <h2 className="font-heading text-3xl font-bold mb-10">
-              The People Behind the Code
+              {t("teamHeading")}
             </h2>
           </AnimatedSection>
 
@@ -107,7 +108,7 @@ export default function AboutPage() {
                     </p>
                     <div className="mt-4 pt-4 border-t border-stone/10 dark:border-stone-dark/10">
                       <p className="text-xs text-richblack/40 dark:text-cream/40 uppercase tracking-wider mb-2">
-                        Expertise
+                        {t("expertiseLabel")}
                       </p>
                       <p className="text-sm text-richblack/60 dark:text-cream/60">
                         {member.expertise}
@@ -115,7 +116,7 @@ export default function AboutPage() {
                     </div>
                     <div className="mt-3">
                       <p className="text-xs text-richblack/40 dark:text-cream/40 uppercase tracking-wider mb-2">
-                        Tools
+                        {t("toolsLabel")}
                       </p>
                       <p className="font-mono text-xs text-richblack/50 dark:text-cream/50">
                         {member.tools}
@@ -132,7 +133,7 @@ export default function AboutPage() {
         <div className="mt-20">
           <AnimatedSection>
             <h2 className="font-heading text-3xl font-bold mb-10">
-              How We Work
+              {t("valuesHeading")}
             </h2>
           </AnimatedSection>
 
@@ -156,17 +157,16 @@ export default function AboutPage() {
         <AnimatedSection>
           <div className="mt-20 rounded-2xl bg-richblack dark:bg-cream/5 p-10 text-cream text-center">
             <h2 className="font-heading text-3xl font-bold">
-              Want to work with us?
+              {t("ctaHeading")}
             </h2>
             <p className="mt-3 text-cream/60 max-w-lg mx-auto">
-              We&apos;re always looking for interesting projects. If you have an
-              idea, let&apos;s talk.
+              {t("ctaDescription")}
             </p>
             <Link
               href="/contact"
               className="mt-8 inline-flex items-center gap-2 rounded-full bg-terracotta px-8 py-3 font-heading font-medium text-white hover:bg-terracotta-light transition-colors"
             >
-              Start a Project →
+              {t("ctaButton")}
             </Link>
           </div>
         </AnimatedSection>

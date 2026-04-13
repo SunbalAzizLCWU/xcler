@@ -75,7 +75,7 @@ export function ContactSection() {
   };
 
   return (
-    <section className="section-padding" id="contact">
+    <section className="section-padding bg-cream dark:bg-richblack" id="contact">
       <div className="container-custom">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
           {/* Left */}
@@ -86,12 +86,12 @@ export function ContactSection() {
                 Start a Project
               </span>
             </div>
-            <h2 className="font-heading text-4xl md:text-5xl font-bold tracking-tight">
+            <h2 className="font-heading text-4xl md:text-5xl font-bold tracking-tight text-richblack dark:text-white">
               Let&apos;s build
               <br />
               <span className="text-terracotta">something together.</span>
             </h2>
-            <p className="mt-4 text-lg text-richblack/50 dark:text-cream/50 max-w-md">
+            <p className="mt-4 text-lg text-richblack/70 dark:text-gray-200 max-w-md">
               Fill out the form. We&apos;ll get back to you within 24 hours
               via WhatsApp or email. No sales pitch — just a real
               conversation about your project.
@@ -115,12 +115,12 @@ export function ContactSection() {
                   </svg>
                 </div>
                 <div>
-                  <p className="text-xs text-richblack/40 dark:text-cream/40">
+                  <p className="text-xs text-richblack/60 dark:text-gray-300">
                     Email
                   </p>
                   <a
                     href="mailto:hello@xcler.dev"
-                    className="font-medium hover:text-terracotta transition-colors"
+                    className="font-medium text-richblack dark:text-white hover:text-terracotta transition-colors"
                   >
                     hello@xcler.dev
                   </a>
@@ -138,12 +138,12 @@ export function ContactSection() {
                   </svg>
                 </div>
                 <div>
-                  <p className="text-xs text-richblack/40 dark:text-cream/40">
+                  <p className="text-xs text-richblack/60 dark:text-gray-300">
                     WhatsApp
                   </p>
                   <a
                     href="https://wa.me/923154823517"
-                    className="font-medium hover:text-terracotta transition-colors"
+                    className="font-medium text-richblack dark:text-white hover:text-terracotta transition-colors"
                   >
                     +92 315 4823517
                   </a>
@@ -172,10 +172,10 @@ export function ContactSection() {
                   </svg>
                 </div>
                 <div>
-                  <p className="text-xs text-richblack/40 dark:text-cream/40">
+                  <p className="text-xs text-richblack/60 dark:text-gray-300">
                     Location
                   </p>
-                  <p className="font-medium">Serving Germany & EU</p>
+                  <p className="font-medium text-richblack dark:text-white">Serving Germany & EU</p>
                 </div>
               </div>
             </div>
@@ -205,10 +205,10 @@ export function ContactSection() {
                       />
                     </svg>
                   </div>
-                  <h3 className="font-heading text-2xl font-bold">
+                  <h3 className="font-heading text-2xl font-bold text-richblack dark:text-cream">
                     Message sent!
                   </h3>
-                  <p className="mt-2 text-richblack/60 dark:text-cream/60">
+                    <p className="mt-2 text-richblack/65 dark:text-cream/75">
                     We&apos;ll get back to you within 24 hours. Check your
                     WhatsApp or email.
                   </p>
@@ -220,7 +220,7 @@ export function ContactSection() {
                 <div>
                   <label
                     htmlFor="name"
-                    className="block text-sm font-medium mb-2"
+                    className="block text-sm font-medium mb-2 text-richblack dark:text-cream"
                   >
                     Your Name <span className="text-terracotta">*</span>
                   </label>
@@ -240,7 +240,7 @@ export function ContactSection() {
                 <div>
                   <label
                     htmlFor="email"
-                    className="block text-sm font-medium mb-2"
+                    className="block text-sm font-medium mb-2 text-richblack dark:text-cream"
                   >
                     Email <span className="text-terracotta">*</span>
                   </label>
@@ -260,7 +260,7 @@ export function ContactSection() {
                 <div>
                   <label
                     htmlFor="company"
-                    className="block text-sm font-medium mb-2"
+                    className="block text-sm font-medium mb-2 text-richblack dark:text-cream"
                   >
                     Company / Website
                   </label>
@@ -279,7 +279,7 @@ export function ContactSection() {
                 <div>
                   <label
                     htmlFor="service"
-                    className="block text-sm font-medium mb-2"
+                    className="block text-sm font-medium mb-2 text-richblack dark:text-cream"
                   >
                     What do you need?{" "}
                     <span className="text-terracotta">*</span>
@@ -305,7 +305,7 @@ export function ContactSection() {
 
                 {/* Budget */}
                 <div>
-                  <label className="block text-sm font-medium mb-3">
+                  <label className="block text-sm font-medium mb-3 text-richblack dark:text-cream">
                     Budget Range
                   </label>
                   <div className="flex flex-wrap gap-2">
@@ -335,7 +335,7 @@ export function ContactSection() {
                 <div>
                   <label
                     htmlFor="message"
-                    className="block text-sm font-medium mb-2"
+                    className="block text-sm font-medium mb-2 text-richblack dark:text-cream"
                   >
                     Tell us about your project{" "}
                     <span className="text-terracotta">*</span>
@@ -388,7 +388,7 @@ export function ContactSection() {
                   )}
                 </motion.button>
 
-                <p className="text-center text-xs text-richblack/30 dark:text-cream/30">
+                <p className="text-center text-xs text-richblack/40 dark:text-cream/60">
                   We respond within 24 hours. No spam. No cold calls.
                 </p>
               </form>

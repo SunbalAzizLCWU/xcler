@@ -7,5 +7,14 @@
   "home": {
     "heroTitle": "We build",
     "heroSubtitle": "digital products that actually work."
+  },
+  "Navigation": {
+    "home": "Home",
+    "services": "Services",
+    "work": "Work",
+    "about": "About",
+    "blog": "Blog",
+    "pricing": "Pricing",
+    "contactBtn": "Let's Talk"
   }
 }

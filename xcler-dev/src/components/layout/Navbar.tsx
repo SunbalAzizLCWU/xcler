@@ -4,21 +4,28 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
 import { MagneticButton } from "@/components/ui/MagneticButton";
-import Link from "next/link";
+import { LanguageSwitcher } from "@/components/ui/LanguageSwitcher";
 import { cn } from "@/lib/utils";
-
-const navLinks = [
-  { href: "/", label: "Home" },
-  { href: "/services", label: "Services" },
-  { href: "/work", label: "Work" },
-  { href: "/about", label: "About" },
-  { href: "/blog", label: "Blog" },
-  { href: "/pricing", label: "Pricing" },
-];
+// IMPORTANT: Use the localized Link and hooks from your navigation file
+import { Link, usePathname } from '@/navigation'; 
+import { useTranslations, useLocale } from 'next-intl';
 
 export function Navbar() {
+  const t = useTranslations('Navigation'); // This looks for the "Navigation" section in your JSON files
+  const locale = useLocale();
+  const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+
+  // These hrefs will now automatically be prefixed with /en or /de by the localized Link
+  const navLinks = [
+    { href: "/", label: t('home') },
+    { href: "/services", label: t('services') },
+    { href: "/work", label: t('work') },
+    { href: "/about", label: t('about') },
+    { href: "/blog", label: t('blog') },
+    { href: "/pricing", label: t('pricing') },
+  ];
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -26,7 +33,6 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Prevent body scroll when menu is open
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = "hidden";
@@ -67,24 +73,34 @@ export function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="group relative font-heading text-sm font-medium tracking-wide text-richblack transition-colors hover:text-richblack dark:text-cream dark:hover:text-white"
+                className={cn(
+                  "group relative font-heading text-sm font-medium tracking-wide transition-colors",
+                  pathname === link.href 
+                    ? "text-terracotta" 
+                    : "text-richblack dark:text-cream hover:text-terracotta"
+                )}
               >
                 {link.label}
-                <span className="absolute -bottom-1 left-0 h-[2px] w-0 bg-terracotta transition-all duration-300 group-hover:w-full" />
+                <span className={cn(
+                  "absolute -bottom-1 left-0 h-[2px] bg-terracotta transition-all duration-300",
+                  pathname === link.href ? "w-full" : "w-0 group-hover:w-full"
+                )} />
               </Link>
             ))}
           </div>
 
           {/* Desktop Right */}
           <div className="hidden items-center gap-4 lg:flex">
+            <LanguageSwitcher />
             <ThemeToggle />
             <MagneticButton href="/contact" variant="primary" size="sm">
-              Let&apos;s Talk
+              {t('contactBtn')}
             </MagneticButton>
           </div>
 
           {/* Mobile Menu Button */}
           <div className="flex items-center gap-3 lg:hidden">
+            <LanguageSwitcher />
             <ThemeToggle />
             <button
               onClick={() => setIsOpen(!isOpen)}
@@ -101,9 +117,7 @@ export function Navbar() {
                   className="block h-[2px] w-6 bg-richblack dark:bg-cream"
                 />
                 <motion.span
-                  animate={
-                    isOpen ? { rotate: -45, y: -7 } : { rotate: 0, y: 0 }
-                  }
+                  animate={isOpen ? { rotate: -45, y: -7 } : { rotate: 0, y: 0 }}
                   className="block h-[2px] w-6 bg-richblack dark:bg-cream"
                 />
               </div>
@@ -151,7 +165,7 @@ export function Navbar() {
                   size="lg"
                   onClick={() => setIsOpen(false)}
                 >
-                  Let&apos;s Talk
+                  {t('contactBtn')}
                 </MagneticButton>
               </motion.div>
             </div>

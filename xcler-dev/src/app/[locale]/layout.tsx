@@ -315,8 +315,13 @@ export default async function RootLayout({
   return (
     <html lang={locale} suppressHydrationWarning>
       <head>
-        <script id="hydration-sanitizer" dangerouslySetInnerHTML={{ __html: hydrationSanitizerScript }} />
         <script
+          id="hydration-sanitizer"
+          suppressHydrationWarning
+          dangerouslySetInnerHTML={{ __html: hydrationSanitizerScript }}
+        />
+        <script
+          suppressHydrationWarning
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />

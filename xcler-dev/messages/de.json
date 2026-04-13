@@ -7,5 +7,14 @@
   "home": {
     "heroTitle": "Wir bauen",
     "heroSubtitle": "digitale Produkte, die wirklich funktionieren."
+  },
+  "Navigation": {
+    "home": "Startseite",
+    "services": "Leistungen",
+    "work": "Projekte",
+    "about": "Über uns",
+    "blog": "Blog",
+    "pricing": "Preise",
+    "contactBtn": "Kontakt"
   }
 }

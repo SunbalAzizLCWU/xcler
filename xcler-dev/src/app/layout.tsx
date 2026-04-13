@@ -140,9 +140,39 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const hydrationSanitizerScript = `
+    (() => {
+      const clean = (root) => {
+        if (!root || !root.querySelectorAll) return;
+        const nodes = [root, ...root.querySelectorAll("*")];
+
+        for (const el of nodes) {
+          if (!(el instanceof Element)) continue;
+
+          if (el.hasAttribute("bis_skin_checked")) {
+            el.removeAttribute("bis_skin_checked");
+          }
+
+          if (el.hasAttribute("bis_register")) {
+            el.removeAttribute("bis_register");
+          }
+
+          for (const name of el.getAttributeNames()) {
+            if (name.startsWith("__processed_") && name.endsWith("__")) {
+              el.removeAttribute(name);
+            }
+          }
+        }
+      };
+
+      clean(document.documentElement);
+    })();
+  `;
+
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        <script dangerouslySetInnerHTML={{ __html: hydrationSanitizerScript }} />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -151,7 +181,7 @@ export default function RootLayout({
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/manifest.json" />
       </head>
-      <body className="font-body antialiased">
+      <body className="font-body antialiased" suppressHydrationWarning>
         <ThemeProvider
           attribute="class"
           defaultTheme="light"

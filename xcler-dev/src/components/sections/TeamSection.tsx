@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 
@@ -65,8 +66,13 @@ export function TeamSection() {
                       {member.name.split(" ")[1][0]}
                     </span>
                   </div>
-                  {/* Replace with actual image when ready */}
-                  {/* <Image src={member.image} alt={member.name} fill className="object-cover" /> */}
+                  <Image
+                    src={member.image}
+                    alt={member.name}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                  />
                 </div>
 
                 {/* Info */}

@@ -44,8 +44,8 @@ export function Navbar() {
         className={cn(
           "fixed left-0 right-0 top-0 z-[100] transition-all duration-500",
           scrolled
-            ? "bg-cream/80 dark:bg-charcoal/80 backdrop-blur-xl border-b border-stone/10 dark:border-stone-dark/10"
-            : "bg-transparent"
+            ? "bg-cream/85 dark:bg-charcoal/85 backdrop-blur-xl border-b border-stone/10 dark:border-stone-dark/20"
+            : "bg-transparent dark:bg-charcoal/45 dark:backdrop-blur-md"
         )}
       >
         <div className="container-custom flex h-20 items-center justify-between">
@@ -57,7 +57,7 @@ export function Navbar() {
             >
               <span className="text-richblack dark:text-cream">XCL</span>
               <span className="text-terracotta">ER</span>
-              <span className="text-stone text-sm font-mono">.dev</span>
+              <span className="text-stone text-sm font-mono dark:text-stone-light">.dev</span>
             </motion.span>
           </Link>
 
@@ -67,7 +67,7 @@ export function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="group relative font-heading text-sm font-medium tracking-wide text-richblack/70 transition-colors hover:text-richblack dark:text-cream/70 dark:hover:text-cream"
+                className="group relative font-heading text-sm font-medium tracking-wide text-richblack/75 transition-colors hover:text-richblack dark:text-cream/90 dark:hover:text-white"
               >
                 {link.label}
                 <span className="absolute -bottom-1 left-0 h-[2px] w-0 bg-terracotta transition-all duration-300 group-hover:w-full" />

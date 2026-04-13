@@ -65,7 +65,7 @@ export function HeroSection() {
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-sage opacity-75" />
               <span className="relative inline-flex h-2 w-2 rounded-full bg-sage" />
             </span>
-            <span className="font-mono text-xs tracking-wider text-richblack/50 dark:text-cream/50">
+            <span className="font-mono text-xs tracking-wider text-richblack/60 dark:text-cream/75">
               AVAILABLE FOR NEW PROJECTS
             </span>
           </motion.div>
@@ -97,7 +97,7 @@ export function HeroSection() {
               ))}
             </span>
             <span className="block mt-2">
-              that <span className="text-stone italic font-light">actually</span> work.
+              that <span className="text-stone italic font-light dark:text-stone-light">actually</span> work.
             </span>
           </motion.h1>
 
@@ -106,7 +106,7 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.7, duration: 0.6 }}
-            className="mt-8 text-lg md:text-xl text-richblack/50 dark:text-cream/50 max-w-2xl mx-auto leading-relaxed"
+            className="mt-8 text-lg md:text-xl text-richblack/60 dark:text-cream/75 max-w-2xl mx-auto leading-relaxed"
           >
             A small team of dedicated developers and automation experts.
             We turn your business ideas into digital products that generate
@@ -146,7 +146,7 @@ export function HeroSection() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1.2, duration: 0.8 }}
-            className="mt-16 flex flex-wrap items-center justify-center gap-8 text-sm text-richblack/30 dark:text-cream/30"
+            className="mt-16 flex flex-wrap items-center justify-center gap-8 text-sm text-richblack/40 dark:text-cream/60"
           >
             <div className="flex items-center gap-2">
               <svg className="h-4 w-4 text-sage" fill="currentColor" viewBox="0 0 20 20">
@@ -193,10 +193,10 @@ export function HeroSection() {
             transition={{ duration: 2, repeat: Infinity }}
             className="flex flex-col items-center gap-2"
           >
-            <span className="font-mono text-[10px] tracking-widest text-richblack/30 dark:text-cream/30 uppercase">
+            <span className="font-mono text-[10px] tracking-widest text-richblack/40 dark:text-cream/55 uppercase">
               Scroll
             </span>
-            <div className="h-8 w-[1px] bg-gradient-to-b from-richblack/20 to-transparent dark:from-cream/20" />
+            <div className="h-8 w-[1px] bg-gradient-to-b from-richblack/30 to-transparent dark:from-cream/40" />
           </motion.div>
         </motion.div>
       </motion.div>

@@ -2,30 +2,31 @@
 
 import Link from "next/link";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
-
-const footerLinks = {
-  services: [
-    { label: "Web Development", href: "/services/web-development" },
-    { label: "App Development", href: "/services/app-development" },
-    { label: "WordPress & Shopify", href: "/services/wordpress-shopify" },
-    { label: "Workflow Automation", href: "/services/workflow-automation" },
-    { label: "AI Chatbots & Agents", href: "/services/ai-chatbots-agents" },
-  ],
-  company: [
-    { label: "About Us", href: "/about" },
-    { label: "Our Work", href: "/work" },
-    { label: "Blog", href: "/blog" },
-    { label: "Pricing", href: "/pricing" },
-    { label: "Contact", href: "/contact" },
-  ],
-  legal: [
-    { label: "Privacy Policy", href: "/privacy" },
-    { label: "Impressum", href: "/impressum" },
-  ],
-};
+import { useTranslations } from "next-intl";
 
 export function Footer() {
+  const t = useTranslations("Footer");
   const currentYear = new Date().getFullYear();
+  const footerLinks = {
+    services: [
+      { label: t("links.services.webDevelopment"), href: "/services/web-development" },
+      { label: t("links.services.appDevelopment"), href: "/services/app-development" },
+      { label: t("links.services.wordpressShopify"), href: "/services/wordpress-shopify" },
+      { label: t("links.services.workflowAutomation"), href: "/services/workflow-automation" },
+      { label: t("links.services.aiChatbots"), href: "/services/ai-chatbots-agents" },
+    ],
+    company: [
+      { label: t("links.company.about"), href: "/about" },
+      { label: t("links.company.work"), href: "/work" },
+      { label: t("links.company.blog"), href: "/blog" },
+      { label: t("links.company.pricing"), href: "/pricing" },
+      { label: t("links.company.contact"), href: "/contact" },
+    ],
+    legal: [
+      { label: t("links.legal.privacy"), href: "/privacy" },
+      { label: t("links.legal.imprint"), href: "/impressum" },
+    ],
+  };
 
   return (
     <footer className="border-t border-stone/10 dark:border-stone-dark/10 bg-richblack text-cream">
@@ -33,19 +34,18 @@ export function Footer() {
       <AnimatedSection>
         <div className="section-padding text-center">
           <h2 className="font-heading text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6">
-            Ready to build
+            {t("cta.headingLine1")}
             <br />
-            <span className="text-terracotta">something real?</span>
+            <span className="text-terracotta">{t("cta.headingLine2")}</span>
           </h2>
           <p className="text-cream/60 text-lg max-w-xl mx-auto mb-10">
-            No jargon. No fluff. Just a conversation about what you need
-            and how we make it happen.
+            {t("cta.description")}
           </p>
           <Link
             href="/contact"
             className="inline-flex items-center gap-2 rounded-full bg-terracotta px-10 py-4 font-heading font-medium text-white transition-all hover:bg-terracotta-light hover:scale-105"
           >
-            Start a Project
+            {t("cta.button")}
             <svg
               className="h-4 w-4"
               fill="none"
@@ -73,8 +73,7 @@ export function Footer() {
               <span className="text-stone text-sm font-mono">.dev</span>
             </span>
             <p className="mt-4 text-sm text-cream/50 max-w-xs">
-              We build what others prototype. Exceptional digital products
-              for businesses that demand more.
+              {t("brandDescription")}
             </p>
             <div className="mt-6 flex gap-4">
               <a
@@ -105,7 +104,7 @@ export function Footer() {
           {/* Services */}
           <div>
             <h4 className="font-heading text-sm font-semibold uppercase tracking-wider text-cream/30 mb-4">
-              Services
+              {t("sections.services")}
             </h4>
             <ul className="space-y-3">
               {footerLinks.services.map((link) => (
@@ -124,7 +123,7 @@ export function Footer() {
           {/* Company */}
           <div>
             <h4 className="font-heading text-sm font-semibold uppercase tracking-wider text-cream/30 mb-4">
-              Company
+              {t("sections.company")}
             </h4>
             <ul className="space-y-3">
               {footerLinks.company.map((link) => (
@@ -143,7 +142,7 @@ export function Footer() {
           {/* Contact */}
           <div>
             <h4 className="font-heading text-sm font-semibold uppercase tracking-wider text-cream/30 mb-4">
-              Contact
+              {t("sections.contact")}
             </h4>
             <ul className="space-y-3 text-sm text-cream/60">
               <li>
@@ -159,10 +158,10 @@ export function Footer() {
                   href="https://wa.me/923154823517"
                   className="transition-colors hover:text-terracotta"
                 >
-                  +92 315 4823517
+                  {t("contact.phone")}
                 </a>
               </li>
-              <li className="text-cream/40">Serving Germany & EU</li>
+              <li className="text-cream/40">{t("contact.region")}</li>
             </ul>
           </div>
         </div>
@@ -170,7 +169,7 @@ export function Footer() {
         {/* Bottom Bar */}
         <div className="mt-16 flex flex-col items-center justify-between gap-4 border-t border-cream/10 pt-8 md:flex-row">
           <p className="text-xs text-cream/30">
-            © {currentYear} XCLER. All rights reserved.
+            {t("copyright", { year: currentYear })}
           </p>
           <div className="flex gap-6">
             {footerLinks.legal.map((link) => (

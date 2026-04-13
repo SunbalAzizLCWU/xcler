@@ -4,9 +4,53 @@
     "language": "Deutsch",
     "cta": "Lassen Sie uns sprechen"
   },
+  "Common": {
+    "whatsAppHover": "Chatten Sie mit uns"
+  },
+  "Footer": {
+    "cta": {
+      "headingLine1": "Bereit zu bauen",
+      "headingLine2": "was wirklich zählt?",
+      "description": "Kein Jargon. Kein leeres Marketing. Ein klares Gespräch darüber, was Sie brauchen und wie wir es umsetzen.",
+      "button": "Projekt starten"
+    },
+    "brandDescription": "Wir bauen, was andere nur skizzieren. Außergewöhnliche digitale Produkte für Unternehmen mit hohem Anspruch.",
+    "sections": {
+      "services": "Leistungen",
+      "company": "Unternehmen",
+      "contact": "Kontakt"
+    },
+    "links": {
+      "services": {
+        "webDevelopment": "Webentwicklung",
+        "appDevelopment": "App-Entwicklung",
+        "wordpressShopify": "WordPress & Shopify",
+        "workflowAutomation": "Prozessautomatisierung",
+        "aiChatbots": "KI-Chatbots & Agenten"
+      },
+      "company": {
+        "about": "Über uns",
+        "work": "Unsere Projekte",
+        "blog": "Blog",
+        "pricing": "Preise",
+        "contact": "Kontakt"
+      },
+      "legal": {
+        "privacy": "Datenschutz",
+        "imprint": "Impressum"
+      }
+    },
+    "contact": {
+      "phone": "+92 315 4823517",
+      "region": "Für Deutschland und die EU"
+    },
+    "copyright": "© {year} XCLER. Alle Rechte vorbehalten."
+  },
   "Metadata": {
     "siteTitle": "XCLER - Agentur für Web- und App-Entwicklung in Deutschland",
     "siteDescription": "Wir entwickeln leistungsstarke Websites, Apps und Automatisierungssysteme für Unternehmen in Deutschland und Europa - mit Fokus auf Effizienz, Präzision und Skalierung.",
+    "pageTitle": "XCLER — Webentwicklung & KI-Automatisierung Agentur",
+    "pageDescription": "Wir entwickeln leistungsstarke Websites, Apps und KI-Automatisierung für Unternehmen in Deutschland und Europa.",
     "homeTitle": "Web- und App-Entwicklung in Deutschland | XCLER",
     "homeDescription": "XCLER realisiert Websites, Apps, Shopify- und WordPress-Lösungen sowie KI-Automatisierung für Unternehmen mit klaren Skalierungszielen."
   },
@@ -24,6 +68,9 @@
     "contactBtn": "Kontakt"
   },
   "Hero": {
+    "title": "Webentwicklung und KI-Automatisierung für messbares Unternehmenswachstum.",
+    "subtitle": "Wir entwickeln Websites, Apps und KI-Systeme mit Präzision, Effizienz und Skalierung als technischem Fundament.",
+    "cta": "Lassen Sie uns sprechen",
     "availabilityBadge": "JETZT FÜR NEUE PROJEKTE VERFÜGBAR",
     "lineOne": "Wir entwickeln",
     "lineTwoPrefix": "die",

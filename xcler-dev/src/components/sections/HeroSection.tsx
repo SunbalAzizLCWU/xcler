@@ -1,22 +1,12 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import { AnimatePresence, motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
+import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import { useTranslations } from "next-intl";
 import { MagneticButton } from "@/components/ui/MagneticButton";
 
 export function HeroSection() {
   const t = useTranslations("Hero");
-  const words = [
-    t("rotatingWords.websites"),
-    t("rotatingWords.webApps"),
-    t("rotatingWords.mobileApps"),
-    t("rotatingWords.automations"),
-    t("rotatingWords.chatbots"),
-    t("rotatingWords.stores"),
-  ];
-
-  const [currentWord, setCurrentWord] = useState(0);
   const shouldReduceMotion = useReducedMotion();
   const containerRef = useRef(null);
   const { scrollYProgress } = useScroll({
@@ -25,16 +15,6 @@ export function HeroSection() {
   });
   const y = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
-
-  useEffect(() => {
-    if (shouldReduceMotion) return;
-
-    const interval = setInterval(() => {
-      setCurrentWord((prev) => (prev + 1) % words.length);
-    }, 2500);
-
-    return () => clearInterval(interval);
-  }, [shouldReduceMotion]);
 
   return (
     <section
@@ -90,24 +70,7 @@ export function HeroSection() {
             transition={{ delay: shouldReduceMotion ? 0 : 0.2, duration: shouldReduceMotion ? 0 : 0.7, ease: [0.16, 1, 0.3, 1] }}
             className="font-heading text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-[0.95] text-richblack dark:text-cream"
           >
-            <span className="block">{t("lineOne")}</span>
-            <span className="relative inline-flex min-w-[9ch] justify-center">
-              <AnimatePresence mode="wait">
-                <motion.span
-                  key={words[currentWord]}
-                  className="inline-block text-terracotta"
-                  initial={{ y: "100%", opacity: 0 }}
-                  animate={{ y: "0%", opacity: 1 }}
-                  exit={{ y: "-100%", opacity: 0 }}
-                  transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
-                >
-                  {words[currentWord]}
-                </motion.span>
-              </AnimatePresence>
-            </span>
-            <span className="block mt-2">
-              {t("lineTwoPrefix")} <span className="text-stone italic font-light dark:text-cream/85">{t("lineTwoEmphasis")}</span> {t("lineTwoSuffix")}
-            </span>
+            {t("title")}
           </motion.h1>
 
           {/* Subheading */}
@@ -117,7 +80,7 @@ export function HeroSection() {
             transition={{ delay: 0.7, duration: 0.6 }}
             className="mt-8 text-lg md:text-xl text-richblack dark:text-cream/85 max-w-2xl mx-auto leading-relaxed"
           >
-            {t("description")}
+            {t("subtitle")}
           </motion.p>
 
           {/* CTAs */}
@@ -128,7 +91,7 @@ export function HeroSection() {
             className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4"
           >
             <MagneticButton href="/contact" variant="primary" size="lg">
-              {t("primaryCta")}
+              {t("cta")}
               <svg
                 className="h-4 w-4"
                 fill="none"

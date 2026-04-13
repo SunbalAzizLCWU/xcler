@@ -2,8 +2,10 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useTranslations } from "next-intl";
 
 export function WhatsAppButton() {
+  const t = useTranslations("Common");
   const [isHovered, setIsHovered] = useState(false);
   const phoneNumber = "923154823517";
   const message = encodeURIComponent(
@@ -33,7 +35,7 @@ export function WhatsAppButton() {
               exit={{ opacity: 0, x: 10, scale: 0.8 }}
               className="absolute right-full mr-3 whitespace-nowrap rounded-lg bg-richblack dark:bg-cream px-4 py-2 text-sm font-medium text-cream dark:text-richblack shadow-lg"
             >
-              Chat with us
+              {t("whatsAppHover")}
             </motion.span>
           )}
         </AnimatePresence>

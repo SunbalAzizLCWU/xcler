@@ -21,14 +21,16 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "Metadata" });
+  const pageTitle = t("pageTitle");
+  const pageDescription = t("pageDescription");
 
   return {
     metadataBase: new URL("https://xcler.dev"),
     title: {
-      default: t("siteTitle"),
+      default: pageTitle,
       template: "%s | XCLER",
     },
-    description: t("siteDescription"),
+    description: pageDescription,
     alternates: {
       languages: {
         "en-US": "/en",
@@ -60,8 +62,8 @@ export async function generateMetadata({
       alternateLocale: locale === "de" ? "en_US" : "de_DE",
       url: "https://xcler.dev",
       siteName: "XCLER",
-      title: t("siteTitle"),
-      description: t("siteDescription"),
+      title: pageTitle,
+      description: pageDescription,
       images: [
         {
           url: "/og-image.png",
@@ -73,8 +75,8 @@ export async function generateMetadata({
     },
     twitter: {
       card: "summary_large_image",
-      title: t("siteTitle"),
-      description: t("siteDescription"),
+      title: pageTitle,
+      description: pageDescription,
       images: ["/og-image.png"],
     },
     robots: {

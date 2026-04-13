@@ -9,48 +9,49 @@ import Link from "next/link";
 export function ServicesSection() {
   const t = useTranslations("Services");
 
-  const services = [
+  const serviceConfig = [
     {
       number: "01",
-      title: t("service1.title"),
-      description: t("service1.description"),
+      key: "service1",
       tech: ["Next.js", "React", "TypeScript", "Tailwind"],
       href: "/services/web-development",
       lead: "Abeel Mehr",
     },
     {
       number: "02",
-      title: t("service2.title"),
-      description: t("service2.description"),
+      key: "service2",
       tech: ["React Native", "Flutter", "Python", "APIs"],
       href: "/services/app-development",
       lead: "Abeel Mehr",
     },
     {
       number: "03",
-      title: t("service3.title"),
-      description: t("service3.description"),
+      key: "service3",
       tech: ["WordPress", "Shopify", "WooCommerce", "Liquid"],
       href: "/services/wordpress-shopify",
       lead: "Mehru Seemab",
     },
     {
       number: "04",
-      title: t("service4.title"),
-      description: t("service4.description"),
+      key: "service4",
       tech: ["Make.com", "n8n", "Zapier", "GoHighLevel"],
       href: "/services/workflow-automation",
       lead: "Musharraf Aziz",
     },
     {
       number: "05",
-      title: t("service5.title"),
-      description: t("service5.description"),
+      key: "service5",
       tech: ["RAG", "LLMs", "Call Agents", "Chatbots"],
       href: "/services/ai-chatbots-agents",
       lead: "Musharraf Aziz",
     },
   ];
+
+  const services = serviceConfig.map((service) => ({
+    ...service,
+    title: t(`${service.key}.title`),
+    description: t(`${service.key}.description`),
+  }));
 
   const [activeService, setActiveService] = useState(0);
 

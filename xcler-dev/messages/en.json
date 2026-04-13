@@ -4,9 +4,53 @@
     "language": "English",
     "cta": "Book a Strategy Call"
   },
+  "Common": {
+    "whatsAppHover": "Chat with us"
+  },
+  "Footer": {
+    "cta": {
+      "headingLine1": "Ready to build",
+      "headingLine2": "something real?",
+      "description": "No jargon. No fluff. Just a conversation about what you need and how we make it happen.",
+      "button": "Start a Project"
+    },
+    "brandDescription": "We build what others prototype. Exceptional digital products for businesses that demand more.",
+    "sections": {
+      "services": "Services",
+      "company": "Company",
+      "contact": "Contact"
+    },
+    "links": {
+      "services": {
+        "webDevelopment": "Web Development",
+        "appDevelopment": "App Development",
+        "wordpressShopify": "WordPress & Shopify",
+        "workflowAutomation": "Workflow Automation",
+        "aiChatbots": "AI Chatbots & Agents"
+      },
+      "company": {
+        "about": "About Us",
+        "work": "Our Work",
+        "blog": "Blog",
+        "pricing": "Pricing",
+        "contact": "Contact"
+      },
+      "legal": {
+        "privacy": "Privacy Policy",
+        "imprint": "Imprint"
+      }
+    },
+    "contact": {
+      "phone": "+92 315 4823517",
+      "region": "Serving Germany and the EU"
+    },
+    "copyright": "© {year} XCLER. All rights reserved."
+  },
   "Metadata": {
     "siteTitle": "XCLER - Web Development and Automation Agency Germany",
     "siteDescription": "XCLER builds high-performance websites, apps, and workflow automation systems for businesses in Germany and across Europe, with a focus on efficiency, precision, and scalable growth.",
+    "pageTitle": "XCLER — Web Development & AI Automation Agency",
+    "pageDescription": "XCLER builds high-performance websites, apps, and AI automation systems for businesses in Germany and across Europe.",
     "homeTitle": "Web Development Agency Germany | XCLER",
     "homeDescription": "XCLER delivers custom web development, app development, Shopify and WordPress solutions, plus AI automation for businesses ready to scale."
   },
@@ -24,6 +68,9 @@
     "contactBtn": "Let's Talk"
   },
   "Hero": {
+    "title": "Web development and AI automation for measurable business growth.",
+    "subtitle": "We build websites, apps, and AI systems with precision, efficiency, and scale at the core.",
+    "cta": "Let's Talk",
     "availabilityBadge": "AVAILABLE FOR NEW PROJECTS",
     "lineOne": "We build",
     "lineTwoPrefix": "that",

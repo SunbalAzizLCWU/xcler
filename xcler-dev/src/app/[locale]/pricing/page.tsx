@@ -24,5 +24,5 @@ export default async function PricingPage({
   const { locale } = await params;
   setRequestLocale(locale);
 
-  return <Pricing />;
+  return <Pricing locale={locale} />;
 }

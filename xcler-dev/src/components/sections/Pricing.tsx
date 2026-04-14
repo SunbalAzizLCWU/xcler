@@ -1,9 +1,9 @@
 import Link from "next/link";
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 
-export function Pricing() {
-  const t = useTranslations("Pricing");
+export async function Pricing({ locale }: { locale: string }) {
+  const t = await getTranslations({ locale, namespace: "Pricing" });
 
   const packages = [
     {

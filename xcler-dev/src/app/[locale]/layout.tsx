@@ -1,7 +1,8 @@
 // src/app/layout.tsx
 import type { Metadata } from "next";
+import Script from "next/script";
 import { NextIntlClientProvider } from "next-intl";
-import { getMessages, getTranslations } from "next-intl/server";
+import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
@@ -140,8 +141,8 @@ const jsonLd = {
     },
   ],
   sameAs: [
-    "https://www.facebook.com/xclerdev",
-    "https://www.instagram.com/xclerdev",
+    "https://www.facebook.com/xcler.dev",
+    "https://www.instagram.com/xcler.dev",
   ],
   founder: {
     "@type": "Person",
@@ -277,13 +278,66 @@ export default async function RootLayout({
   children: React.ReactNode;
 }) {
   const { locale } = await params;
+  setRequestLocale(locale);
   const messages = await getMessages({ locale });
 
   return (
     <html lang={locale} data-scroll-behavior="smooth" suppressHydrationWarning>
       <head>
-        <script
+        <Script
+          id="pre-hydration-attr-cleanup"
+          strategy="beforeInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              (() => {
+                const cleanNode = (el) => {
+                  if (!el || !el.getAttributeNames) return;
+                  if (el.hasAttribute("bis_skin_checked")) el.removeAttribute("bis_skin_checked");
+                  if (el.hasAttribute("bis_register")) el.removeAttribute("bis_register");
+                  for (const name of el.getAttributeNames()) {
+                    if (name.startsWith("__processed_") && name.endsWith("__")) {
+                      el.removeAttribute(name);
+                    }
+                  }
+                };
+
+                const cleanTree = (root) => {
+                  if (!root) return;
+                  cleanNode(root);
+                  if (!root.querySelectorAll) return;
+                  for (const node of root.querySelectorAll("*")) {
+                    cleanNode(node);
+                  }
+                };
+
+                cleanTree(document.documentElement);
+
+                const observer = new MutationObserver((mutations) => {
+                  for (const mutation of mutations) {
+                    if (mutation.type === "attributes") {
+                      cleanNode(mutation.target);
+                    }
+                    for (const node of mutation.addedNodes) {
+                      if (node instanceof Element) cleanTree(node);
+                    }
+                  }
+                });
+
+                observer.observe(document.documentElement, {
+                  subtree: true,
+                  childList: true,
+                  attributes: true,
+                  attributeFilter: ["bis_skin_checked", "bis_register"],
+                });
+
+                window.addEventListener("load", () => observer.disconnect(), { once: true });
+              })();
+            `,
+          }}
+        />
+        <Script
           id="org-jsonld"
+          strategy="beforeInteractive"
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />

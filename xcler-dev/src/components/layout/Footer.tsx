@@ -74,7 +74,7 @@ export function Footer() {
             </p>
             <div className="mt-6 flex gap-4">
               <a
-                href="https://www.facebook.com/xclerdev"
+                href="https://www.facebook.com/xcler.dev"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-zinc-500 transition-colors hover:text-white"
@@ -85,7 +85,7 @@ export function Footer() {
                 </svg>
               </a>
               <a
-                href="https://www.instagram.com/xclerdev"
+                href="https://www.instagram.com/xcler.dev"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-zinc-500 transition-colors hover:text-white"

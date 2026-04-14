@@ -25,6 +25,20 @@ type PriceChartValue = {
   bars?: PriceChartRow[];
 };
 
+type RichTableCell = {
+  _key?: string;
+  content?: Array<Record<string, unknown>>;
+};
+
+type RichTableRow = {
+  _key?: string;
+  cells?: RichTableCell[];
+};
+
+type RichTableValue = {
+  rows?: RichTableRow[];
+};
+
 type SanityBlogPost = {
   _id: string;
   title: string;
@@ -45,6 +59,23 @@ const parseAmount = (value: number | string | undefined) => {
 const formatCurrency = (amount: number, currencySymbol: string) => {
   if (!Number.isFinite(amount)) return `${currencySymbol}0`;
   return `${currencySymbol}${amount.toLocaleString("en-US")}`;
+};
+
+const tableCellPortableTextComponents = {
+  marks: {
+    strong: ({ children }: { children?: React.ReactNode }) => (
+      <strong className="font-semibold text-richblack dark:text-cream">{children}</strong>
+    ),
+    em: ({ children }: { children?: React.ReactNode }) => (
+      <em className="italic text-richblack dark:text-cream">{children}</em>
+    ),
+    underline: ({ children }: { children?: React.ReactNode }) => (
+      <span className="underline decoration-terracotta/60 underline-offset-2">{children}</span>
+    ),
+    highlight: ({ children }: { children?: React.ReactNode }) => (
+      <mark className="rounded bg-terracotta/20 px-1 py-0.5 text-richblack dark:text-cream">{children}</mark>
+    ),
+  },
 };
 
 const createPortableTextComponents = (locale: string) => ({
@@ -78,6 +109,36 @@ const createPortableTextComponents = (locale: string) => ({
                     return (
                       <CellTag key={`cell-${rowIndex}-${cellIndex}`} className="border border-stone/20 p-3 text-left align-top">
                         {content}
+                      </CellTag>
+                    );
+                  })}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      );
+    },
+    richTable: ({ value }: { value: RichTableValue }) => {
+      const rows = value?.rows ?? [];
+
+      if (!rows.length) return null;
+
+      return (
+        <div className="my-8 overflow-x-auto">
+          <table className="w-full border border-stone/20 border-collapse">
+            <tbody>
+              {rows.map((row, rowIndex) => (
+                <tr key={row._key ?? `rich-row-${rowIndex}`} className={rowIndex === 0 ? "bg-stone/5" : undefined}>
+                  {(row.cells ?? []).map((cell, cellIndex) => {
+                    const CellTag = rowIndex === 0 ? "th" : "td";
+                    const cellValue = Array.isArray(cell?.content) ? cell.content : [];
+
+                    return (
+                      <CellTag key={cell._key ?? `rich-cell-${rowIndex}-${cellIndex}`} className="border border-stone/20 p-3 text-left align-top">
+                        <div className="prose prose-sm max-w-none dark:prose-invert prose-p:my-0 prose-p:text-richblack/85 dark:prose-p:text-cream/85">
+                          <PortableText value={cellValue as any} components={tableCellPortableTextComponents} />
+                        </div>
                       </CellTag>
                     );
                   })}

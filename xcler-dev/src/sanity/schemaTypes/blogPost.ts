@@ -86,7 +86,9 @@ export const blogPost = defineType({
             }
           ]
         },
-        {type: 'table'}
+        {type: 'richTable'},
+        {type: 'table'},
+        {type: 'priceChart'}
       ],
       validation: (rule) => rule.required().min(1),
       description: 'Portable Text content for English locale.'
@@ -110,7 +112,9 @@ export const blogPost = defineType({
             }
           ]
         },
-        {type: 'table'}
+        {type: 'richTable'},
+        {type: 'table'},
+        {type: 'priceChart'}
       ],
       validation: (rule) => rule.required().min(1),
       description: 'Portable Text content for German locale.'

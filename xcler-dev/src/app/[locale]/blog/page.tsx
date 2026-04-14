@@ -1,99 +1,139 @@
-// src/app/blog/page.tsx
-import { Metadata } from "next";
-import fs from "fs";
-import path from "path";
-import Link from "next/link";
+import type { Metadata } from "next";
+import { groq } from "next-sanity";
+import { getTranslations } from "next-intl/server";
+import { Link } from "@/navigation";
+import { client } from "@/sanity/lib/client";
+import { urlFor } from "@/sanity/lib/image";
 
-export const metadata: Metadata = {
-  title: "Blog | XCLER — Web Development, Automation & AI Insights",
-  description:
-    "Expert insights on web development, app development, WordPress, Shopify, workflow automation, and AI chatbots. Tips and guides for businesses in Germany.",
+type BlogPostCard = {
+  _id: string;
+  title: string;
+  slug: string;
+  mainImage?: unknown;
+  imageAlt: string;
+  excerpt: string;
+  publishedAt: string;
+  authorName?: string;
 };
 
-function getPublishedPosts() {
-  const blogsFile = path.join(process.cwd(), "data", "blogs.json");
-  if (!fs.existsSync(blogsFile)) return [];
-  const blogs = JSON.parse(fs.readFileSync(blogsFile, "utf-8"));
-  return blogs.filter((b: any) => b.published);
+const blogPostsQuery = groq`
+  *[_type == "blogPost" && defined(slug.current)] | order(_createdAt desc) {
+    _id,
+    "title": select($locale == "de" => coalesce(title_de, title_en), coalesce(title_en, title_de)),
+    "slug": slug.current,
+    mainImage,
+    "imageAlt": coalesce(mainImage.alt, title_en, title_de, "Blog post image"),
+    "excerpt": select($locale == "de" => pt::text(body_de), pt::text(body_en))[0...180],
+    "publishedAt": _createdAt,
+    "authorName": author->name
+  }
+`;
+
+function BlogPageHeader({
+  eyebrow,
+  title,
+  description,
+}: {
+  eyebrow: string;
+  title: string;
+  description: string;
+}) {
+  return (
+    <header className="mx-auto max-w-3xl text-center">
+      <p className="font-mono text-xs uppercase tracking-[0.3em] text-zinc-500">{eyebrow}</p>
+      <h1 className="mt-5 font-heading text-4xl font-semibold leading-tight text-white md:text-6xl">{title}</h1>
+      <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-zinc-300 md:text-lg">
+        {description}
+      </p>
+    </header>
+  );
 }
 
-export default function BlogPage() {
-  const posts = getPublishedPosts();
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "BlogPage" });
+
+  return {
+    title: t("metaTitle"),
+    description: t("metaDescription"),
+  };
+}
+
+export default async function BlogPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "BlogPage" });
+  const posts = await client.fetch<BlogPostCard[]>(blogPostsQuery, { locale });
+
+  const formatter = new Intl.DateTimeFormat(locale === "de" ? "de-DE" : "en-US", {
+    day: "2-digit",
+    month: "short",
+    year: "numeric",
+  });
 
   return (
-    <section className="section-padding pt-32">
-      <div className="container-custom">
-        <div className="max-w-3xl">
-          <div className="flex items-center gap-4 mb-4">
-            <div className="line-decoration" />
-            <span className="font-mono text-xs tracking-[0.3em] text-richblack/40 dark:text-cream/40 uppercase">
-              Blog
-            </span>
-          </div>
-          <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
-            Thoughts, guides,
-            <br />
-            <span className="text-terracotta">and insights.</span>
-          </h1>
-          <p className="mt-4 text-lg text-richblack/50 dark:text-cream/50">
-            Real talk about web development, automation, and building digital
-            products that work.
-          </p>
-        </div>
+    <main className="min-h-screen bg-[#121212] text-zinc-100">
+      <section className="section-padding">
+        <div className="container-custom">
+          <BlogPageHeader
+            eyebrow={t("eyebrow")}
+            title={t("title")}
+            description={t("description")}
+          />
 
-        <div className="mt-16">
           {posts.length === 0 ? (
-            <div className="rounded-2xl border border-dashed border-stone/20 p-16 text-center">
-              <p className="text-richblack/40 dark:text-cream/40 text-lg">
-                Blog posts coming soon. Stay tuned.
-              </p>
+            <div className="mx-auto mt-16 max-w-3xl rounded-2xl border border-dashed border-zinc-700 bg-zinc-900/40 p-12 text-center">
+              <p className="text-zinc-400">{t("emptyState")}</p>
             </div>
           ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {posts.map((post: any) => (
-                <Link
-                  key={post.id}
-                  href={`/blog/${post.slug}`}
-                  className="group block"
-                >
-                  <article className="rounded-2xl border border-stone/10 dark:border-stone-dark/10 bg-white dark:bg-richblack/30 overflow-hidden transition-all duration-300 hover:border-terracotta/20 hover:shadow-lg hover:-translate-y-1">
-                    <div className="h-48 bg-gradient-to-br from-stone/10 to-stone/5 flex items-center justify-center">
-                      <span className="font-mono text-xs text-stone/40 uppercase tracking-wider">
-                        {post.category}
-                      </span>
+            <div className="mt-16 grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
+              {posts.map((post) => (
+                <Link key={post._id} href={`/blog/${post.slug}`} className="group block">
+                  <article className="h-full overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-900/75 transition-all duration-300 hover:-translate-y-1 hover:border-emerald-500/70 hover:shadow-[0_12px_35px_rgba(16,185,129,0.15)]">
+                    <div className="relative h-52 w-full overflow-hidden bg-zinc-950">
+                      {post.mainImage ? (
+                        <img
+                          src={urlFor(post.mainImage).width(960).height(560).fit("crop").quality(80).url()}
+                          alt={post.imageAlt}
+                          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                          loading="lazy"
+                        />
+                      ) : (
+                        <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-zinc-900 to-zinc-800">
+                          <span className="font-mono text-xs uppercase tracking-[0.22em] text-zinc-500">
+                            {t("imageFallback")}
+                          </span>
+                        </div>
+                      )}
                     </div>
+
                     <div className="p-6">
-                      <div className="flex items-center gap-2 mb-3">
-                        <span className="rounded-full bg-terracotta/10 px-2.5 py-0.5 text-xs text-terracotta">
-                          {post.category}
-                        </span>
-                        <span className="text-xs text-richblack/30 dark:text-cream/30">
-                          {new Date(post.createdAt).toLocaleDateString(
-                            "en-US",
-                            {
-                              month: "short",
-                              day: "numeric",
-                              year: "numeric",
-                            }
-                          )}
-                        </span>
+                      <div className="mb-3 flex items-center justify-between gap-3">
+                        <p className="text-xs uppercase tracking-[0.16em] text-zinc-500">
+                          {formatter.format(new Date(post.publishedAt))}
+                        </p>
+                        {post.authorName && (
+                          <p className="text-xs text-zinc-500">
+                            {t("byLabel")} {post.authorName}
+                          </p>
+                        )}
                       </div>
-                      <h2 className="font-heading text-xl font-semibold group-hover:text-terracotta transition-colors">
+
+                      <h2 className="font-heading text-2xl font-semibold text-zinc-100 transition-colors group-hover:text-emerald-300">
                         {post.title}
                       </h2>
-                      <p className="mt-2 text-sm text-richblack/50 dark:text-cream/50 line-clamp-2">
-                        {post.excerpt}
+                      <p className="mt-3 line-clamp-3 text-sm leading-relaxed text-zinc-400">{post.excerpt}</p>
+
+                      <p className="mt-5 font-mono text-xs uppercase tracking-[0.2em] text-emerald-400/85">
+                        {t("readArticle")}
                       </p>
-                      <div className="mt-4 flex flex-wrap gap-1.5">
-                        {post.tags?.slice(0, 3).map((tag: string) => (
-                          <span
-                            key={tag}
-                            className="rounded-full bg-stone/10 px-2 py-0.5 font-mono text-[10px]"
-                          >
-                            #{tag}
-                          </span>
-                        ))}
-                      </div>
                     </div>
                   </article>
                 </Link>
@@ -101,7 +141,7 @@ export default function BlogPage() {
             </div>
           )}
         </div>
-      </div>
-    </section>
+      </section>
+    </main>
   );
 }

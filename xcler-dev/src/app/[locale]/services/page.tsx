@@ -1,67 +1,40 @@
-import { Metadata } from "next";
-import Link from "next/link";
+import type { Metadata } from "next";
+import { getTranslations } from "next-intl/server";
+import { Link } from "@/navigation";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 
-export const metadata: Metadata = {
-  title: "Services | XCLER — Web, App, Automation & AI Development",
-  description:
-    "Full-stack web development, app development, WordPress, Shopify, workflow automation, AI chatbots, and RAG agents. Serving Germany and EU businesses.",
+type ServicesPageItem = {
+  number: string;
+  title: string;
+  description: string;
+  tech: string[];
+  href: string;
+  lead: string;
 };
 
-const services = [
-  {
-    number: "01",
-    title: "Web Development",
-    description:
-      "Custom websites built with Next.js, React, and modern frameworks. Fast, responsive, SEO-optimized. From landing pages to complex web applications.",
-    tech: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Node.js"],
-    href: "/services/web-development",
-    lead: "Abeel Mehr",
-    color: "from-terracotta/10 to-terracotta/5",
-  },
-  {
-    number: "02",
-    title: "App Development",
-    description:
-      "Cross-platform and native mobile applications. From MVP to full-scale product. Clean architecture, smooth UX, production-ready code.",
-    tech: ["React Native", "Flutter", "Python", "REST APIs", "GraphQL"],
-    href: "/services/app-development",
-    lead: "Abeel Mehr",
-    color: "from-sage/10 to-sage/5",
-  },
-  {
-    number: "03",
-    title: "WordPress & Shopify",
-    description:
-      "E-commerce stores and content-driven websites that actually convert. Custom themes, plugins, performance optimization, and ongoing management.",
-    tech: ["WordPress", "Shopify", "WooCommerce", "Liquid", "PHP"],
-    href: "/services/wordpress-shopify",
-    lead: "Mehru Seemab",
-    color: "from-stone/10 to-stone/5",
-  },
-  {
-    number: "04",
-    title: "Workflow Automation",
-    description:
-      "Eliminate repetitive tasks. Connect your tools. Save 20+ hours per week. We build automated workflows that run your business while you sleep.",
-    tech: ["Make.com", "n8n", "Zapier", "GoHighLevel", "APIs"],
-    href: "/services/workflow-automation",
-    lead: "Musharraf Aziz",
-    color: "from-terracotta/10 to-sage/5",
-  },
-  {
-    number: "05",
-    title: "AI Chatbots & Agents",
-    description:
-      "Intelligent chatbots and AI call agents that handle customer support, lead qualification, and sales 24/7. RAG-powered, context-aware, actually useful.",
-    tech: ["RAG", "LLMs", "Call Agents", "Chatbots", "Vector DBs"],
-    href: "/services/ai-chatbots-agents",
-    lead: "Musharraf Aziz",
-    color: "from-sage/10 to-terracotta/5",
-  },
-];
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "ServicesPage" });
 
-export default function ServicesPage() {
+  return {
+    title: t("metaTitle"),
+    description: t("metaDescription"),
+  };
+}
+
+export default async function ServicesPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "ServicesPage" });
+  const services = t.raw("services") as ServicesPageItem[];
+
   return (
     <section className="section-padding pt-32">
       <div className="container-custom">
@@ -70,18 +43,16 @@ export default function ServicesPage() {
             <div className="flex items-center gap-4 mb-4">
               <div className="line-decoration" />
               <span className="font-mono text-xs tracking-[0.3em] text-richblack/40 dark:text-cream/40 uppercase">
-                Our Services
+                {t("eyebrow")}
               </span>
             </div>
             <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
-              Everything you need.
+              {t("headingLine1")}
               <br />
-              <span className="text-terracotta">Nothing you don&apos;t.</span>
+              <span className="text-terracotta">{t("headingLine2")}</span>
             </h1>
             <p className="mt-6 text-lg text-richblack/50 dark:text-cream/50 max-w-2xl">
-              We don&apos;t do everything. We do five things — and we do them
-              exceptionally well. Each service is led by a specialist, not a
-              generalist pretending to know it all.
+              {t("description")}
             </p>
           </div>
         </AnimatedSection>
@@ -111,7 +82,7 @@ export default function ServicesPage() {
                   {/* Tech & Lead */}
                   <div className="lg:col-span-4">
                     <p className="text-xs text-richblack/30 dark:text-cream/30 uppercase tracking-wider mb-3">
-                      Technologies
+                      {t("technologiesLabel")}
                     </p>
                     <div className="flex flex-wrap gap-2">
                       {service.tech.map((t) => (
@@ -126,7 +97,7 @@ export default function ServicesPage() {
                     <div className="mt-4 flex items-center gap-2">
                       <div className="h-6 w-6 rounded-full bg-stone/20" />
                       <span className="text-sm text-richblack/40 dark:text-cream/40">
-                        Led by {service.lead}
+                        {t("ledBy")} {service.lead}
                       </span>
                     </div>
                   </div>
@@ -159,14 +130,14 @@ export default function ServicesPage() {
         <AnimatedSection>
           <div className="mt-20 text-center">
             <p className="text-richblack/50 dark:text-cream/50 text-lg">
-              Not sure which service you need?{" "}
+              {t("ctaPrefix")} {" "}
               <a
                 href="https://wa.me/923154823517"
                 className="text-terracotta underline underline-offset-2"
               >
-                WhatsApp us
+                {t("ctaLink")}
               </a>{" "}
-              — we&apos;ll figure it out together in 5 minutes.
+              {t("ctaSuffix")}
             </p>
           </div>
         </AnimatedSection>

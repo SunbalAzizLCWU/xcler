@@ -18,7 +18,7 @@
     "sections": {
       "services": "Leistungen",
       "company": "Unternehmen",
-      "contact": "Kontakt"
+      "legal": "Rechtliches"
     },
     "links": {
       "services": {
@@ -30,9 +30,6 @@
       },
       "company": {
         "about": "Über uns",
-        "work": "Unsere Projekte",
-        "blog": "Blog",
-        "pricing": "Preise",
         "contact": "Kontakt"
       },
       "legal": {
@@ -373,41 +370,39 @@
     "updatesBody": "[HIER HINWEIS ZU AENDERUNGEN DER COOKIE-RICHTLINIE EINFUEGEN]"
   },
   "AboutPage": {
-    "metaTitle": "Über Uns | XCLER KI-Agentur",
-    "metaDescription": "XCLER ist Ihr Premium-B2B-Partner für Webplattformen, KI-Agenten und Automatisierungssysteme mit Fokus auf Effizienz, Präzision und Skalierbarkeit.",
+    "metaTitle": "Über Uns | XCLER AI Automation",
+    "metaDescription": "Erfahren Sie, wie XCLER B2B-Unternehmen mit KI-Automatisierung, technischer Präzision und operativer Klarheit nachhaltig skaliert.",
     "eyebrow": "Über Uns",
-    "heroTitleLine1": "Entwickelt für Unternehmen,",
-    "heroTitleLine2": "die auf Skalierung setzen.",
-    "mission": "Wir arbeiten mit anspruchsvollen Unternehmen, die mehr erwarten als Standardlösungen. XCLER realisiert digitale Systeme, in denen technische Exzellenz, operative Klarheit und nachhaltiges Wachstum nahtlos zusammenwirken.",
-    "valuesHeading": "Kernwerte",
-    "values": {
-      "efficiency": {
-        "title": "Effizienz",
-        "description": "Wir reduzieren Reibung in Prozessen, Kommunikation und Umsetzung. Jede Iteration ist darauf ausgelegt, Ihr Unternehmen messbar voranzubringen."
-      },
-      "precision": {
-        "title": "Präzision",
-        "description": "Unsere Entscheidungen basieren auf Daten, Architektur und klaren technischen Standards. So entsteht ein Produkt, das auch unter realer Last verlässlich performt."
-      },
-      "scalability": {
-        "title": "Skalierbarkeit",
-        "description": "Vom MVP bis zur etablierten Plattform entwickeln wir für langfristige Entwicklung. Ihre Systeme bleiben anpassungsfähig, wenn Komplexität, Traffic und Prozesse wachsen."
-      }
-    }
+    "heroTitleLine1": "Industrielle Klarheit.",
+    "heroTitleLine2": "Menschlich gedachte Automatisierung.",
+    "mission": "Unsere Mission ist es, ambitionierten B2B-Unternehmen operative Komplexität zu nehmen. Wir verbinden strategische Weitsicht, präzises Engineering und KI-Automatisierung, damit Ihre Prozesse robuster, schneller und nachhaltig skalierbar werden."
   },
   "ContactPage": {
-    "metaTitle": "Kontakt | Starten Sie Ihr KI-Projekt",
-    "metaDescription": "Kontaktieren Sie XCLER, um Ihr nächstes KI-, Automatisierungs- oder Webplattform-Projekt mit einem Premium-B2B-Team umzusetzen.",
+    "metaTitle": "Kontakt | XCLER AI Automation",
+    "metaDescription": "Kontaktieren Sie XCLER, um KI-Automatisierung, Plattform-Engineering und Prozessoptimierung strukturiert umzusetzen.",
     "eyebrow": "Kontakt",
-    "headingLine1": "Starten Sie Ihr",
-    "headingLine2": "KI-Projekt.",
-    "intro": "Für Unternehmen mit hohem Anspruch an Struktur, Tempo und strategische Umsetzung bieten wir Ihnen direkten Zugang zu erfahrenen Spezialisten.",
+    "headingLine1": "Planen Sie mit uns",
+    "headingLine2": "Ihre nächste KI-Initiative.",
+    "intro": "Beschreiben Sie uns Ihre aktuellen Engpässe. Sie erhalten von uns einen klaren, umsetzbaren Fahrplan, um Abläufe zu automatisieren, zu vereinfachen und gezielt zu skalieren.",
     "emailLabel": "E-Mail",
+    "phoneLabel": "Telefon",
     "hoursLabel": "Geschäftszeiten",
     "hoursValue": "Mo-Fr, 09:00-18:00 CET",
-    "addressLabel": "Adresse",
-    "addressValue": "[Muenchen/Berlin Adress-Platzhalter]\nDeutschland",
     "responseTime": "Wir antworten an Werktagen innerhalb von 24 Stunden."
+  },
+  "BlogPage": {
+    "metaTitle": "Unser Blog | XCLER AI Automation",
+    "metaDescription": "Einblicke zu KI-Automatisierung, digitalen Abläufen und skalierbarer Produktumsetzung für anspruchsvolle B2B-Teams.",
+    "title": "Operative Intelligenz für ambitionierte Unternehmen.",
+    "eyebrow": "Unser Blog",
+    "headingLine1": "Operative Intelligenz",
+    "headingLine2": "für ambitionierte Unternehmen.",
+    "description": "Entdecken Sie praxisnahe Perspektiven zu Automatisierungsstrategie, Implementierung und Engineering-Entscheidungen, die Ihr Team schneller und strukturierter voranbringen.",
+    "emptyState": "Es wurden noch keine Artikel veröffentlicht. Der erste Beitrag folgt in Kürze.",
+    "backToBlog": "Zurück zum Blog",
+    "readArticle": "Artikel lesen",
+    "byLabel": "Von",
+    "imageFallback": "Keine Vorschau"
   },
   "CookieBanner": {
     "eyebrow": "Cookie-Einstellungen",

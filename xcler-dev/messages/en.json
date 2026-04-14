@@ -18,7 +18,7 @@
     "sections": {
       "services": "Services",
       "company": "Company",
-      "contact": "Contact"
+      "legal": "Legal"
     },
     "links": {
       "services": {
@@ -30,9 +30,6 @@
       },
       "company": {
         "about": "About Us",
-        "work": "Our Work",
-        "blog": "Blog",
-        "pricing": "Pricing",
         "contact": "Contact"
       },
       "legal": {
@@ -373,41 +370,94 @@
     "updatesBody": "[ADD NOTE ABOUT POLICY UPDATES]"
   },
   "AboutPage": {
-    "metaTitle": "About Us | XCLER AI Agency",
-    "metaDescription": "XCLER is your premium B2B partner for web platforms, AI agents, and automation systems built with efficiency, precision, and scalability.",
+    "metaTitle": "Über Uns | XCLER AI Automation",
+    "metaDescription": "Learn how XCLER helps B2B companies design AI automation systems with operational clarity, measurable efficiency, and scalable execution.",
     "eyebrow": "About Us",
-    "heroTitleLine1": "Built for teams that",
-    "heroTitleLine2": "operate at scale.",
-    "mission": "We partner with ambitious companies that expect more than generic execution. XCLER designs and ships digital systems where engineering discipline, operational clarity, and long-term growth work as one.",
-    "valuesHeading": "Core Values",
-    "values": {
-      "efficiency": {
-        "title": "Efficiency",
-        "description": "We eliminate friction in processes, communication, and delivery. Every sprint is designed to move your business forward with measurable momentum."
-      },
-      "precision": {
-        "title": "Precision",
-        "description": "Decisions are rooted in data, architecture, and technical standards. We build with intent so your product performs reliably under real-world pressure."
-      },
-      "scalability": {
-        "title": "Scalability",
-        "description": "From MVP to mature platform, we engineer for sustainable growth. Your systems stay adaptable as complexity, traffic, and operations expand."
-      }
-    }
+    "heroTitleLine1": "Industrial clarity.",
+    "heroTitleLine2": "Human-centered automation.",
+    "mission": "Our mission is to help ambitious B2B teams remove operational noise through intelligent systems. We combine strategic thinking, disciplined engineering, and AI automation to create resilient digital operations that scale with confidence."
   },
   "ContactPage": {
-    "metaTitle": "Contact | Start Your AI Project",
-    "metaDescription": "Contact XCLER to plan your next AI, automation, or web platform initiative with a premium B2B delivery team.",
+    "metaTitle": "Kontakt | XCLER AI Automation",
+    "metaDescription": "Contact XCLER to discuss AI automation, platform engineering, and process optimization for your business.",
     "eyebrow": "Contact",
-    "headingLine1": "Start your",
-    "headingLine2": "AI project.",
-    "intro": "For teams that value structure, speed, and strategic execution, we provide direct access to senior builders from day one.",
+    "headingLine1": "Let's plan your",
+    "headingLine2": "next AI initiative.",
+    "intro": "Tell us where your bottlenecks are today. We will come back with a practical path to automate, simplify, and scale your operations.",
     "emailLabel": "Email",
+    "phoneLabel": "Phone",
     "hoursLabel": "Business Hours",
     "hoursValue": "Mon-Fri, 09:00-18:00 CET",
-    "addressLabel": "Address",
-    "addressValue": "[Munich/Berlin Address Placeholder]\nGermany",
-    "responseTime": "We reply within 24 hours on business days."
+    "responseTime": "We respond within 24 hours on business days."
+  },
+  "BlogPage": {
+    "metaTitle": "Insights | XCLER AI Automation",
+    "metaDescription": "Insights on AI automation, digital operations, and scalable product execution for modern B2B teams.",
+    "title": "Operational Intelligence for Ambitious Companies.",
+    "eyebrow": "Insights",
+    "headingLine1": "Operational intelligence",
+    "headingLine2": "for ambitious teams.",
+    "description": "Discover actionable insights on automation strategy, implementation, and engineering decisions that move your team forward with speed and structure.",
+    "emptyState": "No articles published yet. Your first insight is on the way.",
+    "backToBlog": "Back to Insights",
+    "readArticle": "Read Article",
+    "byLabel": "By",
+    "imageFallback": "No Preview"
+  },
+  "ServicesPage": {
+    "metaTitle": "Services | XCLER AI Automation",
+    "metaDescription": "Web engineering, app delivery, Shopify and WordPress execution, workflow automation, and AI agent systems for ambitious teams.",
+    "eyebrow": "Our Services",
+    "headingLine1": "Everything you need.",
+    "headingLine2": "Nothing you don't.",
+    "description": "We do not offer everything. We offer five services and execute each at senior level with clear ownership and measurable outcomes.",
+    "technologiesLabel": "Technologies",
+    "ledBy": "Led by",
+    "ctaPrefix": "Not sure which service fits your goals?",
+    "ctaLink": "Message us on WhatsApp",
+    "ctaSuffix": "and we will map the right path with you in minutes.",
+    "services": [
+      {
+        "number": "01",
+        "title": "Web Development",
+        "description": "Custom websites and web applications built with modern architecture for performance, SEO, and conversion.",
+        "tech": ["Next.js", "React", "TypeScript", "Tailwind CSS", "Node.js"],
+        "href": "/services/web-development",
+        "lead": "Abeel Mehr"
+      },
+      {
+        "number": "02",
+        "title": "App Development",
+        "description": "Cross-platform and native apps from MVP to production with clean architecture and reliable delivery.",
+        "tech": ["React Native", "Flutter", "Python", "REST APIs", "GraphQL"],
+        "href": "/services/app-development",
+        "lead": "Abeel Mehr"
+      },
+      {
+        "number": "03",
+        "title": "WordPress & Shopify",
+        "description": "Commerce and CMS platforms engineered for conversion, scalability, and maintainable operations.",
+        "tech": ["WordPress", "Shopify", "WooCommerce", "Liquid", "PHP"],
+        "href": "/services/wordpress-shopify",
+        "lead": "Mehru Seemab"
+      },
+      {
+        "number": "04",
+        "title": "Workflow Automation",
+        "description": "Automation systems that remove repetitive work, connect tools, and increase operational speed across teams.",
+        "tech": ["Make.com", "n8n", "Zapier", "GoHighLevel", "APIs"],
+        "href": "/services/workflow-automation",
+        "lead": "Musharraf Aziz"
+      },
+      {
+        "number": "05",
+        "title": "AI Chatbots & Agents",
+        "description": "RAG-powered chatbots and AI agents for support, lead qualification, and high-quality 24/7 customer interactions.",
+        "tech": ["RAG", "LLMs", "Call Agents", "Chatbots", "Vector DBs"],
+        "href": "/services/ai-chatbots-agents",
+        "lead": "Musharraf Aziz"
+      }
+    ]
   },
   "CookieBanner": {
     "eyebrow": "Cookie Preferences",

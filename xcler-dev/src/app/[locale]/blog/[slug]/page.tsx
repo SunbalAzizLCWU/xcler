@@ -1,153 +1,90 @@
-// src/app/blog/[slug]/page.tsx
-import { Metadata } from "next";
-import fs from "fs";
-import path from "path";
+import type { Metadata } from "next";
+import { groq, PortableText } from "next-sanity";
 import { notFound } from "next/navigation";
-import Link from "next/link";
+import { getTranslations } from "next-intl/server";
+import { Link } from "@/navigation";
+import { client } from "@/sanity/lib/client";
+import { urlFor } from "@/sanity/lib/image";
 
-function getPost(slug: string) {
-  const blogsFile = path.join(process.cwd(), "data", "blogs.json");
-  if (!fs.existsSync(blogsFile)) return null;
-  const blogs = JSON.parse(fs.readFileSync(blogsFile, "utf-8"));
-  return blogs.find((b: any) => b.slug === slug && b.published) || null;
-}
+type SanityBlogPost = {
+  _id: string;
+  title: string;
+  slug: string;
+  mainImage?: unknown;
+  imageAlt: string;
+  body: unknown[];
+};
+
+const postBySlugQuery = groq`
+  *[_type == "blogPost" && slug.current == $slug][0] {
+    _id,
+    "title": select($locale == "de" => coalesce(title_de, title_en), coalesce(title_en, title_de)),
+    "slug": slug.current,
+    mainImage,
+    "imageAlt": coalesce(mainImage.alt, title_en, title_de, "Blog post image"),
+    "body": select($locale == "de" => body_de, body_en)
+  }
+`;
 
 export async function generateMetadata({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ locale: string; slug: string }>;
 }): Promise<Metadata> {
-  const post = getPost(params.slug);
-  if (!post) return { title: "Post Not Found" };
+  const { locale, slug } = await params;
+  const post = await client.fetch<SanityBlogPost | null>(postBySlugQuery, { slug, locale });
+
+  if (!post) {
+    return {
+      title: "Post Not Found | XCLER",
+    };
+  }
 
   return {
-    title: post.metaTitle || post.title,
-    description: post.metaDescription || post.excerpt,
-    openGraph: {
-      title: post.metaTitle || post.title,
-      description: post.metaDescription || post.excerpt,
-      type: "article",
-      publishedTime: post.createdAt,
-      modifiedTime: post.updatedAt,
-      authors: ["XCLER"],
-      tags: post.tags,
-    },
+    title: `${post.title} | XCLER`,
   };
 }
 
-export default function BlogPostPage({
+export default async function BlogPostPage({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ locale: string; slug: string }>;
 }) {
-  const post = getPost(params.slug);
-  if (!post) notFound();
+  const { locale, slug } = await params;
+  const t = await getTranslations({ locale, namespace: "BlogPage" });
 
-  // Simple markdown-to-HTML (basic)
-  const htmlContent = post.content
-    .replace(/^### (.*$)/gim, '<h3 class="font-heading text-xl font-semibold mt-8 mb-3">$1</h3>')
-    .replace(/^## (.*$)/gim, '<h2 class="font-heading text-2xl font-bold mt-10 mb-4">$1</h2>')
-    .replace(/^# (.*$)/gim, '<h1 class="font-heading text-3xl font-bold mt-12 mb-4">$1</h1>')
-    .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")
-    .replace(/\*(.*?)\*/g, "<em>$1</em>")
-    .replace(/`(.*?)`/g, '<code class="bg-stone/10 px-1.5 py-0.5 rounded text-sm font-mono">$1</code>')
-    .replace(/\n\n/g, '</p><p class="mt-4 leading-relaxed text-richblack/70 dark:text-cream/70">')
-    .replace(/^(?!<[h|p|u|o|l])(.+)/gm, '<p class="mt-4 leading-relaxed text-richblack/70 dark:text-cream/70">$1</p>');
-
-  // JSON-LD for article
-  const articleJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    headline: post.title,
-    description: post.excerpt,
-    datePublished: post.createdAt,
-    dateModified: post.updatedAt,
-    author: {
-      "@type": "Organization",
-      name: "XCLER",
-      url: "https://xcler.dev",
-    },
-    publisher: {
-      "@type": "Organization",
-      name: "XCLER",
-      url: "https://xcler.dev",
-    },
-    keywords: post.tags?.join(", "),
-  };
+  const post = await client.fetch<SanityBlogPost | null>(postBySlugQuery, { slug, locale });
+  if (!post) {
+    notFound();
+  }
 
   return (
-    <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
-      />
-      <article className="section-padding pt-32">
-        <div className="container-custom max-w-3xl">
-          {/* Back link */}
-          <Link
-            href="/blog"
-            className="inline-flex items-center gap-2 text-sm text-richblack/40 dark:text-cream/40 hover:text-terracotta transition-colors mb-8"
-          >
-            ← Back to Blog
-          </Link>
+    <main className="min-h-screen bg-[#121212] px-6 text-zinc-100 sm:px-8 lg:px-10">
+      <article className="max-w-3xl mx-auto py-20">
+        <Link
+          href="/blog"
+          className="mb-8 inline-flex items-center gap-2 text-sm text-zinc-400 transition-colors hover:text-emerald-300"
+        >
+          <span aria-hidden="true">←</span>
+          <span>{t("backToBlog")}</span>
+        </Link>
 
-          {/* Header */}
-          <header>
-            <div className="flex items-center gap-3 mb-4">
-              <span className="rounded-full bg-terracotta/10 px-3 py-1 text-xs text-terracotta font-medium">
-                {post.category}
-              </span>
-              <span className="text-sm text-richblack/40 dark:text-cream/40">
-                {new Date(post.createdAt).toLocaleDateString("en-US", {
-                  month: "long",
-                  day: "numeric",
-                  year: "numeric",
-                })}
-              </span>
-            </div>
-            <h1 className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight">
-              {post.title}
-            </h1>
-            {post.excerpt && (
-              <p className="mt-4 text-lg text-richblack/50 dark:text-cream/50">
-                {post.excerpt}
-              </p>
-            )}
-            <div className="mt-6 flex flex-wrap gap-2">
-              {post.tags?.map((tag: string) => (
-                <span
-                  key={tag}
-                  className="rounded-full bg-stone/10 px-3 py-1 font-mono text-xs"
-                >
-                  #{tag}
-                </span>
-              ))}
-            </div>
-          </header>
-
-          {/* Content */}
-          <div
-            className="mt-12 prose prose-lg dark:prose-invert max-w-none"
-            dangerouslySetInnerHTML={{ __html: htmlContent }}
+        {post.mainImage ? (
+          <img
+            src={urlFor(post.mainImage).width(1400).height(780).fit("crop").quality(82).url()}
+            alt={post.imageAlt}
+            className="mb-10 h-auto w-full rounded-2xl border border-zinc-800 object-cover"
           />
+        ) : null}
 
-          {/* CTA */}
-          <div className="mt-16 rounded-2xl bg-richblack dark:bg-cream/5 p-8 text-center text-cream">
-            <h3 className="font-heading text-2xl font-bold">
-              Need help with your project?
-            </h3>
-            <p className="mt-2 text-cream/60">
-              We&apos;re ready to build something amazing together.
-            </p>
-            <Link
-              href="/contact"
-              className="mt-6 inline-flex items-center gap-2 rounded-full bg-terracotta px-8 py-3 text-white font-heading font-medium hover:bg-terracotta-light transition-colors"
-            >
-              Start a Project →
-            </Link>
-          </div>
+        <h1 className="font-heading text-4xl font-semibold tracking-tight text-white md:text-5xl">
+          {post.title}
+        </h1>
+
+        <div className="prose prose-invert prose-emerald mt-10 max-w-none prose-headings:font-heading prose-p:text-zinc-300 prose-a:text-emerald-300 hover:prose-a:text-emerald-200">
+          <PortableText value={post.body} />
         </div>
       </article>
-    </>
+    </main>
   );
 }

@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import { Link } from "@/navigation";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { useTranslations } from "next-intl";
 
@@ -17,33 +17,30 @@ export function Footer() {
     ],
     company: [
       { label: t("links.company.about"), href: "/about" },
-      { label: t("links.company.work"), href: "/work" },
-      { label: t("links.company.blog"), href: "/blog" },
-      { label: t("links.company.pricing"), href: "/pricing" },
       { label: t("links.company.contact"), href: "/contact" },
     ],
     legal: [
-      { label: t("links.legal.privacy"), href: "/privacy" },
       { label: t("links.legal.imprint"), href: "/impressum" },
+      { label: t("links.legal.privacy"), href: "/privacy" },
     ],
   };
 
   return (
-    <footer className="border-t border-stone/10 dark:border-stone-dark/10 bg-richblack text-cream">
+    <footer className="border-t border-zinc-800/80 bg-[#121212] text-zinc-200">
       {/* CTA Band */}
       <AnimatedSection>
         <div className="section-padding text-center">
           <h2 className="font-heading text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6">
             {t("cta.headingLine1")}
             <br />
-            <span className="text-terracotta">{t("cta.headingLine2")}</span>
+            <span className="text-zinc-400">{t("cta.headingLine2")}</span>
           </h2>
-          <p className="text-cream/60 text-lg max-w-xl mx-auto mb-10">
+          <p className="mx-auto mb-10 max-w-xl text-lg text-zinc-400">
             {t("cta.description")}
           </p>
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 rounded-full bg-terracotta px-10 py-4 font-heading font-medium text-white transition-all hover:bg-terracotta-light hover:scale-105"
+            className="inline-flex items-center gap-2 rounded-full border border-zinc-700 bg-zinc-900 px-10 py-4 font-heading font-medium text-zinc-100 transition-colors hover:border-zinc-500 hover:bg-zinc-800"
           >
             {t("cta.button")}
             <svg
@@ -64,15 +61,15 @@ export function Footer() {
       </AnimatedSection>
 
       {/* Links Grid */}
-      <div className="container-custom border-t border-cream/10 py-16">
+      <div className="container-custom border-t border-zinc-800/80 py-16">
         <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
           {/* Brand */}
           <div className="col-span-2 md:col-span-1">
             <span className="font-heading text-2xl font-bold">
-              XCL<span className="text-terracotta">ER</span>
-              <span className="text-stone text-sm font-mono">.dev</span>
+              XCL<span className="text-zinc-500">ER</span>
+              <span className="text-zinc-600 text-sm font-mono">.dev</span>
             </span>
-            <p className="mt-4 text-sm text-cream/50 max-w-xs">
+            <p className="mt-4 max-w-xs text-sm text-zinc-500">
               {t("brandDescription")}
             </p>
             <div className="mt-6 flex gap-4">
@@ -80,7 +77,7 @@ export function Footer() {
                 href="https://www.facebook.com/xclerdev"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-cream/40 transition-colors hover:text-terracotta"
+                className="text-zinc-500 transition-colors hover:text-white"
                 aria-label="Facebook"
               >
                 <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
@@ -91,7 +88,7 @@ export function Footer() {
                 href="https://www.instagram.com/xclerdev"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-cream/40 transition-colors hover:text-terracotta"
+                className="text-zinc-500 transition-colors hover:text-white"
                 aria-label="Instagram"
               >
                 <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
@@ -103,7 +100,7 @@ export function Footer() {
 
           {/* Services */}
           <div>
-            <h4 className="font-heading text-sm font-semibold uppercase tracking-wider text-cream/30 mb-4">
+            <h4 className="mb-4 font-heading text-sm font-semibold uppercase tracking-wider text-zinc-500">
               {t("sections.services")}
             </h4>
             <ul className="space-y-3">
@@ -111,7 +108,7 @@ export function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-cream/60 transition-colors hover:text-terracotta"
+                    className="text-sm text-zinc-400 transition-colors hover:text-white"
                   >
                     {link.label}
                   </Link>
@@ -122,7 +119,7 @@ export function Footer() {
 
           {/* Company */}
           <div>
-            <h4 className="font-heading text-sm font-semibold uppercase tracking-wider text-cream/30 mb-4">
+            <h4 className="mb-4 font-heading text-sm font-semibold uppercase tracking-wider text-zinc-500">
               {t("sections.company")}
             </h4>
             <ul className="space-y-3">
@@ -130,7 +127,7 @@ export function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-cream/60 transition-colors hover:text-terracotta"
+                    className="text-sm text-zinc-400 transition-colors hover:text-white"
                   >
                     {link.label}
                   </Link>
@@ -139,49 +136,36 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Contact */}
+          {/* Legal */}
           <div>
-            <h4 className="font-heading text-sm font-semibold uppercase tracking-wider text-cream/30 mb-4">
-              {t("sections.contact")}
+            <h4 className="mb-4 font-heading text-sm font-semibold uppercase tracking-wider text-zinc-500">
+              {t("sections.legal")}
             </h4>
-            <ul className="space-y-3 text-sm text-cream/60">
-              <li>
-                <a
-                  href="mailto:hello@xcler.dev"
-                  className="transition-colors hover:text-terracotta"
-                >
-                  hello@xcler.dev
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://wa.me/923154823517"
-                  className="transition-colors hover:text-terracotta"
-                >
-                  {t("contact.phone")}
-                </a>
-              </li>
-              <li className="text-cream/40">{t("contact.region")}</li>
+            <ul className="space-y-3">
+              {footerLinks.legal.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="text-sm text-zinc-400 transition-colors hover:text-white"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-16 flex flex-col items-center justify-between gap-4 border-t border-cream/10 pt-8 md:flex-row">
-          <p className="text-xs text-cream/30">
+        <div className="mt-16 flex flex-col items-center justify-between gap-4 border-t border-zinc-800/80 pt-8 md:flex-row">
+          <p className="text-xs text-zinc-600">
             {t("copyright", { year: currentYear })}
           </p>
-          <div className="flex gap-6">
-            {footerLinks.legal.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="text-xs text-cream/30 transition-colors hover:text-cream/60"
-              >
-                {link.label}
-              </Link>
-            ))}
-          </div>
+          <p className="text-xs text-zinc-500">
+            <a href="mailto:hello@xcler.dev" className="transition-colors hover:text-white">
+              hello@xcler.dev
+            </a>
+          </p>
         </div>
       </div>
     </footer>

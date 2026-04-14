@@ -31,6 +31,7 @@ export function LanguageSwitcher() {
             key={item}
             href={pathname}
             locale={item}
+            prefetch
             className={`relative z-10 inline-flex h-8 w-[50px] items-center justify-center rounded-full font-mono text-[11px] font-semibold tracking-wider uppercase transition-colors ${
               isActive
                 ? "text-white"

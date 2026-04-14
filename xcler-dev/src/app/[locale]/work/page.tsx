@@ -10,6 +10,7 @@ type ProjectItem = {
   description: string;
   tech: string[];
   color: string;
+  slug: string;
 };
 
 export async function generateMetadata({
@@ -34,12 +35,12 @@ export default async function WorkPage({
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "WorkPage" });
   const projects = t.raw("projects") as ProjectItem[];
-  const projectImages = [
-    "/projects/green-navigator.jpg",
-    "/projects/aegisflow.jpg",
-    "/projects/visapath.jpg",
-    "/projects/overwatch.jpg",
-  ];
+  const projectImages: Record<string, string> = {
+    "green-navigator": "/projects/green-navigator.jpg",
+    aegisflow: "/projects/aegisflow.jpg",
+    visapath: "/projects/visapath.jpg",
+    "overwatch-ai": "/projects/overwatch.jpg",
+  };
 
   return (
     <section className="section-padding pt-32">
@@ -70,7 +71,7 @@ export default async function WorkPage({
                 {/* Project image */}
                 <div className="relative h-64 lg:h-auto min-h-[300px] overflow-hidden">
                   <Image
-                    src={projectImages[i] ?? "/projects/green-navigator.jpg"}
+                    src={projectImages[project.slug] ?? "/projects/green-navigator.jpg"}
                     alt={project.title}
                     fill
                     sizes="(max-width: 1024px) 100vw, 50vw"
@@ -101,6 +102,16 @@ export default async function WorkPage({
                       </span>
                     ))}
                   </div>
+
+                  <Link
+                    href={`/work/${project.slug}`}
+                    className="mt-6 inline-flex items-center gap-2 font-heading text-sm font-medium text-terracotta transition-all hover:gap-3"
+                  >
+                    {locale === "de" ? "Fallstudie ansehen" : "View Case Study"}
+                    <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </Link>
                 </div>
               </div>
             </AnimatedSection>

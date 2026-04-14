@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
-import Link from "next/link";
+import { Link } from "@/navigation";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 

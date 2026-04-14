@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ThemeToggle } from "@/components/ui/ThemeToggle";
 import { MagneticButton } from "@/components/ui/MagneticButton";
 import { LanguageSwitcher } from "@/components/ui/LanguageSwitcher";
 import { cn } from "@/lib/utils";
@@ -92,7 +91,6 @@ export function Navbar() {
           {/* Desktop Right */}
           <div className="hidden items-center gap-4 lg:flex">
             <LanguageSwitcher />
-            <ThemeToggle />
             <MagneticButton href="/contact" variant="primary" size="sm">
               {t('contactBtn')}
             </MagneticButton>
@@ -101,7 +99,6 @@ export function Navbar() {
           {/* Mobile Menu Button */}
           <div className="flex items-center gap-3 lg:hidden">
             <LanguageSwitcher />
-            <ThemeToggle />
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="relative z-[101] flex h-10 w-10 items-center justify-center"

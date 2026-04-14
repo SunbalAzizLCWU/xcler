@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
-import { AnimatePresence, motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { useTranslations } from "next-intl";
 import { MagneticButton } from "@/components/ui/MagneticButton";
 
@@ -10,9 +10,6 @@ export function HeroSection() {
   const shouldReduceMotion = useReducedMotion();
   const containerRef = useRef<HTMLElement | null>(null);
   const [wordIndex, setWordIndex] = useState(0);
-  const { scrollY } = useScroll();
-  const y = useTransform(scrollY, [0, 900], ["0%", "30%"]);
-  const opacity = useTransform(scrollY, [0, 450], [1, 0]);
 
   const rotatingWords = useMemo(() => {
     const rawWords = t.raw("rotatingWordsList");
@@ -56,11 +53,7 @@ export function HeroSection() {
       </div>
 
       <motion.div
-        style={
-          shouldReduceMotion
-            ? { opacity: 1 }
-            : { y, opacity }
-        }
+        style={{ opacity: 1 }}
         className="relative z-10 container-custom pt-24"
       >
         <div className="max-w-5xl mx-auto text-center">

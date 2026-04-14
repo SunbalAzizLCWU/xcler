@@ -489,6 +489,7 @@
     "projects": [
       {
         "title": "Green Navigator",
+        "slug": "green-navigator",
         "category": "B2B SaaS • Carbon Reporting",
         "description": "Eine Premium-B2B-SaaS-Lösung für lokalisiertes Carbon Reporting, die mit Gemini Flash OCR Versorgerrechnungen in auditfähige Umweltinformationen überführt.",
         "tech": ["Next.js", "Gemini AI", "OCR", "Data Visualization"],
@@ -496,6 +497,7 @@
       },
       {
         "title": "AegisFlow",
+        "slug": "aegisflow",
         "category": "FinTech SaaS • Risikomanagement",
         "description": "Enterprise-Finanz-SaaS mit LSTM-Neuronalen Netzen und GANs für prognostische Liquiditätsplanung und KI-gestütztes Risikomanagement.",
         "tech": ["Python", "LSTM", "GANs", "FastAPI", "React"],
@@ -503,6 +505,7 @@
       },
       {
         "title": "VisaPath",
+        "slug": "visapath",
         "category": "B2C SaaS • Travel Tech",
         "description": "Eine Plattform für digitale Nomaden und Vielreisende zur Optimierung von Visa-Strategien über globale Zugangskarten und KI-optimierte Reiserouten.",
         "tech": ["React", "Node.js", "Maps API", "AI Routing"],
@@ -510,6 +513,7 @@
       },
       {
         "title": "Overwatch AI",
+        "slug": "overwatch-ai",
         "category": "Sicherheit • Bedrohungserkennung",
         "description": "Ein cineastisches KI-Command-Center mit Gemini Flash zur multimodalen Betrugserkennung über Audio-, Bild- und Textsignale in Echtzeit.",
         "tech": ["Gemini AI", "WebSockets", "Python", "React", "Real-time"],

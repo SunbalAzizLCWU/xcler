@@ -45,10 +45,15 @@ export function ContactSection() {
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          ...formData,
+          formSource: "homepage-contact-section",
+          pageUrl: typeof window !== "undefined" ? window.location.href : "",
+        }),
       });
+      const data = await res.json().catch(() => null);
 
-      if (res.ok) {
+      if (res.ok && data?.emailId) {
         setIsSubmitted(true);
         setFormData({
           name: "",
@@ -58,6 +63,8 @@ export function ContactSection() {
           budget: "",
           message: "",
         });
+      } else {
+        alert(data?.error || "Failed to send message. Please try again.");
       }
     } catch (error) {
       console.error("Form submission error:", error);

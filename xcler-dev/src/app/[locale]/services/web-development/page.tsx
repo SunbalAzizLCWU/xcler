@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Script from "next/script";
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/navigation";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
@@ -48,9 +47,8 @@ export default async function WebDevelopmentPage({
 
   return (
     <>
-      <Script
+      <script
         id="web-dev-jsonld"
-        strategy="beforeInteractive"
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />

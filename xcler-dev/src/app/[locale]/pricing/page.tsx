@@ -1,12 +1,28 @@
-import { Metadata } from "next";
+import type { Metadata } from "next";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Pricing } from "@/components/sections/Pricing";
 
-export const metadata: Metadata = {
-  title: "Pricing | XCLER — Transparent Web Development Pricing",
-  description:
-    "Transparent pricing for web development, app development, WordPress, Shopify, automation, and AI services. Projects start from €150. No hidden fees.",
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "Pricing" });
 
-export default function PricingPage() {
+  return {
+    title: `${t("eyebrow")} | XCLER`,
+    description: t("introDescription"),
+  };
+}
+
+export default async function PricingPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+
   return <Pricing />;
 }

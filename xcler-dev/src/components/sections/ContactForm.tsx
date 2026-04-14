@@ -43,10 +43,15 @@ export function ContactForm() {
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          ...formData,
+          formSource: "contact-page",
+          pageUrl: typeof window !== "undefined" ? window.location.href : "",
+        }),
       });
+      const data = await res.json().catch(() => null);
 
-      if (res.ok) {
+      if (res.ok && data?.emailId) {
         alert("Message sent successfully.");
         setSubmittedName(formData.name);
         setIsSubmitted(true);
@@ -59,7 +64,7 @@ export function ContactForm() {
           message: "",
         });
       } else {
-        alert("Failed to send message. Please try again.");
+        alert(data?.error || "Failed to send message. Please try again.");
       }
     } catch (error) {
       console.error("Form submission error:", error);

@@ -198,6 +198,7 @@ export function ServicesSection() {
                           alt={services[activeService].lead}
                           fill
                           className="object-cover"
+                          sizes="32px"
                         />
                       </div>
                     ) : (

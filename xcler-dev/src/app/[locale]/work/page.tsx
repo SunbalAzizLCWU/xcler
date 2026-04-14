@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/navigation";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
+import Image from "next/image";
 
 type ProjectItem = {
   title: string;
@@ -33,6 +34,12 @@ export default async function WorkPage({
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "WorkPage" });
   const projects = t.raw("projects") as ProjectItem[];
+  const projectImages = [
+    "/projects/green-navigator.jpg",
+    "/projects/aegisflow.jpg",
+    "/projects/visapath.jpg",
+    "/projects/overwatch.jpg",
+  ];
 
   return (
     <section className="section-padding pt-32">
@@ -60,11 +67,17 @@ export default async function WorkPage({
           {projects.map((project, i) => (
             <AnimatedSection key={project.title} delay={i * 0.1}>
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 rounded-2xl border border-stone/10 dark:border-stone-dark/10 bg-white dark:bg-richblack/30 overflow-hidden transition-all duration-300 hover:border-terracotta/20 hover:shadow-lg">
-                {/* Image placeholder */}
-                <div className={`h-64 lg:h-auto bg-gradient-to-br ${project.color} flex items-center justify-center min-h-[300px]`}>
-                  <span className="font-heading text-4xl font-bold text-richblack/5 dark:text-cream/5">
-                    {project.title}
-                  </span>
+                {/* Project image */}
+                <div className="relative h-64 lg:h-auto min-h-[300px] overflow-hidden">
+                  <Image
+                    src={projectImages[i] ?? "/projects/green-navigator.jpg"}
+                    alt={project.title}
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                    className={`object-cover transition-transform duration-700 hover:scale-105 ${
+                      i === 0 || i === 3 ? "object-top" : ""
+                    }`}
+                  />
                 </div>
 
                 {/* Content */}

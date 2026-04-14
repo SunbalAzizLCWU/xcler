@@ -1,6 +1,5 @@
 // src/app/layout.tsx
 import type { Metadata } from "next";
-import Script from "next/script";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations } from "next-intl/server";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
@@ -33,6 +32,11 @@ export async function generateMetadata({
       template: "%s | XCLER",
     },
     description: pageDescription,
+    icons: {
+      icon: [{ url: "/favicon.ico" }],
+      shortcut: [{ url: "/favicon.ico" }],
+      apple: [{ url: "/apple-touch-icon.png" }],
+    },
     alternates: {
       languages: {
         "en-US": "/en",
@@ -275,71 +279,11 @@ export default async function RootLayout({
   const { locale } = await params;
   const messages = await getMessages({ locale });
 
-  const hydrationSanitizerScript = `
-    (() => {
-      const removeNoiseAttrs = (el) => {
-        if (!(el instanceof Element)) return;
-
-        if (el.hasAttribute("bis_skin_checked")) {
-          el.removeAttribute("bis_skin_checked");
-        }
-
-        if (el.hasAttribute("bis_register")) {
-          el.removeAttribute("bis_register");
-        }
-
-        for (const name of el.getAttributeNames()) {
-          if (name.startsWith("__processed_") && name.endsWith("__")) {
-            el.removeAttribute(name);
-          }
-        }
-      };
-
-      const cleanTree = (root) => {
-        if (!root || !root.querySelectorAll) return;
-        removeNoiseAttrs(root);
-        for (const node of root.querySelectorAll("*")) {
-          removeNoiseAttrs(node);
-        }
-      };
-
-      cleanTree(document.documentElement);
-
-      const observer = new MutationObserver((mutations) => {
-        for (const mutation of mutations) {
-          if (mutation.type === "attributes") {
-            removeNoiseAttrs(mutation.target);
-          }
-
-          for (const node of mutation.addedNodes) {
-            if (node instanceof Element) {
-              cleanTree(node);
-            }
-          }
-        }
-      });
-
-      observer.observe(document.documentElement, {
-        subtree: true,
-        childList: true,
-        attributes: true,
-      });
-    })();
-  `;
-
   return (
     <html lang={locale} data-scroll-behavior="smooth" suppressHydrationWarning>
       <head>
-        <Script
-          id="hydration-sanitizer"
-          strategy="beforeInteractive"
-          suppressHydrationWarning
-          dangerouslySetInnerHTML={{ __html: hydrationSanitizerScript }}
-        />
-        <Script
+        <script
           id="org-jsonld"
-          strategy="beforeInteractive"
-          suppressHydrationWarning
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />

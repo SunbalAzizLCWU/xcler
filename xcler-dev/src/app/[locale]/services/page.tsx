@@ -113,6 +113,7 @@ export default async function ServicesPage({
                             alt={service.lead}
                             fill
                             className="object-cover"
+                            sizes="24px"
                           />
                         </div>
                       ) : (

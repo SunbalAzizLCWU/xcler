@@ -15,6 +15,50 @@ type SanityBlogPost = {
   body: Array<Record<string, unknown>>;
 };
 
+const portableTextComponents = {
+  types: {
+    image: ({ value }: { value: any }) => {
+      if (!value?.asset) return null;
+
+      return (
+        <img
+          src={urlFor(value).url()}
+          alt={value.alt || "Xcler Blog Image"}
+          className="my-8 h-auto w-full rounded-2xl"
+        />
+      );
+    },
+    table: ({ value }: { value: { rows?: Array<{ _key?: string; cells?: unknown[] }> } }) => {
+      const rows = value?.rows ?? [];
+
+      if (!rows.length) return null;
+
+      return (
+        <div className="my-8 overflow-x-auto">
+          <table className="w-full border border-stone/20 border-collapse">
+            <tbody>
+              {rows.map((row, rowIndex) => (
+                <tr key={row._key ?? `row-${rowIndex}`} className={rowIndex === 0 ? "bg-stone/5" : undefined}>
+                  {(row.cells ?? []).map((cell, cellIndex) => {
+                    const content = typeof cell === "string" ? cell : String(cell ?? "");
+                    const CellTag = rowIndex === 0 ? "th" : "td";
+
+                    return (
+                      <CellTag key={`cell-${rowIndex}-${cellIndex}`} className="border border-stone/20 p-3 text-left align-top">
+                        {content}
+                      </CellTag>
+                    );
+                  })}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      );
+    },
+  },
+};
+
 const postBySlugQuery = groq`
   *[_type == "blogPost" && slug.current == $slug][0] {
     _id,
@@ -82,7 +126,7 @@ export default async function BlogPostPage({
         </h1>
 
         <div className="prose prose-lg mt-10 max-w-none dark:prose-invert prose-headings:font-heading prose-headings:text-richblack dark:prose-headings:text-white prose-p:text-richblack/70 dark:prose-p:text-cream/70 prose-a:text-terracotta hover:prose-a:text-terracotta-light">
-          <PortableText value={post.body as any} />
+          <PortableText value={post.body as any} components={portableTextComponents} />
         </div>
       </article>
     </section>

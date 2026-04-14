@@ -56,7 +56,23 @@ export const blogPost = defineType({
       name: 'body_en',
       title: 'Body (English)',
       type: 'array',
-      of: [{type: 'block'}],
+      of: [
+        {type: 'block'},
+        {
+          type: 'image',
+          options: {hotspot: true},
+          fields: [
+            {
+              name: 'alt',
+              title: 'Alternative Text',
+              type: 'string',
+              validation: (rule) => rule.required(),
+              description: 'Critical for SEO and accessibility. Describe what is in the image.'
+            }
+          ]
+        },
+        {type: 'table'}
+      ],
       validation: (rule) => rule.required().min(1),
       description: 'Portable Text content for English locale.'
     }),
@@ -64,7 +80,23 @@ export const blogPost = defineType({
       name: 'body_de',
       title: 'Body (German)',
       type: 'array',
-      of: [{type: 'block'}],
+      of: [
+        {type: 'block'},
+        {
+          type: 'image',
+          options: {hotspot: true},
+          fields: [
+            {
+              name: 'alt',
+              title: 'Alternative Text',
+              type: 'string',
+              validation: (rule) => rule.required(),
+              description: 'Critical for SEO and accessibility. Describe what is in the image.'
+            }
+          ]
+        },
+        {type: 'table'}
+      ],
       validation: (rule) => rule.required().min(1),
       description: 'Portable Text content for German locale.'
     })

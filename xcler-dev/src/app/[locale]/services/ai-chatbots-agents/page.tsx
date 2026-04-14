@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/navigation";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { getServiceSchema } from "@/lib/structuredData";
+import { getCanonicalPath } from "@/lib/canonical";
 
 type CapabilityItem = {
   title: string;
@@ -19,6 +22,9 @@ export async function generateMetadata({
   return {
     title: t("metaTitle"),
     description: t("metaDescription"),
+    alternates: {
+      canonical: getCanonicalPath(locale, "/services/ai-chatbots-agents"),
+    },
   };
 }
 
@@ -30,10 +36,18 @@ export default async function AIChatbotsPage({
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "ServiceAiChatbotsPage" });
   const capabilities = t.raw("capabilities") as CapabilityItem[];
+  const schema = getServiceSchema({
+    locale: locale === "en" ? "en" : "de",
+    slug: "ai-chatbots-agents",
+    name: t("headingLine1") + " " + t("headingLine2"),
+    description: t("metaDescription"),
+  });
 
   return (
-    <section className="section-padding pt-32">
-      <div className="container-custom">
+    <>
+      <JsonLd id={`service-ai-chatbots-agents-${locale}`} data={schema} />
+      <section className="section-padding pt-32">
+        <div className="container-custom">
         <AnimatedSection>
           <Link
             href="/services"
@@ -80,7 +94,8 @@ export default async function AIChatbotsPage({
             </Link>
           </div>
         </AnimatedSection>
-      </div>
-    </section>
+        </div>
+      </section>
+    </>
   );
 }

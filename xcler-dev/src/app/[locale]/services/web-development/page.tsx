@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
-import Script from "next/script";
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/navigation";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { getServiceSchema } from "@/lib/structuredData";
+import { getCanonicalPath } from "@/lib/canonical";
 
 type FeatureItem = {
   title: string;
@@ -20,22 +22,11 @@ export async function generateMetadata({
   return {
     title: t("metaTitle"),
     description: t("metaDescription"),
+    alternates: {
+      canonical: getCanonicalPath(locale, "/services/web-development"),
+    },
   };
 }
-
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "Service",
-  name: "Web Development",
-  provider: {
-    "@type": "Organization",
-    name: "XCLER",
-    url: "https://xcler.dev",
-  },
-  description: "Custom web development services including websites, web applications, and landing pages.",
-  areaServed: { "@type": "Country", name: "Germany" },
-  serviceType: "Web Development",
-};
 
 export default async function WebDevelopmentPage({
   params,
@@ -45,15 +36,16 @@ export default async function WebDevelopmentPage({
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "ServiceWebDevelopmentPage" });
   const features = t.raw("features") as FeatureItem[];
+  const schema = getServiceSchema({
+    locale: locale === "en" ? "en" : "de",
+    slug: "web-development",
+    name: t("headingLine1") + " " + t("headingLine2"),
+    description: t("metaDescription"),
+  });
 
   return (
     <>
-      <Script
-        id="web-dev-jsonld"
-        strategy="afterInteractive"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+      <JsonLd id={`service-web-development-${locale}`} data={schema} />
       <section className="section-padding pt-32">
         <div className="container-custom">
           {/* Header */}

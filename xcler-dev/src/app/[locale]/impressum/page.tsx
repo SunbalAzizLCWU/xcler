@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { getCanonicalPath } from "@/lib/canonical";
 
 export async function generateMetadata({
   params,
@@ -18,7 +19,7 @@ export async function generateMetadata({
       },
     },
     alternates: {
-      canonical: `/${locale}/impressum`,
+      canonical: getCanonicalPath(locale, "/impressum"),
     },
   };
 }

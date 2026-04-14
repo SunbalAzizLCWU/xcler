@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { Team } from "@/components/sections/Team";
+import { getCanonicalPath } from "@/lib/canonical";
 
 export async function generateMetadata({
   params,
@@ -13,6 +14,9 @@ export async function generateMetadata({
   return {
     title: t("metaTitle"),
     description: t("metaDescription"),
+    alternates: {
+      canonical: getCanonicalPath(locale, "/about"),
+    },
   };
 }
 

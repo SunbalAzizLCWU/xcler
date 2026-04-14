@@ -1,24 +1,67 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { getServiceSchema } from "@/lib/structuredData";
+import { getCanonicalPath } from "@/lib/canonical";
 
-export const metadata: Metadata = {
-  title: "KI Chatbot Agentur Deutschland | KI Kundenservice automatisieren | XCLER",
-  description:
-    "Als KI Chatbot Agentur Deutschland automatisieren wir Ihren Kundenservice mit intelligenten Chatbots, RAG-Architektur und messbarem ROI fuer Unternehmen in Deutschland.",
-  keywords: [
-    "KI Chatbot Agentur Deutschland",
-    "Kundenservice automatisieren",
-    "RAG Agenten",
-    "KI Chatbot fuer Unternehmen",
-    "Chatbot Entwicklung Deutschland",
-  ],
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const isGerman = locale === "de";
 
-export default function KIChatbotsPage() {
+  return {
+    title: isGerman
+      ? "KI Chatbot Agentur Deutschland | KI Kundenservice automatisieren | XCLER"
+      : "AI Chatbot Agency Germany | Automated Customer Support | XCLER",
+    description: isGerman
+      ? "Als KI Chatbot Agentur Deutschland automatisieren wir Ihren Kundenservice mit intelligenten Chatbots, RAG-Architektur und messbarem ROI fuer Unternehmen in Deutschland."
+      : "As an AI chatbot agency for Germany, we automate customer support with intelligent chatbots, RAG architecture, and measurable ROI.",
+    keywords: isGerman
+      ? [
+          "KI Chatbot Agentur Deutschland",
+          "Kundenservice automatisieren",
+          "RAG Agenten",
+          "KI Chatbot fuer Unternehmen",
+          "Chatbot Entwicklung Deutschland",
+        ]
+      : [
+          "AI chatbot agency Germany",
+          "automated customer support",
+          "RAG agents",
+          "AI chatbot development",
+          "chatbot development Germany",
+        ],
+    alternates: {
+      canonical: getCanonicalPath(locale, "/services/ki-chatbots"),
+    },
+  };
+}
+
+export default async function KIChatbotsPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  const schema = getServiceSchema({
+    locale: locale === "en" ? "en" : "de",
+    slug: "ki-chatbots",
+    name: locale === "de" ? "KI Chatbot Agentur Deutschland" : "AI Chatbot Agency Germany",
+    description:
+      locale === "de"
+        ? "KI-gestuetzte Chatbot-Entwicklung fuer Kundenservice, Lead-Qualifizierung und automatisierte Supportprozesse in Deutschland."
+        : "AI chatbot development for customer support, lead qualification, and automated service operations in Germany.",
+  });
+
   return (
-    <section className="section-padding pt-32">
-      <div className="container-custom">
+    <>
+      <JsonLd id={`service-ki-chatbots-${locale}`} data={schema} />
+      <section className="section-padding pt-32">
+        <div className="container-custom">
         <AnimatedSection>
           <Link
             href="/services"
@@ -127,7 +170,8 @@ export default function KIChatbotsPage() {
             </div>
           </div>
         </AnimatedSection>
-      </div>
-    </section>
+        </div>
+      </section>
+    </>
   );
 }

@@ -4,6 +4,7 @@ import { getTranslations } from "next-intl/server";
 import { Link } from "@/navigation";
 import { client } from "@/sanity/lib/client";
 import { urlFor } from "@/sanity/lib/image";
+import { getCanonicalPath } from "@/lib/canonical";
 
 export const revalidate = 60;
 export const dynamic = "force-dynamic";
@@ -68,6 +69,9 @@ export async function generateMetadata({
   return {
     title: t("metaTitle"),
     description: t("metaDescription"),
+    alternates: {
+      canonical: getCanonicalPath(locale, "/blog"),
+    },
   };
 }
 

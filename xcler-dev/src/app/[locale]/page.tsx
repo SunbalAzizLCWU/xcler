@@ -1,6 +1,9 @@
 // src/app/page.tsx
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { getFaqSchema } from "@/lib/structuredData";
+import { getCanonicalPath } from "@/lib/canonical";
 import { HeroSection } from "@/components/sections/HeroSection";
 import { LogoMarquee } from "@/components/sections/LogoMarquee";
 import { ServicesSection } from "@/components/sections/ServicesSection";
@@ -24,6 +27,7 @@ export async function generateMetadata({
     title: t("homeTitle"),
     description: t("homeDescription"),
     alternates: {
+      canonical: getCanonicalPath(locale, "/"),
       languages: {
         "en-US": "/en",
         "de-DE": "/de",
@@ -39,9 +43,21 @@ export async function generateMetadata({
   };
 }
 
-export default function HomePage() {
+export default async function HomePage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  const tFaq = await getTranslations({ locale, namespace: "FAQ" });
+  const faqItems = [1, 2, 3, 4, 5, 6].map((index) => ({
+    question: tFaq(`faq${index}.question`),
+    answer: tFaq(`faq${index}.answer`),
+  }));
+
   return (
     <>
+      <JsonLd id={`faq-schema-${locale}`} data={getFaqSchema(locale === "en" ? "en" : "de", faqItems)} />
       <HeroSection />
       <LogoMarquee />
       <ServicesSection />

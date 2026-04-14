@@ -3,6 +3,9 @@ import { getTranslations } from "next-intl/server";
 import { Link } from "@/navigation";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import Image from "next/image";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { getServiceCatalogSchema } from "@/lib/structuredData";
+import { getCanonicalPath } from "@/lib/canonical";
 
 type ServicesPageItem = {
   number: string;
@@ -34,6 +37,9 @@ export async function generateMetadata({
   return {
     title: t("metaTitle"),
     description: t("metaDescription"),
+    alternates: {
+      canonical: getCanonicalPath(locale, "/services"),
+    },
   };
 }
 
@@ -45,10 +51,20 @@ export default async function ServicesPage({
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "ServicesPage" });
   const services = t.raw("services") as ServicesPageItem[];
+  const schemaItems = services.map((service) => ({
+    name: service.title,
+    description: service.description,
+    href: service.href,
+  }));
 
   return (
-    <section className="section-padding pt-32">
-      <div className="container-custom">
+    <>
+      <JsonLd
+        id={`services-catalog-${locale}`}
+        data={getServiceCatalogSchema(locale === "en" ? "en" : "de", schemaItems)}
+      />
+      <section className="section-padding pt-32">
+        <div className="container-custom">
         <AnimatedSection>
           <div className="max-w-3xl">
             <div className="flex items-center gap-4 mb-4">
@@ -164,7 +180,8 @@ export default async function ServicesPage({
             </p>
           </div>
         </AnimatedSection>
-      </div>
-    </section>
+        </div>
+      </section>
+    </>
   );
 }

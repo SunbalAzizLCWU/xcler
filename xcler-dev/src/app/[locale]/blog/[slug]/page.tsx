@@ -5,6 +5,7 @@ import { getTranslations } from "next-intl/server";
 import { Link } from "@/navigation";
 import { client } from "@/sanity/lib/client";
 import { urlFor } from "@/sanity/lib/image";
+import { getCanonicalPath } from "@/lib/canonical";
 
 type PriceChartRow = {
   _key?: string;
@@ -232,11 +233,17 @@ export async function generateMetadata({
   if (!post) {
     return {
       title: "Post Not Found | XCLER",
+      alternates: {
+        canonical: getCanonicalPath(locale, `/blog/${slug}`),
+      },
     };
   }
 
   return {
     title: `${post.title} | XCLER`,
+    alternates: {
+      canonical: getCanonicalPath(locale, `/blog/${slug}`),
+    },
   };
 }
 

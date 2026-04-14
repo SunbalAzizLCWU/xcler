@@ -3,6 +3,7 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { Link } from "@/navigation";
 import { caseStudies, getCaseStudyBySlug } from "@/data/caseStudies";
+import { getCanonicalPath } from "@/lib/canonical";
 
 type RouteParams = {
   locale: "en" | "de";
@@ -24,6 +25,9 @@ export async function generateMetadata({
   if (!study) {
     return {
       title: locale === "de" ? "Fallstudie nicht gefunden | XCLER" : "Case Study Not Found | XCLER",
+      alternates: {
+        canonical: getCanonicalPath(locale, `/work/${slug}`),
+      },
     };
   }
 
@@ -34,6 +38,9 @@ export async function generateMetadata({
     title,
     description,
     keywords: study.keywords[locale],
+    alternates: {
+      canonical: getCanonicalPath(locale, `/work/${slug}`),
+    },
     openGraph: {
       title,
       description,

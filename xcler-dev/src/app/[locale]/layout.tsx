@@ -1,13 +1,32 @@
 // src/app/layout.tsx
 import type { Metadata } from "next";
-import Script from "next/script";
+import { Inter, JetBrains_Mono, Space_Grotesk } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
-import { CookieBanner } from "@/components/ui/CookieBanner";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { getGlobalSchema } from "@/lib/structuredData";
 import "../globals.css";
+
+const inter = Inter({
+  subsets: ["latin", "latin-ext"],
+  display: "swap",
+  variable: "--font-inter",
+});
+
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin", "latin-ext"],
+  display: "swap",
+  variable: "--font-space-grotesk",
+});
+
+const jetBrainsMono = JetBrains_Mono({
+  subsets: ["latin", "latin-ext"],
+  display: "swap",
+  variable: "--font-jetbrains-mono",
+});
 
 // This tells Next.js to pre-build both the /en and /de versions of the site
 export function generateStaticParams() {
@@ -101,173 +120,6 @@ export async function generateMetadata({
   };
 }
 
-// JSON-LD Structured Data
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "WebDesignCompany",
-  "@id": "https://xcler.dev/#webdesigncompany",
-  name: "XCLER",
-  url: "https://xcler.dev",
-  logo: "https://xcler.dev/logo.png",
-  image: "https://xcler.dev/og-image.png",
-  description:
-    "Web design and development company delivering conversion-focused websites, UX-first interfaces, and technical SEO for Berlin, Germany, and DACH businesses.",
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: "Friedrichstrasse 68",
-    postalCode: "10117",
-    addressLocality: "Berlin",
-    addressRegion: "Berlin",
-    addressCountry: "DE",
-  },
-  contactPoint: [
-    {
-      "@type": "ContactPoint",
-      telephone: "+923154823517",
-      contactType: "customer service",
-      email: "hello@xcler.dev",
-      availableLanguage: ["English", "German"],
-      areaServed: ["Berlin", "Germany"],
-    },
-    {
-      "@type": "ContactPoint",
-      telephone: "+923154823517",
-      contactType: "technical support",
-      email: "hello@xcler.dev",
-      availableLanguage: ["English", "German"],
-      areaServed: ["Berlin", "Germany"],
-    },
-  ],
-  sameAs: [
-    "https://www.facebook.com/xcler.dev",
-    "https://www.instagram.com/xcler.dev",
-  ],
-  founder: {
-    "@type": "Person",
-    name: "Musharraf Aziz",
-  },
-  employee: [
-    {
-      "@type": "Person",
-      name: "Abeel Mehr",
-      jobTitle: "Full Stack Developer",
-    },
-    {
-      "@type": "Person",
-      name: "Mehru Seemab",
-      jobTitle: "CMS Developer",
-    },
-  ],
-  knowsAbout: [
-    "Webentwicklung",
-    "Webdesign Agentur Berlin",
-    "WordPress Entwicklung",
-    "Shopify Entwicklung",
-    "KI-Chatbot Agentur",
-    "Prozessautomatisierung mit n8n",
-    "Automatisierung mit Make.com",
-    "Technisches SEO",
-    "Conversion-Optimierung",
-    "Next.js Agentur",
-    "App Entwicklung",
-    "UX/UI Design",
-  ],
-  areaServed: [
-    {
-      "@type": "City",
-      name: "Berlin",
-    },
-    {
-      "@type": "Country",
-      name: "Germany",
-    },
-    {
-      "@type": "AdministrativeArea",
-      name: "Bavaria",
-    },
-    {
-      "@type": "AdministrativeArea",
-      name: "Hesse",
-    },
-    {
-      "@type": "City",
-      name: "Munich",
-    },
-    {
-      "@type": "City",
-      name: "Hamburg",
-    },
-    {
-      "@type": "City",
-      name: "Frankfurt am Main",
-    },
-    {
-      "@type": "City",
-      name: "Vienna",
-    },
-    {
-      "@type": "City",
-      name: "Zurich",
-    },
-  ],
-  hasOfferCatalog: {
-    "@type": "OfferCatalog",
-    name: "Premium Web Design and Development Services",
-    itemListElement: [
-      {
-        "@type": "Offer",
-        priceCurrency: "EUR",
-        itemOffered: {
-          "@type": "Service",
-          name: "Custom Web Design",
-          serviceType: "Web Design",
-          description:
-            "High-performance, conversion-focused website design tailored for Berlin and DACH markets.",
-          areaServed: "Berlin",
-        },
-      },
-      {
-        "@type": "Offer",
-        priceCurrency: "EUR",
-        itemOffered: {
-          "@type": "Service",
-          name: "UX and Conversion Optimization",
-          serviceType: "User Experience Design",
-          description:
-            "UX architecture and CRO implementation to improve lead quality and revenue outcomes.",
-          areaServed: "Germany",
-        },
-      },
-      {
-        "@type": "Offer",
-        priceCurrency: "EUR",
-        itemOffered: {
-          "@type": "Service",
-          name: "Technical SEO Implementation",
-          serviceType: "Technical SEO",
-          description:
-            "Structured data, crawl optimization, and semantic SEO engineering for scalable visibility.",
-          areaServed: "Germany",
-        },
-      },
-      {
-        "@type": "Offer",
-        priceCurrency: "EUR",
-        itemOffered: {
-          "@type": "Service",
-          name: "WordPress and Shopify Development",
-          serviceType: "Web Development",
-          description:
-            "Custom platform builds for growth-stage brands across Berlin and surrounding tech hubs.",
-          areaServed: "DACH",
-        },
-      },
-    ],
-  },
-  priceRange: "€€",
-  currenciesAccepted: "EUR",
-};
-
 export default async function RootLayout({
   params,
   children,
@@ -280,24 +132,83 @@ export default async function RootLayout({
   const messages = await getMessages({ locale });
 
   return (
-    <html lang={locale} data-scroll-behavior="smooth" suppressHydrationWarning>
+    <html
+      lang={locale}
+      data-scroll-behavior="smooth"
+      className={`${inter.variable} ${spaceGrotesk.variable} ${jetBrainsMono.variable}`}
+      suppressHydrationWarning
+    >
       <head>
-        <Script
-          id="org-jsonld"
-          strategy="beforeInteractive"
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        <script
+          id="Cookiebot"
+          src="https://consent.cookiebot.com/uc.js"
+          data-cbid="8452dd7f-8fce-4b63-b09d-158e0ccf7d45"
+          data-blockingmode="auto"
+          type="text/javascript"></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+
+              gtag('consent', 'default', {
+                ad_storage: 'denied',
+                analytics_storage: 'denied',
+                ad_user_data: 'denied',
+                ad_personalization: 'denied'
+              });
+            `,
+          }}
         />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+              new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+              j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+              'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+              })(window,document,'script','dataLayer','GTM-K4669PCH');
+            `,
+          }}
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function () {
+                function syncConsent() {
+                  if (!window.Cookiebot || typeof window.gtag !== 'function') return;
+
+                  window.gtag('consent', 'update', {
+                    ad_storage: window.Cookiebot.consent.marketing ? 'granted' : 'denied',
+                    analytics_storage: window.Cookiebot.consent.statistics ? 'granted' : 'denied',
+                    ad_user_data: window.Cookiebot.consent.marketing ? 'granted' : 'denied',
+                    ad_personalization: window.Cookiebot.consent.marketing ? 'granted' : 'denied'
+                  });
+                }
+
+                window.addEventListener('CookiebotOnConsentReady', syncConsent);
+                window.addEventListener('CookiebotOnAccept', syncConsent);
+                window.addEventListener('CookiebotOnDecline', syncConsent);
+              })();
+            `,
+          }}
+        />
+        <JsonLd id={`global-graph-${locale}`} data={getGlobalSchema(locale === "en" ? "en" : "de")} />
         <link rel="icon" href="/favicon.ico" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/manifest.json" />
       </head>
       <body className="font-body antialiased" suppressHydrationWarning>
+        <noscript
+          dangerouslySetInnerHTML={{
+            __html:
+              '<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K4669PCH" height="0" width="0" style="display:none;visibility:hidden"></iframe>',
+          }}
+        />
         <NextIntlClientProvider locale={locale} messages={messages}>
           <Navbar />
           <main>{children}</main>
           <Footer />
-          <CookieBanner />
           <WhatsAppButton />
         </NextIntlClientProvider>
       </body>

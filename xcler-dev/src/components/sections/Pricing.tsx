@@ -95,9 +95,9 @@ export function Pricing() {
 
         <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6">
           {packages.map((pkg, i) => (
-            <AnimatedSection key={pkg.name} delay={i * 0.15}>
+            <AnimatedSection key={pkg.name} delay={i * 0.15} className="h-full">
               <div
-                className={`relative rounded-2xl border p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl ${
+                className={`relative flex h-full flex-col rounded-2xl border p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl ${
                   pkg.popular
                     ? "border-terracotta bg-terracotta/5 dark:bg-terracotta/10"
                     : "border-stone/10 dark:border-stone-dark/10 bg-white dark:bg-richblack/30"
@@ -120,7 +120,7 @@ export function Pricing() {
                   {pkg.description}
                 </p>
 
-                <ul className="mt-8 space-y-3">
+                <ul className="mt-8 flex-1 space-y-3">
                   {pkg.features.map((feature) => (
                     <li key={feature} className="flex items-start gap-3">
                       <svg

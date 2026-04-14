@@ -459,6 +459,141 @@
       }
     ]
   },
+  "WorkPage": {
+    "metaTitle": "Our Work | XCLER AI Automation",
+    "metaDescription": "Selected XCLER projects across SaaS platforms, AI systems, and automation solutions built for measurable business outcomes.",
+    "eyebrow": "Our Work",
+    "headingLine1": "Built. Shipped.",
+    "headingLine2": "Proven.",
+    "description": "Real projects, real engineering, real outcomes. Here is a curated selection of what we have delivered.",
+    "ctaHeading": "Want to be our next success story?",
+    "ctaDescription": "Let us talk about your project.",
+    "ctaButton": "Start Your Project ->",
+    "projects": [
+      {
+        "title": "Green Navigator",
+        "category": "B2B SaaS • Carbon Reporting",
+        "description": "A premium B2B SaaS for localized carbon reporting that uses Gemini Flash OCR to transform utility bills into audit-ready environmental intelligence.",
+        "tech": ["Next.js", "Gemini AI", "OCR", "Data Visualization"],
+        "color": "from-sage/20 to-sage/5"
+      },
+      {
+        "title": "AegisFlow",
+        "category": "FinTech SaaS • Risk Management",
+        "description": "Enterprise-grade financial SaaS integrating LSTM neural networks and GANs for predictive liquidity forecasting and AI-driven risk management.",
+        "tech": ["Python", "LSTM", "GANs", "FastAPI", "React"],
+        "color": "from-terracotta/20 to-terracotta/5"
+      },
+      {
+        "title": "VisaPath",
+        "category": "B2C SaaS • Travel Tech",
+        "description": "A platform for digital nomads and frequent travelers to optimize visa strategy with global access maps and AI-optimized travel routes.",
+        "tech": ["React", "Node.js", "Maps API", "AI Routing"],
+        "color": "from-stone/20 to-stone/5"
+      },
+      {
+        "title": "Overwatch AI",
+        "category": "Security • Threat Detection",
+        "description": "A cinematic AI command center leveraging Gemini Flash for multimodal scam detection across real-time audio, image, and text signals.",
+        "tech": ["Gemini AI", "WebSockets", "Python", "React", "Real-time"],
+        "color": "from-richblack/20 to-richblack/5"
+      }
+    ]
+  },
+  "ServiceWebDevelopmentPage": {
+    "metaTitle": "Web Development Germany | Custom Websites & Web Apps | XCLER",
+    "metaDescription": "Professional web development services in Germany. Custom websites, web applications, and landing pages built for performance and conversion.",
+    "backToServices": "All Services",
+    "serviceLabel": "Service / 01",
+    "headingLine1": "Web",
+    "headingLine2": "Development.",
+    "intro": "We build custom websites and web applications that load fast, rank high, and convert visitors into customers. No templates. Real engineering, real outcomes.",
+    "technologiesTitle": "Technologies We Use",
+    "ctaHeading": "Ready to build your website?",
+    "ctaDescription": "Projects start from €150. Share your requirements and receive a clear quote within 24 hours.",
+    "ctaPrimary": "Start Your Project ->",
+    "ctaSecondary": "WhatsApp Us",
+    "features": [
+      { "title": "Custom Design", "description": "No templates. Every element is designed for your brand and your customer journey." },
+      { "title": "Lightning Fast", "description": "Optimized loading speed and Core Web Vitals for better UX and stronger SEO performance." },
+      { "title": "SEO Built-In", "description": "Technical SEO from day one with semantic markup, metadata, and crawl-ready structure." },
+      { "title": "Mobile-First", "description": "Designed for mobile behavior first, then expanded for desktop experiences." },
+      { "title": "CMS Integration", "description": "Content workflows that your team can manage confidently without developer dependency." },
+      { "title": "Analytics Ready", "description": "Track user behavior, funnel drop-offs, and conversion signals with clear reporting." }
+    ]
+  },
+  "ServiceAppDevelopmentPage": {
+    "metaTitle": "App Development Germany | Mobile & Web Apps | XCLER",
+    "metaDescription": "Cross-platform app development, web app engineering, MVP delivery, and API architecture for ambitious teams in Germany and the EU.",
+    "backToServices": "All Services",
+    "serviceLabel": "Service / 02",
+    "headingLine1": "App",
+    "headingLine2": "Development.",
+    "intro": "From concept to launch, we build mobile and web applications with clean architecture, production-ready quality, and clear product direction.",
+    "ctaHeading": "Got an app idea?",
+    "ctaDescription": "Let us evaluate your concept and define the fastest path to launch.",
+    "ctaButton": "Start Your Project ->",
+    "capabilities": [
+      { "title": "Cross-Platform Apps", "desc": "One codebase for iOS and Android using React Native or Flutter, selected based on your product goals." },
+      { "title": "Web Applications", "desc": "SaaS products, operational dashboards, and internal tools built with scalable architecture." },
+      { "title": "MVP Development", "desc": "Fast MVP builds that help you validate demand, collect feedback, and iterate with confidence." },
+      { "title": "API Development", "desc": "Robust REST and GraphQL APIs with Python or Node.js for secure and scalable integrations." }
+    ]
+  },
+  "ServiceWordpressShopifyPage": {
+    "metaTitle": "WordPress & Shopify Development Germany | XCLER",
+    "metaDescription": "Custom WordPress and Shopify development for conversion-focused websites and ecommerce growth.",
+    "backToServices": "All Services",
+    "serviceLabel": "Service / 03",
+    "headingLine1": "WordPress &",
+    "headingLine2": "Shopify.",
+    "intro": "When WordPress or Shopify is the right platform, we deliver premium implementation, high performance, and conversion-first execution.",
+    "ctaHeading": "Need a WordPress or Shopify site?",
+    "ctaDescription": "Work directly with our CMS specialist for reliable implementation and long-term maintainability.",
+    "ctaButton": "Start Your Project ->",
+    "capabilities": [
+      { "title": "WordPress Websites", "desc": "Custom themes, plugin logic, and performance tuning that go far beyond template setups." },
+      { "title": "Shopify Stores", "desc": "Custom storefronts and conversion optimization designed for revenue growth." },
+      { "title": "WooCommerce", "desc": "Complete ecommerce architecture on WordPress, including payments, shipping, and operations." },
+      { "title": "Migration & Optimization", "desc": "Speed, SEO, and security upgrades for existing WordPress or Shopify installations." }
+    ]
+  },
+  "ServiceWorkflowAutomationPage": {
+    "metaTitle": "Workflow Automation Germany | Make.com, n8n, Zapier | XCLER",
+    "metaDescription": "Workflow automation services for German and EU businesses using Make.com, n8n, Zapier, and GoHighLevel.",
+    "backToServices": "All Services",
+    "serviceLabel": "Service / 04",
+    "headingLine1": "Workflow",
+    "headingLine2": "Automation.",
+    "intro": "We automate repetitive processes, connect your core systems, and unlock measurable operational efficiency at scale.",
+    "ctaHeading": "Ready to automate?",
+    "ctaDescription": "Show us what your team handles manually today and we will map the highest-impact automation opportunities.",
+    "ctaButton": "Start Your Project ->",
+    "capabilities": [
+      { "title": "Make.com Automations", "desc": "Multi-step workflows across sales, marketing, support, and operations." },
+      { "title": "n8n Self-Hosted", "desc": "Self-hosted automation infrastructure for businesses that need control and data ownership." },
+      { "title": "Zapier Integrations", "desc": "Fast and reliable automations for standardized business scenarios." },
+      { "title": "GoHighLevel", "desc": "CRM and lifecycle automations including pipeline flows, messaging, and booking sequences." }
+    ]
+  },
+  "ServiceAiChatbotsPage": {
+    "metaTitle": "AI Chatbots & Call Agents Germany | RAG, LLMs | XCLER",
+    "metaDescription": "RAG-powered AI chatbots and call agents for support, lead qualification, and always-on customer interactions.",
+    "backToServices": "All Services",
+    "serviceLabel": "Service / 05",
+    "headingLine1": "AI Chatbots",
+    "headingLine2": "& Agents.",
+    "intro": "We build context-aware AI agents that answer accurately, qualify leads intelligently, and support customer communication around the clock.",
+    "ctaHeading": "Want an AI agent for your business?",
+    "ctaDescription": "We design and implement a custom AI solution aligned to your workflows and business goals.",
+    "ctaButton": "Start Your Project ->",
+    "capabilities": [
+      { "title": "RAG-Powered Chatbots", "desc": "Assistants grounded in your documents, policies, and product knowledge." },
+      { "title": "AI Call Agents", "desc": "Voice agents for call handling, qualification, and appointment scheduling." },
+      { "title": "Customer Support Bots", "desc": "Automated support coverage for repetitive questions with human handoff when needed." },
+      { "title": "Lead Qualification", "desc": "AI conversations that identify intent and route high-fit leads directly to your sales team." }
+    ]
+  },
   "CookieBanner": {
     "eyebrow": "Cookie Preferences",
     "message": "We use essential cookies to keep this site secure and functional. With your consent, we also use analytics cookies to improve performance and user experience.",

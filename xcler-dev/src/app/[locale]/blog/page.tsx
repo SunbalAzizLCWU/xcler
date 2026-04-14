@@ -39,10 +39,15 @@ function BlogPageHeader({
   description: string;
 }) {
   return (
-    <header className="mx-auto max-w-3xl text-center">
-      <p className="font-mono text-xs uppercase tracking-[0.3em] text-zinc-500">{eyebrow}</p>
-      <h1 className="mt-5 font-heading text-4xl font-semibold leading-tight text-white md:text-6xl">{title}</h1>
-      <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-zinc-300 md:text-lg">
+    <header className="max-w-3xl">
+      <div className="mb-4 flex items-center gap-4">
+        <div className="line-decoration" />
+        <p className="font-mono text-xs uppercase tracking-[0.3em] text-richblack/40 dark:text-cream/40">
+          {eyebrow}
+        </p>
+      </div>
+      <h1 className="font-heading text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl">{title}</h1>
+      <p className="mt-6 max-w-2xl text-lg leading-relaxed text-richblack/50 dark:text-cream/50">
         {description}
       </p>
     </header>
@@ -79,69 +84,69 @@ export default async function BlogPage({
   });
 
   return (
-    <main className="min-h-screen bg-[#121212] text-zinc-100">
-      <section className="section-padding">
-        <div className="container-custom">
-          <BlogPageHeader
-            eyebrow={t("eyebrow")}
-            title={t("title")}
-            description={t("description")}
-          />
+    <section className="section-padding pt-32">
+      <div className="container-custom">
+        <BlogPageHeader
+          eyebrow={t("eyebrow")}
+          title={t("title")}
+          description={t("description")}
+        />
 
-          {posts.length === 0 ? (
-            <div className="mx-auto mt-16 max-w-3xl rounded-2xl border border-dashed border-zinc-700 bg-zinc-900/40 p-12 text-center">
-              <p className="text-zinc-400">{t("emptyState")}</p>
-            </div>
-          ) : (
-            <div className="mt-16 grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
-              {posts.map((post) => (
-                <Link key={post._id} href={`/blog/${post.slug}`} className="group block">
-                  <article className="h-full overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-900/75 transition-all duration-300 hover:-translate-y-1 hover:border-emerald-500/70 hover:shadow-[0_12px_35px_rgba(16,185,129,0.15)]">
-                    <div className="relative h-52 w-full overflow-hidden bg-zinc-950">
-                      {post.mainImage ? (
-                        <img
-                          src={urlFor(post.mainImage).width(960).height(560).fit("crop").quality(80).url()}
-                          alt={post.imageAlt}
-                          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                          loading="lazy"
-                        />
-                      ) : (
-                        <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-zinc-900 to-zinc-800">
-                          <span className="font-mono text-xs uppercase tracking-[0.22em] text-zinc-500">
-                            {t("imageFallback")}
-                          </span>
-                        </div>
+        {posts.length === 0 ? (
+          <div className="mt-16 rounded-2xl border border-dashed border-stone/20 dark:border-stone-dark/30 p-12 text-center">
+            <p className="text-richblack/50 dark:text-cream/50">{t("emptyState")}</p>
+          </div>
+        ) : (
+          <div className="mt-16 grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
+            {posts.map((post) => (
+              <Link key={post._id} href={`/blog/${post.slug}`} className="group block">
+                <article className="h-full overflow-hidden rounded-2xl border border-stone/10 dark:border-stone-dark/10 bg-white dark:bg-richblack/30 transition-all duration-300 hover:-translate-y-1 hover:border-terracotta/30 hover:shadow-xl">
+                  <div className="relative h-52 w-full overflow-hidden bg-gradient-to-br from-stone/20 to-stone/5 dark:from-stone-dark/20 dark:to-stone-dark/5">
+                    {post.mainImage ? (
+                      <img
+                        src={urlFor(post.mainImage).width(960).height(560).fit("crop").quality(80).url()}
+                        alt={post.imageAlt}
+                        className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        loading="lazy"
+                      />
+                    ) : (
+                      <div className="flex h-full w-full items-center justify-center">
+                        <span className="font-mono text-xs uppercase tracking-[0.22em] text-richblack/30 dark:text-cream/35">
+                          {t("imageFallback")}
+                        </span>
+                      </div>
+                    )}
+                  </div>
+
+                  <div className="p-6">
+                    <div className="mb-3 flex items-center justify-between gap-3">
+                      <p className="text-xs uppercase tracking-[0.16em] text-richblack/35 dark:text-cream/35">
+                        {formatter.format(new Date(post.publishedAt))}
+                      </p>
+                      {post.authorName && (
+                        <p className="text-xs text-richblack/40 dark:text-cream/40">
+                          {t("byLabel")} {post.authorName}
+                        </p>
                       )}
                     </div>
 
-                    <div className="p-6">
-                      <div className="mb-3 flex items-center justify-between gap-3">
-                        <p className="text-xs uppercase tracking-[0.16em] text-zinc-500">
-                          {formatter.format(new Date(post.publishedAt))}
-                        </p>
-                        {post.authorName && (
-                          <p className="text-xs text-zinc-500">
-                            {t("byLabel")} {post.authorName}
-                          </p>
-                        )}
-                      </div>
+                    <h2 className="font-heading text-2xl font-semibold transition-colors group-hover:text-terracotta">
+                      {post.title}
+                    </h2>
+                    <p className="mt-3 line-clamp-3 text-sm leading-relaxed text-richblack/60 dark:text-cream/60">
+                      {post.excerpt}
+                    </p>
 
-                      <h2 className="font-heading text-2xl font-semibold text-zinc-100 transition-colors group-hover:text-emerald-300">
-                        {post.title}
-                      </h2>
-                      <p className="mt-3 line-clamp-3 text-sm leading-relaxed text-zinc-400">{post.excerpt}</p>
-
-                      <p className="mt-5 font-mono text-xs uppercase tracking-[0.2em] text-emerald-400/85">
-                        {t("readArticle")}
-                      </p>
-                    </div>
-                  </article>
-                </Link>
-              ))}
-            </div>
-          )}
-        </div>
-      </section>
-    </main>
+                    <p className="mt-5 font-mono text-xs uppercase tracking-[0.2em] text-terracotta">
+                      {t("readArticle")}
+                    </p>
+                  </div>
+                </article>
+              </Link>
+            ))}
+          </div>
+        )}
+      </div>
+    </section>
   );
 }

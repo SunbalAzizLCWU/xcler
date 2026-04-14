@@ -404,6 +404,196 @@
     "byLabel": "Von",
     "imageFallback": "Keine Vorschau"
   },
+  "ServicesPage": {
+    "metaTitle": "Leistungen | XCLER AI Automation",
+    "metaDescription": "Webentwicklung, App-Umsetzung, WordPress- und Shopify-Systeme, Prozessautomatisierung sowie KI-Agenten für ambitionierte Unternehmen.",
+    "eyebrow": "Unsere Leistungen",
+    "headingLine1": "Alles, was Sie brauchen.",
+    "headingLine2": "Nichts, was Sie nicht brauchen.",
+    "description": "Wir bieten nicht alles an. Wir bieten fünf Leistungen auf Senior-Niveau mit klarer Verantwortung und messbarer Wirkung.",
+    "technologiesLabel": "Technologien",
+    "ledBy": "Verantwortet von",
+    "ctaPrefix": "Sie sind unsicher, welche Leistung zu Ihren Zielen passt?",
+    "ctaLink": "Schreiben Sie uns auf WhatsApp",
+    "ctaSuffix": "und wir definieren in wenigen Minuten gemeinsam den richtigen Weg.",
+    "services": [
+      {
+        "number": "01",
+        "title": "Webentwicklung",
+        "description": "Individuelle Websites und Webanwendungen mit moderner Architektur für Performance, SEO und Conversion.",
+        "tech": ["Next.js", "React", "TypeScript", "Tailwind CSS", "Node.js"],
+        "href": "/services/web-development",
+        "lead": "Abeel Mehr"
+      },
+      {
+        "number": "02",
+        "title": "App-Entwicklung",
+        "description": "Cross-Platform- und native Apps vom MVP bis zur produktiven Lösung mit sauberer Architektur und verlässlicher Umsetzung.",
+        "tech": ["React Native", "Flutter", "Python", "REST APIs", "GraphQL"],
+        "href": "/services/app-development",
+        "lead": "Abeel Mehr"
+      },
+      {
+        "number": "03",
+        "title": "WordPress & Shopify",
+        "description": "Commerce- und CMS-Plattformen mit Fokus auf Conversion, Skalierbarkeit und nachhaltige Wartbarkeit.",
+        "tech": ["WordPress", "Shopify", "WooCommerce", "Liquid", "PHP"],
+        "href": "/services/wordpress-shopify",
+        "lead": "Mehru Seemab"
+      },
+      {
+        "number": "04",
+        "title": "Prozessautomatisierung",
+        "description": "Automationssysteme, die repetitive Aufgaben eliminieren, Tools verbinden und die operative Geschwindigkeit erhöhen.",
+        "tech": ["Make.com", "n8n", "Zapier", "GoHighLevel", "APIs"],
+        "href": "/services/workflow-automation",
+        "lead": "Musharraf Aziz"
+      },
+      {
+        "number": "05",
+        "title": "KI-Chatbots & Agenten",
+        "description": "RAG-basierte Chatbots und KI-Agenten für Support, Lead-Qualifizierung und präzise 24/7-Kundeninteraktionen.",
+        "tech": ["RAG", "LLMs", "Call Agents", "Chatbots", "Vector DBs"],
+        "href": "/services/ai-chatbots-agents",
+        "lead": "Musharraf Aziz"
+      }
+    ]
+  },
+  "WorkPage": {
+    "metaTitle": "Unsere Projekte | XCLER AI Automation",
+    "metaDescription": "Ausgewählte XCLER-Projekte aus SaaS, KI-Systemen und Prozessautomatisierung mit messbarer Business-Wirkung.",
+    "eyebrow": "Unsere Projekte",
+    "headingLine1": "Entwickelt. Ausgeliefert.",
+    "headingLine2": "Bewährt.",
+    "description": "Reale Projekte, präzises Engineering, messbare Ergebnisse. Hier sehen Sie eine kuratierte Auswahl unserer Umsetzungen.",
+    "ctaHeading": "Möchten Sie unsere nächste Erfolgsgeschichte werden?",
+    "ctaDescription": "Lassen Sie uns über Ihr Projekt sprechen.",
+    "ctaButton": "Projekt starten ->",
+    "projects": [
+      {
+        "title": "Green Navigator",
+        "category": "B2B SaaS • Carbon Reporting",
+        "description": "Eine Premium-B2B-SaaS-Lösung für lokalisiertes Carbon Reporting, die mit Gemini Flash OCR Versorgerrechnungen in auditfähige Umweltinformationen überführt.",
+        "tech": ["Next.js", "Gemini AI", "OCR", "Data Visualization"],
+        "color": "from-sage/20 to-sage/5"
+      },
+      {
+        "title": "AegisFlow",
+        "category": "FinTech SaaS • Risikomanagement",
+        "description": "Enterprise-Finanz-SaaS mit LSTM-Neuronalen Netzen und GANs für prognostische Liquiditätsplanung und KI-gestütztes Risikomanagement.",
+        "tech": ["Python", "LSTM", "GANs", "FastAPI", "React"],
+        "color": "from-terracotta/20 to-terracotta/5"
+      },
+      {
+        "title": "VisaPath",
+        "category": "B2C SaaS • Travel Tech",
+        "description": "Eine Plattform für digitale Nomaden und Vielreisende zur Optimierung von Visa-Strategien über globale Zugangskarten und KI-optimierte Reiserouten.",
+        "tech": ["React", "Node.js", "Maps API", "AI Routing"],
+        "color": "from-stone/20 to-stone/5"
+      },
+      {
+        "title": "Overwatch AI",
+        "category": "Sicherheit • Bedrohungserkennung",
+        "description": "Ein cineastisches KI-Command-Center mit Gemini Flash zur multimodalen Betrugserkennung über Audio-, Bild- und Textsignale in Echtzeit.",
+        "tech": ["Gemini AI", "WebSockets", "Python", "React", "Real-time"],
+        "color": "from-richblack/20 to-richblack/5"
+      }
+    ]
+  },
+  "ServiceWebDevelopmentPage": {
+    "metaTitle": "Webentwicklung Deutschland | Individuelle Websites & Web-Apps | XCLER",
+    "metaDescription": "Professionelle Webentwicklung in Deutschland. Individuelle Websites, Webanwendungen und Landingpages mit Fokus auf Performance und Conversion.",
+    "backToServices": "Alle Leistungen",
+    "serviceLabel": "Leistung / 01",
+    "headingLine1": "Web",
+    "headingLine2": "Entwicklung.",
+    "intro": "Wir entwickeln individuelle Websites und Webanwendungen, die schnell laden, besser ranken und Besucher in qualifizierte Anfragen verwandeln.",
+    "technologiesTitle": "Technologien, die wir einsetzen",
+    "ctaHeading": "Bereit für Ihre neue Website?",
+    "ctaDescription": "Projekte starten ab 150 €. Senden Sie uns Ihre Anforderungen und Sie erhalten innerhalb von 24 Stunden ein klares Angebot.",
+    "ctaPrimary": "Projekt starten ->",
+    "ctaSecondary": "Auf WhatsApp schreiben",
+    "features": [
+      { "title": "Individuelles Design", "description": "Keine Templates. Jedes Element wird gezielt auf Ihre Marke und Ihre Zielgruppe abgestimmt." },
+      { "title": "Hohe Geschwindigkeit", "description": "Optimierte Ladezeiten und Core Web Vitals für bessere UX und stärkere SEO-Leistung." },
+      { "title": "SEO von Anfang an", "description": "Technisches SEO ab Projektstart mit sauberer Struktur, Metadaten und semantischem Markup." },
+      { "title": "Mobile-First", "description": "Konzipiert für mobiles Nutzerverhalten und anschließend für Desktop erweitert." },
+      { "title": "CMS-Integration", "description": "Redaktionsprozesse, mit denen Ihr Team Inhalte selbstständig und sicher pflegen kann." },
+      { "title": "Analytics Ready", "description": "Klare Messbarkeit von Nutzerverhalten, Conversion-Pfaden und Optimierungspotenzialen." }
+    ]
+  },
+  "ServiceAppDevelopmentPage": {
+    "metaTitle": "App-Entwicklung Deutschland | Mobile & Web Apps | XCLER",
+    "metaDescription": "Cross-Platform-App-Entwicklung, Web-App-Engineering, MVP-Umsetzung und API-Architektur für ambitionierte Unternehmen.",
+    "backToServices": "Alle Leistungen",
+    "serviceLabel": "Leistung / 02",
+    "headingLine1": "App",
+    "headingLine2": "Entwicklung.",
+    "intro": "Von der Idee bis zum Launch entwickeln wir Mobile- und Web-Apps mit sauberer Architektur, produktionsreifer Qualität und klarer Produktstrategie.",
+    "ctaHeading": "Sie haben eine App-Idee?",
+    "ctaDescription": "Wir bewerten Ihr Konzept und definieren den effizientesten Weg bis zum Launch.",
+    "ctaButton": "Projekt starten ->",
+    "capabilities": [
+      { "title": "Cross-Platform Apps", "desc": "Eine Codebasis für iOS und Android mit React Native oder Flutter, passend zu Ihren Produktzielen." },
+      { "title": "Web-Anwendungen", "desc": "SaaS-Produkte, Dashboards und interne Tools mit skalierbarer technischer Architektur." },
+      { "title": "MVP-Entwicklung", "desc": "Schnelle MVP-Umsetzung zur Validierung, Feedback-Gewinnung und strukturierten Iteration." },
+      { "title": "API-Entwicklung", "desc": "Robuste REST- und GraphQL-APIs mit Python oder Node.js für sichere Integrationen." }
+    ]
+  },
+  "ServiceWordpressShopifyPage": {
+    "metaTitle": "WordPress & Shopify Entwicklung Deutschland | XCLER",
+    "metaDescription": "Individuelle WordPress- und Shopify-Entwicklung für conversion-starke Websites und skalierbaren E-Commerce.",
+    "backToServices": "Alle Leistungen",
+    "serviceLabel": "Leistung / 03",
+    "headingLine1": "WordPress &",
+    "headingLine2": "Shopify.",
+    "intro": "Wenn WordPress oder Shopify die richtige Plattform ist, liefern wir eine Premium-Umsetzung mit hoher Performance und klarer Conversion-Orientierung.",
+    "ctaHeading": "Sie benötigen eine WordPress- oder Shopify-Lösung?",
+    "ctaDescription": "Sie arbeiten direkt mit unserer CMS-Spezialistin für verlässliche Umsetzung und nachhaltige Wartbarkeit.",
+    "ctaButton": "Projekt starten ->",
+    "capabilities": [
+      { "title": "WordPress-Websites", "desc": "Individuelle Themes, Plugin-Logik und Performance-Optimierung jenseits von Standard-Setups." },
+      { "title": "Shopify Stores", "desc": "Custom Storefronts und Conversion-Optimierung für nachhaltiges Umsatzwachstum." },
+      { "title": "WooCommerce", "desc": "Vollständige E-Commerce-Architektur auf WordPress inklusive Zahlungen, Versand und operativer Prozesse." },
+      { "title": "Migration & Optimierung", "desc": "Geschwindigkeit, SEO und Sicherheits-Optimierungen für bestehende WordPress- oder Shopify-Systeme." }
+    ]
+  },
+  "ServiceWorkflowAutomationPage": {
+    "metaTitle": "Prozessautomatisierung Deutschland | Make.com, n8n, Zapier | XCLER",
+    "metaDescription": "Prozessautomatisierung für Unternehmen in Deutschland und der EU mit Make.com, n8n, Zapier und GoHighLevel.",
+    "backToServices": "Alle Leistungen",
+    "serviceLabel": "Leistung / 04",
+    "headingLine1": "Prozess",
+    "headingLine2": "Automatisierung.",
+    "intro": "Wir automatisieren repetitive Abläufe, verbinden Ihre Kernsysteme und schaffen messbare operative Effizienz in Ihren Teams.",
+    "ctaHeading": "Bereit für Automatisierung?",
+    "ctaDescription": "Zeigen Sie uns Ihre manuellen Abläufe und wir identifizieren die wirkungsvollsten Automationspotenziale.",
+    "ctaButton": "Projekt starten ->",
+    "capabilities": [
+      { "title": "Make.com Automationen", "desc": "Mehrstufige Workflows für Vertrieb, Marketing, Support und operative Prozesse." },
+      { "title": "n8n Self-Hosted", "desc": "Self-Hosted-Automationsinfrastruktur für Unternehmen mit hohen Anforderungen an Kontrolle und Datenhoheit." },
+      { "title": "Zapier Integrationen", "desc": "Schnelle und verlässliche Automationen für standardisierte Business-Prozesse." },
+      { "title": "GoHighLevel", "desc": "CRM- und Lifecycle-Automationen inklusive Pipeline-Logik, Messaging und Terminflüssen." }
+    ]
+  },
+  "ServiceAiChatbotsPage": {
+    "metaTitle": "KI-Chatbots & Call Agents Deutschland | RAG, LLMs | XCLER",
+    "metaDescription": "RAG-basierte KI-Chatbots und Call-Agents für Support, Lead-Qualifizierung und durchgängige Kundenkommunikation.",
+    "backToServices": "Alle Leistungen",
+    "serviceLabel": "Leistung / 05",
+    "headingLine1": "KI-Chatbots",
+    "headingLine2": "& Agenten.",
+    "intro": "Wir entwickeln kontextstarke KI-Agenten, die präzise antworten, Leads qualifizieren und Kundenkommunikation rund um die Uhr unterstützen.",
+    "ctaHeading": "Sie möchten einen KI-Agenten für Ihr Unternehmen?",
+    "ctaDescription": "Wir konzipieren und implementieren eine KI-Lösung, die zu Ihren Prozessen und Geschäftszielen passt.",
+    "ctaButton": "Projekt starten ->",
+    "capabilities": [
+      { "title": "RAG-basierte Chatbots", "desc": "Assistenten, die auf Ihren Dokumenten, Richtlinien und Produktinformationen basieren." },
+      { "title": "KI-Call-Agents", "desc": "Sprachagenten für Anrufannahme, Qualifizierung und Terminvereinbarung." },
+      { "title": "Support-Bots", "desc": "Automatisierte Support-Abdeckung für wiederkehrende Anfragen mit sauberer Übergabe an Ihr Team." },
+      { "title": "Lead-Qualifizierung", "desc": "KI-Dialoge, die Kaufintention erkennen und qualifizierte Leads direkt an den Vertrieb weitergeben." }
+    ]
+  },
   "CookieBanner": {
     "eyebrow": "Cookie-Einstellungen",
     "message": "Wir verwenden essentielle Cookies, damit diese Website sicher und technisch einwandfrei funktioniert. Mit Ihrer Einwilligung setzen wir zusaetzlich Analyse-Cookies ein, um Leistung und Nutzererlebnis zu verbessern.",

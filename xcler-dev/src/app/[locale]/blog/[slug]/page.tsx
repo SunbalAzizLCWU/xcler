@@ -12,7 +12,7 @@ type SanityBlogPost = {
   slug: string;
   mainImage?: unknown;
   imageAlt: string;
-  body: unknown[];
+  body: Array<Record<string, unknown>>;
 };
 
 const postBySlugQuery = groq`
@@ -59,11 +59,11 @@ export default async function BlogPostPage({
   }
 
   return (
-    <main className="min-h-screen bg-[#121212] px-6 text-zinc-100 sm:px-8 lg:px-10">
-      <article className="max-w-3xl mx-auto py-20">
+    <section className="section-padding pt-32">
+      <article className="container-custom max-w-3xl">
         <Link
           href="/blog"
-          className="mb-8 inline-flex items-center gap-2 text-sm text-zinc-400 transition-colors hover:text-emerald-300"
+          className="mb-8 inline-flex items-center gap-2 text-sm text-richblack/40 dark:text-cream/40 transition-colors hover:text-terracotta"
         >
           <span aria-hidden="true">←</span>
           <span>{t("backToBlog")}</span>
@@ -73,18 +73,18 @@ export default async function BlogPostPage({
           <img
             src={urlFor(post.mainImage).width(1400).height(780).fit("crop").quality(82).url()}
             alt={post.imageAlt}
-            className="mb-10 h-auto w-full rounded-2xl border border-zinc-800 object-cover"
+            className="mb-10 h-auto w-full rounded-2xl border border-stone/10 dark:border-stone-dark/20 object-cover"
           />
         ) : null}
 
-        <h1 className="font-heading text-4xl font-semibold tracking-tight text-white md:text-5xl">
+        <h1 className="font-heading text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl">
           {post.title}
         </h1>
 
-        <div className="prose prose-invert prose-emerald mt-10 max-w-none prose-headings:font-heading prose-p:text-zinc-300 prose-a:text-emerald-300 hover:prose-a:text-emerald-200">
-          <PortableText value={post.body} />
+        <div className="prose prose-lg mt-10 max-w-none dark:prose-invert prose-headings:font-heading prose-headings:text-richblack dark:prose-headings:text-white prose-p:text-richblack/70 dark:prose-p:text-cream/70 prose-a:text-terracotta hover:prose-a:text-terracotta-light">
+          <PortableText value={post.body as any} />
         </div>
       </article>
-    </main>
+    </section>
   );
 }

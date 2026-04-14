@@ -1,5 +1,6 @@
 // src/app/layout.tsx
 import type { Metadata } from "next";
+import Script from "next/script";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations } from "next-intl/server";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
@@ -329,12 +330,15 @@ export default async function RootLayout({
   return (
     <html lang={locale} data-scroll-behavior="smooth" suppressHydrationWarning>
       <head>
-        <script
+        <Script
           id="hydration-sanitizer"
+          strategy="beforeInteractive"
           suppressHydrationWarning
           dangerouslySetInnerHTML={{ __html: hydrationSanitizerScript }}
         />
-        <script
+        <Script
+          id="org-jsonld"
+          strategy="beforeInteractive"
           suppressHydrationWarning
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

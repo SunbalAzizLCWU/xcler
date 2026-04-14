@@ -57,10 +57,10 @@ export function TeamSection() {
 
         <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
           {team.map((member, i) => (
-            <AnimatedSection key={member.name} delay={i * 0.15}>
+            <AnimatedSection key={member.name} delay={i * 0.15} className="h-full">
               <motion.div
                 whileHover={{ y: -5 }}
-                className="group rounded-2xl border border-stone/10 dark:border-stone-dark/10 bg-white dark:bg-richblack/30 overflow-hidden transition-all duration-500 hover:border-terracotta/30 hover:shadow-xl"
+                className="group flex h-full flex-col rounded-2xl border border-stone/10 dark:border-stone-dark/10 bg-white dark:bg-richblack/30 overflow-hidden transition-all duration-500 hover:border-terracotta/30 hover:shadow-xl"
               >
                 {/* Photo */}
                 <div className="relative h-72 bg-gradient-to-br from-stone/20 to-stone/5 overflow-hidden">
@@ -80,7 +80,7 @@ export function TeamSection() {
                 </div>
 
                 {/* Info */}
-                <div className="p-6">
+                <div className="flex flex-1 flex-col p-6">
                   <h3 className="font-heading text-xl font-semibold group-hover:text-terracotta transition-colors">
                     {member.name}
                   </h3>
@@ -93,7 +93,7 @@ export function TeamSection() {
                   <p className="mt-3 text-sm text-richblack/50 dark:text-cream/50">
                     {member.bio}
                   </p>
-                  <div className="mt-4 pt-4 border-t border-stone/10 dark:border-stone-dark/10">
+                  <div className="mt-auto pt-4 border-t border-stone/10 dark:border-stone-dark/10">
                     <p className="font-mono text-xs text-richblack/30 dark:text-cream/30">
                       {member.tools}
                     </p>

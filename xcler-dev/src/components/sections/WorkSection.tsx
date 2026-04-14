@@ -109,11 +109,11 @@ export function WorkSection() {
 
         <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-6">
           {projects.map((project, i) => (
-            <AnimatedSection key={project.title} delay={i * 0.15}>
+            <AnimatedSection key={project.title} delay={i * 0.15} className="h-full">
               <Link href={project.href} className="group block">
                 <motion.div
                   whileHover={{ y: -5 }}
-                  className="relative overflow-hidden rounded-2xl border border-stone/10 dark:border-stone-dark/10 bg-white dark:bg-richblack/50 transition-all duration-500 hover:border-terracotta/30 hover:shadow-2xl"
+                  className="relative flex h-full flex-col overflow-hidden rounded-2xl border border-stone/10 dark:border-stone-dark/10 bg-white dark:bg-richblack/50 transition-all duration-500 hover:border-terracotta/30 hover:shadow-2xl"
                 >
                   {/* Image placeholder */}
                   <div
@@ -132,7 +132,7 @@ export function WorkSection() {
                   </div>
 
                   {/* Content */}
-                  <div className="p-6">
+                  <div className="flex flex-1 flex-col p-6">
                     <span className="font-mono text-xs text-stone dark:text-stone-dark tracking-wider">
                       {project.category}
                     </span>
@@ -142,7 +142,7 @@ export function WorkSection() {
                     <p className="mt-2 text-sm text-richblack/50 dark:text-cream/50 line-clamp-2">
                       {project.description}
                     </p>
-                    <div className="mt-4 flex flex-wrap gap-2">
+                    <div className="mt-auto pt-4 flex flex-wrap gap-2">
                       {project.tech.map((t) => (
                         <span
                           key={t}

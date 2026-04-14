@@ -1,11 +1,10 @@
-"use client";
-
 import { Link } from "@/navigation";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
-import { useTranslations } from "next-intl";
+import { getLocale, getTranslations } from "next-intl/server";
 
-export function Footer() {
-  const t = useTranslations("Footer");
+export async function Footer() {
+  const t = await getTranslations("Footer");
+  const locale = await getLocale();
   const currentYear = new Date().getFullYear();
   const footerLinks = {
     services: [
@@ -21,7 +20,7 @@ export function Footer() {
     ],
     legal: [
       { label: t("links.legal.imprint"), href: "/impressum" },
-      { label: t("links.legal.privacy"), href: "/privacy" },
+      { label: t("links.legal.privacy"), href: locale === "de" ? "/datenschutz" : "/privacy" },
     ],
   };
 

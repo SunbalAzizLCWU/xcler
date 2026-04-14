@@ -9,6 +9,13 @@
     "start": "next start",
     "lint": "eslint"
   },
+  "browserslist": [
+    "defaults",
+    "not IE 11",
+    "not dead",
+    "last 2 versions",
+    "> 0.2%"
+  ],
   "dependencies": {
     "@next/mdx": "^16.2.3",
     "@sanity/image-url": "^2.1.1",

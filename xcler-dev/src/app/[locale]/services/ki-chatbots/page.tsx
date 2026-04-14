@@ -3,7 +3,7 @@ import Link from "next/link";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { getServiceSchema } from "@/lib/structuredData";
-import { getCanonicalPath } from "@/lib/canonical";
+import { getCanonicalPath, getLanguageAlternates } from "@/lib/canonical";
 
 export async function generateMetadata({
   params,
@@ -37,6 +37,7 @@ export async function generateMetadata({
         ],
     alternates: {
       canonical: getCanonicalPath(locale, "/services/ki-chatbots"),
+      languages: getLanguageAlternates("/services/ki-chatbots"),
     },
   };
 }

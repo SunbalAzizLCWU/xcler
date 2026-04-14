@@ -93,18 +93,23 @@ export function TestimonialsSection() {
           </AnimatePresence>
 
           {/* Navigation dots */}
-          <div className="mt-12 flex items-center gap-3">
+          <div className="mt-12 flex items-center gap-2">
             {testimonials.map((_, i) => (
               <button
                 key={i}
                 onClick={() => setActive(i)}
-                className={`h-2 rounded-full transition-all duration-300 ${
-                  active === i
-                    ? "w-8 bg-terracotta"
-                    : "w-2 bg-stone/30 dark:bg-stone-dark/30 hover:bg-stone/50"
-                }`}
+                className="relative inline-flex h-12 w-12 items-center justify-center rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-terracotta focus-visible:ring-offset-2"
                 aria-label={`${t("dotLabel")} ${i + 1}`}
-              />
+                aria-current={active === i ? "true" : undefined}
+              >
+                <span
+                  className={`h-2 rounded-full transition-all duration-300 ${
+                    active === i
+                      ? "w-8 bg-terracotta"
+                      : "w-2 bg-stone/60 dark:bg-stone-light/60 hover:bg-stone/80 dark:hover:bg-stone-light/80"
+                  }`}
+                />
+              </button>
             ))}
           </div>
         </div>

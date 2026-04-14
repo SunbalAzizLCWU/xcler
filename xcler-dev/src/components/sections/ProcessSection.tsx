@@ -1,10 +1,8 @@
-"use client";
-
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 
-export function ProcessSection() {
-  const t = useTranslations("Process");
+export async function ProcessSection() {
+  const t = await getTranslations("Process");
 
   const steps = [
     {

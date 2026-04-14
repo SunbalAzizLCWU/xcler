@@ -5,7 +5,7 @@ import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import Image from "next/image";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { getServiceCatalogSchema } from "@/lib/structuredData";
-import { getCanonicalPath } from "@/lib/canonical";
+import { getCanonicalPath, getLanguageAlternates } from "@/lib/canonical";
 
 type ServicesPageItem = {
   number: string;
@@ -39,6 +39,7 @@ export async function generateMetadata({
     description: t("metaDescription"),
     alternates: {
       canonical: getCanonicalPath(locale, "/services"),
+      languages: getLanguageAlternates("/services"),
     },
   };
 }

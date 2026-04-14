@@ -48,8 +48,8 @@
     "siteDescription": "Wir entwickeln leistungsstarke Websites, Apps und Automatisierungssysteme für Unternehmen in Deutschland und Europa - mit Fokus auf Effizienz, Präzision und Skalierung.",
     "pageTitle": "XCLER — Webentwicklung & KI-Automatisierung Agentur",
     "pageDescription": "Wir entwickeln leistungsstarke Websites, Apps und KI-Automatisierung für Unternehmen in Deutschland und Europa.",
-    "homeTitle": "Web- und App-Entwicklung in Deutschland | XCLER",
-    "homeDescription": "XCLER realisiert Websites, Apps, Shopify- und WordPress-Lösungen sowie KI-Automatisierung für Unternehmen mit klaren Skalierungszielen."
+    "homeTitle": "SaaS, Webentwicklung & KI Agentur Deutschland | XCLER",
+    "homeDescription": "Digitale Agentur für Webentwicklung, Custom SaaS, Shopify und RAG-Automatisierung. Wir realisieren Next.js Plattformen, KI-Systeme und messbare Prozessoptimierung für B2B-Unternehmen in Deutschland."
   },
   "home": {
     "heroTitle": "Wir bauen",
@@ -66,9 +66,9 @@
   },
   "Hero": {
     "title": "Webentwicklung und KI-Automatisierung für messbares Unternehmenswachstum.",
-    "subtitle": "Wir entwickeln Websites, Apps und KI-Systeme mit Präzision, Effizienz und Skalierung als technischem Fundament.",
-    "headlineTop": "Wir bauen",
-    "headlineBottom": "die funktionieren",
+    "subtitle": "Wir realisieren skalierbare Next.js Plattformen, Shopify-Lösungen und autonome RAG KI-Agenten für etablierte B2B-Unternehmen.",
+    "headlineTop": "Digitale Agentur für",
+    "headlineBottom": "in Deutschland",
     "cta": "Lassen Sie uns sprechen",
     "availabilityBadge": "JETZT FÜR NEUE PROJEKTE VERFÜGBAR",
     "lineOne": "Wir entwickeln",
@@ -93,15 +93,14 @@
       "stores": "Onlineshops"
     },
     "rotatingWordsList": [
-      "Systeme",
-      "Websites",
+      "Webentwicklung",
+      "SaaS",
+      "KI-Systeme",
+      "Next.js Plattformen",
+      "Shopify Stores",
+      "RAG Agenten",
       "Workflow-Automationen",
-      "Voice Agents",
       "Chatbots",
-      "RAG-Agenten",
-      "WordPress-Websites",
-      "WooCommerce-Shops",
-      "Shopify-Shops",
       "Kundenportale"
     ]
   },
@@ -112,24 +111,54 @@
     "ledBy": "Verantwortet von",
     "learnMore": "Details",
     "service1": {
-      "title": "Webentwicklung",
-      "description": "Individuelle Websites mit Next.js, React und modernem Tech-Stack. Schnell, responsiv und SEO-stark. Keine Standard-Templates - außer Sie wünschen WordPress auf Premium-Niveau."
+      "title": "Next.js Frontend Architektur",
+      "description": "Performance-starke Frontend-Systeme mit Next.js, React und TypeScript. Für schnelle Ladezeiten, stabile Core Web Vitals und SEO, das in Deutschland sichtbar bleibt."
     },
     "service2": {
-      "title": "App-Entwicklung",
-      "description": "Cross-Platform- und native Anwendungen - vom MVP bis zur skalierbaren Produktplattform. Saubere Architektur, hohe Präzision in der UX und produktionsreife Qualität."
+      "title": "Custom SaaS Development",
+      "description": "SaaS-Produkte und interne Plattformen vom MVP bis zur skalierbaren Produktarchitektur. API-first, wartbar und auf reale B2B-Prozesse ausgerichtet."
     },
     "service3": {
-      "title": "WordPress & Shopify",
-      "description": "E-Commerce- und Content-Plattformen mit klarer Conversion-Strategie. Individuelle Themes, gezielte Erweiterungen und Performance-Optimierung für nachhaltige Skalierung."
+      "title": "Shopify & Headless Commerce",
+      "description": "Shopify-Lösungen mit Conversion-Fokus, auf Wunsch headless mit Next.js. Für schnellere Storefronts, flexible Integrationen und nachhaltiges Umsatzwachstum."
     },
     "service4": {
-      "title": "Prozessautomatisierung",
-      "description": "Reduzieren Sie manuelle Arbeit, verknüpfen Sie Ihre Systeme und gewinnen Sie jede Woche wertvolle Zeit zurück. Wir entwickeln Workflows für maximale Effizienz, stabile Abläufe und verlässliche Skalierung."
+      "title": "RAG & KI Automatisierung",
+      "description": "RAG-basierte Agenten und Workflow-Automation für Support, Vertrieb und Operations. Weniger manuelle Arbeit, mehr Präzision und skalierbare Ausführung."
     },
     "service5": {
       "title": "KI-Chatbots & Agenten",
       "description": "Intelligente Chatbots und KI-Agenten für Support, Lead-Qualifizierung und Vertrieb - 24/7 einsatzbereit, RAG-basiert, kontextsensitiv und mit hoher Präzision in jeder Interaktion."
+    }
+  },
+  "HomeSeo": {
+    "eyebrow": "Strategische Schwerpunkte",
+    "intro": "Wir verbinden Webentwicklung, SaaS-Engineering und KI-Automatisierung in einer technischen Delivery-Linie. Jeder Schwerpunkt ist direkt mit einer spezialisierten Leistungsseite verknüpft.",
+    "pillars": {
+      "shopify": {
+        "title": "Shopify & Headless Commerce",
+        "body": "Wir bauen performante Shopify-Architekturen für B2B und D2C, inklusive headless Frontends mit Next.js und klarer Conversion-Logik.",
+        "href": "/services/wordpress-shopify",
+        "cta": "Zu Shopify & Commerce"
+      },
+      "saas": {
+        "title": "Custom SaaS Development",
+        "body": "Wir entwickeln SaaS-Produkte, Kundenportale und interne Systeme mit stabiler API-Architektur und sauberer Skalierungsstrategie.",
+        "href": "/services/app-development",
+        "cta": "Zu SaaS Entwicklung"
+      },
+      "rag": {
+        "title": "RAG & KI Automatisierung",
+        "body": "RAG-Agenten, AI-Workflows und intelligente Assistenzsysteme für Support, Lead-Qualifizierung und operative Automatisierung.",
+        "href": "/services/ai-chatbots-agents",
+        "cta": "Zu KI Agenten"
+      },
+      "next": {
+        "title": "Next.js Frontend Architektur",
+        "body": "Technisch saubere Frontends mit Next.js für schnelle Ladezeiten, stabile UX und robuste SEO-Signale auf allen relevanten Landingpages.",
+        "href": "/services/web-development",
+        "cta": "Zu Next.js Frontends"
+      }
     }
   },
   "Process": {

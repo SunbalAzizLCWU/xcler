@@ -57,8 +57,9 @@ export async function generateMetadata({
     },
     alternates: {
       languages: {
-        "en-US": "/en",
-        "de-DE": "/de",
+        en: "https://xcler.dev/en",
+        de: "https://xcler.dev/de",
+        "x-default": "https://xcler.dev/en",
       },
     },
     keywords: [
@@ -155,7 +156,8 @@ export default async function RootLayout({
                 ad_storage: 'denied',
                 analytics_storage: 'denied',
                 ad_user_data: 'denied',
-                ad_personalization: 'denied'
+                ad_personalization: 'denied',
+                wait_for_update: 500
               });
             `,
           }}

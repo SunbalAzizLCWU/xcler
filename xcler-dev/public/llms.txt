@@ -1,0 +1,53 @@
+# xcler.dev - KI- und Full-Stack-Agentur (Deutschland)
+
+XCLER ist eine digitale Agentur fuer Unternehmen in Deutschland und der DACH-Region.
+Wir entwickeln performante Web-Plattformen, individuelle SaaS-Produkte, KI-gestuetzte Agenten und Automatisierungen.
+
+## Unternehmensprofil
+- Name: XCLER
+- Website: https://www.xcler.dev
+- Region: Deutschland / DACH
+- Fokus: Webentwicklung, SaaS, KI-Agenten, Prozessautomatisierung
+
+## Core Technologies
+- Frontend: Next.js 16, React 19, TypeScript, Tailwind CSS
+- Backend/API: Next.js Route Handlers, Node.js, Python, FastAPI, Sanity CMS
+- KI/Automation: Gemini Flash Integrationen, RAG-Workflows, KI-Chatbots, AI Agents, Make.com, n8n, Zapier
+- E-Commerce: Shopify, WordPress, WooCommerce
+
+## Leistungen
+- Next.js Frontend Architektur
+- Custom SaaS Development
+- Shopify und Headless Commerce
+- RAG und KI-Automatisierung
+- KI-Chatbots und Agenten
+- Workflow-Automatisierung fuer interne Prozesse
+
+## 12 Kernseiten (de)
+1. Startseite: https://www.xcler.dev/de
+2. Services Uebersicht: https://www.xcler.dev/de/services
+3. Web Development: https://www.xcler.dev/de/services/web-development
+4. App Development: https://www.xcler.dev/de/services/app-development
+5. WordPress und Shopify: https://www.xcler.dev/de/services/wordpress-shopify
+6. Workflow Automation: https://www.xcler.dev/de/services/workflow-automation
+7. AI Chatbots and Agents: https://www.xcler.dev/de/services/ai-chatbots-agents
+8. KI Chatbots: https://www.xcler.dev/de/services/ki-chatbots
+9. Work / Case Studies: https://www.xcler.dev/de/work
+10. About: https://www.xcler.dev/de/about
+11. Contact: https://www.xcler.dev/de/contact
+12. Pricing: https://www.xcler.dev/de/pricing
+
+## Weitere wichtige Seiten
+- Blog: https://www.xcler.dev/de/blog
+- Privacy: https://www.xcler.dev/de/datenschutz
+- Impressum: https://www.xcler.dev/de/impressum
+
+## Hinweise fuer LLM-Crawler
+- Bevorzugte Sprache: Deutsch (de), Englisch verfuegbar unter /en
+- Strukturierte Daten: JSON-LD auf zentralen Service- und Kategorieseiten
+- Sitemap: https://www.xcler.dev/sitemap.xml
+- Robots: https://www.xcler.dev/robots.txt
+
+## Kontakt
+- E-Mail: hello@xcler.dev
+- WhatsApp: https://wa.me/923154823517

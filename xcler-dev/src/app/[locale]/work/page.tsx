@@ -3,7 +3,7 @@ import { getTranslations } from "next-intl/server";
 import { Link } from "@/navigation";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import Image from "next/image";
-import { getCanonicalPath } from "@/lib/canonical";
+import { getCanonicalPath, getLanguageAlternates } from "@/lib/canonical";
 
 type ProjectItem = {
   title: string;
@@ -27,6 +27,7 @@ export async function generateMetadata({
     description: t("metaDescription"),
     alternates: {
       canonical: getCanonicalPath(locale, "/work"),
+      languages: getLanguageAlternates("/work"),
     },
   };
 }

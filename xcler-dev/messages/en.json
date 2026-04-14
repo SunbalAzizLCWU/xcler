@@ -48,8 +48,8 @@
     "siteDescription": "XCLER builds high-performance websites, apps, and workflow automation systems for businesses in Germany and across Europe, with a focus on efficiency, precision, and scalable growth.",
     "pageTitle": "XCLER — Web Development & AI Automation Agency",
     "pageDescription": "XCLER builds high-performance websites, apps, and AI automation systems for businesses in Germany and across Europe.",
-    "homeTitle": "Web Development Agency Germany | XCLER",
-    "homeDescription": "XCLER delivers custom web development, app development, Shopify and WordPress solutions, plus AI automation for businesses ready to scale."
+    "homeTitle": "SaaS, Web Development & AI Agency Germany | XCLER",
+    "homeDescription": "Digital agency for web development, custom SaaS, Shopify and RAG automation. We deliver scalable Next.js platforms, AI systems, and measurable process optimization for B2B teams in Germany."
   },
   "home": {
     "heroTitle": "We build",
@@ -66,9 +66,9 @@
   },
   "Hero": {
     "title": "Web development and AI automation for measurable business growth.",
-    "subtitle": "We build websites, apps, and AI systems with precision, efficiency, and scale at the core.",
-    "headlineTop": "We Build",
-    "headlineBottom": "that works",
+    "subtitle": "We deliver scalable Next.js platforms, Shopify solutions, and autonomous RAG AI agents for established B2B companies.",
+    "headlineTop": "Digital agency for",
+    "headlineBottom": "in Germany",
     "cta": "Let's Talk",
     "availabilityBadge": "AVAILABLE FOR NEW PROJECTS",
     "lineOne": "We build",
@@ -93,16 +93,15 @@
       "stores": "Stores"
     },
     "rotatingWordsList": [
-      "Systems",
-      "Websites",
-      "Workflow Automations",
-      "Voice Agents",
-      "Chatbots",
-      "RAG Agents",
-      "WordPress Websites",
-      "WooCommerce Stores",
+      "Web Development",
+      "SaaS",
+      "AI Systems",
+      "Next.js Platforms",
       "Shopify Stores",
-      "Custom Websites"
+      "RAG Agents",
+      "Workflow Automations",
+      "Chatbots",
+      "Customer Portals"
     ]
   },
   "Services": {
@@ -112,24 +111,54 @@
     "ledBy": "Led by",
     "learnMore": "Details",
     "service1": {
-      "title": "Web Development",
-      "description": "Custom websites built with Next.js, React, and modern frameworks. Fast, responsive, and SEO-optimized for visibility, performance, and conversion."
+      "title": "Next.js Frontend Architecture",
+      "description": "Performance-focused frontend systems with Next.js, React, and TypeScript. Built for fast loading, strong Core Web Vitals, and durable SEO performance."
     },
     "service2": {
-      "title": "App Development",
-      "description": "Cross-platform and native applications, from MVP to scalable product. Clean architecture, precise UX, and production-ready engineering."
+      "title": "Custom SaaS Development",
+      "description": "SaaS products and internal platforms from MVP to scalable architecture. API-first, maintainable, and aligned with real B2B operations."
     },
     "service3": {
-      "title": "WordPress & Shopify",
-      "description": "E-commerce stores and content websites built for conversion. Custom themes, targeted integrations, and performance optimization for sustainable scale."
+      "title": "Shopify & Headless Commerce",
+      "description": "Shopify solutions with conversion focus, optionally headless with Next.js for faster storefronts and flexible integrations."
     },
     "service4": {
-      "title": "Workflow Automation",
-      "description": "Reduce repetitive work, connect your tools, and reclaim execution time. We build automation workflows for operational efficiency, precision, and reliable scaling."
+      "title": "RAG & AI Automation",
+      "description": "RAG-powered agents and workflow automation for support, sales, and operations. Less manual effort, more precision, and scalable execution."
     },
     "service5": {
       "title": "AI Chatbots & Agents",
       "description": "Intelligent chatbots and AI agents for support, lead qualification, and sales. RAG-powered, context-aware, and designed for precise 24/7 customer interactions."
+    }
+  },
+  "HomeSeo": {
+    "eyebrow": "Strategic Focus Areas",
+    "intro": "We combine web development, SaaS engineering, and AI automation in one delivery stream. Each focus area links directly to a specialized service page.",
+    "pillars": {
+      "shopify": {
+        "title": "Shopify & Headless Commerce",
+        "body": "We build high-performance Shopify architectures for B2B and D2C, including headless frontends with Next.js and conversion-first structure.",
+        "href": "/services/wordpress-shopify",
+        "cta": "Explore Shopify & Commerce"
+      },
+      "saas": {
+        "title": "Custom SaaS Development",
+        "body": "We build SaaS products, customer portals, and internal systems with resilient API architecture and clear scaling strategy.",
+        "href": "/services/app-development",
+        "cta": "Explore SaaS Development"
+      },
+      "rag": {
+        "title": "RAG & AI Automation",
+        "body": "RAG agents, AI workflows, and intelligent assistant systems for support, lead qualification, and operational automation.",
+        "href": "/services/ai-chatbots-agents",
+        "cta": "Explore AI Agents"
+      },
+      "next": {
+        "title": "Next.js Frontend Architecture",
+        "body": "Technically solid Next.js frontends for fast load speed, stable UX, and strong SEO signals across high-intent landing pages.",
+        "href": "/services/web-development",
+        "cta": "Explore Next.js Frontends"
+      }
     }
   },
   "Process": {

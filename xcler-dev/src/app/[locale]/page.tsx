@@ -1,9 +1,10 @@
 // src/app/page.tsx
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
+import { Link } from "@/navigation";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { getFaqSchema } from "@/lib/structuredData";
-import { getCanonicalPath } from "@/lib/canonical";
+import { getCanonicalPath, getLanguageAlternates } from "@/lib/canonical";
 import { HeroSection } from "@/components/sections/HeroSection";
 import { LogoMarquee } from "@/components/sections/LogoMarquee";
 import { ServicesSection } from "@/components/sections/ServicesSection";
@@ -28,10 +29,7 @@ export async function generateMetadata({
     description: t("homeDescription"),
     alternates: {
       canonical: getCanonicalPath(locale, "/"),
-      languages: {
-        "en-US": "/en",
-        "de-DE": "/de",
-      },
+      languages: getLanguageAlternates("/"),
     },
     openGraph: {
       title: t("homeTitle"),
@@ -50,15 +48,48 @@ export default async function HomePage({
 }) {
   const { locale } = await params;
   const tFaq = await getTranslations({ locale, namespace: "FAQ" });
+  const tHomeSeo = await getTranslations({ locale, namespace: "HomeSeo" });
   const faqItems = [1, 2, 3, 4, 5, 6].map((index) => ({
     question: tFaq(`faq${index}.question`),
     answer: tFaq(`faq${index}.answer`),
   }));
+  const pillars = tHomeSeo.raw("pillars") as Record<string, { title: string; body: string; href: string; cta: string }>;
 
   return (
     <>
       <JsonLd id={`faq-schema-${locale}`} data={getFaqSchema(locale === "en" ? "en" : "de", faqItems)} />
       <HeroSection />
+      <section className="section-padding pt-10" aria-labelledby="homepage-seo-pillars">
+        <div className="container-custom">
+          <div className="mb-6 flex items-center gap-4">
+            <div className="line-decoration" />
+            <span className="font-mono text-xs uppercase tracking-[0.3em] text-richblack/40 dark:text-cream/40">
+              {tHomeSeo("eyebrow")}
+            </span>
+          </div>
+          <p className="max-w-3xl text-base leading-relaxed text-richblack/65 dark:text-cream/65">
+            {tHomeSeo("intro")}
+          </p>
+
+          <div className="mt-10 grid grid-cols-1 gap-5 md:grid-cols-2">
+            {Object.entries(pillars).map(([key, pillar]) => (
+              <article key={key} className="rounded-2xl border border-stone/15 bg-white/80 p-6 dark:border-stone-dark/20 dark:bg-richblack/35">
+                <h2 id={key === "shopify" ? "homepage-seo-pillars" : undefined} className="font-heading text-2xl font-semibold tracking-tight text-richblack dark:text-cream">
+                  {pillar.title}
+                </h2>
+                <p className="mt-3 text-sm leading-relaxed text-richblack/65 dark:text-cream/70">{pillar.body}</p>
+                <Link
+                  href={pillar.href}
+                  className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-terracotta transition-all hover:gap-3"
+                >
+                  {pillar.cta}
+                  <span aria-hidden="true">→</span>
+                </Link>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
       <LogoMarquee />
       <ServicesSection />
       <StatsSection />

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { getCanonicalPath } from "@/lib/canonical";
+import { getCanonicalPath, getLanguageAlternates } from "@/lib/canonical";
 
 export async function generateMetadata({
   params,
@@ -20,6 +20,7 @@ export async function generateMetadata({
     },
     alternates: {
       canonical: getCanonicalPath(locale, "/impressum"),
+      languages: getLanguageAlternates("/impressum"),
     },
   };
 }

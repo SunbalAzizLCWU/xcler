@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { getCanonicalPath } from "@/lib/canonical";
+import { getCanonicalPath, getLanguageAlternates } from "@/lib/canonical";
 
 type Locale = "en" | "de";
 
@@ -144,6 +144,7 @@ export async function generateMetadata({
     },
     alternates: {
       canonical: getCanonicalPath(safeLocale, "/privacy"),
+      languages: getLanguageAlternates("/privacy"),
     },
   };
 }

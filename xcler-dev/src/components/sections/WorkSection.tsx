@@ -1,13 +1,10 @@
-"use client";
-
-import { motion } from "framer-motion";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { Link } from "@/navigation";
 import Image from "next/image";
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 
-export function WorkSection() {
-  const t = useTranslations("Portfolio");
+export async function WorkSection() {
+  const t = await getTranslations("Portfolio");
 
   const projects = [
     {
@@ -114,10 +111,7 @@ export function WorkSection() {
           {projects.map((project, i) => (
             <AnimatedSection key={project.title} delay={i * 0.15} className="h-full">
               <Link href={project.href} className="group block h-full">
-                <motion.div
-                  whileHover={{ y: -5 }}
-                  className="relative flex h-full flex-col overflow-hidden rounded-2xl border border-stone/10 dark:border-stone-dark/10 bg-white dark:bg-richblack/50 transition-all duration-500 hover:border-terracotta/30 hover:shadow-2xl"
-                >
+                <div className="relative flex h-full flex-col overflow-hidden rounded-2xl border border-stone/10 dark:border-stone-dark/10 bg-white dark:bg-richblack/50 transition-all duration-500 hover:-translate-y-1 hover:border-terracotta/30 hover:shadow-2xl">
                   {/* Project image */}
                   <div className="relative h-64 overflow-hidden">
                     <Image
@@ -159,7 +153,7 @@ export function WorkSection() {
                       ))}
                     </div>
                   </div>
-                </motion.div>
+                </div>
               </Link>
             </AnimatedSection>
           ))}

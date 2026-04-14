@@ -4,7 +4,7 @@ import { Link } from "@/navigation";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { getServiceSchema } from "@/lib/structuredData";
-import { getCanonicalPath } from "@/lib/canonical";
+import { getCanonicalPath, getLanguageAlternates } from "@/lib/canonical";
 
 type CapabilityItem = {
   title: string;
@@ -24,6 +24,7 @@ export async function generateMetadata({
     description: t("metaDescription"),
     alternates: {
       canonical: getCanonicalPath(locale, "/services/app-development"),
+      languages: getLanguageAlternates("/services/app-development"),
     },
   };
 }

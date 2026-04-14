@@ -24,6 +24,7 @@ export function WhatsAppButton() {
         target="_blank"
         rel="noopener noreferrer"
         className="group relative flex items-center"
+        aria-label={t("whatsAppHover")}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >

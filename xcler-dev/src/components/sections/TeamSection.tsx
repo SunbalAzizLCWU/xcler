@@ -1,12 +1,9 @@
-"use client";
-
 import Image from "next/image";
-import { motion } from "framer-motion";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 
-export function TeamSection() {
-  const t = useTranslations("Team");
+export async function TeamSection() {
+  const t = await getTranslations("Team");
 
   const team = [
     {
@@ -58,10 +55,7 @@ export function TeamSection() {
         <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
           {team.map((member, i) => (
             <AnimatedSection key={member.name} delay={i * 0.15} className="h-full">
-              <motion.div
-                whileHover={{ y: -5 }}
-                className="group flex h-full flex-col rounded-2xl border border-stone/10 dark:border-stone-dark/10 bg-white dark:bg-richblack/30 overflow-hidden transition-all duration-500 hover:border-terracotta/30 hover:shadow-xl"
-              >
+              <div className="group flex h-full flex-col rounded-2xl border border-stone/10 dark:border-stone-dark/10 bg-white dark:bg-richblack/30 overflow-hidden transition-all duration-500 hover:-translate-y-1 hover:border-terracotta/30 hover:shadow-xl">
                 {/* Photo */}
                 <div className="relative h-72 bg-gradient-to-br from-stone/20 to-stone/5 overflow-hidden">
                   <div className="absolute inset-0 flex items-center justify-center">
@@ -99,7 +93,7 @@ export function TeamSection() {
                     </p>
                   </div>
                 </div>
-              </motion.div>
+              </div>
             </AnimatedSection>
           ))}
         </div>

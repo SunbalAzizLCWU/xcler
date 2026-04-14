@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Pricing } from "@/components/sections/Pricing";
-import { getCanonicalPath } from "@/lib/canonical";
+import { getCanonicalPath, getLanguageAlternates } from "@/lib/canonical";
 
 export async function generateMetadata({
   params,
@@ -16,6 +16,7 @@ export async function generateMetadata({
     description: t("introDescription"),
     alternates: {
       canonical: getCanonicalPath(locale, "/pricing"),
+      languages: getLanguageAlternates("/pricing"),
     },
   };
 }

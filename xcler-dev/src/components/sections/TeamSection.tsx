@@ -47,7 +47,7 @@ export async function TeamSection() {
             <br />
             <span className="text-terracotta">{t("headingLine2")}</span>
           </h2>
-          <p className="mt-4 text-lg text-richblack/50 dark:text-cream/50 max-w-xl">
+          <p className="mt-4 text-lg text-richblack/70 dark:text-cream/82 max-w-xl">
             {t("intro")}
           </p>
         </AnimatedSection>
@@ -81,14 +81,14 @@ export async function TeamSection() {
                   <p className="mt-1 text-sm text-terracotta font-medium">
                     {member.role}
                   </p>
-                  <p className="mt-3 text-sm text-richblack/50 dark:text-cream/50">
+                  <p className="mt-3 text-sm text-richblack/70 dark:text-cream/80">
                     {member.expertise}
                   </p>
-                  <p className="mt-3 text-sm text-richblack/50 dark:text-cream/50">
+                  <p className="mt-3 text-sm text-richblack/70 dark:text-cream/80">
                     {member.bio}
                   </p>
                   <div className="mt-auto pt-4 border-t border-stone/10 dark:border-stone-dark/10">
-                    <p className="font-mono text-xs text-richblack/30 dark:text-cream/30">
+                    <p className="font-mono text-xs text-richblack/60 dark:text-cream/75">
                       {member.tools}
                     </p>
                   </div>

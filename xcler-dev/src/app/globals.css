@@ -56,6 +56,11 @@
 }
 
 @layer base {
+  html[data-has-cookiebot-consent="true"] #CybotCookiebotDialog,
+  html[data-has-cookiebot-consent="true"] #CybotCookiebotDialogBodyUnderlay {
+    display: none !important;
+  }
+
   html {
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;

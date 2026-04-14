@@ -1,14 +1,18 @@
 // src/app/layout.tsx
 import type { Metadata } from "next";
 import { Inter, JetBrains_Mono, Space_Grotesk } from "next/font/google";
+import dynamic from "next/dynamic";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
-import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { getGlobalSchema } from "@/lib/structuredData";
 import "../globals.css";
+
+const WhatsAppButton = dynamic(
+  () => import("@/components/ui/WhatsAppButton").then((module) => module.WhatsAppButton)
+);
 
 const inter = Inter({
   subsets: ["latin", "latin-ext"],
@@ -140,11 +144,75 @@ export default async function RootLayout({
       suppressHydrationWarning
     >
       <head>
+        <style
+          id="critical-css"
+          dangerouslySetInnerHTML={{
+            __html: `
+              html, body { margin: 0; padding: 0; }
+              body {
+                background: #F5F0EB;
+                color: #0D0D0D;
+                font-family: var(--font-inter), sans-serif;
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+              }
+              .container-custom {
+                max-width: 1400px;
+                margin-left: auto;
+                margin-right: auto;
+                padding-left: 1.5rem;
+                padding-right: 1.5rem;
+              }
+              .section-padding {
+                padding-left: 1.5rem;
+                padding-right: 1.5rem;
+                padding-top: 5rem;
+                padding-bottom: 5rem;
+              }
+              @media (min-width: 768px) {
+                .container-custom {
+                  padding-left: 3rem;
+                  padding-right: 3rem;
+                }
+                .section-padding {
+                  padding-left: 3rem;
+                  padding-right: 3rem;
+                  padding-top: 8rem;
+                  padding-bottom: 8rem;
+                }
+              }
+              .line-decoration { width: 3rem; height: 2px; background: #B85C38; }
+            `,
+          }}
+        />
+        <link rel="preconnect" href="https://consent.cookiebot.com" crossOrigin="" />
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function () {
+                try {
+                  var hasCookieConsent = document.cookie.split(';').some(function (cookie) {
+                    var key = cookie.trim().split('=')[0];
+                    return key === 'CookieConsent' || key === 'CookieConsentBulkTicket';
+                  });
+
+                  if (hasCookieConsent) {
+                    document.documentElement.setAttribute('data-has-cookiebot-consent', 'true');
+                  }
+                } catch (_) {
+                  // Ignore cookie read issues and let Cookiebot handle defaults.
+                }
+              })();
+            `,
+          }}
+        />
         <script
           id="Cookiebot"
           src="https://consent.cookiebot.com/uc.js"
           data-cbid="8452dd7f-8fce-4b63-b09d-158e0ccf7d45"
-          data-blockingmode="auto"
+          data-blockingmode="manual"
+          async
           type="text/javascript"></script>
         <script
           dangerouslySetInnerHTML={{
@@ -165,11 +233,32 @@ export default async function RootLayout({
         <script
           dangerouslySetInnerHTML={{
             __html: `
-              (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-              new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-              j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-              'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-              })(window,document,'script','dataLayer','GTM-K4669PCH');
+              (function (w, d, l, i) {
+                function loadGtm() {
+                  if (w.__xclerGtmLoaded) return;
+                  w.__xclerGtmLoaded = true;
+
+                  w[l] = w[l] || [];
+                  w[l].push({
+                    'gtm.start': new Date().getTime(),
+                    event: 'gtm.js'
+                  });
+
+                  var dl = l !== 'dataLayer' ? '&l=' + l : '';
+                  var gtmScript = d.createElement('script');
+                  gtmScript.async = true;
+                  gtmScript.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+                  d.head.appendChild(gtmScript);
+
+                  w.dispatchEvent(new Event('afterLoad'));
+                }
+
+                if (d.readyState === 'complete') {
+                  loadGtm();
+                } else {
+                  w.addEventListener('load', loadGtm, { once: true });
+                }
+              })(window, document, 'dataLayer', 'GTM-K4669PCH');
             `,
           }}
         />

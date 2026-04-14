@@ -1,5 +1,6 @@
 // src/app/page.tsx
 import type { Metadata } from "next";
+import dynamic from "next/dynamic";
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/navigation";
 import { JsonLd } from "@/components/seo/JsonLd";
@@ -7,14 +8,26 @@ import { getFaqSchema } from "@/lib/structuredData";
 import { getCanonicalPath, getLanguageAlternates } from "@/lib/canonical";
 import { HeroSection } from "@/components/sections/HeroSection";
 import { LogoMarquee } from "@/components/sections/LogoMarquee";
-import { ServicesSection } from "@/components/sections/ServicesSection";
 import { WorkSection } from "@/components/sections/WorkSection";
 import { ProcessSection } from "@/components/sections/ProcessSection";
 import { TeamSection } from "@/components/sections/TeamSection";
-import { TestimonialsSection } from "@/components/sections/TestimonialsSection";
 import { StatsSection } from "@/components/sections/StatsSection";
-import { FAQSection } from "@/components/sections/FAQSection";
-import { ContactSection } from "@/components/sections/ContactSection";
+
+const ServicesSection = dynamic(
+  () => import("@/components/sections/ServicesSection").then((module) => module.ServicesSection)
+);
+
+const TestimonialsSection = dynamic(
+  () => import("@/components/sections/TestimonialsSection").then((module) => module.TestimonialsSection)
+);
+
+const FAQSection = dynamic(
+  () => import("@/components/sections/FAQSection").then((module) => module.FAQSection)
+);
+
+const ContactSection = dynamic(
+  () => import("@/components/sections/ContactSection").then((module) => module.ContactSection)
+);
 
 export async function generateMetadata({
   params,
@@ -67,7 +80,7 @@ export default async function HomePage({
               {tHomeSeo("eyebrow")}
             </span>
           </div>
-          <p className="max-w-3xl text-base leading-relaxed text-richblack/65 dark:text-cream/65">
+          <p className="max-w-3xl text-base leading-relaxed text-richblack/78 dark:text-cream/82">
             {tHomeSeo("intro")}
           </p>
 
@@ -77,7 +90,7 @@ export default async function HomePage({
                 <h2 id={key === "shopify" ? "homepage-seo-pillars" : undefined} className="font-heading text-2xl font-semibold tracking-tight text-richblack dark:text-cream">
                   {pillar.title}
                 </h2>
-                <p className="mt-3 text-sm leading-relaxed text-richblack/65 dark:text-cream/70">{pillar.body}</p>
+                <p className="mt-3 text-sm leading-relaxed text-richblack/78 dark:text-cream/82">{pillar.body}</p>
                 <Link
                   href={pillar.href}
                   className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-terracotta transition-all hover:gap-3"

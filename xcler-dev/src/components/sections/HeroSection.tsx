@@ -33,7 +33,7 @@ export function HeroSection() {
   return (
     <section
       ref={containerRef}
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      className="relative min-h-[max(42rem,100svh)] flex items-center justify-center overflow-hidden"
     >
       {/* Background Elements */}
       <div className="absolute inset-0 pointer-events-none" style={{ contain: "paint" }} aria-hidden="true">
@@ -54,7 +54,7 @@ export function HeroSection() {
 
       <motion.div
         style={{ opacity: 1 }}
-        className="relative z-10 container-custom pt-24"
+        className="relative z-10 container-custom pt-24 min-h-[calc(100svh-6rem)] flex w-full items-center"
       >
         <div className="max-w-5xl mx-auto text-center">
           {/* Badge */}
@@ -103,7 +103,7 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.7, duration: 0.6 }}
-            className="mt-8 text-lg md:text-xl text-richblack dark:text-cream/85 max-w-2xl mx-auto leading-relaxed"
+            className="mt-8 text-lg md:text-xl text-richblack dark:text-cream/92 max-w-2xl mx-auto leading-relaxed"
           >
             {t("subtitle")}
           </motion.p>
@@ -141,7 +141,7 @@ export function HeroSection() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1.2, duration: 0.8 }}
-            className="mt-16 flex flex-wrap items-center justify-center gap-8 text-sm text-richblack/50 dark:text-cream/75"
+            className="mt-16 flex flex-wrap items-center justify-center gap-8 text-sm text-richblack/75 dark:text-cream/90"
           >
             <div className="flex items-center gap-2">
               <svg className="h-4 w-4 text-sage" fill="currentColor" viewBox="0 0 20 20">
@@ -188,10 +188,10 @@ export function HeroSection() {
             transition={{ duration: 2, repeat: Infinity }}
             className="flex flex-col items-center gap-2"
           >
-            <span className="font-mono text-[10px] tracking-widest text-richblack/50 dark:text-cream/70 uppercase">
+            <span className="font-mono text-[10px] tracking-widest text-richblack/70 dark:text-cream/85 uppercase">
               {t("scrollLabel")}
             </span>
-            <div className="h-8 w-[1px] bg-gradient-to-b from-richblack/30 to-transparent dark:from-cream/40" />
+            <div className="h-8 w-[1px] bg-gradient-to-b from-richblack/45 to-transparent dark:from-cream/55" />
           </motion.div>
         </motion.div>
       </motion.div>

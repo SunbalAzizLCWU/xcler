@@ -138,7 +138,7 @@ export async function WorkSection() {
                     <h3 className="mt-2 font-heading text-xl font-semibold group-hover:text-terracotta transition-colors">
                       {project.title}
                     </h3>
-                    <p className="mt-2 text-sm text-richblack/50 dark:text-cream/50 line-clamp-2">
+                    <p className="mt-2 text-sm text-richblack/70 dark:text-cream/80 line-clamp-2">
                       {project.description}
                     </p>
                     <div className="mt-auto grid grid-cols-2 gap-2 pt-4">

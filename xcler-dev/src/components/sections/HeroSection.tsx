@@ -1,38 +1,11 @@
-"use client";
+import { getTranslations } from "next-intl/server";
+import { Link } from "@/navigation";
 
-import { useEffect, useMemo, useRef, useState } from "react";
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-import { useTranslations } from "next-intl";
-import { MagneticButton } from "@/components/ui/MagneticButton";
-
-export function HeroSection() {
-  const t = useTranslations("Hero");
-  const shouldReduceMotion = useReducedMotion();
-  const containerRef = useRef<HTMLElement | null>(null);
-  const [wordIndex, setWordIndex] = useState(0);
-
-  const rotatingWords = useMemo(() => {
-    const rawWords = t.raw("rotatingWordsList");
-    if (!Array.isArray(rawWords)) return [];
-
-    return rawWords.filter((item): item is string => typeof item === "string" && item.trim().length > 0);
-  }, [t]);
-
-  useEffect(() => {
-    if (shouldReduceMotion || rotatingWords.length <= 1) return;
-
-    const timer = window.setInterval(() => {
-      setWordIndex((current) => (current + 1) % rotatingWords.length);
-    }, 1800);
-
-    return () => window.clearInterval(timer);
-  }, [rotatingWords, shouldReduceMotion]);
-
-  const currentWord = rotatingWords.length ? rotatingWords[wordIndex % rotatingWords.length] : "";
+export async function HeroSection() {
+  const t = await getTranslations("Hero");
 
   return (
     <section
-      ref={containerRef}
       className="relative min-h-[max(42rem,100svh)] flex items-center justify-center overflow-hidden"
     >
       {/* Background Elements */}
@@ -52,70 +25,41 @@ export function HeroSection() {
         />
       </div>
 
-      <motion.div
-        style={{ opacity: 1 }}
-        className="relative z-10 container-custom pt-24 min-h-[calc(100svh-6rem)] flex w-full items-center"
-      >
+      <div className="relative z-10 container-custom pt-24 min-h-[calc(100svh-6rem)] flex w-full items-center">
         <div className="max-w-5xl mx-auto text-center">
           {/* Badge */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2, duration: 0.6 }}
-            className="inline-flex items-center gap-2 rounded-full border border-stone/25 bg-white/75 dark:border-white/35 dark:bg-black/45 px-4 py-1.5 mb-8"
-          >
+          <div className="inline-flex items-center gap-2 rounded-full border border-stone/25 bg-white/75 dark:border-white/35 dark:bg-black/45 px-4 py-1.5 mb-8">
             <span className="relative flex h-2 w-2">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-sage opacity-75" />
+              <span className="absolute inline-flex h-full w-full rounded-full bg-sage opacity-75" />
               <span className="relative inline-flex h-2 w-2 rounded-full bg-sage" />
             </span>
             <span className="font-mono text-xs tracking-wider text-richblack dark:text-white">
               {t("availabilityBadge")}
             </span>
-          </motion.div>
+          </div>
 
           {/* Main Heading */}
-          <motion.h1
-            initial={{ opacity: 1, y: shouldReduceMotion ? 0 : 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: shouldReduceMotion ? 0 : 0.2, duration: shouldReduceMotion ? 0 : 0.7, ease: [0.16, 1, 0.3, 1] }}
-            className="font-heading text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-[0.96] text-richblack dark:text-cream"
-          >
+          <h1 className="font-heading text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-[0.96] text-richblack dark:text-cream">
             <span className="block">{t("headlineTop")}</span>
             <span className="mt-2 block min-h-[1.1em] text-terracotta">
-              <AnimatePresence mode="wait" initial={false}>
-                <motion.span
-                  key={currentWord || "word-fallback"}
-                  initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 14 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: -14 }}
-                  transition={{ duration: shouldReduceMotion ? 0 : 0.35, ease: [0.16, 1, 0.3, 1] }}
-                  className="inline-block border-y border-terracotta/35 px-3 py-1"
-                >
-                  {currentWord || t("lineTwoEmphasis")}
-                </motion.span>
-              </AnimatePresence>
+              <span className="inline-block border-y border-terracotta/35 px-3 py-1">
+                {t("lineTwoEmphasis")}
+              </span>
             </span>
             <span className="mt-2 block">{t("headlineBottom")}</span>
-          </motion.h1>
+          </h1>
 
           {/* Subheading */}
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.7, duration: 0.6 }}
-            className="mt-8 text-lg md:text-xl text-richblack dark:text-cream/92 max-w-2xl mx-auto leading-relaxed"
-          >
+          <p className="mt-8 text-lg md:text-xl text-richblack dark:text-cream/92 max-w-2xl mx-auto leading-relaxed">
             {t("subtitle")}
-          </motion.p>
+          </p>
 
           {/* CTAs */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.9, duration: 0.6 }}
-            className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4"
-          >
-            <MagneticButton href="/contact" variant="primary" size="lg">
+          <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+            <Link
+              href="/contact"
+              className="inline-flex items-center justify-center gap-2 rounded-full border border-terracotta bg-terracotta px-10 py-4 font-heading text-lg font-medium tracking-wide text-white transition-colors duration-300 hover:bg-terracotta-dark"
+            >
               {t("cta")}
               <svg
                 className="h-4 w-4"
@@ -130,19 +74,17 @@ export function HeroSection() {
                   d="M17 8l4 4m0 0l-4 4m4-4H3"
                 />
               </svg>
-            </MagneticButton>
-            <MagneticButton href="/work" variant="outline" size="lg">
+            </Link>
+            <Link
+              href="/work"
+              className="inline-flex items-center justify-center gap-2 rounded-full border border-richblack/20 bg-transparent px-10 py-4 font-heading text-lg font-medium tracking-wide text-richblack transition-colors duration-300 hover:border-terracotta hover:text-terracotta dark:border-cream/20 dark:text-cream"
+            >
               {t("secondaryCta")}
-            </MagneticButton>
-          </motion.div>
+            </Link>
+          </div>
 
           {/* Trust indicators */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1.2, duration: 0.8 }}
-            className="mt-16 flex flex-wrap items-center justify-center gap-8 text-sm text-richblack/75 dark:text-cream/90"
-          >
+          <div className="mt-16 flex flex-wrap items-center justify-center gap-8 text-sm text-richblack/75 dark:text-cream/90">
             <div className="flex items-center gap-2">
               <svg className="h-4 w-4 text-sage" fill="currentColor" viewBox="0 0 20 20">
                 <path
@@ -173,28 +115,19 @@ export function HeroSection() {
               </svg>
               <span>{t("trust.region")}</span>
             </div>
-          </motion.div>
+          </div>
         </div>
 
         {/* Scroll indicator */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.5 }}
-          className="absolute bottom-10 left-1/2 -translate-x-1/2"
-        >
-          <motion.div
-            animate={{ y: [0, 8, 0] }}
-            transition={{ duration: 2, repeat: Infinity }}
-            className="flex flex-col items-center gap-2"
-          >
+        <div className="absolute bottom-10 left-1/2 -translate-x-1/2">
+          <div className="flex flex-col items-center gap-2">
             <span className="font-mono text-[10px] tracking-widest text-richblack/70 dark:text-cream/85 uppercase">
               {t("scrollLabel")}
             </span>
             <div className="h-8 w-[1px] bg-gradient-to-b from-richblack/45 to-transparent dark:from-cream/55" />
-          </motion.div>
-        </motion.div>
-      </motion.div>
+          </div>
+        </div>
+      </div>
     </section>
   );
 }

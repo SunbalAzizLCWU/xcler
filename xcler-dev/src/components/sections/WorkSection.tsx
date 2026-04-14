@@ -118,6 +118,7 @@ export async function WorkSection() {
                       src={project.image}
                       alt={project.title}
                       fill
+                      loading="lazy"
                       sizes="(max-width: 768px) 100vw, 50vw"
                       className={`object-cover transition-transform duration-700 group-hover:scale-105 ${project.imageClassName ?? ""}`}
                     />

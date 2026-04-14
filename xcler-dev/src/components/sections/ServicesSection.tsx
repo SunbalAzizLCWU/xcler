@@ -197,6 +197,7 @@ export function ServicesSection() {
                           src={getLeadAvatar(services[activeService].lead)!}
                           alt={services[activeService].lead}
                           fill
+                          loading="lazy"
                           className="object-cover"
                           sizes="32px"
                         />

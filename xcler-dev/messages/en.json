@@ -67,6 +67,8 @@
   "Hero": {
     "title": "Web development and AI automation for measurable business growth.",
     "subtitle": "We build websites, apps, and AI systems with precision, efficiency, and scale at the core.",
+    "headlineTop": "We Build",
+    "headlineBottom": "that works",
     "cta": "Let's Talk",
     "availabilityBadge": "AVAILABLE FOR NEW PROJECTS",
     "lineOne": "We build",
@@ -89,7 +91,19 @@
       "automations": "Automations",
       "chatbots": "Chatbots",
       "stores": "Stores"
-    }
+    },
+    "rotatingWordsList": [
+      "Systems",
+      "Websites",
+      "Workflow Automations",
+      "Voice Agents",
+      "Chatbots",
+      "RAG Agents",
+      "WordPress Websites",
+      "WooCommerce Stores",
+      "Shopify Stores",
+      "Custom Websites"
+    ]
   },
   "Services": {
     "eyebrow": "What We Do",

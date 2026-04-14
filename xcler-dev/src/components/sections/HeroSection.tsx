@@ -1,7 +1,7 @@
 "use client";
 
-import { useRef } from "react";
-import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
+import { useEffect, useMemo, useRef, useState } from "react";
+import { AnimatePresence, motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import { useTranslations } from "next-intl";
 import { MagneticButton } from "@/components/ui/MagneticButton";
 
@@ -9,9 +9,29 @@ export function HeroSection() {
   const t = useTranslations("Hero");
   const shouldReduceMotion = useReducedMotion();
   const containerRef = useRef<HTMLElement | null>(null);
+  const [wordIndex, setWordIndex] = useState(0);
   const { scrollY } = useScroll();
   const y = useTransform(scrollY, [0, 900], ["0%", "30%"]);
   const opacity = useTransform(scrollY, [0, 450], [1, 0]);
+
+  const rotatingWords = useMemo(() => {
+    const rawWords = t.raw("rotatingWordsList");
+    if (!Array.isArray(rawWords)) return [];
+
+    return rawWords.filter((item): item is string => typeof item === "string" && item.trim().length > 0);
+  }, [t]);
+
+  useEffect(() => {
+    if (shouldReduceMotion || rotatingWords.length <= 1) return;
+
+    const timer = window.setInterval(() => {
+      setWordIndex((current) => (current + 1) % rotatingWords.length);
+    }, 1800);
+
+    return () => window.clearInterval(timer);
+  }, [rotatingWords, shouldReduceMotion]);
+
+  const currentWord = rotatingWords.length ? rotatingWords[wordIndex % rotatingWords.length] : "";
 
   return (
     <section
@@ -65,9 +85,24 @@ export function HeroSection() {
             initial={{ opacity: 1, y: shouldReduceMotion ? 0 : 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: shouldReduceMotion ? 0 : 0.2, duration: shouldReduceMotion ? 0 : 0.7, ease: [0.16, 1, 0.3, 1] }}
-            className="font-heading text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-[0.95] text-richblack dark:text-cream"
+            className="font-heading text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-[0.96] text-richblack dark:text-cream"
           >
-            {t("title")}
+            <span className="block">{t("headlineTop")}</span>
+            <span className="mt-2 block min-h-[1.1em] text-terracotta">
+              <AnimatePresence mode="wait" initial={false}>
+                <motion.span
+                  key={currentWord || "word-fallback"}
+                  initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 14 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: -14 }}
+                  transition={{ duration: shouldReduceMotion ? 0 : 0.35, ease: [0.16, 1, 0.3, 1] }}
+                  className="inline-block border-y border-terracotta/35 px-3 py-1"
+                >
+                  {currentWord || t("lineTwoEmphasis")}
+                </motion.span>
+              </AnimatePresence>
+            </span>
+            <span className="mt-2 block">{t("headlineBottom")}</span>
           </motion.h1>
 
           {/* Subheading */}

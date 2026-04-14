@@ -67,6 +67,8 @@
   "Hero": {
     "title": "Webentwicklung und KI-Automatisierung für messbares Unternehmenswachstum.",
     "subtitle": "Wir entwickeln Websites, Apps und KI-Systeme mit Präzision, Effizienz und Skalierung als technischem Fundament.",
+    "headlineTop": "Wir bauen",
+    "headlineBottom": "die funktionieren",
     "cta": "Lassen Sie uns sprechen",
     "availabilityBadge": "JETZT FÜR NEUE PROJEKTE VERFÜGBAR",
     "lineOne": "Wir entwickeln",
@@ -89,7 +91,19 @@
       "automations": "Automationen",
       "chatbots": "Chatbots",
       "stores": "Onlineshops"
-    }
+    },
+    "rotatingWordsList": [
+      "Systeme",
+      "Websites",
+      "Workflow-Automationen",
+      "Voice Agents",
+      "Chatbots",
+      "RAG-Agenten",
+      "WordPress-Websites",
+      "WooCommerce-Shops",
+      "Shopify-Shops",
+      "Kundenportale"
+    ]
   },
   "Services": {
     "eyebrow": "Unsere Leistungen",

@@ -89,10 +89,16 @@ export default async function WorkCaseStudyPage({
           <span>{labels.backToWork}</span>
         </Link>
 
-        <div className="overflow-hidden rounded-2xl border border-stone/15 bg-white">
-          <div className="relative h-[280px] w-full md:h-[380px]">
-            <Image src={study.heroImage} alt={study.title[locale]} fill className="object-cover" priority />
-          </div>
+        <div className="overflow-hidden rounded-2xl border border-stone/15 bg-richblack/95">
+          <Image
+            src={study.heroImage}
+            alt={study.title[locale]}
+            width={1200}
+            height={630}
+            sizes="(max-width: 1280px) 100vw, 1200px"
+            className="block h-auto w-full"
+            priority
+          />
         </div>
 
         <header className="mt-10">

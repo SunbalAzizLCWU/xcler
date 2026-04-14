@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/navigation";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
+import Image from "next/image";
 
 type ServicesPageItem = {
   number: string;
@@ -11,6 +12,16 @@ type ServicesPageItem = {
   href: string;
   lead: string;
 };
+
+const leadAvatars: Record<string, string> = {
+  "abeel mehr": "/team/abeel.jpg",
+  "mehru seemab": "/team/mehru.jpg",
+  "musharraf aziz": "/team/musharraf.jpg",
+};
+
+function getLeadAvatar(name: string): string | null {
+  return leadAvatars[name.trim().toLowerCase()] ?? null;
+}
 
 export async function generateMetadata({
   params,
@@ -95,7 +106,18 @@ export default async function ServicesPage({
                       ))}
                     </div>
                     <div className="mt-4 flex items-center gap-2">
-                      <div className="h-6 w-6 rounded-full bg-stone/20" />
+                      {getLeadAvatar(service.lead) ? (
+                        <div className="relative h-6 w-6 overflow-hidden rounded-full">
+                          <Image
+                            src={getLeadAvatar(service.lead)!}
+                            alt={service.lead}
+                            fill
+                            className="object-cover"
+                          />
+                        </div>
+                      ) : (
+                        <div className="h-6 w-6 rounded-full bg-stone/20" />
+                      )}
                       <span className="text-sm text-richblack/40 dark:text-cream/40">
                         {t("ledBy")} {service.lead}
                       </span>

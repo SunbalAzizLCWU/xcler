@@ -5,6 +5,17 @@ import { motion, AnimatePresence } from "framer-motion";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
+import Image from "next/image";
+
+const leadAvatars: Record<string, string> = {
+  "abeel mehr": "/team/abeel.jpg",
+  "mehru seemab": "/team/mehru.jpg",
+  "musharraf aziz": "/team/musharraf.jpg",
+};
+
+function getLeadAvatar(name: string): string | null {
+  return leadAvatars[name.trim().toLowerCase()] ?? null;
+}
 
 export function ServicesSection() {
   const t = useTranslations("Services");
@@ -180,7 +191,18 @@ export function ServicesSection() {
                   </div>
 
                   <div className="mt-6 flex items-center gap-3">
-                    <div className="h-8 w-8 rounded-full bg-stone/20" />
+                    {getLeadAvatar(services[activeService].lead) ? (
+                      <div className="relative h-8 w-8 overflow-hidden rounded-full">
+                        <Image
+                          src={getLeadAvatar(services[activeService].lead)!}
+                          alt={services[activeService].lead}
+                          fill
+                          className="object-cover"
+                        />
+                      </div>
+                    ) : (
+                      <div className="h-8 w-8 rounded-full bg-stone/20" />
+                    )}
                     <div>
                       <p className="text-xs text-richblack/40 dark:text-cream/40">
                         {t("ledBy")}

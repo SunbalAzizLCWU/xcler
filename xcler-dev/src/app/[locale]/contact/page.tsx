@@ -23,6 +23,9 @@ export default async function ContactPage({
 }) {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "ContactPage" });
+  const phoneNumber = "923154823517";
+  const displayPhoneNumber = "+92 315 4823517";
+  const whatsappLink = `https://wa.me/${phoneNumber}`;
 
   return (
     <section className="section-padding pt-32">
@@ -64,10 +67,12 @@ export default async function ContactPage({
                   {t("phoneLabel")}
                 </p>
                 <a
-                  href="tel:+493012345670"
+                  href={whatsappLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="mt-1 inline-block font-medium text-richblack dark:text-white transition-colors hover:text-terracotta"
                 >
-                  +49 30 123 456 70
+                  {displayPhoneNumber}
                 </a>
               </div>
 

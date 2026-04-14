@@ -16,6 +16,7 @@ export function ContactForm() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [submittedName, setSubmittedName] = useState("");
 
   const budgetRanges = [
     tForm("budgetOptions.option1"),
@@ -46,6 +47,8 @@ export function ContactForm() {
       });
 
       if (res.ok) {
+        alert("Message sent successfully.");
+        setSubmittedName(formData.name);
         setIsSubmitted(true);
         setFormData({
           name: "",
@@ -55,9 +58,12 @@ export function ContactForm() {
           budget: "",
           message: "",
         });
+      } else {
+        alert("Failed to send message. Please try again.");
       }
     } catch (error) {
       console.error("Form submission error:", error);
+      alert("Something went wrong. Please try again.");
     } finally {
       setIsSubmitting(false);
     }
@@ -100,7 +106,9 @@ export function ContactForm() {
           <h3 className="font-heading text-2xl font-bold text-white">
             {tForm("successTitle")}
           </h3>
-          <p className="mt-2 text-cream/75">{tForm("successDescription")}</p>
+          <p className="mt-2 text-cream/75">
+            {tForm("successMessage", { name: submittedName })}
+          </p>
         </div>
       </motion.div>
     );
@@ -261,7 +269,7 @@ export function ContactForm() {
                 d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"
               />
             </svg>
-            {tForm("buttonLoading")}
+            {tForm("sending")}
           </span>
         ) : (
           tForm("button")

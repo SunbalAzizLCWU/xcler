@@ -289,6 +289,9 @@
     "locationValue": "Für Deutschland und die EU"
   },
   "ContactForm": {
+    "successTitle": "Anfrage erfolgreich gesendet",
+    "successMessage": "Vielen Dank für Ihre Anfrage, {name}. Unser Team wird Sie in Kürze kontaktieren. Die maximale Bearbeitungszeit beträgt 24 Stunden.",
+    "sending": "Wird gesendet...",
     "nameLabel": "Ihr Name",
     "namePlaceholder": "Max Mustermann",
     "emailLabel": "E-Mail",

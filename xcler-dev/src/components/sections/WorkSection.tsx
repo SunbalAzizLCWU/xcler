@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import Link from "next/link";
+import Image from "next/image";
 import { useTranslations } from "next-intl";
 
 export function WorkSection() {
@@ -20,6 +21,7 @@ export function WorkSection() {
         t("project1.tags.tag4"),
       ],
       image: "/projects/green-navigator.jpg",
+      imageClassName: "object-top",
       href: "/work/green-navigator",
       color: "from-sage/20 to-sage/5",
     },
@@ -62,6 +64,7 @@ export function WorkSection() {
         t("project4.tags.tag4"),
       ],
       image: "/projects/overwatch.jpg",
+      imageClassName: "object-top",
       href: "/work/overwatch-ai",
       color: "from-richblack/20 to-richblack/5",
     },
@@ -115,13 +118,14 @@ export function WorkSection() {
                   whileHover={{ y: -5 }}
                   className="relative flex h-full flex-col overflow-hidden rounded-2xl border border-stone/10 dark:border-stone-dark/10 bg-white dark:bg-richblack/50 transition-all duration-500 hover:border-terracotta/30 hover:shadow-2xl"
                 >
-                  {/* Image placeholder */}
-                  <div
-                    className={`relative h-64 bg-gradient-to-br ${project.color} flex items-center justify-center overflow-hidden`}
-                  >
-                    <span className="font-heading text-3xl font-bold text-richblack/10 dark:text-cream/10">
-                      {project.title}
-                    </span>
+                  {/* Project image */}
+                  <div className="relative h-64 overflow-hidden">
+                    <Image
+                      src={project.image}
+                      alt={project.title}
+                      fill
+                      className={`object-cover transition-transform duration-700 group-hover:scale-105 ${project.imageClassName ?? ""}`}
+                    />
 
                     {/* Hover overlay */}
                     <div className="absolute inset-0 bg-richblack/60 opacity-0 transition-opacity duration-500 group-hover:opacity-100 flex items-center justify-center">

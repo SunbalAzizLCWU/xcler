@@ -50,7 +50,39 @@ export async function POST(request: Request) {
     // Save
     fs.writeFileSync(leadsFile, JSON.stringify(leads, null, 2));
 
-    // TODO: Send email notification via Resend (add later)
+    // Send email notification via Resend
+    const resendApiKey = process.env.RESEND_API_KEY;
+    if (resendApiKey) {
+      const resendResponse = await fetch("https://api.resend.com/emails", {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${resendApiKey}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          from: "Xcler notifications <notifications@xcler.dev>",
+          to: ["hello@xcler.dev"],
+          subject: `New contact inquiry from ${name}`,
+          reply_to: email,
+          html: `
+            <h2>New contact inquiry</h2>
+            <p><strong>Name:</strong> ${name}</p>
+            <p><strong>Email:</strong> ${email}</p>
+            <p><strong>Company:</strong> ${company || "-"}</p>
+            <p><strong>Service:</strong> ${service}</p>
+            <p><strong>Budget:</strong> ${budget || "-"}</p>
+            <p><strong>Message:</strong></p>
+            <p>${message}</p>
+          `,
+        }),
+      });
+
+      if (!resendResponse.ok) {
+        const resendError = await resendResponse.text();
+        console.error("Resend error:", resendError);
+      }
+    }
+
     // TODO: Send WhatsApp notification (add later)
 
     return NextResponse.json(

@@ -289,6 +289,9 @@
     "locationValue": "Serving Germany & EU"
   },
   "ContactForm": {
+    "successTitle": "Inquiry submitted successfully",
+    "successMessage": "Thank you for submitting your inquiry, {name}. Our team will be contacting you shortly. Maximum turnaround time is 24 hours.",
+    "sending": "Sending...",
     "nameLabel": "Your Name",
     "namePlaceholder": "John Müller",
     "emailLabel": "Email",

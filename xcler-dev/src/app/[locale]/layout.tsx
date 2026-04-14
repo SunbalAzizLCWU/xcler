@@ -34,9 +34,9 @@ export async function generateMetadata({
     },
     description: pageDescription,
     icons: {
-      icon: [{ url: "/favicon.ico" }],
+      icon: [{ url: "/icon.png" }, { url: "/favicon.ico" }],
       shortcut: [{ url: "/favicon.ico" }],
-      apple: [{ url: "/apple-touch-icon.png" }],
+      apple: [{ url: "/apple-icon.png" }, { url: "/apple-touch-icon.png" }],
     },
     alternates: {
       languages: {

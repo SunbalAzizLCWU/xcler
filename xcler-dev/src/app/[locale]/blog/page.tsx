@@ -5,6 +5,9 @@ import { Link } from "@/navigation";
 import { client } from "@/sanity/lib/client";
 import { urlFor } from "@/sanity/lib/image";
 
+export const revalidate = 60;
+export const dynamic = "force-dynamic";
+
 type BlogPostCard = {
   _id: string;
   title: string;
@@ -21,8 +24,8 @@ const blogPostsQuery = groq`
     _id,
     "title": select($locale == "de" => coalesce(title_de, title_en), coalesce(title_en, title_de)),
     "slug": slug.current,
-    mainImage,
-    "imageAlt": coalesce(mainImage.alt, title_en, title_de, "Blog post image"),
+    "mainImage": select($locale == "de" => mainImage_de, mainImage_en),
+    "imageAlt": coalesce(select($locale == "de" => mainImage_de.alt, mainImage_en.alt), title_en, title_de, "Blog post image"),
     "excerpt": select($locale == "de" => pt::text(body_de), pt::text(body_en))[0...180],
     "publishedAt": _createdAt,
     "authorName": author->name

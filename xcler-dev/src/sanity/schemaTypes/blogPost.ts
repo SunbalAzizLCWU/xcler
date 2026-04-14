@@ -38,8 +38,23 @@ export const blogPost = defineType({
       validation: (rule) => rule.required()
     }),
     defineField({
-      name: 'mainImage',
-      title: 'Main Image',
+      name: 'mainImage_en',
+      title: 'Main Image (English)',
+      type: 'image',
+      options: {hotspot: true},
+      fields: [
+        defineField({
+          name: 'alt',
+          title: 'Alt Text',
+          type: 'string',
+          validation: (rule) => rule.required()
+        })
+      ],
+      validation: (rule) => rule.required()
+    }),
+    defineField({
+      name: 'mainImage_de',
+      title: 'Main Image (German)',
       type: 'image',
       options: {hotspot: true},
       fields: [
@@ -105,7 +120,7 @@ export const blogPost = defineType({
     select: {
       title: 'title_en',
       subtitle: 'slug.current',
-      media: 'mainImage'
+      media: 'mainImage_en'
     }
   }
 })

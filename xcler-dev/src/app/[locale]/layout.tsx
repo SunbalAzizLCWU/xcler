@@ -2,7 +2,6 @@
 import type { Metadata } from "next";
 import { Inter, JetBrains_Mono, Space_Grotesk } from "next/font/google";
 import dynamic from "next/dynamic";
-import Script from "next/script";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
 import { Navbar } from "@/components/layout/Navbar";
@@ -193,6 +192,28 @@ export default async function RootLayout({
         <script
           dangerouslySetInnerHTML={{
             __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+
+              gtag('consent', 'default', {
+                ad_storage: 'denied',
+                analytics_storage: 'denied',
+                ad_user_data: 'denied',
+                ad_personalization: 'denied',
+                wait_for_update: 500
+              });
+            `,
+          }}
+        />
+        <script
+          id="Cookiebot"
+          src="https://consent.cookiebot.com/uc.js"
+          data-cbid="8452dd7f-8fce-4b63-b09d-158e0ccf7d45"
+          data-blockingmode="auto"
+          type="text/javascript"></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
               (function () {
                 try {
                   var hasCookieConsent = document.cookie.split(';').some(function (cookie) {
@@ -213,16 +234,22 @@ export default async function RootLayout({
         <script
           dangerouslySetInnerHTML={{
             __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
+              (function () {
+                function syncConsent() {
+                  if (!window.Cookiebot || typeof window.gtag !== 'function') return;
 
-              gtag('consent', 'default', {
-                ad_storage: 'denied',
-                analytics_storage: 'denied',
-                ad_user_data: 'denied',
-                ad_personalization: 'denied',
-                wait_for_update: 500
-              });
+                  window.gtag('consent', 'update', {
+                    ad_storage: window.Cookiebot.consent.marketing ? 'granted' : 'denied',
+                    analytics_storage: window.Cookiebot.consent.statistics ? 'granted' : 'denied',
+                    ad_user_data: window.Cookiebot.consent.marketing ? 'granted' : 'denied',
+                    ad_personalization: window.Cookiebot.consent.marketing ? 'granted' : 'denied'
+                  });
+                }
+
+                window.addEventListener('CookiebotOnConsentReady', syncConsent);
+                window.addEventListener('CookiebotOnAccept', syncConsent);
+                window.addEventListener('CookiebotOnDecline', syncConsent);
+              })();
             `,
           }}
         />
@@ -258,41 +285,12 @@ export default async function RootLayout({
             `,
           }}
         />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function () {
-                function syncConsent() {
-                  if (!window.Cookiebot || typeof window.gtag !== 'function') return;
-
-                  window.gtag('consent', 'update', {
-                    ad_storage: window.Cookiebot.consent.marketing ? 'granted' : 'denied',
-                    analytics_storage: window.Cookiebot.consent.statistics ? 'granted' : 'denied',
-                    ad_user_data: window.Cookiebot.consent.marketing ? 'granted' : 'denied',
-                    ad_personalization: window.Cookiebot.consent.marketing ? 'granted' : 'denied'
-                  });
-                }
-
-                window.addEventListener('CookiebotOnConsentReady', syncConsent);
-                window.addEventListener('CookiebotOnAccept', syncConsent);
-                window.addEventListener('CookiebotOnDecline', syncConsent);
-              })();
-            `,
-          }}
-        />
         <JsonLd id={`global-graph-${locale}`} data={getGlobalSchema(locale === "en" ? "en" : "de")} />
         <link rel="icon" href="/favicon.ico" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/manifest.json" />
       </head>
       <body className="font-body antialiased" suppressHydrationWarning>
-        <Script
-          id="Cookiebot"
-          src="https://consent.cookiebot.com/uc.js"
-          data-cbid="8452dd7f-8fce-4b63-b09d-158e0ccf7d45"
-          data-blockingmode="auto"
-          strategy="beforeInteractive"
-        />
         <noscript
           dangerouslySetInnerHTML={{
             __html:

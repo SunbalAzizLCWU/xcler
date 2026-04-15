@@ -185,11 +185,9 @@ export default async function RootLayout({
             `,
           }}
         />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
-        <link rel="preconnect" href="https://consent.cookiebot.com" crossOrigin="" />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
         <script
+          data-cookieconsent="ignore"
           dangerouslySetInnerHTML={{
             __html: `
               window.dataLayer = window.dataLayer || [];
@@ -209,9 +207,10 @@ export default async function RootLayout({
           id="Cookiebot"
           src="https://consent.cookiebot.com/uc.js"
           data-cbid="8452dd7f-8fce-4b63-b09d-158e0ccf7d45"
-          data-blockingmode="auto"
+          data-blockingmode="manual"
           type="text/javascript"></script>
         <script
+          data-cookieconsent="ignore"
           dangerouslySetInnerHTML={{
             __html: `
               (function () {
@@ -232,6 +231,7 @@ export default async function RootLayout({
           }}
         />
         <script
+          data-cookieconsent="ignore"
           dangerouslySetInnerHTML={{
             __html: `
               (function () {
@@ -254,6 +254,7 @@ export default async function RootLayout({
           }}
         />
         <script
+          data-cookieconsent="ignore"
           dangerouslySetInnerHTML={{
             __html: `
               (function (w, d, l, i) {

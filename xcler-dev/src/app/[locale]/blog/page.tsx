@@ -25,13 +25,13 @@ type BlogPostCard = {
 const blogPostsQuery = groq`
   *[_type == "blogPost"] | order(_createdAt desc) {
     _id,
-    "title": select($locale == "de" => coalesce(title_de, title_en), coalesce(title_en, title_de)),
+    "title": coalesce(select($locale == "de" => title_de, title_en), title, "Untitled"),
     "slug_en": slug_en,
     "slug_de": slug_de,
     "slug_legacy": slug.current,
-    "mainImage": select($locale == "de" => mainImage_de, mainImage_en),
-    "imageAlt": coalesce(select($locale == "de" => mainImage_de.alt, mainImage_en.alt), title_en, title_de, "Blog post image"),
-    "excerpt": select($locale == "de" => pt::text(body_de), pt::text(body_en))[0...180],
+    "mainImage": coalesce(select($locale == "de" => mainImage_de, mainImage_en), mainImage),
+    "imageAlt": coalesce(select($locale == "de" => mainImage_de.alt, mainImage_en.alt), mainImage.alt, title_de, title_en, title, "Blog post image"),
+    "excerpt": coalesce(select($locale == "de" => pt::text(body_de), pt::text(body_en)), pt::text(body), "")[0...180],
     "publishedAt": _createdAt,
     "authorName": author->name
   }

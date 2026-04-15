@@ -225,14 +225,14 @@ const createPortableTextComponents = (locale: string) => ({
 });
 
 const postBySlugQuery = groq`
-  *[_type == "blogPost" && select($locale == "de" => slug_de.current == $slug, slug_en.current == $slug)][0] {
+  *[_type == "blogPost" && coalesce(select($locale == "de" => slug_de.current, slug_en.current), select($locale == "de" => slug_en.current, slug_de.current), slug.current) == $slug][0] {
     _id,
-    "title": select($locale == "de" => coalesce(title_de, title_en), coalesce(title_en, title_de)),
+    "title": coalesce(select($locale == "de" => title_de, title_en), title, "Untitled"),
     "slug_en": slug_en.current,
     "slug_de": slug_de.current,
-    "mainImage": select($locale == "de" => mainImage_de, mainImage_en),
-    "imageAlt": coalesce(select($locale == "de" => mainImage_de.alt, mainImage_en.alt), title_en, title_de, "Blog post image"),
-    "body": select($locale == "de" => body_de, body_en)
+    "mainImage": coalesce(select($locale == "de" => mainImage_de, mainImage_en), mainImage),
+    "imageAlt": coalesce(select($locale == "de" => mainImage_de.alt, mainImage_en.alt), mainImage.alt, title_de, title_en, title, "Blog post image"),
+    "body": coalesce(select($locale == "de" => body_de, body_en), body, [])
   }
 `;
 

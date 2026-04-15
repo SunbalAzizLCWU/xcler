@@ -145,13 +145,6 @@ export default async function RootLayout({
       suppressHydrationWarning
     >
       <head>
-        <Script
-          id="Cookiebot"
-          src="https://consent.cookiebot.com/uc.js"
-          data-cbid="8452dd7f-8fce-4b63-b09d-158e0ccf7d45"
-          data-blockingmode="auto"
-          strategy="beforeInteractive"
-        />
         <style
           id="critical-css"
           dangerouslySetInnerHTML={{
@@ -293,6 +286,13 @@ export default async function RootLayout({
         <link rel="manifest" href="/manifest.json" />
       </head>
       <body className="font-body antialiased" suppressHydrationWarning>
+        <Script
+          id="Cookiebot"
+          src="https://consent.cookiebot.com/uc.js"
+          data-cbid="8452dd7f-8fce-4b63-b09d-158e0ccf7d45"
+          data-blockingmode="auto"
+          strategy="beforeInteractive"
+        />
         <noscript
           dangerouslySetInnerHTML={{
             __html:

@@ -123,15 +123,16 @@ export function ContactForm() {
     <form onSubmit={handleSubmit} className="space-y-6 rounded-2xl border border-stone-dark/25 bg-richblack/70 p-6 md:p-8">
       <div>
         <label
-          htmlFor="name"
+          htmlFor="contact-page-name"
           className="block text-sm font-medium mb-2 text-cream"
         >
           {tForm("nameLabel")} <span className="text-terracotta">*</span>
         </label>
         <input
           type="text"
-          id="name"
+          id="contact-page-name"
           name="name"
+          autoComplete="name"
           required
           value={formData.name}
           onChange={handleChange}
@@ -142,15 +143,16 @@ export function ContactForm() {
 
       <div>
         <label
-          htmlFor="email"
+          htmlFor="contact-page-email"
           className="block text-sm font-medium mb-2 text-cream"
         >
           {tForm("emailLabel")} <span className="text-terracotta">*</span>
         </label>
         <input
           type="email"
-          id="email"
+          id="contact-page-email"
           name="email"
+          autoComplete="email"
           required
           value={formData.email}
           onChange={handleChange}
@@ -161,15 +163,16 @@ export function ContactForm() {
 
       <div>
         <label
-          htmlFor="company"
+          htmlFor="contact-page-company"
           className="block text-sm font-medium mb-2 text-cream"
         >
           {tForm("companyLabel")}
         </label>
         <input
           type="text"
-          id="company"
+          id="contact-page-company"
           name="company"
+          autoComplete="organization"
           value={formData.company}
           onChange={handleChange}
           className="w-full rounded-xl border border-stone-dark/35 bg-transparent px-4 py-3 font-body text-sm text-cream outline-none transition-all focus:border-terracotta focus:ring-1 focus:ring-terracotta/20 placeholder:text-cream/35"

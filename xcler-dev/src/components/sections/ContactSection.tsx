@@ -227,15 +227,16 @@ export function ContactSection() {
                 {/* Name */}
                 <div>
                   <label
-                    htmlFor="name"
+                    htmlFor="contact-name"
                     className="block text-sm font-medium mb-2 text-richblack dark:text-cream"
                   >
                     {tForm("nameLabel")} <span className="text-terracotta">*</span>
                   </label>
                   <input
                     type="text"
-                    id="name"
+                    id="contact-name"
                     name="name"
+                    autoComplete="name"
                     required
                     value={formData.name}
                     onChange={handleChange}
@@ -247,15 +248,16 @@ export function ContactSection() {
                 {/* Email */}
                 <div>
                   <label
-                    htmlFor="email"
+                    htmlFor="contact-email"
                     className="block text-sm font-medium mb-2 text-richblack dark:text-cream"
                   >
                     {tForm("emailLabel")} <span className="text-terracotta">*</span>
                   </label>
                   <input
                     type="email"
-                    id="email"
+                    id="contact-email"
                     name="email"
+                    autoComplete="email"
                     required
                     value={formData.email}
                     onChange={handleChange}
@@ -267,15 +269,16 @@ export function ContactSection() {
                 {/* Company */}
                 <div>
                   <label
-                    htmlFor="company"
+                    htmlFor="contact-company"
                     className="block text-sm font-medium mb-2 text-richblack dark:text-cream"
                   >
                     {tForm("companyLabel")}
                   </label>
                   <input
                     type="text"
-                    id="company"
+                    id="contact-company"
                     name="company"
+                    autoComplete="organization"
                     value={formData.company}
                     onChange={handleChange}
                     className="w-full rounded-xl border border-stone/20 dark:border-stone-dark/20 bg-transparent px-4 py-3 font-body text-sm outline-none transition-all focus:border-terracotta focus:ring-1 focus:ring-terracotta/20 placeholder:text-richblack/30 dark:placeholder:text-cream/30"

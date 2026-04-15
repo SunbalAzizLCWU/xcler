@@ -2,6 +2,7 @@
 import type { Metadata } from "next";
 import { Inter, JetBrains_Mono, Space_Grotesk } from "next/font/google";
 import dynamic from "next/dynamic";
+import Script from "next/script";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
 import { Navbar } from "@/components/layout/Navbar";
@@ -144,6 +145,13 @@ export default async function RootLayout({
       suppressHydrationWarning
     >
       <head>
+        <Script
+          id="Cookiebot"
+          src="https://consent.cookiebot.com/uc.js"
+          data-cbid="8452dd7f-8fce-4b63-b09d-158e0ccf7d45"
+          data-blockingmode="auto"
+          strategy="beforeInteractive"
+        />
         <style
           id="critical-css"
           dangerouslySetInnerHTML={{
@@ -209,13 +217,6 @@ export default async function RootLayout({
             `,
           }}
         />
-        <script
-          id="Cookiebot"
-          src="https://consent.cookiebot.com/uc.js"
-          data-cbid="8452dd7f-8fce-4b63-b09d-158e0ccf7d45"
-          data-blockingmode="auto"
-          async
-          type="text/javascript"></script>
         <script
           dangerouslySetInnerHTML={{
             __html: `

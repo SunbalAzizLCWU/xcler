@@ -1,0 +1,22 @@
+{
+  "name": "XCLER",
+  "short_name": "XCLER",
+  "description": "Web Development & AI Automation Agency",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#F5F0EB",
+  "theme_color": "#B85C38",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "48x48 32x32 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}

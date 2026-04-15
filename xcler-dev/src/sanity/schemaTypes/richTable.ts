@@ -1,5 +1,13 @@
 import {defineArrayMember, defineField, defineType} from 'sanity'
 
+type PortableTextChild = {
+  text?: string
+}
+
+type PortableTextBlock = {
+  children?: PortableTextChild[]
+}
+
 const richCellBlock = defineArrayMember({
   type: 'block',
   styles: [{title: 'Normal', value: 'normal'}],
@@ -52,8 +60,14 @@ export const richTable = defineType({
                     prepare({content}) {
                       const blocks = Array.isArray(content) ? content : []
                       const text = blocks
-                        .flatMap((block: any) => Array.isArray(block?.children) ? block.children : [])
-                        .map((child: any) => child?.text ?? '')
+                        .flatMap((block) => {
+                          const typedBlock = block as PortableTextBlock
+                          return Array.isArray(typedBlock?.children) ? typedBlock.children : []
+                        })
+                        .map((child) => {
+                          const typedChild = child as PortableTextChild
+                          return typedChild?.text ?? ''
+                        })
                         .join('')
                         .trim()
 

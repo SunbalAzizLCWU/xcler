@@ -126,6 +126,7 @@ export default async function BlogPage({
                 <article className="h-full overflow-hidden rounded-2xl border border-stone/10 dark:border-stone-dark/10 bg-white dark:bg-richblack/30 transition-all duration-300 hover:-translate-y-1 hover:border-terracotta/30 hover:shadow-xl">
                   <div className="relative h-52 w-full overflow-hidden bg-gradient-to-br from-stone/20 to-stone/5 dark:from-stone-dark/20 dark:to-stone-dark/5">
                     {post.mainImage ? (
+                      // eslint-disable-next-line @next/next/no-img-element
                       <img
                         src={urlFor(post.mainImage).width(960).height(560).fit("crop").quality(80).url()}
                         alt={post.imageAlt}

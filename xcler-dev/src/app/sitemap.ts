@@ -2,6 +2,13 @@ import { MetadataRoute } from "next";
 import fs from "fs";
 import path from "path";
 
+type LocalBlogEntry = {
+  slug: string;
+  published?: boolean;
+  createdAt?: string;
+  updatedAt?: string;
+};
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://xcler.dev";
 
@@ -30,10 +37,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
   try {
     const blogsFile = path.join(process.cwd(), "data", "blogs.json");
     if (fs.existsSync(blogsFile)) {
-      const blogs = JSON.parse(fs.readFileSync(blogsFile, "utf-8"));
+      const blogs = JSON.parse(fs.readFileSync(blogsFile, "utf-8")) as LocalBlogEntry[];
       blogPages = blogs
-        .filter((b: any) => b.published)
-        .map((b: any) => ({
+        .filter((b) => b.published)
+        .map((b) => ({
           url: `${baseUrl}/blog/${b.slug}`,
           lastModified: new Date(b.updatedAt || b.createdAt),
           changeFrequency: "weekly" as const,

@@ -3,6 +3,24 @@ import { NextResponse } from "next/server";
 import fs from "fs";
 import path from "path";
 
+type ContactLead = {
+  id: string;
+  name: string;
+  email: string;
+  company: string;
+  service: string;
+  budget: string;
+  message: string;
+  formSource: string;
+  pageUrl: string;
+  createdAt: string;
+  status: string;
+  emailStatus: string;
+  notificationEmailId: string | null;
+  customerEmailId: string | null;
+  emailError: string;
+};
+
 function escapeHtml(value: string) {
   return value
     .replace(/&/g, "&amp;")
@@ -35,10 +53,10 @@ export async function POST(request: Request) {
     }
 
     // Read existing leads
-    let leads: any[] = [];
+    let leads: ContactLead[] = [];
     if (fs.existsSync(leadsFile)) {
       const data = fs.readFileSync(leadsFile, "utf-8");
-      leads = JSON.parse(data);
+      leads = JSON.parse(data) as ContactLead[];
     }
 
     // Add new lead

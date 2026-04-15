@@ -74,7 +74,7 @@ export default async function AppDevelopmentPage({
 
         <AnimatedSection>
           <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-6">
-            {capabilities.map((item, i) => (
+            {capabilities.map((item) => (
               <div key={item.title} className="rounded-2xl border border-stone/10 dark:border-stone-dark/10 bg-white dark:bg-richblack/30 p-6">
                 <h3 className="font-heading text-xl font-semibold">{item.title}</h3>
                 <p className="mt-2 text-richblack/60 dark:text-cream/60 leading-relaxed">{item.desc}</p>

@@ -3,13 +3,26 @@
 
 import { useEffect, useState } from "react";
 
+type Lead = {
+  id: string;
+  name: string;
+  service: string;
+  budget?: string;
+  status: string;
+  createdAt: string;
+};
+
+type LeadsResponse = {
+  leads?: Lead[];
+};
+
 export default function AdminDashboard() {
-  const [leads, setLeads] = useState<any[]>([]);
+  const [leads, setLeads] = useState<Lead[]>([]);
 
   useEffect(() => {
     fetch("/api/admin/leads")
       .then((res) => res.json())
-      .then((data) => setLeads(data.leads || []))
+      .then((data: LeadsResponse) => setLeads(data.leads || []))
       .catch(() => {});
   }, []);
 
@@ -67,7 +80,7 @@ export default function AdminDashboard() {
             {leads
               .slice(-5)
               .reverse()
-              .map((lead: any) => (
+              .map((lead) => (
                 <div
                   key={lead.id}
                   className="rounded-xl border border-stone/10 dark:border-stone-dark/10 p-4 flex items-center justify-between"

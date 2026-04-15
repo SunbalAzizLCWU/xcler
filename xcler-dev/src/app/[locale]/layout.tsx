@@ -208,6 +208,7 @@ export default async function RootLayout({
           src="https://consent.cookiebot.com/uc.js"
           data-cbid="8452dd7f-8fce-4b63-b09d-158e0ccf7d45"
           data-blockingmode="manual"
+          async
           type="text/javascript"></script>
         <script
           data-cookieconsent="ignore"

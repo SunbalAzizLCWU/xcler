@@ -40,6 +40,11 @@ type RichTableValue = {
   rows?: RichTableRow[];
 };
 
+type PortableImageValue = {
+  asset?: unknown;
+  alt?: string;
+};
+
 type SanityBlogPost = {
   _id: string;
   title: string;
@@ -87,10 +92,11 @@ const tableCellPortableTextComponents = {
 
 const createPortableTextComponents = (locale: string) => ({
   types: {
-    image: ({ value }: { value: any }) => {
+    image: ({ value }: { value: PortableImageValue }) => {
       if (!value?.asset) return null;
 
       return (
+        // eslint-disable-next-line @next/next/no-img-element
         <img
           src={urlFor(value).url()}
           alt={value.alt || "Xcler Blog Image"}
@@ -144,7 +150,7 @@ const createPortableTextComponents = (locale: string) => ({
                     return (
                       <CellTag key={cell._key ?? `rich-cell-${rowIndex}-${cellIndex}`} className="border border-stone/20 p-3 text-left align-top">
                         <div className="prose prose-sm max-w-none dark:prose-invert prose-p:my-0 prose-p:text-richblack/85 dark:prose-p:text-cream/85">
-                          <PortableText value={cellValue as any} components={tableCellPortableTextComponents} />
+                          <PortableText value={cellValue as Array<Record<string, unknown>>} components={tableCellPortableTextComponents} />
                         </div>
                       </CellTag>
                     );
@@ -309,6 +315,7 @@ export default async function BlogPostPage({
         </Link>
 
         {post.mainImage ? (
+          // eslint-disable-next-line @next/next/no-img-element
           <img
             src={urlFor(post.mainImage).width(1400).height(780).fit("crop").quality(82).url()}
             alt={post.imageAlt}
@@ -321,7 +328,7 @@ export default async function BlogPostPage({
         </h1>
 
         <div className="prose prose-lg mt-10 max-w-none dark:prose-invert prose-headings:font-heading prose-headings:text-richblack dark:prose-headings:text-white prose-p:text-richblack/70 dark:prose-p:text-cream/70 prose-a:text-terracotta hover:prose-a:text-terracotta-light">
-          <PortableText value={post.body as any} components={portableTextComponents} />
+          <PortableText value={post.body as Array<Record<string, unknown>>} components={portableTextComponents} />
         </div>
       </article>
     </section>

@@ -1,8 +1,50 @@
 import { NextResponse } from "next/server";
 import fs from "fs";
 import path from "path";
+import { groq } from "next-sanity";
+import { client } from "@/sanity/lib/client";
 
 const blogsFile = path.join(process.cwd(), "data", "blogs.json");
+
+type SanitySlug = {
+  current?: string;
+};
+
+type SanityAdminPost = {
+  id: string;
+  title: string;
+  excerpt: string;
+  content: string;
+  category: string;
+  tags: string[];
+  metaTitle: string;
+  metaDescription: string;
+  published: boolean;
+  createdAt: string;
+  updatedAt: string;
+  slug_de?: SanitySlug;
+  slug_en?: SanitySlug;
+  slug_legacy?: string;
+};
+
+const adminBlogsQuery = groq`
+  *[_type == "blogPost"] | order(_createdAt desc) {
+    "id": _id,
+    "title": coalesce(title_en, title_de, "Untitled"),
+    "excerpt": coalesce(pt::text(body_en)[0...180], pt::text(body_de)[0...180], ""),
+    "content": coalesce(pt::text(body_en), pt::text(body_de), ""),
+    "category": "blog",
+    "tags": [],
+    "metaTitle": coalesce(title_en, title_de, "Untitled"),
+    "metaDescription": coalesce(pt::text(body_en)[0...160], pt::text(body_de)[0...160], ""),
+    "published": true,
+    "createdAt": _createdAt,
+    "updatedAt": _updatedAt,
+    "slug_de": slug_de,
+    "slug_en": slug_en,
+    "slug_legacy": slug.current
+  }
+`;
 
 type BlogRecord = {
   id: string;
@@ -32,7 +74,13 @@ function writeBlogs(blogs: BlogRecord[]) {
 }
 
 export async function GET() {
-  return NextResponse.json({ posts: readBlogs() });
+  try {
+    const posts = await client.fetch<SanityAdminPost[]>(adminBlogsQuery);
+    return NextResponse.json({ posts });
+  } catch {
+    // Keep local file fallback for resilience when CMS is unreachable.
+    return NextResponse.json({ posts: readBlogs() });
+  }
 }
 
 export async function POST(request: Request) {

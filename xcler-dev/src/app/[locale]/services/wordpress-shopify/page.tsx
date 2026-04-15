@@ -11,13 +11,20 @@ type CapabilityItem = {
   desc: string;
 };
 
+type SpokeItem = {
+  title: string;
+  desc: string;
+  href: "/services/wordpress-entwicklung" | "/services/shopify-entwicklung";
+  cta: string;
+};
+
 export async function generateMetadata({
   params,
 }: {
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: "ServiceWordpressShopifyPage" });
+  const t = await getTranslations({ locale, namespace: "ServicesHub" });
 
   return {
     title: t("metaTitle"),
@@ -35,8 +42,9 @@ export default async function WordPressShopifyPage({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: "ServiceWordpressShopifyPage" });
+  const t = await getTranslations({ locale, namespace: "ServicesHub" });
   const capabilities = t.raw("capabilities") as CapabilityItem[];
+  const spokes = t.raw("spokes") as SpokeItem[];
   const schema = getServiceSchema({
     locale: locale === "en" ? "en" : "de",
     slug: "wordpress-shopify",
@@ -78,6 +86,26 @@ export default async function WordPressShopifyPage({
               <div key={item.title} className="rounded-2xl border border-stone/10 dark:border-stone-dark/10 bg-white dark:bg-richblack/30 p-6">
                 <h3 className="font-heading text-xl font-semibold">{item.title}</h3>
                 <p className="mt-2 text-richblack/60 dark:text-cream/60 leading-relaxed">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </AnimatedSection>
+
+        <AnimatedSection>
+          <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-6">
+            {spokes.map((spoke) => (
+              <div
+                key={spoke.href}
+                className="rounded-2xl border border-stone/10 dark:border-stone-dark/10 bg-white dark:bg-richblack/30 p-6 transition-all duration-300 hover:-translate-y-1 hover:border-terracotta/30 hover:shadow-xl"
+              >
+                <h3 className="font-heading text-2xl font-semibold">{spoke.title}</h3>
+                <p className="mt-3 text-richblack/60 dark:text-cream/60 leading-relaxed">{spoke.desc}</p>
+                <Link
+                  href={spoke.href}
+                  className="mt-6 inline-flex items-center gap-2 rounded-full bg-terracotta px-6 py-2.5 font-heading text-sm font-medium text-white transition-colors hover:bg-terracotta-light"
+                >
+                  {spoke.cta}
+                </Link>
               </div>
             ))}
           </div>

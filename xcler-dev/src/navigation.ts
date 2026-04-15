@@ -22,8 +22,16 @@ export const routing = defineRouting({
       en: '/services/app-development'
     },
     '/services/wordpress-shopify': {
-      de: '/leistungen/wordpress-entwicklung',
+      de: '/leistungen/wordpress-shopify',
       en: '/services/wordpress-shopify'
+    },
+    '/services/wordpress-entwicklung': {
+      de: '/leistungen/wordpress-entwicklung',
+      en: '/services/wordpress-development'
+    },
+    '/services/shopify-entwicklung': {
+      de: '/leistungen/shopify-entwicklung',
+      en: '/services/shopify-development'
     },
     '/services/workflow-automation': {
       de: '/leistungen/workflow-automatisierung',

@@ -24,7 +24,7 @@
       "services": {
         "webDevelopment": "Web Development",
         "appDevelopment": "App Development",
-        "wordpressShopify": "WordPress & Shopify",
+        "wordpressShopify": "E-Commerce & CMS (WordPress/Shopify)",
         "workflowAutomation": "Workflow Automation",
         "aiChatbots": "AI Chatbots & Agents"
       },
@@ -607,6 +607,74 @@
       { "title": "WooCommerce", "desc": "Complete ecommerce architecture on WordPress, including payments, shipping, and operations." },
       { "title": "Migration & Optimization", "desc": "Speed, SEO, and security upgrades for existing WordPress or Shopify installations." }
     ]
+  },
+  "ServicesHub": {
+    "metaTitle": "E-Commerce & CMS Agency Germany | WordPress and Shopify | XCLER",
+    "metaDescription": "E-Commerce agency and CMS agency in Germany for WordPress and Shopify projects. Choose the right platform path for your business goals.",
+    "backToServices": "All Services",
+    "serviceLabel": "Service Hub / 03",
+    "headingLine1": "E-Commerce & CMS",
+    "headingLine2": "Agency.",
+    "intro": "As an ecommerce agency and CMS agency in Germany, we build both WordPress and Shopify solutions and help you choose the right platform for your growth model, operations, and conversion goals.",
+    "spokes": [
+      {
+        "title": "WordPress & WooCommerce",
+        "desc": "Need a high-control store and content system? Our WordPress agency Germany track delivers custom WooCommerce architecture, SEO-ready CMS structure, and long-term ownership.",
+        "href": "/services/wordpress-entwicklung",
+        "cta": "Go to WordPress Path"
+      },
+      {
+        "title": "Shopify Development",
+        "desc": "Need faster ecommerce rollout and strong conversion focus? Work with our Shopify experts for storefront engineering, optimization, and scalable commerce operations.",
+        "href": "/services/shopify-entwicklung",
+        "cta": "Go to Shopify Path"
+      }
+    ],
+    "capabilities": [
+      { "title": "Platform Strategy", "desc": "We evaluate business model, catalog complexity, and team operations before selecting implementation direction." },
+      { "title": "Migration Planning", "desc": "Structured migration paths from legacy systems to modern WordPress or Shopify setups with minimal disruption." },
+      { "title": "SEO Foundations", "desc": "Technical SEO and content architecture designed for long-term organic visibility across product and category pages." },
+      { "title": "Growth Readiness", "desc": "Scalable technical decisions for payment flows, content operations, and future integrations." }
+    ],
+    "ctaHeading": "Need help selecting the right path?",
+    "ctaDescription": "Tell us your current setup and growth goals. We will recommend the best-fit route with a clear action plan.",
+    "ctaButton": "Start Your Project ->"
+  },
+  "ServiceWordpressDevelopmentPage": {
+    "metaTitle": "WordPress Development Germany | XCLER",
+    "metaDescription": "Custom WordPress development, WooCommerce architecture, and high-performance CMS implementation for growth-focused businesses.",
+    "backToHub": "Back to E-Commerce & CMS Hub",
+    "serviceLabel": "Service / WordPress",
+    "headingLine1": "WordPress",
+    "headingLine2": "Development.",
+    "intro": "We design and build custom WordPress systems that are fast, secure, SEO-ready, and easy for your team to manage.",
+    "capabilities": [
+      { "title": "Custom WordPress Builds", "desc": "Tailored architecture, custom themes, and component systems built around your content workflow." },
+      { "title": "WooCommerce Engineering", "desc": "Scalable commerce foundations with clean checkout logic, payment integrations, and product operations." },
+      { "title": "Performance & Security", "desc": "Hardening, caching strategy, and speed optimization for reliable day-to-day operations." },
+      { "title": "SEO and Content Structure", "desc": "Schema, metadata, and information architecture engineered for discoverability." }
+    ],
+    "ctaHeading": "Ready for a serious WordPress setup?",
+    "ctaDescription": "Work with our team on a clean, scalable implementation that performs in production.",
+    "ctaButton": "Start Your Project ->"
+  },
+  "ServiceShopifyDevelopmentPage": {
+    "metaTitle": "Shopify Development Germany | XCLER",
+    "metaDescription": "Conversion-focused Shopify development, storefront customization, and scalable ecommerce execution for ambitious brands.",
+    "backToHub": "Back to E-Commerce & CMS Hub",
+    "serviceLabel": "Service / Shopify",
+    "headingLine1": "Shopify",
+    "headingLine2": "Development.",
+    "intro": "We build Shopify experiences that convert better, load faster, and support sustained ecommerce growth.",
+    "capabilities": [
+      { "title": "Custom Storefronts", "desc": "Theme customization and storefront engineering tailored to your conversion goals." },
+      { "title": "Checkout & Revenue Optimization", "desc": "Friction-free buyer journeys, upsell structures, and conversion-focused UX improvements." },
+      { "title": "Apps & Integrations", "desc": "Reliable integrations for marketing, fulfillment, CRM, and analytics." },
+      { "title": "Technical SEO for Commerce", "desc": "Category and product structures optimized for crawlability and purchase intent." }
+    ],
+    "ctaHeading": "Want a Shopify store that scales?",
+    "ctaDescription": "Let us architect and optimize your store for both conversion and operations.",
+    "ctaButton": "Start Your Project ->"
   },
   "ServiceWorkflowAutomationPage": {
     "metaTitle": "Workflow Automation Germany | Make.com, n8n, Zapier | XCLER",

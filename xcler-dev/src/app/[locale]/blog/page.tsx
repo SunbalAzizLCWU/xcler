@@ -12,8 +12,9 @@ export const dynamic = "force-dynamic";
 type BlogPostCard = {
   _id: string;
   title: string;
-  slug_en?: string;
-  slug_de?: string;
+  slug_en?: { current?: string };
+  slug_de?: { current?: string };
+  slug_legacy?: string;
   mainImage?: unknown;
   imageAlt: string;
   excerpt: string;
@@ -22,11 +23,12 @@ type BlogPostCard = {
 };
 
 const blogPostsQuery = groq`
-  *[_type == "blogPost" && defined(select($locale == "de" => slug_de.current, slug_en.current))] | order(_createdAt desc) {
+  *[_type == "blogPost"] | order(_createdAt desc) {
     _id,
     "title": select($locale == "de" => coalesce(title_de, title_en), coalesce(title_en, title_de)),
-    "slug_en": slug_en.current,
-    "slug_de": slug_de.current,
+    "slug_en": slug_en,
+    "slug_de": slug_de,
+    "slug_legacy": slug.current,
     "mainImage": select($locale == "de" => mainImage_de, mainImage_en),
     "imageAlt": coalesce(select($locale == "de" => mainImage_de.alt, mainImage_en.alt), title_en, title_de, "Blog post image"),
     "excerpt": select($locale == "de" => pt::text(body_de), pt::text(body_en))[0...180],
@@ -109,12 +111,21 @@ export default async function BlogPage({
         ) : (
           <div className="mt-16 grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
             {posts.map((post) => {
-              const localizedSlug = locale === "de" ? post.slug_de : post.slug_en;
-              const fallbackSlug = locale === "de" ? post.slug_en : post.slug_de;
-              const resolvedSlug = localizedSlug ?? fallbackSlug;
+              const postSlug = locale === "de" ? post.slug_de?.current : post.slug_en?.current;
+              const fallbackSlug = locale === "de" ? post.slug_en?.current : post.slug_de?.current;
+              const resolvedSlug = postSlug || fallbackSlug || post.slug_legacy;
 
               if (!resolvedSlug) {
-                return null;
+                return (
+                  <article
+                    key={post._id}
+                    className="h-full overflow-hidden rounded-2xl border border-dashed border-stone/20 dark:border-stone-dark/20 bg-white dark:bg-richblack/30 p-6"
+                  >
+                    <p className="font-heading text-xl font-semibold">{post.title}</p>
+                    <p className="mt-3 text-sm text-richblack/60 dark:text-cream/60">{post.excerpt}</p>
+                    <p className="mt-5 font-mono text-xs uppercase tracking-[0.2em] text-richblack/40 dark:text-cream/40">Missing Slug</p>
+                  </article>
+                );
               }
 
               return (

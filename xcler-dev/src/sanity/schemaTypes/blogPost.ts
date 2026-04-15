@@ -152,8 +152,15 @@ export const blogPost = defineType({
   preview: {
     select: {
       title: 'title_en',
-      subtitle: 'slug_en.current',
+      slugDe: 'slug_de.current',
+      slugEn: 'slug_en.current',
       media: 'mainImage_en'
+    },
+    prepare({title, slugDe, slugEn}) {
+      return {
+        title: title || 'Untitled post',
+        subtitle: slugDe || slugEn || 'Missing localized slug'
+      }
     }
   }
 })

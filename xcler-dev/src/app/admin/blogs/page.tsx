@@ -2,10 +2,17 @@
 
 import { useState, useEffect } from "react";
 
+type SanitySlug = {
+  current?: string;
+};
+
 interface BlogPost {
   id: string;
   title: string;
-  slug: string;
+  slug?: string;
+  slug_de?: SanitySlug;
+  slug_en?: SanitySlug;
+  slug_legacy?: string;
   excerpt: string;
   content: string;
   category: string;
@@ -100,6 +107,16 @@ export default function AdminBlogs() {
       }));
       setTagInput("");
     }
+  };
+
+  const getDisplaySlug = (post: BlogPost) => {
+    return (
+      post.slug_de?.current ||
+      post.slug_en?.current ||
+      post.slug_legacy ||
+      post.slug ||
+      "Missing Slug"
+    );
   };
 
   const removeTag = (tag: string) => {
@@ -399,7 +416,7 @@ export default function AdminBlogs() {
                   </span>
                 </div>
                 <p className="text-sm text-richblack/40 dark:text-cream/40 mt-1">
-                  /blog/{post.slug} •{" "}
+                  /blog/{getDisplaySlug(post)} •{" "}
                   {new Date(post.createdAt).toLocaleDateString()}
                 </p>
               </div>

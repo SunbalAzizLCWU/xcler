@@ -12,6 +12,7 @@ export const dynamic = "force-dynamic";
 type BlogPostCard = {
   _id: string;
   title: string;
+  slug?: string;
   slug_en?: { current?: string };
   slug_de?: { current?: string };
   slug_legacy?: string;
@@ -26,6 +27,7 @@ const blogPostsQuery = groq`
   *[_type == "blogPost"] | order(_createdAt desc) {
     _id,
     "title": coalesce(select($locale == "de" => title_de, title_en), title, "Untitled"),
+    "slug": coalesce(select($locale == "de" => slug_de.current, slug_en.current), select($locale == "de" => slug_en.current, slug_de.current), slug.current),
     "slug_en": slug_en,
     "slug_de": slug_de,
     "slug_legacy": slug.current,
@@ -129,11 +131,7 @@ export default async function BlogPage({
               }
 
               return (
-                <Link
-                  key={post._id}
-                  href={{ pathname: "/blog/[slug]", params: { slug: resolvedSlug } }}
-                  className="group block"
-                >
+                <Link key={post._id} href={`/blog/${post.slug}` as any} locale={locale} className="group block">
                 <article className="h-full overflow-hidden rounded-2xl border border-stone/10 dark:border-stone-dark/10 bg-white dark:bg-richblack/30 transition-all duration-300 hover:-translate-y-1 hover:border-terracotta/30 hover:shadow-xl">
                   <div className="relative h-52 w-full overflow-hidden bg-gradient-to-br from-stone/20 to-stone/5 dark:from-stone-dark/20 dark:to-stone-dark/5">
                     {post.mainImage ? (

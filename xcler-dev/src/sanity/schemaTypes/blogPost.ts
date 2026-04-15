@@ -155,17 +155,15 @@ export const blogPost = defineType({
       title_de: 'title_de',
       legacy_title: 'title',
       slug: 'slug.current',
-      media: 'mainImage_en',
+      media_en: 'mainImage_en',
       legacy_media: 'mainImage'
     },
-    prepare(selection) {
-      const title = selection.title_en || selection.title_de || selection.legacy_title || 'Untitled Post'
-      const media = selection.media || selection.legacy_media
-
+    prepare(selection: any) {
+      const { title_en, title_de, legacy_title, slug, media_en, legacy_media } = selection;
       return {
-        title,
-        subtitle: selection.slug || 'Missing slug',
-        media
+        title: title_en || title_de || legacy_title || 'Untitled Post',
+        subtitle: slug || 'No slug defined',
+        media: media_en || legacy_media
       }
     }
   }

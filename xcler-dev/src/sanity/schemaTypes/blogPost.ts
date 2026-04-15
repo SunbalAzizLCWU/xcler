@@ -158,11 +158,26 @@ export const blogPost = defineType({
       media_en: 'mainImage_en',
       legacy_media: 'mainImage'
     },
-    prepare(selection: any) {
-      const { title_en, title_de, legacy_title, slug, media_en, legacy_media } = selection;
+    prepare(selection: unknown) {
+      const safeSelection = selection && typeof selection === 'object' ? selection : {}
+      const {title_en, title_de, legacy_title, slug, media_en, legacy_media} = safeSelection as {
+        title_en?: unknown
+        title_de?: unknown
+        legacy_title?: unknown
+        slug?: unknown
+        media_en?: unknown
+        legacy_media?: unknown
+      }
+
+      const title = [title_en, title_de, legacy_title].find(
+        (value): value is string => typeof value === 'string' && value.trim().length > 0
+      ) || 'Untitled Post'
+
+      const subtitle = typeof slug === 'string' && slug.trim().length > 0 ? slug : 'No slug defined'
+
       return {
-        title: title_en || title_de || legacy_title || 'Untitled Post',
-        subtitle: slug || 'No slug defined',
+        title,
+        subtitle,
         media: media_en || legacy_media
       }
     }

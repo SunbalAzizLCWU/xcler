@@ -8,6 +8,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
+    "test": "npm run lint",
     "sanity:migrate:blog-localization": "sanity exec src/sanity/migrations/backfillBlogPostLocalization.ts --with-user-token"
   },
   "browserslist": [

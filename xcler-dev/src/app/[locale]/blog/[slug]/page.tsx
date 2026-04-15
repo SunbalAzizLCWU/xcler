@@ -258,8 +258,30 @@ const blogSlugsQuery = groq`
   }
 `;
 
+async function fetchBlogSlugsSafe() {
+  try {
+    return await client.fetch<BlogSlugRow[]>(blogSlugsQuery);
+  } catch {
+    if (process.env.NODE_ENV !== "production") {
+      console.warn("[blog] Failed to fetch blog slugs.");
+    }
+    return [];
+  }
+}
+
+async function fetchBlogPostSafe(slug: string, locale: Locale) {
+  try {
+    return await client.fetch<SanityBlogPost | null>(postBySlugQuery, { slug, locale });
+  } catch {
+    if (process.env.NODE_ENV !== "production") {
+      console.warn("[blog] Failed to fetch blog post.");
+    }
+    return null;
+  }
+}
+
 export async function generateStaticParams(): Promise<Array<{ locale: "en" | "de"; slug: string }>> {
-  const rows = await client.fetch<BlogSlugRow[]>(blogSlugsQuery);
+  const rows = await fetchBlogSlugsSafe();
 
   const params = new Map<string, { locale: "en" | "de"; slug: string }>();
   const addParam = (locale: "en" | "de", value?: string) => {
@@ -283,7 +305,7 @@ export async function generateMetadata({
   params: Promise<{ locale: Locale; slug: string }>;
 }): Promise<Metadata> {
   const { locale, slug } = await params;
-  const post = await client.fetch<SanityBlogPost | null>(postBySlugQuery, { slug, locale });
+  const post = await fetchBlogPostSafe(slug, locale);
 
   if (!post) {
     return {
@@ -320,7 +342,7 @@ export default async function BlogPostPage({
   const t = await getTranslations({ locale, namespace: "BlogPage" });
   const portableTextComponents = createPortableTextComponents(locale);
 
-  const post = await client.fetch<SanityBlogPost | null>(postBySlugQuery, { slug, locale });
+  const post = await fetchBlogPostSafe(slug, locale);
   if (!post) {
     notFound();
   }

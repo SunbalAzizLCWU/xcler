@@ -95,7 +95,15 @@ export default async function BlogPage({
 }) {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "BlogPage" });
-  const posts = await client.fetch<BlogPostCard[]>(blogPostsQuery, { locale });
+  let posts: BlogPostCard[] = [];
+
+  try {
+    posts = await client.fetch<BlogPostCard[]>(blogPostsQuery, { locale });
+  } catch {
+    if (process.env.NODE_ENV !== "production") {
+      console.warn("[blog] Failed to fetch blog index posts.");
+    }
+  }
 
   const formatter = new Intl.DateTimeFormat(locale === "de" ? "de-DE" : "en-US", {
     day: "2-digit",

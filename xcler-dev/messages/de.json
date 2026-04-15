@@ -591,21 +591,76 @@
     ]
   },
   "ServiceWordpressShopifyPage": {
-    "metaTitle": "WordPress & Shopify Entwicklung Deutschland | XCLER",
-    "metaDescription": "Individuelle WordPress- und Shopify-Entwicklung für conversion-starke Websites und skalierbaren E-Commerce.",
+    "metaTitle": "WordPress und Shopify Agentur Muenchen | B2B Plattformstrategie | XCLER",
+    "metaDescription": "Technische Hub-Seite fuer B2B-Unternehmen in Muenchen: Wann WordPress, wann Shopify, wie Architektur, Performance, Sicherheit und Skalierung sauber umgesetzt werden.",
     "backToServices": "Alle Leistungen",
     "serviceLabel": "Leistung / 03",
     "headingLine1": "WordPress &",
     "headingLine2": "Shopify.",
-    "intro": "Wenn WordPress oder Shopify die richtige Plattform ist, liefern wir eine Premium-Umsetzung mit hoher Performance und klarer Conversion-Orientierung.",
-    "ctaHeading": "Sie benötigen eine WordPress- oder Shopify-Lösung?",
-    "ctaDescription": "Sie arbeiten direkt mit unserer CMS-Spezialistin für verlässliche Umsetzung und nachhaltige Wartbarkeit.",
-    "ctaButton": "Projekt starten ->",
+    "intro": "Als technische WordPress-und-Shopify-Agentur fuer den B2B-Markt rund um Muenchen entwickeln wir keine isolierten Webseiten, sondern skalierbare CMS- und Commerce-Systeme mit klarer Business-Logik, sauberer Datenfuehrung und messbarer Wirkung. Unser Team startet mit Architektur: Datenmodell, Content-Struktur, Integrationslandschaft, Rollenrechte, Deployment, Backup-Strategie und Monitoring werden vor dem Build definiert. So vermeiden wir typische Replatforming-Kosten nach dem Launch und schaffen eine stabile Basis fuer langfristiges Wachstum. Wenn Ihr Wachstum ueber organische Leadgewinnung, komplexe Service-Seiten und redaktionelle Skalierung laeuft, bauen wir WordPress-Loesungen mit hoher Performance und SEO-Informationsarchitektur auf Enterprise-Niveau. Wenn Umsatz direkt ueber transaktionale Prozesse entsteht, realisieren wir Shopify-Systeme mit robustem Checkout, stabilen Zahlungsanbieter-Integrationen und planbarer Betriebsstabilitaet. Jede Entscheidung wird anhand von Lastprofil, Teamprozessen, Compliance-Anforderungen und Erweiterbarkeit bewertet. Das Ergebnis: eine Plattform, die heute schnell live geht und morgen bei mehr Traffic, mehr Produkten, mehr Sprachen, mehr Integrationen und steigenden Sicherheitsanforderungen kontrolliert skaliert und stabil betrieben werden kann und dabei redaktionelle, technische und operative Komplexitaet beherrscht.",
+    "seoIntro": "Als technische WordPress-und-Shopify-Agentur fuer den B2B-Markt rund um Muenchen entwickeln wir keine isolierten Webseiten, sondern skalierbare CMS- und Commerce-Systeme mit klarer Business-Logik, sauberer Datenfuehrung und messbarer Wirkung. Unser Team startet mit Architektur: Datenmodell, Content-Struktur, Integrationslandschaft, Rollenrechte, Deployment, Backup-Strategie und Monitoring werden vor dem Build definiert. So vermeiden wir typische Replatforming-Kosten nach dem Launch und schaffen eine stabile Basis fuer langfristiges Wachstum. Wenn Ihr Wachstum ueber organische Leadgewinnung, komplexe Service-Seiten und redaktionelle Skalierung laeuft, bauen wir WordPress-Loesungen mit hoher Performance und SEO-Informationsarchitektur auf Enterprise-Niveau. Wenn Umsatz direkt ueber transaktionale Prozesse entsteht, realisieren wir Shopify-Systeme mit robustem Checkout, stabilen Zahlungsanbieter-Integrationen und planbarer Betriebsstabilitaet. Jede Entscheidung wird anhand von Lastprofil, Teamprozessen, Compliance-Anforderungen und Erweiterbarkeit bewertet. Das Ergebnis: eine Plattform, die heute schnell live geht und morgen bei mehr Traffic, mehr Produkten, mehr Sprachen, mehr Integrationen und steigenden Sicherheitsanforderungen kontrolliert skaliert und stabil betrieben werden kann und dabei redaktionelle, technische und operative Komplexitaet beherrscht.",
+    "platformComparison": [
+      {
+        "platform": "WordPress",
+        "title": "WordPress fuer B2B Lead-Generierung und Content-Skalierung",
+        "whenToChoose": "Waehlen Sie WordPress, wenn Ihr Wachstum stark ueber organische Sichtbarkeit, Thought-Leadership-Inhalte und komplexe Informationsarchitektur laeuft.",
+        "details": "WordPress ist ideal fuer Unternehmen mit hohem Content-Output, vielen Service-Landingpages, mehrsprachigen SEO-Strategien und individuellen Lead-Funnels. Mit sauberer Taxonomie, klaren Redaktions-Workflows und technischer Performance-Optimierung bleibt Ihre Plattform auch bei steigendem Traffic stabil.",
+        "ctaText": "Zum WordPress-Expertenpfad",
+        "href": "/leistungen/wordpress-entwicklung"
+      },
+      {
+        "platform": "Shopify",
+        "title": "Shopify fuer robuste Commerce-Operationen und schnelle Skalierung",
+        "whenToChoose": "Waehlen Sie Shopify, wenn Ihr Fokus auf verlässlichem E-Commerce, operativer Effizienz und schneller Marktbearbeitung liegt.",
+        "details": "Shopify eignet sich besonders fuer B2B-Marken mit wachsendem Produktkatalog, hoher Checkout-Relevanz und Bedarf an stabilen Integrationen fuer Zahlungsanbieter, Versand, ERP und CRM. Standardisierte Kernprozesse reduzieren Betriebsrisiken und beschleunigen Releases.",
+        "ctaText": "Zum Shopify-Expertenpfad",
+        "href": "/leistungen/shopify-entwicklung"
+      }
+    ],
+    "whyChooseUs": [
+      {
+        "title": "Performance als Architekturprinzip",
+        "description": "Wir optimieren nicht nur einzelne Seiten, sondern entwerfen Plattformen mit klarer Rendering-Strategie, Caching-Layern, Bild- und Asset-Pipelines sowie messbaren Core Web Vitals auf URL-Ebene."
+      },
+      {
+        "title": "Security by Design",
+        "description": "Wir integrieren Sicherheitsmechanismen frueh in die Systemarchitektur: Rollen- und Rechtekonzepte, Plugin- und App-Governance, Härtung kritischer Endpunkte, Monitoring und saubere Update-Prozesse."
+      },
+      {
+        "title": "Skalierbare Infrastruktur fuer B2B-Wachstum",
+        "description": "Unsere Loesungen sind auf Lastspitzen, Teamwachstum und neue Integrationen vorbereitet. Deployment, Observability und technische Standards werden so definiert, dass Erweiterungen planbar bleiben statt technische Schulden zu erzeugen."
+      }
+    ],
+    "faq": [
+      {
+        "question": "Sollte ich WordPress oder Shopify fuer mein B2B Unternehmen waehlen?",
+        "answer": "WordPress ist meist die bessere Wahl fuer contentgetriebenes B2B-Marketing, Shopify fuer transaktionsgetriebenen Commerce. Entscheidend sind Ihre Prioritaeten bei SEO-Tiefe, Produktlogik, Checkout-Komplexitaet und Integrationsbedarf. Wir bewerten diese Faktoren systematisch und leiten daraus eine belastbare Plattformentscheidung ab."
+      },
+      {
+        "question": "Ist WordPress fuer hohe Besucherzahlen und viele Landingpages geeignet?",
+        "answer": "Ja, WordPress ist bei korrekter Architektur sehr gut fuer hohe Reichweite und umfangreiche Landingpage-Strukturen geeignet. Mit sauberem Caching, optimierten Datenbankabfragen, klarer Informationsarchitektur und technischer SEO-Basis bleibt die Plattform auch bei starkem Traffic performant."
+      },
+      {
+        "question": "Warum ist Shopify oft staerker fuer E-Commerce-Prozesse?",
+        "answer": "Shopify ist oft staerker, weil zentrale Commerce-Funktionen stabil standardisiert und operativ effizient bereitstehen. Checkout, Zahlungsanbieter, App-Oekosystem und Backoffice-Prozesse sind auf Skalierung ausgelegt, wodurch Teams schneller umsetzen und Risiken im Tagesbetrieb reduzieren."
+      },
+      {
+        "question": "Kann ich spaeter von WordPress zu Shopify oder umgekehrt migrieren?",
+        "answer": "Ja, ein Plattformwechsel ist moeglich, wenn Daten, URLs und Prozesse strukturiert geplant werden. Wir definieren vorab Migrationsmapping, Redirect-Strategien, Tracking-Kontinuitaet und Rollout-Phasen, damit SEO-Signale, Conversion-Pfade und operative Stabilitaet erhalten bleiben."
+      },
+      {
+        "question": "Wie schnell kann eine neue WordPress- oder Shopify-Plattform live gehen?",
+        "answer": "Ein erster produktiver Launch ist meist in wenigen Wochen moeglich, wenn Scope und Prioritaeten klar definiert sind. Der Zeitrahmen haengt von Integrationen, Content-Menge, Design-Tiefe und Datenmigration ab; wir liefern dazu frueh eine realistische technische Roadmap."
+      }
+    ],
+    "ctaHeading": "Sie benoetigen eine belastbare WordPress- oder Shopify-Architektur?",
+    "ctaDescription": "Senden Sie uns Ihr Zielbild. Wir liefern eine klare Plattformempfehlung inklusive technischer Umsetzungsstrategie.",
+    "ctaButton": "Architekturgespraech starten ->",
     "capabilities": [
-      { "title": "WordPress-Websites", "desc": "Individuelle Themes, Plugin-Logik und Performance-Optimierung jenseits von Standard-Setups." },
-      { "title": "Shopify Stores", "desc": "Custom Storefronts und Conversion-Optimierung für nachhaltiges Umsatzwachstum." },
-      { "title": "WooCommerce", "desc": "Vollständige E-Commerce-Architektur auf WordPress inklusive Zahlungen, Versand und operativer Prozesse." },
-      { "title": "Migration & Optimierung", "desc": "Geschwindigkeit, SEO und Sicherheits-Optimierungen für bestehende WordPress- oder Shopify-Systeme." }
+      { "title": "Plattformanalyse", "desc": "Bewertung von Geschaeftsmodell, Content-Last, Commerce-Prozessen und Integrationsrisiken vor der Umsetzung." },
+      { "title": "Systemdesign", "desc": "Architekturentscheidungen fuer Performance, Sicherheit und Wartbarkeit auf Basis messbarer Anforderungen." },
+      { "title": "Integrationen", "desc": "Technisch saubere Einbindung von Zahlungsanbietern, ERP, CRM, Marketing-Stack und operativen Schnittstellen." },
+      { "title": "Skalierungsplanung", "desc": "Roadmap fuer Lastspitzen, Teamwachstum und Feature-Erweiterungen ohne instabile Replatforming-Zyklen." }
     ]
   },
   "ServicesHub": {

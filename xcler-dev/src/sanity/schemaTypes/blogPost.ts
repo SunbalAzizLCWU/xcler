@@ -1,4 +1,5 @@
 import {defineField, defineType} from 'sanity'
+import type {PreviewValue} from 'sanity'
 
 export const blogPost = defineType({
   name: 'blogPost',
@@ -174,11 +175,12 @@ export const blogPost = defineType({
       ) || 'Untitled Post'
 
       const subtitle = typeof slug === 'string' && slug.trim().length > 0 ? slug : 'No slug defined'
+      const media = (media_en || legacy_media) as PreviewValue['media']
 
       return {
         title,
         subtitle,
-        media: media_en || legacy_media
+        media
       }
     }
   }

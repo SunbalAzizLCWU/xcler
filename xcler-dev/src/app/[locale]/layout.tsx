@@ -254,6 +254,7 @@ export default async function RootLayout({
             `,
           }}
         />
+        {/* eslint-disable-next-line @next/next/next-script-for-ga */}
         <script
           data-cookieconsent="ignore"
           dangerouslySetInnerHTML={{

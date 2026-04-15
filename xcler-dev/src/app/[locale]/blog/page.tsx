@@ -3,6 +3,12 @@ import { groq } from "next-sanity";
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/navigation";
 import { client } from "@/sanity/lib/client";
+import {
+  BLOG_IMAGE_ALT_BY_LOCALE,
+  BLOG_IMAGE_BY_LOCALE,
+  BLOG_SLUG_BY_LOCALE,
+  BLOG_TITLE_BY_LOCALE,
+} from "@/sanity/lib/blog";
 import { urlFor } from "@/sanity/lib/image";
 import { getCanonicalPath, getLanguageAlternates } from "@/lib/canonical";
 
@@ -13,8 +19,8 @@ type BlogPostCard = {
   _id: string;
   title: string;
   slug?: string;
-  slug_en?: { current?: string };
-  slug_de?: { current?: string };
+  slug_en?: string;
+  slug_de?: string;
   slug_legacy?: string;
   mainImage?: unknown;
   imageAlt: string;
@@ -26,13 +32,13 @@ type BlogPostCard = {
 const blogPostsQuery = groq`
   *[_type == "blogPost"] | order(_createdAt desc) {
     _id,
-    "title": coalesce(select($locale == "de" => title_de, title_en), title, "Untitled"),
-    "slug": coalesce(select($locale == "de" => slug_de.current, slug_en.current), select($locale == "de" => slug_en.current, slug_de.current), slug.current),
-    "slug_en": slug_en,
-    "slug_de": slug_de,
+    "title": ${BLOG_TITLE_BY_LOCALE},
+    "slug": ${BLOG_SLUG_BY_LOCALE},
+    "slug_en": coalesce(slug_en.current, slug.current, slug_de.current),
+    "slug_de": coalesce(slug_de.current, slug.current, slug_en.current),
     "slug_legacy": slug.current,
-    "mainImage": coalesce(select($locale == "de" => mainImage_de, mainImage_en), mainImage),
-    "imageAlt": coalesce(select($locale == "de" => mainImage_de.alt, mainImage_en.alt), mainImage.alt, title_de, title_en, title, "Blog post image"),
+    "mainImage": ${BLOG_IMAGE_BY_LOCALE},
+    "imageAlt": ${BLOG_IMAGE_ALT_BY_LOCALE},
     "excerpt": coalesce(select($locale == "de" => pt::text(body_de), pt::text(body_en)), pt::text(body), "")[0...180],
     "publishedAt": _createdAt,
     "authorName": author->name
@@ -113,8 +119,8 @@ export default async function BlogPage({
         ) : (
           <div className="mt-16 grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
             {posts.map((post) => {
-              const postSlug = locale === "de" ? post.slug_de?.current : post.slug_en?.current;
-              const fallbackSlug = locale === "de" ? post.slug_en?.current : post.slug_de?.current;
+              const postSlug = locale === "de" ? post.slug_de : post.slug_en;
+              const fallbackSlug = locale === "de" ? post.slug_en : post.slug_de;
               const resolvedSlug = postSlug || fallbackSlug || post.slug_legacy;
 
               if (!resolvedSlug) {

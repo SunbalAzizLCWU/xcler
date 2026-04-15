@@ -30,18 +30,18 @@ type SanityAdminPost = {
 const adminBlogsQuery = groq`
   *[_type == "blogPost"] | order(_createdAt desc) {
     "id": _id,
-    "title": coalesce(title_en, title_de, "Untitled"),
-    "excerpt": coalesce(pt::text(body_en)[0...180], pt::text(body_de)[0...180], ""),
-    "content": coalesce(pt::text(body_en), pt::text(body_de), ""),
+    "title": coalesce(title_en, title_de, title, "Untitled"),
+    "excerpt": coalesce(pt::text(body_en)[0...180], pt::text(body_de)[0...180], pt::text(body)[0...180], ""),
+    "content": coalesce(pt::text(body_en), pt::text(body_de), pt::text(body), ""),
     "category": "blog",
     "tags": [],
-    "metaTitle": coalesce(title_en, title_de, "Untitled"),
-    "metaDescription": coalesce(pt::text(body_en)[0...160], pt::text(body_de)[0...160], ""),
+    "metaTitle": coalesce(title_en, title_de, title, "Untitled"),
+    "metaDescription": coalesce(pt::text(body_en)[0...160], pt::text(body_de)[0...160], pt::text(body)[0...160], ""),
     "published": true,
     "createdAt": _createdAt,
     "updatedAt": _updatedAt,
-    "slug_de": slug_de,
-    "slug_en": slug_en,
+    "slug_de": {"current": coalesce(slug_de.current, slug.current, slug_en.current)},
+    "slug_en": {"current": coalesce(slug_en.current, slug.current, slug_de.current)},
     "slug_legacy": slug.current
   }
 `;

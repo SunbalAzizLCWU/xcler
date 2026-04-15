@@ -8,7 +8,8 @@ export const BLOG_TITLE_BY_LOCALE = `coalesce(
 export const BLOG_SLUG_BY_LOCALE = `coalesce(
   select($locale == "de" => slug_de.current, slug_en.current),
   select($locale == "de" => slug_en.current, slug_de.current),
-  slug.current
+  slug.current,
+  null
 )`
 
 export const BLOG_IMAGE_BY_LOCALE = `coalesce(

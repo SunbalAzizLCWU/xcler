@@ -235,7 +235,11 @@ const createPortableTextComponents = (locale: string) => ({
 });
 
 const postBySlugQuery = groq`
-  *[_type == "blogPost" && ${BLOG_SLUG_MATCH_CONDITION}][0] {
+  *[_type == "blogPost" && ${BLOG_SLUG_MATCH_CONDITION}]
+  | order(
+      select($locale == "de" => slug_de.current == $slug, slug_en.current == $slug) desc,
+      (slug.current == $slug) desc
+    )[0] {
     _id,
     "title": ${BLOG_TITLE_BY_LOCALE},
     "slug_en": coalesce(slug_en.current, slug.current, slug_de.current),

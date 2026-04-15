@@ -69,6 +69,8 @@ type BlogSlugRow = {
   slug_de?: string;
 };
 
+type Locale = "en" | "de";
+
 const parseAmount = (value: number | string | undefined) => {
   if (typeof value === "number") return Number.isFinite(value) ? value : 0;
   if (typeof value !== "string") return 0;
@@ -274,7 +276,7 @@ export async function generateStaticParams(): Promise<Array<{ locale: "en" | "de
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ locale: string; slug: string }>;
+  params: Promise<{ locale: Locale; slug: string }>;
 }): Promise<Metadata> {
   const { locale, slug } = await params;
   const post = await client.fetch<SanityBlogPost | null>(postBySlugQuery, { slug, locale });
@@ -308,7 +310,7 @@ export async function generateMetadata({
 export default async function BlogPostPage({
   params,
 }: {
-  params: Promise<{ locale: string; slug: string }>;
+  params: Promise<{ locale: Locale; slug: string }>;
 }) {
   const { locale, slug } = await params;
   const t = await getTranslations({ locale, namespace: "BlogPage" });
@@ -324,7 +326,7 @@ export default async function BlogPostPage({
       <article className="container-custom max-w-3xl">
         <Link
           href="/blog"
-          locale={locale as "en" | "de"}
+          locale={locale}
           className="mb-8 inline-flex items-center gap-2 text-sm text-richblack/40 dark:text-cream/40 transition-colors hover:text-terracotta"
         >
           <span aria-hidden="true">←</span>

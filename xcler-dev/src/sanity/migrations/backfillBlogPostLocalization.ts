@@ -26,14 +26,6 @@ type BlogPostMigrationRow = {
   body_de?: unknown[]
 }
 
-const migrationClient = createClient({
-  projectId,
-  dataset,
-  apiVersion,
-  token: process.env.SANITY_API_WRITE_TOKEN,
-  useCdn: false
-})
-
 const blogPostsQuery = `
   *[_type == "blogPost"]{
     _id,
@@ -53,9 +45,18 @@ const blogPostsQuery = `
 `
 
 async function migrate() {
-  if (!process.env.SANITY_API_WRITE_TOKEN) {
+  const token = process.env.SANITY_API_WRITE_TOKEN
+  if (!token) {
     throw new Error('Missing SANITY_API_WRITE_TOKEN environment variable')
   }
+
+  const migrationClient = createClient({
+    projectId,
+    dataset,
+    apiVersion,
+    token,
+    useCdn: false
+  })
 
   const posts = await migrationClient.fetch<BlogPostMigrationRow[]>(blogPostsQuery)
 

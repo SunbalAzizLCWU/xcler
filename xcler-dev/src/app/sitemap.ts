@@ -108,7 +108,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
           en: toAbsoluteUrl(enPath),
           de: toAbsoluteUrl(dePath),
         },
-      } as const;
+      };
       const sharedMetadata = {
         lastModified,
         changeFrequency: "weekly" as const,

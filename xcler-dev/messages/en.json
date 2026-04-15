@@ -558,6 +558,57 @@
     "headingLine1": "Web",
     "headingLine2": "Development.",
     "intro": "We build custom websites and web applications that load fast, rank high, and convert visitors into customers. No templates. Real engineering, real outcomes.",
+    "hero": {
+      "h1": "Web Development Agency Germany for B2B Growth",
+      "h2": "We engineer high-performance web platforms where organic visibility, conversion, and operational reliability work as one system.",
+      "paragraph": "Our web development is not template assembly. We combine Next.js frontend architecture, API-based data flows, clean information design, and measurable conversion paths so marketing, sales, and operations can scale on a single technical foundation."
+    },
+    "seoIntro": "Many business websites lose rankings not because content is weak, but because technical execution is inconsistent. When rendering strategy, navigation, internal linking, structured data, and performance are misaligned, crawl efficiency and lead quality decline at the same time. We solve this with architecture-first implementation: component systems, stable URL strategy, semantic markup, controlled publishing models, and release governance that protects search visibility over time.\n\nFor the German B2B market, visual polish alone is not enough. Teams need predictable load performance, reliable analytics, clear conversion journeys, and a CMS model that can be operated without engineering bottlenecks. We design web platforms where Core Web Vitals, technical SEO, and revenue goals reinforce each other, so your site performs after launch, during campaigns, and as content complexity grows.",
+    "coreFeatures": [
+      {
+        "title": "Next.js Architecture with Scalable Component Governance",
+        "description": "We build modular frontend systems with clear component standards, routing rules, and rendering strategy. This keeps releases predictable and allows faster expansion of service pages without accumulating technical debt."
+      },
+      {
+        "title": "Technical SEO for Crawl Efficiency and Information Architecture",
+        "description": "We implement SEO at the system layer: URL hierarchy, internal link graph, structured data, canonical signals, and indexability logic are modeled intentionally to strengthen discoverability and reduce ranking volatility."
+      },
+      {
+        "title": "Core Web Vitals Optimization Across the Delivery Stack",
+        "description": "Performance is handled as an engineering discipline across assets, scripts, caching, and interaction cost. We optimize LCP, INP, and CLS on template and component level so performance remains stable under real traffic conditions."
+      },
+      {
+        "title": "Conversion Engineering with Measurable Lead Paths",
+        "description": "We design page flows that reduce decision friction: clear hierarchy, trust signals, focused calls to action, and instrumented funnel events. This improves lead quality and makes optimization data-driven instead of guesswork."
+      }
+    ],
+    "architectureHighlight": "Our web platform delivery model combines reproducible releases, runtime monitoring, and clear ownership boundaries. Every technical decision is validated against three outcomes: search visibility, page performance, and conversion impact, so growth does not create instability.",
+    "aeoFaq": [
+      {
+        "question": "How does professional web development improve rankings in Germany?",
+        "answer": "Rankings improve when technical SEO, information architecture, and performance are engineered together. We increase crawl efficiency, fix rendering bottlenecks, optimize internal linking, and embed structured data into high-intent templates so search systems can interpret and prioritize your pages more effectively."
+      },
+      {
+        "question": "Why are Core Web Vitals critical for B2B websites?",
+        "answer": "Core Web Vitals directly affect search visibility, trust, and conversion behavior. Slow or unstable experiences increase abandonment early in the buyer journey. We treat Vitals as architecture KPIs and enforce them through QA and deployment gates so improvements persist after launch."
+      },
+      {
+        "question": "What role does Next.js play in enterprise web development?",
+        "answer": "Next.js provides a strong foundation for performance, flexibility, and SEO control. With the right rendering and caching model, it supports service pages, campaign flows, and content-heavy sections on one maintainable platform while reducing delivery complexity across teams."
+      },
+      {
+        "question": "How do we prevent SEO loss during a website relaunch?",
+        "answer": "SEO loss is prevented with structured migration planning: URL mapping, redirect rules, canonical continuity, internal link repair, and staged validation in Search Console. We treat relaunches as controlled search and data migrations, not purely visual redesigns."
+      },
+      {
+        "question": "Can non-technical teams manage content safely after launch?",
+        "answer": "Yes, when the CMS model is designed with clear field structures, component constraints, and publication workflows. We build editor experiences that allow teams to update content without breaking layout logic, SEO signals, or conversion-critical sections."
+      },
+      {
+        "question": "Which KPIs should we prioritize for web growth?",
+        "answer": "Prioritize qualified conversion rate, visibility on service-intent keywords, Core Web Vitals, index quality, and funnel drop-off points. These metrics connect technical quality with business outcomes and give teams a reliable optimization framework."
+      }
+    ],
     "technologiesTitle": "Technologies We Use",
     "ctaHeading": "Ready to build your website?",
     "ctaDescription": "Projects start from €150. Share your requirements and receive a clear quote within 24 hours.",
@@ -580,6 +631,57 @@
     "headingLine1": "App",
     "headingLine2": "Development.",
     "intro": "From concept to launch, we build mobile and web applications with clean architecture, production-ready quality, and clear product direction.",
+    "hero": {
+      "h1": "App Development Germany for Scalable Digital Products",
+      "h2": "We build mobile and web applications where product strategy, technical resilience, and measurable user impact align.",
+      "paragraph": "App projects rarely fail because features are missing; they fail because architecture is unclear. We design domain models, API contracts, release governance, and runtime observability early so products can scale without structural rewrites."
+    },
+    "seoIntro": "Successful app development starts with system design, not screen count. Teams that begin with feature lists alone often accumulate unstable integrations, inconsistent data behavior, and expensive refactoring after launch. We use an architecture-first model where events, APIs, user roles, security boundaries, and observability are defined up front to support long-term product velocity.\n\nIn DACH B2B environments, reliability and integration quality are commercial requirements. We implement app platforms that connect CRM, ERP, analytics, and product telemetry with controlled data flows and measurable performance. This gives product teams a stable base for iteration and growth instead of repeatedly fixing operational bottlenecks.",
+    "coreFeatures": [
+      {
+        "title": "Product Architecture for Mobile and Web Consistency",
+        "description": "We model workflows, roles, and data entities so behavior stays consistent across platforms. This reduces regression risk and supports smooth progression from MVP to production-scale application."
+      },
+      {
+        "title": "API-First Engineering for Integrations and Extensibility",
+        "description": "We build backend layers with versioned API contracts, validation, and predictable error handling. This enables stable integrations with internal systems and external services without fragile one-off logic."
+      },
+      {
+        "title": "Release Governance with QA, Monitoring, and Rollback",
+        "description": "Our delivery model combines CI/CD, automated testing, observability, and rollback readiness. This keeps deployment risk controlled and reduces time-to-diagnosis when issues appear in production."
+      },
+      {
+        "title": "Conversion and Retention-Focused UX Engineering",
+        "description": "We design user flows around activation, retention, and outcome-critical tasks. Interaction events are instrumented for analysis, so teams can prioritize product changes by measurable business impact."
+      }
+    ],
+    "architectureHighlight": "Our app delivery model combines product strategy with CTO-level execution: explicit API boundaries, resilient runtime architecture, security controls, and observability. The result is a product that is launch-ready and scale-ready.",
+    "aeoFaq": [
+      {
+        "question": "What app architecture is best for B2B companies in Germany?",
+        "answer": "The best architecture separates domain logic, API services, and frontend delivery while keeping integration boundaries explicit. This makes features easier to ship, systems easier to scale, and compliance controls easier to enforce."
+      },
+      {
+        "question": "How fast can an MVP app go live?",
+        "answer": "A focused MVP can launch within weeks when scope, success metrics, and integration boundaries are defined early. The key is treating MVP as a production-grade foundation with constrained scope, not a throwaway prototype."
+      },
+      {
+        "question": "What distinguishes strong app engineering from simple implementation?",
+        "answer": "Strong app engineering combines feature delivery with system reliability, data integrity, monitoring, and maintainable architecture. It ensures that product growth does not collapse under operational complexity after launch."
+      },
+      {
+        "question": "How do we integrate CRM and ERP systems into an app reliably?",
+        "answer": "Reliable integration requires validated contracts, deterministic error handling, idempotent operations, and observability across API boundaries. We implement integration layers that isolate failures and prevent downstream instability."
+      },
+      {
+        "question": "Which KPIs matter most for app success?",
+        "answer": "Prioritize activation rate, retention, task completion, crash-free sessions, API latency, and conversion on critical journeys. Together, these indicators connect product usability, technical quality, and business impact."
+      },
+      {
+        "question": "How do we maintain app quality after launch?",
+        "answer": "Post-launch quality depends on continuous monitoring, regression testing, release gates, and clear incident workflows. We establish operational discipline so teams can iterate confidently without introducing hidden instability."
+      }
+    ],
     "ctaHeading": "Got an app idea?",
     "ctaDescription": "Let us evaluate your concept and define the fastest path to launch.",
     "ctaButton": "Start Your Project ->",
@@ -606,7 +708,7 @@
         "whenToChoose": "Choose WordPress when growth depends on organic visibility, thought-leadership content, and complex information architecture.",
         "details": "WordPress is ideal for businesses with high publishing velocity, many service landing pages, multilingual SEO roadmaps, and custom lead funnels. With clean taxonomy, structured editorial workflows, and technical performance optimization, the platform remains stable as traffic grows.",
         "ctaText": "Explore the WordPress engineering path",
-        "href": "/leistungen/wordpress-entwicklung"
+        "href": "/services/wordpress-development-germany"
       },
       {
         "platform": "Shopify",
@@ -614,7 +716,7 @@
         "whenToChoose": "Choose Shopify when your priority is reliable ecommerce execution, operational efficiency, and fast go-to-market cycles.",
         "details": "Shopify is especially strong for B2B brands with expanding catalogs, checkout-critical revenue, and integration needs across payment providers, logistics, ERP, and CRM. Standardized core commerce flows reduce operational risk and accelerate release velocity.",
         "ctaText": "Explore the Shopify engineering path",
-        "href": "/leistungen/shopify-entwicklung"
+        "href": "/services/shopify-development-germany"
       }
     ],
     "whyChooseUs": [
@@ -675,13 +777,13 @@
       {
         "title": "WordPress & WooCommerce",
         "desc": "Need a high-control store and content system? Our WordPress agency Germany track delivers custom WooCommerce architecture, SEO-ready CMS structure, and long-term ownership.",
-        "href": "/services/wordpress-entwicklung",
+        "href": "/services/wordpress-development-germany",
         "cta": "Go to WordPress Path"
       },
       {
         "title": "Shopify Development",
         "desc": "Need faster ecommerce rollout and strong conversion focus? Work with our Shopify experts for storefront engineering, optimization, and scalable commerce operations.",
-        "href": "/services/shopify-entwicklung",
+        "href": "/services/shopify-development-germany",
         "cta": "Go to Shopify Path"
       }
     ],
@@ -731,6 +833,115 @@
     "ctaDescription": "Let us architect and optimize your store for both conversion and operations.",
     "ctaButton": "Start Your Project ->"
   },
+  "ServiceShopifyPage": {
+    "hero": {
+      "h1": "Shopify Development Agency in Germany",
+      "h2": "We engineer high-performance Shopify systems for German B2B growth, combining dark-interface precision with resilient commerce architecture built for scale.",
+      "paragraph": "We are not a design-only studio; we are systems architects for revenue-critical commerce platforms. Our team designs and operates Shopify infrastructure that unifies conversion strategy, operational reliability, and automation at every layer. From headless storefront delivery with Next.js to hardened backend workflows for catalog governance, we build platforms that stay fast under pressure and predictable under growth. Every release is tied to measurable outcomes: lower checkout friction, stronger throughput, cleaner data, and higher margin control. At the interface level we prioritize clarity, hierarchy, and trust signals that support decision-making for B2B buyers and internal teams alike."
+    },
+    "seoIntro": {
+      "paragraph1": "Most stores fail not because of branding, but because they are assembled as disconnected templates rather than engineered as a complete E-commerce business model. A standard implementation usually treats frontend, checkout, catalog, and operations as separate tasks handled by separate tools, creating latency in decisions and fragility in execution. We build differently: architecture first, workflows second, visuals third, and optimization always. Our approach starts with data contracts across product entities, pricing logic, inventory states, customer segments, and event telemetry. We then align Shopify APIs, ERP touchpoints, marketing channels, and analytics layers so every transaction becomes operationally useful, not just financially recorded. This is where product management automation becomes transformative: the catalog is no longer a static list managed manually, but a dynamic system governed by rules, enrichment pipelines, and lifecycle triggers. In this model, storefront speed, conversion design, and backend logic are inseparable, allowing your team to move faster without introducing operational debt. The result is a platform that scales with confidence, not chaos.",
+      "paragraph2": "For the German B2B market, this architecture discipline is non-negotiable. Procurement cycles are longer, compliance expectations are higher, and customer trust depends on precision. We focus deeply on Munich and the wider DACH tech ecosystem, where growth-stage and established companies need enterprise execution without enterprise bloat. That means robust payment provider integrations for local and international buying behavior, advanced shipping options tailored to regional logistics complexity, and DACH-compliant taxes & invoicing configured as core infrastructure, not post-launch patches. We design for multilingual operations, VAT edge cases, invoice traceability, and clean handoffs between finance, sales, and support. Underneath the visual layer, we run strict release governance, observability, rollback safety, and API monitoring to protect uptime and margin. This is how a Shopify platform becomes a durable competitive asset in Germany, not just a website."
+    },
+    "coreFeatures": [
+      {
+        "title": "Headless Shopify Architecture with Next.js for Speed, Control, and SEO Precision",
+        "description": "Headless is not a trend for us; it is an execution model for companies that require deterministic performance and strategic control over customer experience. We decouple presentation from commerce logic and build the storefront in Next.js with strict component governance, route-level performance budgets, and cache-aware rendering. This enables faster page transitions, stronger Core Web Vitals, and cleaner experimentation across B2B landing journeys, campaign pages, and product discovery flows. We design API orchestration so Shopify remains the commercial source of truth while the frontend evolves independently with minimal risk. Structured telemetry is embedded from day one, letting teams observe conversion behavior at segment, channel, and template level. This architecture supports multilingual growth, personalized content blocks, and future integrations without replatforming cycles. It also strengthens discoverability because technical SEO, schema strategy, and crawlability are engineered into the system layer rather than patched through plugins after launch."
+      },
+      {
+        "title": "DACH-Compliant Commerce Backend: Taxes, Invoicing, Data Protection, and Audit Readiness",
+        "description": "Scaling in Germany requires regulatory confidence, not just visual polish. We implement backend structures that support DACH-compliant taxes & invoicing across customer types, regions, and transaction scenarios, including B2B VAT logic, reverse-charge edge cases, and invoice traceability workflows. Our implementation aligns checkout data, tax computation, order metadata, and accounting exports so finance and operations can reconcile without manual cleanup. We also enforce GDPR-aware architecture patterns around consent capture, retention boundaries, and data minimization pathways, reducing legal risk while preserving analytics quality. Compliance is integrated into operations through rule-based validations, webhook governance, and monitoring around critical failure points. We design your stack so policy adherence is not dependent on tribal knowledge from one team member, but encoded into repeatable workflows and secure permissions."
+      },
+      {
+        "title": "Frictionless Checkout Through Payment Provider Integrations and Advanced Shipping Options",
+        "description": "Revenue growth depends on checkout reliability as much as traffic quality. We optimize conversion by engineering payment provider integrations that match how German and international buyers actually purchase, including card, wallet, invoice-like preferences, and risk-aware routing strategies. Our goal is not merely adding providers; it is reducing decision friction, failed transaction rates, and checkout abandonment through technical flow design, latency reduction, and trust signaling. In parallel, we implement advanced shipping options that map logistics realities to customer expectations: region-specific rates, SLA-driven methods, threshold logic, carrier constraints, and operational cutoffs. This improves both conversion and post-purchase satisfaction because customers see relevant delivery choices without ambiguity. We model shipping and payment as connected systems, not isolated settings, so margin impact is visible before policy changes go live."
+      },
+      {
+        "title": "Product Management Automation via n8n and Make.com for Operational Throughput at Scale",
+        "description": "Manual catalog operations are one of the biggest hidden costs in growing B2B commerce. We solve that with product management automation pipelines powered by n8n and Make.com, synchronized with Shopify APIs and your broader operational stack. Product creation, enrichment, categorization, media assignment, and channel mapping can be rule-driven and event-triggered instead of repetitive human work. We design governance around these workflows so automation remains safe: validation checkpoints, exception handling, idempotent updates, and clear rollback procedures. This ensures automation increases reliability rather than creating silent data drift. We also connect catalog workflows to pricing updates, availability logic, and merchandising rules, so product data stays accurate across channels without daily firefighting. Teams gain faster launch cycles for new SKUs and cleaner metadata for search and filtering."
+      }
+    ],
+    "automationArchitecture": "Our automation architecture connects Shopify APIs to AI agents through a controlled workflow mesh that prioritizes reliability, visibility, and business outcomes. At the service layer, we ingest order events, inventory updates, customer interactions, and support intents into orchestrated flows managed by n8n and Make.com. These flows trigger specialized AI agents for tasks such as intent triage, response drafting, escalation routing, stock anomaly detection, and reorder recommendations. Customer support automation remains human-governed through confidence thresholds, role-based approval paths, and context handoff rules, so quality stays high even at scale. Inventory tracking becomes proactive rather than reactive: when velocity patterns shift, agents can flag replenishment risks, update merchandising priorities, and synchronize downstream notifications before stockouts affect revenue. We also enforce observability by logging every automation decision, latency profile, and exception path to a central dashboard where teams can audit behavior and optimize continuously.",
+    "aeoFaq": [
+      {
+        "question": "How does Shopify support serious B2B scaling in Germany?",
+        "answer": "Shopify supports serious B2B scaling in Germany when implemented as a systems architecture, not a template project. We configure Shopify as the transactional core while integrating ERP, CRM, analytics, and automation layers into one controlled operating model. This allows your team to manage larger catalogs, segmented pricing logic, and multi-channel demand without operational fragmentation. We also combine performance engineering, governance workflows, and structured observability so growth does not increase technical volatility."
+      },
+      {
+        "question": "Can Shopify handle B2B wholesale channels, customer-specific pricing, and account workflows?",
+        "answer": "Yes, Shopify can handle B2B wholesale channels, customer-specific pricing, and account workflows when the data and rules are modeled correctly. We design account structures, price segmentation, purchase permissions, and quote-to-order pathways around real buying behavior instead of forcing generic retail logic onto B2B customers. The result is a controlled experience where procurement teams can reorder efficiently, view relevant terms, and move through checkout with less friction."
+      },
+      {
+        "question": "How do you ensure DACH compliance for taxes, invoicing, and privacy requirements?",
+        "answer": "We ensure DACH compliance by engineering tax, invoicing, and privacy logic directly into the operational backbone of your store. Specifically, we implement DACH-compliant taxes & invoicing with robust handling for B2B VAT scenarios, invoice traceability, and accounting-ready exports that reduce reconciliation friction. On privacy, we apply GDPR-aware consent and data lifecycle controls to protect customer information while preserving decision-quality analytics."
+      },
+      {
+        "question": "Why are payment provider integrations and advanced shipping options critical for conversion in Germany?",
+        "answer": "They are critical because checkout confidence and delivery clarity directly determine whether high-intent traffic becomes revenue. We implement payment provider integrations and advanced shipping options as a unified conversion system, not as isolated settings. Payment flows are selected based on regional buyer behavior, risk posture, and margin dynamics, while shipping logic is tuned to SLA expectations, carrier realities, and order economics."
+      },
+      {
+        "question": "What business impact does product management automation create in a Shopify B2B environment?",
+        "answer": "Product management automation creates direct business impact by reducing operational overhead, accelerating catalog velocity, and improving data integrity across channels. We automate repetitive tasks such as enrichment, categorization, media mapping, and update synchronization using governed workflows in n8n and Make.com. This reduces dependency on manual processing and lowers the risk of costly data inconsistencies that hurt search relevance, conversion, and fulfillment accuracy."
+      },
+      {
+        "question": "When should a German B2B company choose headless Shopify over a standard storefront implementation?",
+        "answer": "A German B2B company should choose headless Shopify when growth depends on speed, differentiated UX, advanced integration depth, and controlled experimentation. If your roadmap includes complex account journeys, content-rich acquisition funnels, multilingual expansion, or channel-specific experiences, decoupling frontend and commerce logic gives you far greater flexibility and performance headroom."
+      }
+    ]
+  },
+  "ServiceWordpressPage": {
+    "hero": {
+      "h1": "Enterprise WordPress Development in Germany",
+      "h2": "We engineer industrial-grade WordPress systems for B2B teams that need speed, control, and measurable reliability under real commercial load.",
+      "paragraph": "Most B2B websites do not fail because of design quality; they fail because legacy WordPress stacks become slow, bloated, and impossible to scale safely. We rebuild that foundation with an architecture-first model focused on throughput, observability, and operational discipline. Whether we deploy a headless frontend or optimize a traditional build to the metal, every decision is tied to business outcomes: stronger lead quality, cleaner data flows, lower operational risk, and faster release velocity. Our team replaces plugin chaos with engineered systems that deliver Secure WordPress operations, Fast Load Times, and enterprise-grade extensibility without sacrificing editorial efficiency."
+    },
+    "seoIntro": "Our approach to WordPress is not template assembly; it is systems architecture for revenue-critical B2B operations. We begin by modeling your platform as an end-to-end service: content lifecycle, component governance, integration boundaries, deployment controls, and performance budgets. From there, we choose the correct delivery model per business context. For content-heavy lead generation with complex editorial workflows, we can optimize core WordPress directly using strict theme architecture, curated plugin policy, database query control, and deterministic caching layers. For advanced UX and maximum frontend speed, we decouple presentation into a headless stack with API contracts and modern rendering patterns. In both models, we engineer toward the same objective: stable Core Web Vitals at scale, not isolated benchmark wins. We map every performance variable, including image pipelines, script hydration, CSS strategy, TTFB behavior, and edge cache invalidation. This is where Enterprise WordPress Hosting and High-Performance Hosting become strategic, not cosmetic: infrastructure and application design must operate as one system. We implement telemetry across key templates and high-intent pages so your team can see how technical changes impact lead conversion and commercial outcomes.",
+    "coreServices": [
+      {
+        "title": "Custom Theme and Plugin Engineering with a Zero-Bloat Policy",
+        "description": "We engineer custom WordPress foundations from the ground up with an explicit zero-bloat policy designed for enterprise durability. Every feature must justify itself through measurable value, and every dependency is reviewed for security profile, maintenance risk, and runtime impact. Instead of stacking generic plugins, we build controlled capabilities through modular theme components, narrowly scoped plugins, and versioned internal libraries aligned to your product roadmap. This approach reduces update collisions, eliminates hidden performance regressions, and keeps the codebase understandable for long-term ownership."
+      },
+      {
+        "title": "High-Performance Hosting Architecture and Fast Load Times by Design",
+        "description": "Fast websites are not produced by one plugin or one server switch; they are produced by coherent architecture across hosting, caching, rendering, and asset delivery. We design High-Performance Hosting environments for WordPress that align infrastructure behavior with application behavior, so performance remains stable even as traffic and content complexity increase. This includes edge-aware caching strategy, optimized PHP runtime configuration, database tuning, queue isolation, CDN orchestration, and image transformation pipelines tuned for real device conditions."
+      },
+      {
+        "title": "Enterprise Security Protocols and Secure WordPress Hosting Solutions",
+        "description": "Security in enterprise WordPress environments must be systematic, testable, and continuously enforced. We implement Secure WordPress architecture through layered controls spanning application hardening, access governance, dependency validation, network controls, and operational monitoring. At the platform level, we configure least-privilege role models, MFA-ready workflows, protected admin surfaces, secret management hygiene, and deterministic update policies that minimize exploit windows."
+      },
+      {
+        "title": "Llama 3.3 and Groq AI Integrations Inside WordPress Admin for Content Operations",
+        "description": "We integrate Llama 3.3 and Groq-powered workflows directly into the WordPress Admin experience so content teams can operate faster without leaving editorial context. This is not generic chatbot embedding; it is task-oriented AI architecture tied to your taxonomy, tone rules, compliance constraints, and conversion goals. Editors can generate structured drafts, optimize metadata, propose internal linking paths, and receive quality checks against brand and legal standards within controlled workflows."
+      }
+    ],
+    "infrastructureHighlight": "Our infrastructure model is built for disciplined delivery, not fragile heroics. We implement reproducible deployment pipelines that move changes through defined quality gates from development to staging to production, with automated checks for code quality, dependency integrity, performance impact, and security posture. Every environment mirrors core production characteristics to prevent surprise regressions at launch, and every release includes rollback-safe deployment patterns to minimize risk during high-traffic windows. At the hosting layer, we design Scalable Cloud Infrastructure with workload isolation, horizontal scaling paths, and capacity policies aligned to campaign demand and seasonal peaks.",
+    "aeoFaq": [
+      {
+        "question": "Why do enterprise B2B websites still struggle with page speed on WordPress?",
+        "answer": "They struggle because speed problems are usually architectural, not cosmetic. Many enterprise sites accumulate plugin overlap, uncontrolled scripts, oversized media pipelines, and ungoverned template logic that silently degrade runtime performance over time."
+      },
+      {
+        "question": "How do you reduce security vulnerabilities in a complex WordPress environment?",
+        "answer": "We reduce vulnerabilities by combining prevention, detection, and operational response into one security lifecycle. Prevention includes strict dependency governance, hardened configurations, minimal plugin surface, and least-privilege access models."
+      },
+      {
+        "question": "When should a company choose headless WordPress instead of a traditional setup?",
+        "answer": "A company should choose headless when frontend differentiation, performance ceiling, and integration complexity exceed what a traditional rendering model can deliver efficiently. If your roadmap includes advanced interactive experiences, strict performance targets, multi-channel content delivery, or deep platform integrations, decoupling frontend and backend often creates superior control."
+      },
+      {
+        "question": "Why does Enterprise WordPress Hosting matter more than premium theme selection?",
+        "answer": "Enterprise WordPress Hosting matters more because hosting defines the runtime conditions where every theme and plugin must perform. A visually polished theme cannot compensate for weak cache behavior, noisy neighbors, poor database tuning, or unstable deployment workflows."
+      },
+      {
+        "question": "How do you guarantee Core Web Vitals improvements are sustained after launch?",
+        "answer": "We sustain improvements by embedding Core Web Vitals into ongoing operations rather than treating them as a one-time milestone. That means route-specific monitoring, regression alerts, release gating for performance budgets, and periodic remediation for newly introduced scripts or components."
+      },
+      {
+        "question": "What makes your infrastructure approach scalable for multi-team B2B organizations?",
+        "answer": "It is scalable because it standardizes how teams build, validate, deploy, and operate across environments without sacrificing autonomy. We implement Scalable Cloud Infrastructure with clear boundaries between services, repeatable deployment templates, controlled configuration management, and telemetry that surfaces bottlenecks early."
+      }
+    ]
+  },
   "ServiceWorkflowAutomationPage": {
     "metaTitle": "Workflow Automation Germany | Make.com, n8n, Zapier | XCLER",
     "metaDescription": "Workflow automation services for German and EU businesses using Make.com, n8n, Zapier, and GoHighLevel.",
@@ -739,6 +950,57 @@
     "headingLine1": "Workflow",
     "headingLine2": "Automation.",
     "intro": "We automate repetitive processes, connect your core systems, and unlock measurable operational efficiency at scale.",
+    "hero": {
+      "h1": "Workflow Automation Germany for Scalable Operations",
+      "h2": "We design automation architecture that connects systems, rules, and decisions into a stable operating model.",
+      "paragraph": "Automation only works long-term when process logic, data quality, and exception handling are engineered together. We build governed workflows with monitoring, rollback safety, and clear ownership so efficiency does not compromise control."
+    },
+    "seoIntro": "Many companies automate isolated tasks but fail to automate the end-to-end process. That creates disconnected workflows, duplicate data handling, and new operational bottlenecks across sales, service, and finance. We solve this by building orchestrated automation systems with API contracts, event logic, validation layers, and observable exception paths.\n\nFor German B2B organizations, process reliability is a strategic requirement. Teams need SLA consistency, traceable decisions, and stable handoffs between departments. Our automation model connects n8n, Make.com, CRM, and internal systems so cycle times decrease, error rates drop, and operations remain controllable as volume scales.",
+    "coreFeatures": [
+      {
+        "title": "API-Centric Workflow Orchestration",
+        "description": "We connect business systems through stable interfaces and explicit trigger logic instead of fragile point automations. This keeps workflows testable, traceable, and scalable."
+      },
+      {
+        "title": "n8n and Make.com with Governance and Rollback",
+        "description": "Automations are versioned, validated, and documented with clear failure paths. This enables safe iteration in production without black-box risk."
+      },
+      {
+        "title": "SLA-Oriented Monitoring and Alerting",
+        "description": "We track runtime, failure rates, and high-impact process events in real time. Teams can identify bottlenecks early and intervene before service quality degrades."
+      },
+      {
+        "title": "AI-Augmented Decision Automation",
+        "description": "Where appropriate, we extend rule-based workflows with AI-driven classification, routing, and prioritization while preserving auditability through guardrails and human escalation paths."
+      }
+    ],
+    "architectureHighlight": "Our workflow automation stack is built as an operating model, not a script collection: event orchestration, validation, observability, and governance are embedded from day one. This creates reliable automation that scales with process complexity.",
+    "aeoFaq": [
+      {
+        "question": "Which processes should we automate first?",
+        "answer": "Start with high-frequency, rule-based processes that create measurable delay or error cost. Typical first candidates are lead routing, support triage, data synchronization, and repetitive reporting workflows."
+      },
+      {
+        "question": "Why do automation projects often fail in production?",
+        "answer": "They fail when process ownership, exception handling, and data quality are not modeled upfront. Without governance, teams replace one manual bottleneck with another. We prevent this with architecture, runtime observability, and clear operational controls."
+      },
+      {
+        "question": "Should we choose n8n or Make.com?",
+        "answer": "The right choice depends on compliance requirements, integration complexity, and internal operating model. n8n is often strong for control and self-hosting; Make.com is strong for rapid orchestration with broad connectors."
+      },
+      {
+        "question": "How do we calculate ROI for workflow automation?",
+        "answer": "ROI should be measured through reduced cycle time, lower process error cost, improved response speed, and conversion uplift where applicable. Baseline measurement before implementation is essential for defensible ROI tracking."
+      },
+      {
+        "question": "Can we integrate automation safely with legacy systems?",
+        "answer": "Yes, with validated APIs, idempotent operations, retry controls, and monitoring at every integration boundary. This ensures failures in one connector do not cascade into critical business processes."
+      },
+      {
+        "question": "How do we avoid black-box behavior in automations?",
+        "answer": "Avoid black-box behavior through version control, execution logging, documented decision rules, and explicit escalation paths. Every business-critical automation outcome should be auditable and explainable."
+      }
+    ],
     "ctaHeading": "Ready to automate?",
     "ctaDescription": "Show us what your team handles manually today and we will map the highest-impact automation opportunities.",
     "ctaButton": "Start Your Project ->",
@@ -757,6 +1019,57 @@
     "headingLine1": "AI Chatbots",
     "headingLine2": "& Agents.",
     "intro": "We build context-aware AI agents that answer accurately, qualify leads intelligently, and support customer communication around the clock.",
+    "hero": {
+      "h1": "AI Chatbots and Agents for Businesses in Germany",
+      "h2": "We design production-grade AI assistance systems using RAG, agent workflows, and governed integrations for support and growth.",
+      "paragraph": "Effective AI implementation is not launching a chat widget. It requires architecture across knowledge sources, retrieval logic, tool access, quality controls, and escalation paths. We build systems that deliver reliable outcomes, not demo-level responses."
+    },
+    "seoIntro": "Many chatbot projects generate fast answers initially but fail under real user complexity because context, governance, and process integration are missing. Our approach uses RAG architecture with structured knowledge pipelines, prompt governance, retrieval controls, and runtime quality monitoring. This reduces hallucination risk and improves factual consistency across support and sales interactions.\n\nIn the DACH market, trust and compliance are non-negotiable. Users expect precise answers, transparent handoff to human teams, and responsible data handling. We implement AI agents with role-based controls, escalation rules, observability, and measurable service KPIs so chatbot operations support real business workflows instead of creating new risk surfaces.",
+    "coreFeatures": [
+      {
+        "title": "RAG Knowledge Architecture for Reliable Responses",
+        "description": "We connect LLMs to curated, versioned knowledge sources with retrieval controls and validation strategy. This improves factual accuracy and keeps responses aligned with your real business policies."
+      },
+      {
+        "title": "Agent Workflows with Controlled Tool Access",
+        "description": "Agents operate through explicit permissions and bounded actions when connected to CRM, ticketing, or scheduling systems. This enables automation without uncontrolled side effects."
+      },
+      {
+        "title": "Lead Qualification and Support Orchestration",
+        "description": "We design conversation pathways for qualification, routing, and escalation around actual buyer and support journeys. This improves speed-to-response and increases qualified handoffs to human teams."
+      },
+      {
+        "title": "Evaluation, Monitoring, and Continuous Optimization",
+        "description": "We measure answer quality, intent accuracy, escalation behavior, and business outcomes to iteratively improve prompt strategy, retrieval quality, and workflow logic over time."
+      }
+    ],
+    "architectureHighlight": "Our AI architecture combines RAG, agent orchestration, security boundaries, and observability into a production operating model. This turns AI chat from experimental functionality into a controlled business system.",
+    "aeoFaq": [
+      {
+        "question": "What is the difference between a chatbot and an AI agent?",
+        "answer": "A basic chatbot answers predefined inputs, while an AI agent can reason across context, trigger approved tools, and follow decision workflows. The difference is architecture depth, integration design, and operational impact."
+      },
+      {
+        "question": "How do you keep AI answers accurate and reliable?",
+        "answer": "Accuracy is achieved through RAG with curated knowledge, retrieval controls, evaluation metrics, and escalation logic for uncertain cases. We combine these controls so the system remains useful and trustworthy at scale."
+      },
+      {
+        "question": "Can AI chatbots be GDPR-compliant?",
+        "answer": "Yes, when data processing, retention controls, access policies, and purpose limitation are engineered into the architecture. We design compliance-aware pipelines so AI interactions remain audit-ready and legally defensible."
+      },
+      {
+        "question": "Which tasks can AI agents automate in real operations?",
+        "answer": "Typical high-value automations include intent triage, first response generation, lead pre-qualification, ticket prioritization, and structured data capture. High-risk decisions remain protected by human escalation paths."
+      },
+      {
+        "question": "How do we measure chatbot business impact?",
+        "answer": "Measure impact through response quality, first-response time, deflection rate, escalation accuracy, and conversion outcomes on qualified conversations. These metrics show whether the system delivers operational and commercial value."
+      },
+      {
+        "question": "How fast can we launch a production-ready AI agent?",
+        "answer": "A focused production launch is possible within weeks when use cases, knowledge inputs, and integration boundaries are clearly defined. Fast outcomes depend on constrained scope and measurable quality targets from the start."
+      }
+    ],
     "ctaHeading": "Want an AI agent for your business?",
     "ctaDescription": "We design and implement a custom AI solution aligned to your workflows and business goals.",
     "ctaButton": "Start Your Project ->",

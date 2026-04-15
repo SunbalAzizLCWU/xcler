@@ -558,6 +558,57 @@
     "headingLine1": "Web",
     "headingLine2": "Entwicklung.",
     "intro": "Wir entwickeln individuelle Websites und Webanwendungen, die schnell laden, besser ranken und Besucher in qualifizierte Anfragen verwandeln.",
+    "hero": {
+      "h1": "Webentwicklung Agentur Deutschland fuer B2B-Wachstum",
+      "h2": "Wir bauen performante Webplattformen, die organische Sichtbarkeit, Conversion und Betriebssicherheit als ein technisches System verbinden.",
+      "paragraph": "Unsere Webentwicklung ist kein Theme-Anstrich, sondern Architekturarbeit auf Produktionsniveau. Wir verbinden Next.js Frontends, API-basierte Datenfluesse, saubere Informationsarchitektur und messbare Conversion-Pfade, damit Marketing, Vertrieb und Operations auf derselben Plattform arbeiten koennen."
+    },
+    "seoIntro": "Viele Unternehmensseiten verlieren Reichweite nicht wegen fehlender Inhalte, sondern wegen technischer Inkonsistenz. Wenn Rendering, Navigation, interne Verlinkung, strukturierte Daten und Performance nicht abgestimmt sind, sinken Crawl-Effizienz, Sichtbarkeit und Lead-Qualitaet gleichzeitig. Wir setzen deshalb auf ein klares Architekturmodell: komponentenbasierte Frontends, stabile URL-Strategie, semantisches Markup, definierte Content-Typen und kontrollierte Deployment-Prozesse. So bleibt die Website auch bei wachsendem Content-Umfang und Kampagnendruck wartbar, schnell und ranking-stabil.\n\nFuer den deutschen B2B-Markt reicht es nicht, nur optisch modern zu sein. Entscheidend sind belastbare Ladezeiten, nachvollziehbare Analytics, klare Conversion-Fuehrung und ein CMS-Setup, das Teams ohne technische Friktion nutzen koennen. Wir entwerfen Webplattformen so, dass Core Web Vitals, technische SEO und Lead-Prozesse nicht konkurrieren, sondern sich gegenseitig verstaerken. Das Ergebnis ist eine Website, die nicht nur startet, sondern dauerhaft messbar performt.",
+    "coreFeatures": [
+      {
+        "title": "Next.js Architektur mit skalierbarer Komponentenlogik",
+        "description": "Wir entwickeln modulare Frontend-Systeme mit klaren Komponentenstandards, Route-Strategie und Rendering-Regeln. Dadurch bleiben Releases vorhersagbar, Inhalte konsistent und neue Landingpages schnell umsetzbar, ohne technische Schulden aufzubauen."
+      },
+      {
+        "title": "Technisches SEO fuer Informationsarchitektur und Crawl-Effizienz",
+        "description": "Wir verankern SEO in der technischen Basis: URL-Hierarchie, interne Linkgraphen, strukturierte Daten, Indexierungslogik und kanonische Signale werden systematisch modelliert. Das verbessert Sichtbarkeit und reduziert Ranking-Verluste bei Relaunches oder Content-Skalierung."
+      },
+      {
+        "title": "Core Web Vitals Optimierung auf Template- und Komponentenebene",
+        "description": "Wir optimieren Performance nicht punktuell, sondern entlang der gesamten Auslieferungskette: Asset-Pipeline, Caching, Script-Strategie, Bildverarbeitung und Interaktionskosten. So bleiben LCP, INP und CLS auch unter Last in stabilen Zielbereichen."
+      },
+      {
+        "title": "Conversion-Engineering mit klaren Lead-Pfaden",
+        "description": "Wir strukturieren Seiten so, dass Nutzer schneller Entscheidungen treffen: saubere Informationshierarchie, vertrauensbildende Inhalte, klare CTAs und messbare Funnel-Events. Dadurch steigt die Qualitaet eingehender Anfragen bei gleicher Traffic-Basis."
+      }
+    ],
+    "architectureHighlight": "Unsere Webplattformen folgen einem Betriebsmodell mit reproduzierbaren Releases, Monitoring und klaren Ownership-Grenzen. Jede technische Entscheidung wird gegen drei Ziele validiert: Sichtbarkeit, Ladeperformance und Conversion. Dadurch bleibt die Website auch bei wachsendem Traffic, mehr Integrationen und hohem Content-Druck stabil und steuerbar.",
+    "aeoFaq": [
+      {
+        "question": "Wie verbessert professionelle Webentwicklung unsere Rankings in Deutschland?",
+        "answer": "Rankings steigen nachhaltig, wenn technische SEO, Informationsarchitektur und Performance gemeinsam optimiert werden. Wir verbessern Crawl-Effizienz, reduzieren Rendering-Probleme, strukturieren interne Verlinkung und verankern strukturierte Daten in den relevanten Seitentypen. Dadurch verstehen Suchsysteme Inhalte klarer und priorisieren hochwertige Seiten schneller."
+      },
+      {
+        "question": "Warum sind Core Web Vitals fuer B2B-Websites geschäftskritisch?",
+        "answer": "Core Web Vitals wirken direkt auf Sichtbarkeit, Nutzervertrauen und Conversion-Verhalten. Wenn Seiten langsam reagieren oder visuell instabil sind, steigen Abspruenge in fruehen Phasen der Buyer Journey. Wir behandeln Vitals als Architekturmetriken und verankern sie in Deployment- und QA-Prozessen, damit Verbesserungen nach dem Launch erhalten bleiben."
+      },
+      {
+        "question": "Welche Rolle spielt Next.js bei Webentwicklung fuer Unternehmen?",
+        "answer": "Next.js ermoeglicht eine robuste Verbindung aus Performance, Flexibilitaet und SEO-Kontrolle. Mit gezielter Render-Strategie, Caching und API-Orchestrierung lassen sich Content-Seiten, Service-Landingpages und transaktionale Bereiche auf einer konsistenten Plattform betreiben. Das reduziert Komplexitaet und beschleunigt Markteinführungen."
+      },
+      {
+        "question": "Wie vermeiden wir SEO-Verluste bei einem Website-Relaunch?",
+        "answer": "SEO-Verluste werden durch strukturiertes Migrationsdesign minimiert: URL-Mapping, Redirect-Regeln, interne Linkkorrekturen, Canonical-Kontinuitaet und Search-Console-Validierung. Wir planen den Relaunch nicht nur visuell, sondern als kontrollierten Such- und Datenmigrationsprozess mit klaren Rollback-Optionen."
+      },
+      {
+        "question": "Kann unser Team Inhalte ohne Entwicklerabhaengigkeit pflegen?",
+        "answer": "Ja, wenn das CMS-Modell sauber entworfen ist. Wir definieren Felder, Komponenten und Freigabepfade so, dass Redaktionen Inhalte sicher aktualisieren koennen, ohne Layout oder SEO-Signale zu brechen. Dadurch sinken Bottlenecks zwischen Marketing und Engineering deutlich."
+      },
+      {
+        "question": "Welche KPIs sollten wir fuer Webentwicklung priorisieren?",
+        "answer": "Priorisiert werden sollten qualifizierte Conversion-Rate, Sichtbarkeit auf Service-Keywords, Core Web Vitals, Indexierungsqualitaet und Funnel-Abbruchpunkte. Diese KPIs verbinden technische Qualitaet mit Geschaeftswirkung und machen Optimierung transparent ueber Teams hinweg."
+      }
+    ],
     "technologiesTitle": "Technologien, die wir einsetzen",
     "ctaHeading": "Bereit für Ihre neue Website?",
     "ctaDescription": "Projekte starten ab 150 €. Senden Sie uns Ihre Anforderungen und Sie erhalten innerhalb von 24 Stunden ein klares Angebot.",
@@ -580,6 +631,57 @@
     "headingLine1": "App",
     "headingLine2": "Entwicklung.",
     "intro": "Von der Idee bis zum Launch entwickeln wir Mobile- und Web-Apps mit sauberer Architektur, produktionsreifer Qualität und klarer Produktstrategie.",
+    "hero": {
+      "h1": "App Entwicklung Deutschland fuer skalierbare digitale Produkte",
+      "h2": "Wir entwickeln Mobile- und Web-Apps, die Produktstrategie, technische Robustheit und messbare Nutzerwirkung in einem System vereinen.",
+      "paragraph": "App-Projekte scheitern selten an Features, sondern an fehlender Architekturdisziplin. Wir setzen auf klare Domain-Modelle, API-First Integrationen, observierbare Release-Prozesse und ein UI-System, das Wachstum ohne Rebuilds ermoeglicht."
+    },
+    "seoIntro": "Eine erfolgreiche App beginnt mit klarer Systemgrenze zwischen Produktlogik, Datenflüssen und Auslieferung. Viele Teams starten mit Screens und backlog-getriebenen Features, ohne die technische Lastverteilung fuer Skalierung zu modellieren. Das fuehrt spaeter zu instabilen Releases, hoher Fehlerrate und langen Time-to-Fix-Zyklen. Wir arbeiten deshalb mit einem Architekturpfad, der Events, APIs, Nutzerrollen, Offline-Strategie, Monitoring und Security frueh festlegt.\n\nIm DACH-B2B-Umfeld sind Verlaesslichkeit, Datenschutz und Integrationsfaehigkeit entscheidend. Wir implementieren Apps so, dass CRM-, ERP- und Analytics-Schnittstellen kontrolliert zusammenarbeiten und Produktkennzahlen in Echtzeit sichtbar werden. Dadurch erhalten Teams eine belastbare Grundlage fuer Iteration, statt technische Engpaesse in jeder Release-Phase neu zu verhandeln.",
+    "coreFeatures": [
+      {
+        "title": "Produktarchitektur fuer Mobile- und Web-App-Konsistenz",
+        "description": "Wir modellieren Kernprozesse, Rollen und Datenobjekte so, dass App-Logik zwischen Plattformen konsistent bleibt. Das reduziert Regressionsrisiken und vereinfacht die Weiterentwicklung von MVP zu skalierbarem Produkt." 
+      },
+      {
+        "title": "API-First Entwicklung fuer Integrationen und Erweiterbarkeit",
+        "description": "Unsere App-Backends basieren auf klar versionierten API-Vertraegen, validierten Payloads und sauberem Fehlerhandling. So lassen sich externe Systeme, Partnerdienste und interne Tools ohne fragile Sonderwege anbinden."
+      },
+      {
+        "title": "Release-Governance mit QA, Monitoring und Rollback",
+        "description": "Wir setzen auf CI/CD, automatisierte Tests, Observability und definierte Rollback-Strategien. Dadurch bleiben Deployments kontrollierbar und kritische Fehler werden frueh erkannt, bevor sie Nutzer oder Umsatz beeinflussen."
+      },
+      {
+        "title": "Conversion- und Retention-orientiertes UX Engineering",
+        "description": "Wir gestalten App-Flows entlang konkreter Produktziele wie Aktivierung, Wiederkehr und Abschluss. Entscheidungsrelevante Interaktionen werden messbar gemacht, damit Teams Features anhand echter Produktwirkung priorisieren koennen."
+      }
+    ],
+    "architectureHighlight": "Unsere App-Entwicklung verbindet Produktstrategie mit technischer Ausfuehrung auf CTO-Niveau: klare API-Grenzen, stabiler Delivery-Stack, observierbare Laufzeit und strukturierte Sicherheitsmechanismen. So entsteht ein Produkt, das nicht nur launcht, sondern langfristig wartbar skaliert.",
+    "aeoFaq": [
+      {
+        "question": "Welche App-Architektur ist fuer B2B-Unternehmen in Deutschland sinnvoll?",
+        "answer": "Sinnvoll ist eine Architektur mit klarer Trennung von Domänenlogik, API-Schicht und Frontend-Auslieferung. Dadurch bleiben Integrationen stabil, Features schneller lieferbar und Sicherheitsanforderungen kontrollierbar. Wir waehlen Stack und Delivery-Modell immer anhand von Produktzielen und Betriebskontext."
+      },
+      {
+        "question": "Wie schnell kann ein MVP fuer eine App live gehen?",
+        "answer": "Ein MVP kann in wenigen Wochen live gehen, wenn Scope, Erfolgskriterien und Schnittstellen frueh definiert sind. Entscheidend ist, dass MVP nicht als Prototyp ohne technische Basis verstanden wird, sondern als fokussierte Produktversion mit skalierbarer Architektur." 
+      },
+      {
+        "question": "Was unterscheidet gute App-Entwicklung von reiner Umsetzung?",
+        "answer": "Gute App-Entwicklung verbindet Engineering, Produktstrategie und Betriebsmodell. Es geht nicht nur um Features, sondern um Datenqualitaet, Zuverlaessigkeit, Security, Monitoring und klare Iterationsfaehigkeit. Nur so wird aus einem Launch ein belastbares Produkt." 
+      },
+      {
+        "question": "Wie integrieren wir bestehende Systeme wie CRM oder ERP in eine App?",
+        "answer": "Integrationen funktionieren stabil, wenn API-Vertraege, Fehlerpfade und Datenmapping systematisch definiert sind. Wir bauen eine Integrationsschicht mit Validierung, Retry-Mechanismen und Monitoring, damit externe Ausfaelle nicht die gesamte App-Logik destabilisieren." 
+      },
+      {
+        "question": "Welche KPIs sind fuer App-Erfolg relevant?",
+        "answer": "Relevante KPIs sind Aktivierungsrate, Task-Completion, Retention, Crash-Free Sessions, API-Latenz und Conversion entlang kritischer Nutzerpfade. Diese Kennzahlen zeigen sowohl Produktwirkung als auch technische Qualitaet und helfen bei priorisierter Weiterentwicklung." 
+      },
+      {
+        "question": "Wie sichern wir App-Qualitaet nach dem Launch?",
+        "answer": "Qualitaet nach Launch entsteht durch kontinuierliches Monitoring, Regressionstests, Release-Gates und klar definierte Incident-Prozesse. Wir etablieren dafuer ein Betriebsmodell mit Alerting, Versionierung und planbaren Optimierungszyklen statt reaktiver Fehlerbehebung." 
+      }
+    ],
     "ctaHeading": "Sie haben eine App-Idee?",
     "ctaDescription": "Wir bewerten Ihr Konzept und definieren den effizientesten Weg bis zum Launch.",
     "ctaButton": "Projekt starten ->",
@@ -606,7 +708,7 @@
         "whenToChoose": "Waehlen Sie WordPress, wenn Ihr Wachstum stark ueber organische Sichtbarkeit, Thought-Leadership-Inhalte und komplexe Informationsarchitektur laeuft.",
         "details": "WordPress ist ideal fuer Unternehmen mit hohem Content-Output, vielen Service-Landingpages, mehrsprachigen SEO-Strategien und individuellen Lead-Funnels. Mit sauberer Taxonomie, klaren Redaktions-Workflows und technischer Performance-Optimierung bleibt Ihre Plattform auch bei steigendem Traffic stabil.",
         "ctaText": "Zum WordPress-Expertenpfad",
-        "href": "/leistungen/wordpress-entwicklung"
+        "href": "/services/wordpress-development-germany"
       },
       {
         "platform": "Shopify",
@@ -614,7 +716,7 @@
         "whenToChoose": "Waehlen Sie Shopify, wenn Ihr Fokus auf verlässlichem E-Commerce, operativer Effizienz und schneller Marktbearbeitung liegt.",
         "details": "Shopify eignet sich besonders fuer B2B-Marken mit wachsendem Produktkatalog, hoher Checkout-Relevanz und Bedarf an stabilen Integrationen fuer Zahlungsanbieter, Versand, ERP und CRM. Standardisierte Kernprozesse reduzieren Betriebsrisiken und beschleunigen Releases.",
         "ctaText": "Zum Shopify-Expertenpfad",
-        "href": "/leistungen/shopify-entwicklung"
+        "href": "/services/shopify-development-germany"
       }
     ],
     "whyChooseUs": [
@@ -675,13 +777,13 @@
       {
         "title": "WordPress Entwicklung",
         "desc": "WordPress & WooCommerce für maximale Kontrolle, flexible Inhalte und saubere SEO-Struktur. Ideal mit einem Partner als WordPress Agentur Deutschland.",
-        "href": "/services/wordpress-entwicklung",
+        "href": "/services/wordpress-development-germany",
         "cta": "Zum WordPress-Pfad"
       },
       {
         "title": "Shopify Entwicklung",
         "desc": "Shopify für schnellen Commerce-Rollout, klare Conversion-Logik und skalierbare Abläufe. Perfekt, wenn Sie mit Shopify Experten wachsen möchten.",
-        "href": "/services/shopify-entwicklung",
+        "href": "/services/shopify-development-germany",
         "cta": "Zum Shopify-Pfad"
       }
     ],
@@ -731,6 +833,115 @@
     "ctaDescription": "Wir entwickeln und optimieren Ihren Store für Conversion und operative Stabilität.",
     "ctaButton": "Projekt starten ->"
   },
+  "ServiceShopifyPage": {
+    "hero": {
+      "h1": "Shopify Agentur & Entwicklung in Deutschland",
+      "h2": "Wir entwickeln skalierbare Shopify-Systeme fuer den deutschen B2B-Markt, in denen Architektur, Automatisierung und Conversion als integriertes Gesamtsystem funktionieren.",
+      "paragraph": "Wir positionieren uns nicht als klassische Webdesign-Agentur, sondern als technischer Architekturpartner fuer Unternehmen, die ein belastbares digitales Vertriebssystem aufbauen wollen. Ihr Shop ist bei uns kein Frontend-Projekt, sondern ein operatives Kernsystem mit klaren Datenmodellen, reproduzierbaren Prozessen und messbarer Performance. Von der API-Strategie ueber Checkout-Logik bis zur kanaluebergreifenden Aussteuerung verbinden wir Conversion-Ziele mit technischer Stabilitaet. Das Ergebnis ist eine Shopify-Plattform, die in Lastspitzen performant bleibt, Integrationen kontrolliert verarbeitet und Ihr Wachstum ohne operative Reibungsverluste begleitet."
+    },
+    "seoIntro": "Der Wechsel von einem Theme-basierten Shopify-Store zu einem belastbaren Headless-System beginnt nicht im Frontend, sondern in der Domaenenarchitektur. Ein Template-Store optimiert primaer die Darstellung, ein skalierbares E-Commerce Geschaeftsmodell optimiert dagegen Wertschoepfung, Datenqualitaet und operative Durchlaufzeit. Deshalb modellieren wir zuerst Produktdomaenen, Preislogik, Kundensegmente, Vertragsbedingungen, Bestandszustaende, Fulfillment-Ereignisse und steuerrelevante Belegketten als explizite Systemgrenzen. Shopify bleibt als Commerce-Core fuer Katalog, Checkout und Order-Lifecycle erhalten, waehrend die Experience-Schicht in Next.js mit komponentenbasierter UI, Edge-Caching und API-orientierter Orchestrierung umgesetzt wird. Damit entkoppeln wir Release-Zyklen von Marketing und Transaktion, reduzieren Time-to-Change fuer Kampagnen und sichern gleichzeitig deterministische Checkout-Pfade. Das Resultat ist keine kosmetische Modernisierung, sondern ein kontrollierter Architekturwechsel von Theme-Logik zu einem fachlich sauberen, versionierbaren und horizontal erweiterbaren Betriebsmodell.\n\nIm zweiten Schritt wird die Betriebslogik automatisiert, damit Wachstum nicht durch manuelle Workarounds limitiert wird. Wir etablieren dafuer eine ereignisgetriebene Integrationsschicht mit Webhooks, idempotenten Workflows und klaren Recovery-Strategien. Produktdaten aus PIM oder ERP werden ueber validierte Pipelines synchronisiert, Variantenregeln und Preisstaffeln werden regelbasiert ausgerollt, und Ausnahmen laufen in observierbare Dead-Letter-Pfade statt in stille Datenfehler. Mit n8n oder Make orchestrieren wir Freigaben, Datenanreicherung, Fraud-Signale, Versandrouting, Rechnungsprozesse und CRM-Synchronisation entlang definierter SLA-Ziele. KI-Agenten uebernehmen Klassifikation von Anfragen, Priorisierung von Tickets und Vorstrukturierung von Serviceantworten, jedoch immer innerhalb von Guardrails, Rollenrechten und Audit-Logs. Dadurch sinken Betriebskosten pro Bestellung, Medianzeiten in Support und Backoffice werden verkuerzt, und Entscheidungen basieren auf konsistenten Echtzeitindikatoren statt auf fragmentierten Exporten. Ein vollstaendig automatisiertes E-Commerce Geschaeftsmodell entsteht erst dann, wenn jede kritische Prozessstufe beobachtbar, reproduzierbar und fehlertolerant ist.\n\nFuer den DACH-Markt ist diese Tiefe keine Kuer, sondern Voraussetzung, weil Kunden, Einkaufsteams und Finance-Abteilungen hohe Anforderungen an Nachvollziehbarkeit, Vertragskonformitaet und Prozessstabilitaet stellen. Rechtssichere Steuerlogik, revisionsfaehige Belege, klare Consent-Flows, DSGVO-konforme Datenhaltung und belastbare B2B-Rollenmodelle muessen als Architekturentscheidungen implementiert werden, nicht als nachtraegliche App-Sammlung. Gleichzeitig bietet das Munich tech ecosystem einen strategischen Vorteil: kurze Wege zu spezialisierten ERP-Partnern, Payment-Providern, Logistiknetzwerken und erfahrenen Engineering-Teams, die komplexe Integrationen in kurzer Iterationszeit produktiv machen. Wir nutzen dieses Umfeld, um Integrationsrisiken frueh zu testen, Lastprofile realistisch zu simulieren und Governance-Standards fuer Security, Deployment und Incident-Management auf Enterprise-Niveau zu verankern. So wird aus einem anfaenglich generischen Store eine technisch fuehrende Commerce-Plattform, die im DACH-Raum verlaesslich skaliert, international erweiterbar bleibt und Umsatzwachstum ohne operative Instabilitaet ermoeglicht.",
+    "coreFeatures": [
+      {
+        "title": "Headless Commerce mit Shopify und Next.js fuer maximale Geschwindigkeit und Skalierbarkeit",
+        "description": "Headless Commerce implementieren wir als strikt getrennte Systemarchitektur mit Shopify als transaktionalem Core und Next.js als Delivery-Layer fuer alle kundenorientierten Interaktionen. Technisch bedeutet das: Storefront API fuer produktnahe Queries, Admin API fuer kontrollierte Mutation, serverseitige Caching-Strategien mit Revalidation Tags, Edge Rendering fuer latenzkritische Landingpages und eine versionierte Komponentenbibliothek fuer konsistente UI-Semantik. Wir modellieren Katalogstruktur, Collection-Logik, Preisdimensionen und B2B-Account-Zustaende als explizite Domain-Modelle statt als Theme-Workarounds, wodurch Releases reproduzierbar und testbar werden. Parallel etablieren wir Observability mit Request Tracing, Error Budgets und synthetischen Checkout-Tests, damit Lastspitzen nicht erst im Umsatzkanal sichtbar werden. Dieses Setup reduziert Coupling zwischen Marketing-Iteration und Checkout-Stabilitaet, erlaubt parallele Teams fuer Content und Commerce und erhoeht die Betriebssicherheit, weil Frontend-Deployments keine unkontrollierten Seiteneffekte auf Warenkorb, Checkout oder Order-Events ausloesen. Das Ergebnis ist ein skalierbares Betriebsmodell mit messbarer Performance, niedriger Change-Friction und klaren Verantwortungsgrenzen auf API-, Frontend- und Infrastruktur-Ebene."
+      },
+      {
+        "title": "Rechtssicheres DACH-Setup mit Fokus auf Steuern und Rechnungen, DSGVO und Betriebsstabilitaet",
+        "description": "Ein rechtssicheres DACH-Setup implementieren wir als Compliance-by-Design und nicht als nachtraegliche Konfiguration. Fuer Steuern & Rechnungen definieren wir pro Markt eine regelbasierte Tax-Engine: Deutschland und Oesterreich mit USt-Logik nach Kundentyp und Leistungsort, Schweiz mit MWST- und Import-Szenarien inklusive zollrelevanter Klassifikation. Wir integrieren USt-IdNr.-Pruefung ueber VIES fuer innergemeinschaftliche B2B-Lieferungen, Reverse-Charge-Regeln fuer grenzueberschreitende Faelle, OSS-relevante Kennzeichnung bei B2C-Konstellationen und saubere Trennung steuerfreier versus steuerpflichtiger Positionen. Auf Belegebene erzeugen wir revisionsfaehige Rechnungen mit fortlaufender Nummernlogik, Pflichtangaben, Korrektur-Workflows fuer Gutschriften und Stornos sowie strukturierte Exporte fuer DATEV, ERP und Audit-Trails. Fuer oeffentliche Auftraggeber beruecksichtigen wir bei Bedarf XRechnung- und ZUGFeRD-kompatible Datenpfade. Gleichzeitig setzen wir DSGVO-Controls mit Zweckbindung, Consent-State-Propagation, rollenbasierten Zugriffen und Loesch- sowie Aufbewahrungsfristen technisch durch. In Summe entsteht eine belastbare Compliance-Architektur, die steuerliche Korrektheit, pruefungssichere Dokumentation und operative Stabilitaet in einem durchgaengigen Prozess vereint, anstatt Risiken in manuelle Nacharbeiten auszulagern."
+      },
+      {
+        "title": "Conversion-optimierte Zahlungsanbieter und Versandoptionen fuer den deutschen B2B-Einkaufsprozess",
+        "description": "Zahlungsanbieter konfigurieren wir als dynamisches Routing-System mit klaren Conversion-Zielen statt als statische Checkbox-Liste im Checkout. Fuer den DACH-Raum priorisieren wir lokale Zahlungsanbieter und vertraute Verfahren wie Rechnungskauf, SEPA-Lastschrift, Sofort- und Klarna-Varianten, PayPal sowie landesspezifische Optionen, sofern Zielgruppe und Risikoprofil dies rechtfertigen. Die Ausspielung erfolgt regelbasiert nach Warenkorbwert, Kundensegment, Bonitaetsindikatoren, Device-Kontext und Marktregion, sodass der wahrscheinlich erfolgreichste Zahlungsweg mit minimaler Friktion zuerst erscheint. Technisch koppeln wir Zahlungsentscheidungen an Fraud-Signale, Retry-Strategien und idempotente Payment-Events, damit Fehlversuche nicht zu Doppelbuchungen oder inkonsistenten Order-States fuehren. Parallel optimieren wir die Checkout-Metriken ueber kontrollierte Experimente auf Formularreihenfolge, Eingabevalidierung, Klartext-Gebuehrenkommunikation und Vertrauenssignale. Das Zusammenspiel aus lokalem Zahlungsmix, intelligenter Reihenfolge, schneller Autorisierung und sauberem Error-Handling senkt Abbruchquoten in kritischen Kaufmomenten deutlich. So wird der Checkout von einem Risikoabschnitt zu einem performanten Conversion-Kanal mit stabiler Erfolgsquote, besserer Zahlungseingangsqualitaet und weniger operativen Eskalationen im Finance- und Support-Team."
+      },
+      {
+        "title": "Automatisierte Produktverwaltung ueber API, n8n und Make.com fuer hohe operative Effizienz",
+        "description": "Automatisierte Produktverwaltung setzen wir als API-zentrierte Prozesskette um, in der Stammdaten, Preise, Verfuegbarkeiten, Medien und kanalbezogene Attribute kontrolliert zwischen ERP, PIM und Shopify synchronisiert werden. Jede Pipeline arbeitet mit Schema-Validierung, idempotenten Schreiboperationen und Konfliktregeln, damit konkurrierende Updates keine stillen Datenfehler erzeugen. Fuer Variantenlogik, B2B-Preisstaffeln und regionale Sortimentssteuerung etablieren wir versionierte Rulesets, die in n8n oder Make orchestriert und in Audit-Logs nachvollziehbar dokumentiert werden. Zusaetzlich integrieren wir custom Versandoptionen ueber API, sodass Versandmethoden nicht pauschal, sondern kontextsensitiv nach Lagerstandort, Liefergebiet, SLA, Gefahrgutmerkmalen, Paketdimensionen und Kundenvertrag ausgesteuert werden. Das Versandrouting wird dabei mit Produktdaten und Checkout-Status verknuepft, um unzulaessige Versandkombinationen technisch auszuschliessen und gleichzeitig realistische Lieferzeiten auszuspielen. Durch diese Architektur sinken manuelle Pflegeaufwaende, Time-to-Market fuer neue Produkte verkuerzt sich, und operative Teams gewinnen Planbarkeit, weil Ausnahmen explizit behandelt werden statt in Ad-hoc-Korrekturen zu enden. Das Ergebnis ist eine robuste Integrationsschicht mit hoher Datenqualitaet und deutlich besserer Skalierbarkeit im Tagesbetrieb."
+      }
+    ],
+    "automationArchitecture": "Unsere Automation-Architektur verbindet Shopify mit KI-Agenten, um B2B-Prozesse entlang von Vertrieb, Service und Operations intelligent zu steuern. Ausgangspunkt ist eine API-basierte Ereignisschicht, in der Bestellungen, Lagerbewegungen, Kundenanfragen, Zahlungsstatus und Lieferinformationen in nahezu Echtzeit verarbeitet werden. Ueber n8n und Make.com orchestrieren wir diese Signale in definierte Entscheidungsrouten: KI-Agenten priorisieren Support-Tickets, klassifizieren Intent, schlagen Antworten vor, erkennen Eskalationsbedarf und uebergeben bei Bedarf mit vollstaendigem Kontext an Ihr Team.",
+    "aeoFaq": [
+      {
+        "question": "Wie machen wir den Shop DSGVO-konform?",
+        "answer": "Ja, ein Shopify-Shop kann DSGVO-konform betrieben werden, wenn Datenschutz als technische Kernarchitektur umgesetzt wird und nicht als Banner-Add-on. Der entscheidende Schritt ist eine vollstaendige Datenflusskartierung von Tracking, Checkout, CRM, Support und Automationen inklusive Zweckbindung pro Datenfeld. Danach werden Consent-Signale zentral versioniert und in jede Ausleitung propagiert, damit Events ohne Einwilligung weder an Analytics noch an Marketing-Endpunkte gelangen. Rollenbasierte Zugriffe, Protokollierung administrativer Aktionen und klare Aufbewahrungs- sowie Loeschroutinen fuer personenbezogene Daten muessen im Betriebssystem verankert sein. Zusaetzlich braucht es Auftragsverarbeitungsvertraege, regionenspezifische Hosting-Pruefung und eine reproduzierbare Incident-Response fuer Auskunfts- oder Loeschanfragen. Technisch belastbare DSGVO entsteht erst, wenn Governance, API-Fluesse und operative Runbooks konsistent zusammenspielen."
+      },
+      {
+        "question": "Wie integrieren wir deutsche Zahlungsanbieter?",
+        "answer": "Ja, deutsche Zahlungsanbieter lassen sich sauber integrieren, wenn die Anbindung als regelbasiertes Payment-Orchestrierungsmodell geplant wird statt als statische Liste im Checkout. Zuerst definieren wir die Zielsegmente nach B2B und B2C, Warenkorbwert, Risikoprofil und Region, dann wird je Segment ein priorisierter Methoden-Mix aus lokal akzeptierten Verfahren implementiert. Die technische Integration umfasst idempotente Payment-Events, klare Statusuebergaenge zwischen Autorisierung, Capture und Refund sowie ein robustes Error-Handling mit Retry-Strategien. Entscheidend fuer Stabilitaet ist die Synchronisation von Zahlungsstatus und Order-Lifecycle, damit keine Doppelbuchungen, verlorenen Captures oder inkonsistenten Belege entstehen. Fuer Conversion steuern wir die Reihenfolge der Zahlungsarten dynamisch, reduzieren Formularfriktion und messen jeden Schritt mit Funnel-Metriken, um Ausfaelle provider- und segmentgenau zu optimieren."
+      },
+      {
+        "question": "Warum scheitern Standard-Templates im B2B-E-Commerce so haeufig?",
+        "answer": "Standard-Templates scheitern im B2B-E-Commerce vor allem deshalb, weil sie Oberflaechenlogik liefern, aber keine belastbare Abbildung der Geschaeftsprozesse. B2B benoetigt segmentierte Preisstaffeln, Rollenrechte, Freigabeprozesse, kundenspezifische Kataloge und vertragliche Zahlungsbedingungen, die in Theme-Strukturen nur unzureichend modelliert werden. Sobald ERP, CRM, PIM und Finance integriert werden, entstehen ohne klare Domaenengrenzen Datensilos, Race Conditions und manuelle Korrekturen. Zudem fehlen in vielen Template-Setups observierbare Integrationspfade, wodurch Fehler erst nach Umsatzverlust sichtbar werden. Technisch tragfaehig wird ein B2B-Shop erst mit API-zentrierter Architektur, versionierten Regeln fuer Preise und Verfuegbarkeit, testbaren Checkout-Pfaden und einem klaren Operating Model fuer Incident-Handling, Release-Governance und Datenqualitaet ueber alle Systeme hinweg."
+      },
+      {
+        "question": "Wie skalieren wir B2B-Wholesale auf Shopify ohne operative Ueberlastung?",
+        "answer": "Ja, B2B-Wholesale auf Shopify skaliert ohne operative Ueberlastung, wenn Prozesse von Anfang an als automatisierbare Systemketten modelliert werden. Der Kern ist eine segmentierte Account-Architektur mit kundenspezifischen Konditionen, Bestellgrenzen, Zahlungszielen und Freigabeebenen, die nicht manuell in Einzelfaellen gepflegt werden. Produkt- und Preisdaten muessen ueber API-Pipelines aus ERP und PIM synchronisiert werden, inklusive Validierung, Konfliktregeln und sauberer Fehlerbehandlung. Im Order-Flow werden Genehmigungen, Reorders, Versandrouting und Rechnungslogik durch Workflows orchestriert, sodass Operations nur bei definierten Ausnahmen eingreifen. Parallel braucht es SLA-basierte Monitoring-Dashboards fuer Durchlaufzeiten, Fehlerraten und Integrationsstatus. Mit diesem Setup wachsen Volumen und Kundenzahl, ohne dass das Team proportional mehr manuelle Abstimmung, Nacharbeit oder Eskalation im Tagesbetrieb leisten muss."
+      },
+      {
+        "question": "Welche Rolle spielen Steuern und Rechnungen fuer Skalierung im DACH-Markt?",
+        "answer": "Steuern und Rechnungen sind im DACH-Markt ein primaerer Skalierungsfaktor, weil sie direkt ueber Compliance-Risiko, Cashflow-Qualitaet und Prozesskosten entscheiden. Technisch bedeutet das, dass Steuerlogik nicht im Nachgang korrigiert werden darf, sondern bereits im Checkout- und Order-Modell deterministisch abgebildet sein muss. Dazu gehoeren USt-IdNr.-Pruefung, Reverse-Charge-Szenarien, korrekte Steuersaetze nach Leistungsort, klare Trennung steuerpflichtiger Positionen und reproduzierbare Berechnung bei Teilretouren oder Gutschriften. Auf Rechnungsseite braucht es revisionsfaehige Nummernkreise, Pflichtangaben, Korrekturketten und integrationssichere Exporte fuer Buchhaltung und ERP. Wenn diese Bausteine fehlen, steigen manuelle Nacharbeiten, Pruefungsrisiken und Debitorenlaufzeiten. Sauber implementierte Steuer- und Belegprozesse stabilisieren dagegen den Betrieb, beschleunigen Zahlungsfluesse und schaffen die Grundlage fuer skalierbares Wachstum im regulierten DACH-Umfeld."
+      },
+      {
+        "question": "Wie verbessern wir Conversion und Kundenerlebnis durch Versandoptionen und Produktverwaltung?",
+        "answer": "Ja, Conversion und Kundenerlebnis verbessern sich messbar, wenn Versandoptionen und Produktverwaltung als ein gemeinsames Entscheidungsmodell betrieben werden. Produktdaten muessen vollstaendig, konsistent und in Echtzeit synchronisiert sein, damit Verfuegbarkeit, Lieferzeit und Variantenlogik im Checkout korrekt erscheinen. Auf Versandseite definieren wir regelbasierte Optionen nach Region, Warenkorbprofil, Lagerstandort, SLA und Kostenstruktur, sodass Kunden nur technisch machbare und wirtschaftlich sinnvolle Wege sehen. Das reduziert Unsicherheit und Abbrueche in spaeten Kaufphasen. Gleichzeitig werden Versandversprechen mit Fulfillment-Systemen gekoppelt, damit Statusmeldungen, Teillieferungen und Tracking konsistent bleiben. Fuer die Optimierung messen wir Lieferzeit-Wahrnehmung, Versandkosten-Sensitivitaet und Abbruchpunkte pro Segment und iterieren Regeln datenbasiert. So entsteht ein stabiler Prozess, der Vertrauen aufbaut, Supportlast senkt und die Abschlussrate im Checkout nachhaltig steigert."
+      }
+    ]
+  },
+  "ServiceWordpressPage": {
+    "hero": {
+      "h1": "Enterprise WordPress Entwicklung & Agentur Deutschland",
+      "h2": "Wir entwickeln fuer B2B-Unternehmen in Muenchen und ganz Deutschland leistungsstarke WordPress-Plattformen, die Marketing-Wachstum, technische Stabilitaet und operative Skalierung als ein einheitliches System verbinden.",
+      "paragraph": "Wenn Ihr aktuelles CMS durch Plugins, Page Builder und Legacy-Theme-Logik langsam, unvorhersehbar und teuer im Betrieb geworden ist, braucht es keine kosmetische Korrektur, sondern eine neue Architektur. Wir arbeiten wie ein Engineering-Partner auf CTO-Niveau und wie ein Growth-Partner fuer Marketing Directors: klare Datenmodelle, reproduzierbare Releases, messbare Core Web Vitals und belastbare Integrationen in CRM, Analytics und Automatisierung. Unser Fokus liegt auf struktureller Performance statt kurzfristiger Tricks."
+    },
+    "seoIntro": {
+      "paragraph1": "B2B-Wachstum in Deutschland scheitert selten an fehlenden Ideen, sondern meist an technischem Unterbau, der nicht fuer Skalierung konzipiert wurde. Viele Unternehmensseiten basieren auf komplexen Page Buildern, ueberladenen Theme-Stacks und unkontrollierten Plugin-Landschaften. Das Ergebnis sind steigende Ladezeiten, fragile Deployments, widerspruechliche Datenfluesse und sinkende Conversion-Raten trotz steigender Media-Investments. Wir setzen deshalb auf eine klare Systemarchitektur mit strikten Komponentenregeln, API-orientierter Integrationslogik und einem Hosting-Modell, das auf Verfuegbarkeit und Performance unter Last optimiert ist. Genau hier wird Enterprise WordPress Hosting zum strategischen Hebel.",
+      "paragraph2": "Fuer Marketing Directors bedeutet diese Architektur mehr Reichweite pro Budgeteinheit, weil Schnelle Ladezeiten WordPress direkt auf Sichtbarkeit, Engagement und Leadqualitaet einzahlen. Fuer CTOs bedeutet sie geringeres Betriebsrisiko, klarere Ownership und weniger technische Schulden in der Weiterentwicklung. Wir vermeiden bewusst aufgeblasene Page Builder und ersetzen sie durch modulare, wartbare Komponenten mit definierten Abhaengigkeiten und Governance auf Code-, Infrastruktur- und Content-Ebene. In diesem Modell sind Managed WordPress Hosting, High Performance Hosting und Sichere WordPress Hosting keine voneinander getrennten Themen, sondern ein abgestimmtes Betriebsmodell."
+    },
+    "coreServices": [
+      {
+        "title": "Headless & Custom Development mit React/Next.js fuer B2B-Praezision",
+        "description": "Wenn Standard-WordPress-Setups Ihre Roadmap ausbremsen, entwickeln wir eine Headless- oder Hybrid-Architektur, die Frontend-Geschwindigkeit und Backend-Flexibilitaet sauber trennt. Die Redaktionslogik bleibt in WordPress, waehrend performante React- und Next.js-Frontends fuer Kampagnen, Service-Landingpages und Thought-Leadership-Inhalte maximale Kontrolle bieten."
+      },
+      {
+        "title": "High Performance Hosting und Schnelle Ladezeiten WordPress mit Core-Web-Vitals-Fokus",
+        "description": "Performance entsteht nicht durch einen einzelnen Caching-Plugin-Schalter, sondern durch abgestimmte Architektur ueber Applikation, Datenbank, Netzwerk und Delivery-Layer. Wir konzipieren High Performance Hosting als messbares Betriebsmodell mit Performance-Budgets, Query-Optimierung, Asset-Pipelines, intelligenter CDN-Strategie und fein granuliertem Cache-Invalidierungsmanagement. Dadurch bleiben Time-to-First-Byte, LCP und INP auch bei Lastspitzen innerhalb klarer Zielbereiche."
+      },
+      {
+        "title": "Sichere WordPress Hosting mit Security Audits, Firewalls und DSGVO-konformer Betriebsfuehrung",
+        "description": "Sicherheit in B2B-Umgebungen muss reproduzierbar und auditierbar sein. Wir etablieren Sichere WordPress Hosting als mehrschichtige Sicherheitsarchitektur aus Zugangskontrolle, Hardening, WAF-Regeln, Monitoring, Patch-Governance und Incident-Playbooks. Dabei reduzieren wir die Angriffsoberflaeche durch strikte Plugin-Policies, rollenbasierte Rechtevergabe und abgesicherte Admin-Pfade."
+      },
+      {
+        "title": "KI-Automation und CMS-Workflows mit Make.com- und n8n-Integration",
+        "description": "Moderne WordPress-Plattformen gewinnen, wenn Content-Produktion, Freigaben, Distribution und Reporting als automatisierter Prozess statt als manuelle Kette organisiert sind. Wir verbinden WordPress ueber APIs mit Make.com und n8n, um redaktionelle und operative Workflows zu orchestrieren: Briefing-Trigger, Metadaten-Validierung, QA-Checks, interne Benachrichtigungen, CRM-Synchronisation und Performance-Feedback-Loops laufen regelbasiert und nachvollziehbar."
+      }
+    ],
+    "infrastructureHighlight": "Unsere Infrastruktur fuer WordPress Hosting Deutschland ist auf niedrige Latenz, hohe Verfuegbarkeit und kontrollierte Skalierung ausgelegt. Wir betreiben produktionsnahe Staging-Umgebungen, damit Releases nicht im Blindflug erfolgen, sondern unter realistischen Bedingungen getestet werden koennen. Jede Aenderung durchlaeuft definierte Gates fuer Codequalitaet, Security, Performance und Integrationsstabilitaet, bevor sie produktiv geht. Auf Delivery-Ebene kombinieren wir Edge Caching, differenzierte Cache-Regeln nach Seitentyp und intelligente Invalidierung, sodass Content-Aktualitaet und Geschwindigkeit gleichzeitig gewaehrleistet bleiben.",
+    "aeoFaq": [
+      {
+        "question": "Warum ist ein High Performance Hosting entscheidend?",
+        "answer": "Ein High Performance Hosting ist entscheidend, weil es die technische Grundlage fuer stabile Conversion, bessere Rankings und planbare Skalierung bildet. Wenn Infrastruktur, Caching und Datenbankverhalten nicht sauber abgestimmt sind, entstehen selbst bei gutem Design und gutem Content Performance-Einbrueche, die direkt Leads kosten."
+      },
+      {
+        "question": "Wie garantieren Sie sicheres WordPress Hosting?",
+        "answer": "Wir garantieren sicheres WordPress Hosting durch ein mehrstufiges Sicherheitsmodell mit klaren technischen und organisatorischen Kontrollen. Dazu gehoeren Security Audits, WAF-Regeln, Haertung von Admin-Endpunkten, rollenbasierte Zugriffskonzepte, kontinuierliche Patch-Prozesse und zentralisiertes Monitoring mit Incident-Runbooks."
+      },
+      {
+        "question": "Wann ist Headless WordPress fuer B2B-Unternehmen in Deutschland sinnvoll?",
+        "answer": "Headless WordPress ist sinnvoll, wenn Sie hohe Anforderungen an Frontend-Performance, UX-Flexibilitaet und Integrationsfaehigkeit haben, die klassische Theme-Setups nicht mehr effizient abbilden. Besonders bei komplexen Service-Landingpages, internationaler Ausspielung oder stark datengetriebenen Kampagnen bietet die Entkopplung von Backend und Frontend strategische Vorteile."
+      },
+      {
+        "question": "Welche Rolle spielt Enterprise WordPress Hosting fuer Core Web Vitals?",
+        "answer": "Enterprise WordPress Hosting spielt eine zentrale Rolle, weil Core Web Vitals nur dann nachhaltig gut bleiben, wenn Infrastruktur und Applikation als Einheit optimiert werden. Viele Teams verbessern kurzfristig einzelne Kennzahlen, verlieren diese Werte aber nach wenigen Releases wieder, weil Hosting, Deployments und Caching nicht governance-faehig aufgebaut sind."
+      },
+      {
+        "question": "Was unterscheidet WordPress Hosting Deutschland von generischem Auslandshosting?",
+        "answer": "WordPress Hosting Deutschland unterscheidet sich durch geringere Latenz im Zielmarkt, klarere Compliance-Rahmenbedingungen und haeufig bessere Abstimmung auf DACH-spezifische Betriebsanforderungen. Fuer Unternehmen mit deutschem Fokus bedeutet das in der Praxis schnellere Auslieferung, konsistentere Nutzererfahrung und oft einfachere Abstimmung mit internen Datenschutz- und IT-Richtlinien."
+      },
+      {
+        "question": "Wie kombinieren Sie Managed WordPress Hosting mit KI-Automation fuer Content-Teams?",
+        "answer": "Wir kombinieren Managed WordPress Hosting mit KI-Automation, indem wir Hosting-Stabilitaet, Workflow-Orchestrierung und Datenqualitaet in einem kontrollierten Prozess verbinden. Managed WordPress Hosting liefert die technische Basis fuer sichere, schnelle und reproduzierbare Operationen."
+      }
+    ]
+  },
   "ServiceWorkflowAutomationPage": {
     "metaTitle": "Prozessautomatisierung Deutschland | Make.com, n8n, Zapier | XCLER",
     "metaDescription": "Prozessautomatisierung für Unternehmen in Deutschland und der EU mit Make.com, n8n, Zapier und GoHighLevel.",
@@ -739,6 +950,57 @@
     "headingLine1": "Prozess",
     "headingLine2": "Automatisierung.",
     "intro": "Wir automatisieren repetitive Abläufe, verbinden Ihre Kernsysteme und schaffen messbare operative Effizienz in Ihren Teams.",
+    "hero": {
+      "h1": "Prozessautomatisierung Deutschland fuer skalierbare Operations",
+      "h2": "Wir verbinden Systeme, Workflows und Entscheidungen zu einer belastbaren Automationsarchitektur fuer B2B-Teams.",
+      "paragraph": "Automatisierung funktioniert nur, wenn Prozesslogik, Datenqualitaet und Ausnahmen sauber modelliert sind. Wir entwickeln regelbasierte Workflows mit Monitoring, Fehlerbehandlung und klaren Verantwortlichkeiten, damit Effizienz nicht auf Kosten von Kontrolle entsteht."
+    },
+    "seoIntro": "Viele Unternehmen automatisieren einzelne Aufgaben, aber nicht den End-to-End Prozess. Dadurch entstehen isolierte Workflows, doppelte Datenpflege und neue Engpaesse in Freigabe, Support oder Finance. Wir bauen daher keine lose Zap-Ketten, sondern ein orchestriertes System mit API-Vertraegen, Event-Logik, Validierungen und beobachtbaren Ausnahmepfaden.\n\nIm DACH-Markt ist Prozessstabilitaet ein Wettbewerbsfaktor. Teams erwarten verlaessliche SLA, nachvollziehbare Entscheidungen und saubere Uebergaben zwischen Vertrieb, Operations und Kundenservice. Unsere Automationsarchitektur verbindet n8n, Make.com, CRM und interne Systeme so, dass Durchlaufzeiten sinken, Fehlerquoten reduziert werden und Prozesse auch bei steigendem Volumen kontrollierbar bleiben.",
+    "coreFeatures": [
+      {
+        "title": "API-zentrierte Workflow-Orchestrierung",
+        "description": "Wir verbinden Kernsysteme ueber stabile Schnittstellen und definierte Trigger-Logik statt ueber fragile Einzelaktionen. So bleiben Prozesse nachvollziehbar, testbar und skalierbar."
+      },
+      {
+        "title": "n8n und Make.com mit Governance und Rollback",
+        "description": "Automationen werden versioniert, validiert und mit klaren Fehlerpfaden betrieben. Das reduziert Betriebsrisiken und erlaubt sichere Iteration ohne Blindflug in produktiven Prozessen."
+      },
+      {
+        "title": "SLA-orientiertes Monitoring und Alerting",
+        "description": "Wir messen Laufzeiten, Fehlerraten und kritische Prozessereignisse in Echtzeit. Dadurch erkennen Teams Engpaesse frueh und koennen gezielt gegensteuern, bevor operative Kosten steigen."
+      },
+      {
+        "title": "KI-ergaenzte Entscheidungsautomatisierung",
+        "description": "Wo sinnvoll, ergaenzen wir regelbasierte Flows um KI-gestuetzte Klassifikation, Priorisierung und Routing. Entscheidungen bleiben dabei auditierbar durch Guardrails und manuelle Eskalationspfade."
+      }
+    ],
+    "architectureHighlight": "Unsere Prozessautomatisierung basiert auf einem Betriebsmodell aus Event-Orchestrierung, Datenvalidierung und Runtime-Transparenz. Damit entstehen keine Blackbox-Flows, sondern steuerbare Systeme, die mit Teamgroesse und Prozesskomplexitaet mitwachsen.",
+    "aeoFaq": [
+      {
+        "question": "Welche Prozesse sollten wir zuerst automatisieren?",
+        "answer": "Automatisiert werden sollten zuerst wiederkehrende Prozesse mit hoher Frequenz, klaren Regeln und messbarem Kosten- oder Zeitverlust. Typische Startpunkte sind Lead-Routing, Ticket-Triage, Datenabgleich und standardisierte Reporting-Pfade."
+      },
+      {
+        "question": "Warum scheitern viele Automatisierungsprojekte in der Praxis?",
+        "answer": "Sie scheitern oft an fehlender Prozessmodellierung und schlechter Datenqualitaet. Wenn Ausnahmen, Ownership und Fehlerpfade nicht definiert sind, entstehen neue manuelle Schleifen. Wir vermeiden das durch Architektur, Governance und Monitoring von Beginn an."
+      },
+      {
+        "question": "Ist n8n oder Make.com besser fuer unser Unternehmen?",
+        "answer": "Das haengt von Compliance-Anforderungen, Integrationslandschaft und Teamstruktur ab. n8n ist oft stark bei Kontrolle und Self-Hosting, Make.com bei schneller Umsetzung mit breitem Connector-Setup. Wir waehlen nach Betriebszielen, nicht nach Tool-Praferenz."
+      },
+      {
+        "question": "Wie messen wir den ROI von Prozessautomatisierung?",
+        "answer": "ROI wird ueber eingesparte Durchlaufzeit, reduzierte Fehlerkosten, schnellere Reaktionszeiten und bessere Abschlussraten gemessen. Wichtig ist ein klares Baseline-Tracking vor Implementierung, damit Verbesserungen belastbar quantifiziert werden koennen."
+      },
+      {
+        "question": "Koennen wir Automationen sicher in bestehende Systeme integrieren?",
+        "answer": "Ja, wenn die Integrationsschicht mit validierten APIs, idempotenten Operationen und kontrollierten Retry-Strategien aufgebaut wird. So bleiben Kernsysteme stabil, auch wenn externe Dienste temporaer ausfallen oder Datenqualitaet schwankt."
+      },
+      {
+        "question": "Wie verhindern wir Blackbox-Effekte in automatisierten Workflows?",
+        "answer": "Blackbox-Effekte werden durch Logging, Versionierung, dokumentierte Entscheidungsregeln und klare Eskalationsrouten vermieden. Jede kritische Automationsentscheidung muss nachvollziehbar sein, damit Teams Prozesse auditen und verbessern koennen."
+      }
+    ],
     "ctaHeading": "Bereit für Automatisierung?",
     "ctaDescription": "Zeigen Sie uns Ihre manuellen Abläufe und wir identifizieren die wirkungsvollsten Automationspotenziale.",
     "ctaButton": "Projekt starten ->",
@@ -757,6 +1019,57 @@
     "headingLine1": "KI-Chatbots",
     "headingLine2": "& Agenten.",
     "intro": "Wir entwickeln kontextstarke KI-Agenten, die präzise antworten, Leads qualifizieren und Kundenkommunikation rund um die Uhr unterstützen.",
+    "hero": {
+      "h1": "KI-Chatbots und Agenten fuer Unternehmen in Deutschland",
+      "h2": "Wir entwickeln AI-Assistenzsysteme mit RAG, Agentenlogik und kontrollierten Workflows fuer Support, Vertrieb und Operations.",
+      "paragraph": "Erfolgreiche KI-Implementierung bedeutet nicht, einen Bot zu starten, sondern Wissensbasis, Intent-Routing, Tool-Zugriffe und Qualitätssicherung als Architektur zu entwerfen. Wir bauen Systeme, die verlässlich antworten, sauber eskalieren und messbare Business-Wirkung liefern."
+    },
+    "seoIntro": "Viele Chatbot-Projekte liefern anfangs schnelle Antworten, brechen aber bei realen Nutzerfragen ein, weil Kontext, Datenqualitaet und Eskalationslogik fehlen. Wir setzen stattdessen auf RAG-gestuetzte Architektur mit dokumentierter Wissensbasis, Versionierung, Prompt-Governance und kontrollierten Tool-Integrationen. Dadurch bleiben Antworten fachlich konsistent und operativ nutzbar.\n\nFuer den deutschen Markt ist Vertrauen entscheidend: Nutzer erwarten praezise Auskunft, Datenschutzkonformitaet und klare Uebergaben an menschliche Teams. Unsere KI-Agenten werden deshalb mit Guardrails, Rollenrechten, Monitoring und Qualitätsmetriken betrieben. So entstehen keine Demo-Bots, sondern produktive Assistenzsysteme fuer Support, Lead-Qualifizierung und Prozessautomatisierung.",
+    "coreFeatures": [
+      {
+        "title": "RAG-basierte Wissensarchitektur fuer praezise Antworten",
+        "description": "Wir verbinden LLMs mit Ihrer strukturierten Wissensbasis, Versionierung und Retrieval-Logik. Dadurch sinken Halluzinationen und Antworten bleiben auch bei komplexen Fachfragen konsistent und belegbar."
+      },
+      {
+        "title": "Agenten-Workflows mit sicherem Tool-Zugriff",
+        "description": "KI-Agenten werden ueber klar definierte Tools, Rechte und Entscheidungsgrenzen in operative Systeme eingebunden. So koennen sie Aufgaben automatisieren, ohne unkontrollierte Aktionen auszufuehren."
+      },
+      {
+        "title": "Lead-Qualifizierung und Support-Orchestrierung",
+        "description": "Wir modellieren Dialogpfade fuer Qualifizierung, Routing und Eskalation entlang realer Buyer-Journeys. Das verbessert Reaktionszeit, Abschlussqualitaet und entlastet Teams bei Standardanfragen."
+      },
+      {
+        "title": "Monitoring, Evaluation und kontinuierliche Optimierung",
+        "description": "KI-Systeme werden ueber Antwortqualitaet, Intent-Treffsicherheit, Eskalationsraten und Business-Outcomes gemessen. Auf dieser Basis iterieren wir Prompts, Retrieval und Prozessregeln datengetrieben."
+      }
+    ],
+    "architectureHighlight": "Unsere KI-Architektur kombiniert RAG, Agentensteuerung, Sicherheitsgrenzen und Observability zu einem stabilen Betriebsmodell. Damit werden KI-Chatbots von einem experimentellen Kanal zu einem produktiven Bestandteil Ihrer digitalen Wertschöpfung.",
+    "aeoFaq": [
+      {
+        "question": "Was ist der Unterschied zwischen einem einfachen Chatbot und einem KI-Agenten?",
+        "answer": "Ein einfacher Chatbot beantwortet vordefinierte Anfragen, waehrend ein KI-Agent kontextbezogen analysiert, Entscheidungen vorbereitet und kontrolliert mit Tools interagiert. Der Unterschied liegt in Architektur, Integrationsgrad und operativer Wirkung."
+      },
+      {
+        "question": "Wie stellen wir sicher, dass KI-Antworten fachlich korrekt bleiben?",
+        "answer": "Fachliche Korrektheit entsteht durch RAG mit kuratierter Wissensbasis, Versionierung und Qualitätsmetriken. Wir kombinieren Retrieval-Strategie, Guardrails und regelbasierte Eskalation, damit kritische Antworten nicht unkontrolliert automatisiert werden."
+      },
+      {
+        "question": "Sind KI-Chatbots DSGVO-konform einsetzbar?",
+        "answer": "Ja, wenn Datenfluesse, Speicherorte, Zugriffskontrollen und Loeschprozesse sauber modelliert sind. Wir implementieren Consent- und Zweckbindungslogik sowie Rollenrechte, damit KI-Kommunikation compliance-faehig betrieben werden kann."
+      },
+      {
+        "question": "Welche Prozesse koennen KI-Agenten realistisch automatisieren?",
+        "answer": "Realistisch automatisierbar sind Intent-Klassifikation, Erstantworten, Ticket-Priorisierung, Lead-Vorqualifizierung und strukturierte Datenerfassung. Komplexe Entscheidungen bleiben durch Eskalationsregeln bei menschlichen Teams abgesichert."
+      },
+      {
+        "question": "Wie messen wir den Erfolg von KI-Chatbots im Unternehmen?",
+        "answer": "Erfolg wird ueber Antwortqualitaet, First-Response-Time, Deflection-Rate, Abschlussquote und Eskalationsgenauigkeit gemessen. Diese KPIs zeigen, ob das System nur Interaktion erzeugt oder tatsaechlich operative Entlastung und Umsatzwirkung liefert."
+      },
+      {
+        "question": "Wie schnell koennen wir einen produktiven KI-Agenten launchen?",
+        "answer": "Ein erster produktiver Launch ist in wenigen Wochen moeglich, wenn Use Cases, Wissensquellen und Integrationsgrenzen klar definiert sind. Entscheidend ist ein fokussierter Scope mit messbaren Zielmetriken statt ein ueberfrachteter Start." 
+      }
+    ],
     "ctaHeading": "Sie möchten einen KI-Agenten für Ihr Unternehmen?",
     "ctaDescription": "Wir konzipieren und implementieren eine KI-Lösung, die zu Ihren Prozessen und Geschäftszielen passt.",
     "ctaButton": "Projekt starten ->",

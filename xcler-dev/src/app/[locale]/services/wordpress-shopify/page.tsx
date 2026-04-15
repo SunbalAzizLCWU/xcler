@@ -14,7 +14,7 @@ type CapabilityItem = {
 type SpokeItem = {
   title: string;
   desc: string;
-  href: "/services/wordpress-entwicklung" | "/services/shopify-entwicklung";
+  href: "/services/wordpress-development-germany" | "/services/shopify-development-germany";
   cta: string;
 };
 

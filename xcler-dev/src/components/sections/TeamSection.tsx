@@ -48,7 +48,15 @@ export async function TeamSection() {
   const t = await getTranslations("Team");
   const locale = await getLocale();
 
-  const sanityTeam = await client.fetch<TeamMemberFromSanity[]>(teamMembersQuery, { locale });
+  let sanityTeam: TeamMemberFromSanity[] = [];
+
+  try {
+    sanityTeam = await client.fetch<TeamMemberFromSanity[]>(teamMembersQuery, { locale });
+  } catch {
+    if (process.env.NODE_ENV !== "production") {
+      console.warn("[team] Failed to fetch team members from Sanity.");
+    }
+  }
 
   const fallbackTeam: TeamMemberCard[] = [
     {

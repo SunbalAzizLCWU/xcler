@@ -1,7 +1,7 @@
 import type { ComponentProps } from "react";
 import { Link } from "@/navigation";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
-import { getLocale, getTranslations } from "next-intl/server";
+import { getTranslations } from "next-intl/server";
 
 type LocalizedHref = ComponentProps<typeof Link>["href"];
 
@@ -10,9 +10,8 @@ type FooterLink = {
   href: LocalizedHref;
 };
 
-export async function Footer() {
-  const t = await getTranslations("Footer");
-  const locale = await getLocale();
+export async function Footer({ locale }: { locale: string }) {
+  const t = await getTranslations({ locale, namespace: "Footer" });
   const currentYear = new Date().getFullYear();
   const footerLinks: {
     services: FooterLink[];

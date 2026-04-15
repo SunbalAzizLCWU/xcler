@@ -183,6 +183,64 @@ export default async function RootLayout({
             `,
           }}
         />
+        <script
+          data-cookieconsent="ignore"
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function () {
+                var attrs = ['bis_skin_checked', 'bis_register', 'data-bis-config'];
+
+                function strip(el) {
+                  if (!el || el.nodeType !== 1) return;
+                  for (var i = 0; i < attrs.length; i += 1) {
+                    el.removeAttribute(attrs[i]);
+                  }
+                }
+
+                function stripAll(root) {
+                  if (!root || !root.querySelectorAll) return;
+                  for (var i = 0; i < attrs.length; i += 1) {
+                    var found = root.querySelectorAll('[' + attrs[i] + ']');
+                    for (var j = 0; j < found.length; j += 1) {
+                      found[j].removeAttribute(attrs[i]);
+                    }
+                  }
+                }
+
+                stripAll(document.documentElement);
+
+                var observer = new MutationObserver(function (mutations) {
+                  for (var i = 0; i < mutations.length; i += 1) {
+                    var mutation = mutations[i];
+                    if (mutation.type === 'attributes') {
+                      strip(mutation.target);
+                      continue;
+                    }
+
+                    for (var j = 0; j < mutation.addedNodes.length; j += 1) {
+                      var node = mutation.addedNodes[j];
+                      if (node && node.nodeType === 1) {
+                        strip(node);
+                        stripAll(node);
+                      }
+                    }
+                  }
+                });
+
+                observer.observe(document.documentElement, {
+                  subtree: true,
+                  childList: true,
+                  attributes: true,
+                  attributeFilter: attrs,
+                });
+
+                window.addEventListener('load', function () {
+                  observer.disconnect();
+                });
+              })();
+            `,
+          }}
+        />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
         <script
           data-cookieconsent="ignore"
@@ -301,7 +359,7 @@ export default async function RootLayout({
         <NextIntlClientProvider locale={locale} messages={messages}>
           <Navbar />
           <main>{children}</main>
-          <Footer />
+          <Footer locale={locale} />
           <WhatsAppButton />
         </NextIntlClientProvider>
       </body>

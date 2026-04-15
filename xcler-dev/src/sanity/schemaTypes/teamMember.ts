@@ -62,7 +62,7 @@ export const teamMember = defineType({
   preview: {
     select: {
       title: 'name',
-      subtitle: 'role_en',
+      subtitle: 'role_de',
       media: 'image'
     }
   }

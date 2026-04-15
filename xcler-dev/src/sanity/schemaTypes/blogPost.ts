@@ -1,5 +1,4 @@
 import {defineField, defineType} from 'sanity'
-import type {PreviewValue} from 'sanity'
 
 export const blogPost = defineType({
   name: 'blogPost',
@@ -152,44 +151,9 @@ export const blogPost = defineType({
   ],
   preview: {
     select: {
-      title_en: 'title_en',
-      title_de: 'title_de',
-      legacy_title: 'title',
-      slug_en: 'slug_en.current',
-      slug_de: 'slug_de.current',
-      slug_legacy: 'slug.current',
-      media_en: 'mainImage_en',
-      media_de: 'mainImage_de',
-      legacy_media: 'mainImage'
-    },
-    prepare(selection: unknown) {
-      const safeSelection = selection && typeof selection === 'object' ? selection : {}
-      const {title_en, title_de, legacy_title, slug_en, slug_de, slug_legacy, media_en, media_de, legacy_media} = safeSelection as {
-        title_en?: unknown
-        title_de?: unknown
-        legacy_title?: unknown
-        slug_en?: unknown
-        slug_de?: unknown
-        slug_legacy?: unknown
-        media_en?: unknown
-        media_de?: unknown
-        legacy_media?: unknown
-      }
-
-      const title = [title_en, title_de, legacy_title].find(
-        (value): value is string => typeof value === 'string' && value.trim().length > 0
-      ) || 'Untitled Post'
-
-      const subtitle = [slug_en, slug_de, slug_legacy].find(
-        (value): value is string => typeof value === 'string' && value.trim().length > 0
-      ) || 'No slug defined'
-      const media = (media_en || media_de || legacy_media) as PreviewValue['media']
-
-      return {
-        title,
-        subtitle,
-        media
-      }
+      title: 'title_de',
+      subtitle: 'slug_de.current',
+      media: 'mainImage_de'
     }
   }
 })

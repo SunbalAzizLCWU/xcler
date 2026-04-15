@@ -103,31 +103,27 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       const fallbackSlug = enSlug ?? deSlug ?? "";
       const enPath = getLocalizedPath("en", `/blog/${enSlug ?? fallbackSlug}`);
       const dePath = getLocalizedPath("de", `/blog/${deSlug ?? fallbackSlug}`);
+      const alternates = {
+        languages: {
+          en: toAbsoluteUrl(enPath),
+          de: toAbsoluteUrl(dePath),
+        },
+      } as const;
+      const sharedMetadata = {
+        lastModified,
+        changeFrequency: "weekly" as const,
+        priority: 0.7,
+        alternates,
+      };
 
       entries.push({
         url: toAbsoluteUrl(enPath),
-        lastModified,
-        changeFrequency: "weekly",
-        priority: 0.7,
-        alternates: {
-          languages: {
-            en: toAbsoluteUrl(enPath),
-            de: toAbsoluteUrl(dePath),
-          },
-        },
+        ...sharedMetadata,
       });
 
       entries.push({
         url: toAbsoluteUrl(dePath),
-        lastModified,
-        changeFrequency: "weekly",
-        priority: 0.7,
-        alternates: {
-          languages: {
-            en: toAbsoluteUrl(enPath),
-            de: toAbsoluteUrl(dePath),
-          },
-        },
+        ...sharedMetadata,
       });
 
       return entries;

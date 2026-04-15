@@ -89,34 +89,22 @@ async function migrate() {
       continue
     }
 
-    const patch = migrationClient.patch(post._id)
+    const updates: Record<string, unknown> = {}
 
-    if (nextTitleEn && !post.title_en) {
-      patch.set({title_en: nextTitleEn})
-    }
-    if (nextTitleDe && !post.title_de) {
-      patch.set({title_de: nextTitleDe})
-    }
-    if (nextSlugEn && !post.slug_en?.current) {
-      patch.set({slug_en: {current: nextSlugEn}})
-    }
-    if (nextSlugDe && !post.slug_de?.current) {
-      patch.set({slug_de: {current: nextSlugDe}})
-    }
-    if (nextBodyEn && !post.body_en) {
-      patch.set({body_en: nextBodyEn})
-    }
-    if (nextBodyDe && !post.body_de) {
-      patch.set({body_de: nextBodyDe})
-    }
-    if (nextImageEn && !post.mainImage_en) {
-      patch.set({mainImage_en: nextImageEn})
-    }
-    if (nextImageDe && !post.mainImage_de) {
-      patch.set({mainImage_de: nextImageDe})
+    if (nextTitleEn && !post.title_en) updates.title_en = nextTitleEn
+    if (nextTitleDe && !post.title_de) updates.title_de = nextTitleDe
+    if (nextSlugEn && !post.slug_en?.current) updates.slug_en = {current: nextSlugEn}
+    if (nextSlugDe && !post.slug_de?.current) updates.slug_de = {current: nextSlugDe}
+    if (nextBodyEn && !post.body_en) updates.body_en = nextBodyEn
+    if (nextBodyDe && !post.body_de) updates.body_de = nextBodyDe
+    if (nextImageEn && !post.mainImage_en) updates.mainImage_en = nextImageEn
+    if (nextImageDe && !post.mainImage_de) updates.mainImage_de = nextImageDe
+
+    if (Object.keys(updates).length === 0) {
+      continue
     }
 
-    await patch.commit()
+    await migrationClient.patch(post._id).set(updates).commit()
     migratedCount += 1
   }
 

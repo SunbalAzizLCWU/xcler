@@ -3,7 +3,7 @@ import { defineRouting } from 'next-intl/routing';
 
 export const routing = defineRouting({
   // Our two language rooms
-  locales: ['en', 'de'],
+  locales: ['de', 'en'],
   // Germany is the main lobby
   defaultLocale: 'de',
   // Localize user-facing URLs per locale while keeping stable internal route keys.
@@ -22,7 +22,7 @@ export const routing = defineRouting({
       en: '/services/app-development'
     },
     '/services/wordpress-shopify': {
-      de: '/leistungen/wordpress-shopify',
+      de: '/leistungen/wordpress-entwicklung',
       en: '/services/wordpress-shopify'
     },
     '/services/workflow-automation': {

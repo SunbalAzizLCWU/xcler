@@ -1,53 +1,142 @@
 import { MetadataRoute } from "next";
-import fs from "fs";
-import path from "path";
+import { groq } from "next-sanity";
+import { getPathname } from "@/navigation";
+import { client } from "@/sanity/lib/client";
 
-type LocalBlogEntry = {
-  slug: string;
-  published?: boolean;
-  createdAt?: string;
+type Locale = "en" | "de";
+
+type BlogSitemapRow = {
+  slug_en?: string;
+  slug_de?: string;
   updatedAt?: string;
+  createdAt?: string;
 };
 
-export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://xcler.dev";
+const BASE_URL = "https://xcler.dev";
+const SUPPORTED_LOCALES: Locale[] = ["en", "de"];
 
-  // Static pages
-  const staticPages = [
-    { url: baseUrl, lastModified: new Date(), changeFrequency: "weekly" as const, priority: 1 },
-    { url: `${baseUrl}/services`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.9 },
-    { url: `${baseUrl}/services/web-development`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.8 },
-    { url: `${baseUrl}/services/app-development`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.8 },
-    { url: `${baseUrl}/services/wordpress-shopify`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.8 },
-    { url: `${baseUrl}/services/workflow-automation`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.8 },
-    { url: `${baseUrl}/services/ai-chatbots-agents`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.8 },
-    { url: `${baseUrl}/work`, lastModified: new Date(), changeFrequency: "weekly" as const, priority: 0.8 },
-    { url: `${baseUrl}/about`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.7 },
-    { url: `${baseUrl}/privacy`, lastModified: new Date(), changeFrequency: "yearly" as const, priority: 0.4 },
-    { url: `${baseUrl}/en/privacy`, lastModified: new Date(), changeFrequency: "yearly" as const, priority: 0.4 },
-    { url: `${baseUrl}/blog`, lastModified: new Date(), changeFrequency: "weekly" as const, priority: 0.8 },
-    { url: `${baseUrl}/pricing`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.8 },
-    { url: `${baseUrl}/contact`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.9 },
-    // German pages
-    { url: `${baseUrl}/de`, lastModified: new Date(), changeFrequency: "weekly" as const, priority: 0.9 },
-  ];
+const staticRouteConfig: Array<{
+  href: string;
+  changeFrequency: "weekly" | "monthly" | "yearly";
+  priority: number;
+}> = [
+  { href: "/", changeFrequency: "weekly", priority: 1 },
+  { href: "/about", changeFrequency: "monthly", priority: 0.7 },
+  { href: "/services", changeFrequency: "monthly", priority: 0.9 },
+  { href: "/services/web-development", changeFrequency: "monthly", priority: 0.8 },
+  { href: "/services/app-development", changeFrequency: "monthly", priority: 0.8 },
+  { href: "/services/wordpress-shopify", changeFrequency: "monthly", priority: 0.8 },
+  { href: "/services/workflow-automation", changeFrequency: "monthly", priority: 0.8 },
+  { href: "/services/ai-chatbots-agents", changeFrequency: "monthly", priority: 0.8 },
+  { href: "/work", changeFrequency: "weekly", priority: 0.8 },
+  { href: "/blog", changeFrequency: "weekly", priority: 0.8 },
+  { href: "/pricing", changeFrequency: "monthly", priority: 0.8 },
+  { href: "/contact", changeFrequency: "monthly", priority: 0.9 },
+  { href: "/privacy", changeFrequency: "yearly", priority: 0.4 },
+];
 
-  // Blog posts
-  let blogPages: MetadataRoute.Sitemap = [];
-  try {
-    const blogsFile = path.join(process.cwd(), "data", "blogs.json");
-    if (fs.existsSync(blogsFile)) {
-      const blogs = JSON.parse(fs.readFileSync(blogsFile, "utf-8")) as LocalBlogEntry[];
-      blogPages = blogs
-        .filter((b) => b.published)
-        .map((b) => ({
-          url: `${baseUrl}/blog/${b.slug}`,
-          lastModified: new Date(b.updatedAt || b.createdAt),
-          changeFrequency: "weekly" as const,
-          priority: 0.7,
-        }));
+const blogSitemapQuery = groq`
+  *[_type == "blogPost" && (defined(slug_en.current) || defined(slug_de.current))] {
+    "slug_en": slug_en.current,
+    "slug_de": slug_de.current,
+    "updatedAt": _updatedAt,
+    "createdAt": _createdAt
+  }
+`;
+
+function toAbsoluteUrl(path: string) {
+  if (path === "/") {
+    return BASE_URL;
+  }
+
+  return `${BASE_URL}${path}`;
+}
+
+function getLocalizedPath(locale: Locale, href: string) {
+  return getPathname({ locale, href: href as never });
+}
+
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const now = new Date();
+
+  const staticEntries: MetadataRoute.Sitemap = [];
+
+  for (const { href, changeFrequency, priority } of staticRouteConfig) {
+    const enPath = getLocalizedPath("en", href);
+    const dePath = getLocalizedPath("de", href);
+
+    for (const locale of SUPPORTED_LOCALES) {
+      const localizedPath = locale === "de" ? dePath : enPath;
+
+      staticEntries.push({
+        url: toAbsoluteUrl(localizedPath),
+        lastModified: now,
+        changeFrequency,
+        priority,
+        alternates: {
+          languages: {
+            en: toAbsoluteUrl(enPath),
+            de: toAbsoluteUrl(dePath),
+          },
+        },
+      });
     }
-  } catch {}
+  }
 
-  return [...staticPages, ...blogPages];
+  let blogEntries: MetadataRoute.Sitemap = [];
+
+  try {
+    const rows = await client.fetch<BlogSitemapRow[]>(blogSitemapQuery);
+
+    blogEntries = rows.flatMap((row) => {
+      const entries: MetadataRoute.Sitemap = [];
+      const enSlug = row.slug_en;
+      const deSlug = row.slug_de;
+
+      if (!enSlug && !deSlug) {
+        return entries;
+      }
+
+      const lastModified = new Date(row.updatedAt ?? row.createdAt ?? now.toISOString());
+      const fallbackSlug = enSlug ?? deSlug ?? "";
+      const enPath = getLocalizedPath("en", `/blog/${enSlug ?? fallbackSlug}`);
+      const dePath = getLocalizedPath("de", `/blog/${deSlug ?? fallbackSlug}`);
+
+      if (enSlug) {
+        entries.push({
+          url: toAbsoluteUrl(enPath),
+          lastModified,
+          changeFrequency: "weekly",
+          priority: 0.7,
+          alternates: {
+            languages: {
+              en: toAbsoluteUrl(enPath),
+              de: toAbsoluteUrl(dePath),
+            },
+          },
+        });
+      }
+
+      if (deSlug) {
+        entries.push({
+          url: toAbsoluteUrl(dePath),
+          lastModified,
+          changeFrequency: "weekly",
+          priority: 0.7,
+          alternates: {
+            languages: {
+              en: toAbsoluteUrl(enPath),
+              de: toAbsoluteUrl(dePath),
+            },
+          },
+        });
+      }
+
+      return entries;
+    });
+  } catch {
+    // Keep sitemap generation resilient if CMS is temporarily unreachable.
+  }
+
+  return [...staticEntries, ...blogEntries];
 }

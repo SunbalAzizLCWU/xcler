@@ -7,6 +7,7 @@ import { getMessages, getTranslations, setRequestLocale } from "next-intl/server
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { JsonLd } from "@/components/seo/JsonLd";
+import { getCanonicalPath, getLanguageAlternates } from "@/lib/canonical";
 import { getGlobalSchema } from "@/lib/structuredData";
 import "../globals.css";
 
@@ -60,11 +61,8 @@ export async function generateMetadata({
       apple: [{ url: "/apple-icon.png" }, { url: "/apple-touch-icon.png" }],
     },
     alternates: {
-      languages: {
-        en: "https://xcler.dev/en",
-        de: "https://xcler.dev/de",
-        "x-default": "https://xcler.dev/en",
-      },
+      canonical: getCanonicalPath(locale, "/"),
+      languages: getLanguageAlternates("/", { xDefaultLocale: "de" }),
     },
     keywords: [
       "web development agency Germany",

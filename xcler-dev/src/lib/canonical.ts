@@ -1,9 +1,15 @@
 import { getPathname } from "@/navigation";
 
+type Locale = "en" | "de";
+
+function toLocalizedPath(locale: Locale, path: string) {
+  return getPathname({ locale, href: path as never });
+}
+
 export function getCanonicalPath(locale: string, path: string) {
-  const resolvedLocale = locale === "en" ? "en" : "de";
+  const resolvedLocale: Locale = locale === "en" ? "en" : "de";
   const normalizedPath = path.startsWith("/") ? path : `/${path}`;
-  return getPathname({ locale: resolvedLocale, href: normalizedPath as never });
+  return toLocalizedPath(resolvedLocale, normalizedPath);
 }
 
 function toAbsoluteUrl(path: string) {
@@ -30,8 +36,8 @@ export function getLanguageAlternates(
   const xDefaultPath = xDefaultLocale === "de" ? dePath : enPath;
 
   return {
-    en: toAbsoluteUrl(getPathname({ locale: "en", href: enPath as never })),
-    de: toAbsoluteUrl(getPathname({ locale: "de", href: dePath as never })),
-    "x-default": toAbsoluteUrl(getPathname({ locale: xDefaultLocale, href: xDefaultPath as never })),
+    en: toAbsoluteUrl(toLocalizedPath("en", enPath)),
+    de: toAbsoluteUrl(toLocalizedPath("de", dePath)),
+    "x-default": toAbsoluteUrl(toLocalizedPath(xDefaultLocale, xDefaultPath)),
   };
 }

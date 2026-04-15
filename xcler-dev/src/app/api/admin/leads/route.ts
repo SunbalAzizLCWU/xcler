@@ -33,6 +33,10 @@ export async function PUT(request: Request) {
     const { id, status } = (await request.json()) as { id?: string; status?: LeadStatus };
     const leadsFile = path.join(process.cwd(), "data", "leads.json");
 
+    if (!id || !status) {
+      return NextResponse.json({ error: "Missing id or status" }, { status: 400 });
+    }
+
     if (!fs.existsSync(leadsFile)) {
       return NextResponse.json({ error: "No leads found" }, { status: 404 });
     }

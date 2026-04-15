@@ -5,6 +5,13 @@ import { notFound } from "next/navigation";
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/navigation";
 import { client } from "@/sanity/lib/client";
+import {
+  BLOG_BODY_BY_LOCALE,
+  BLOG_IMAGE_ALT_BY_LOCALE,
+  BLOG_IMAGE_BY_LOCALE,
+  BLOG_MATCH_BY_ANY_SLUG,
+  BLOG_TITLE_BY_LOCALE,
+} from "@/sanity/lib/blog";
 import { urlFor } from "@/sanity/lib/image";
 import { getCanonicalPath, getLanguageAlternates } from "@/lib/canonical";
 
@@ -57,6 +64,7 @@ type SanityBlogPost = {
 };
 
 type BlogSlugRow = {
+  slug_legacy?: string;
   slug_en?: string;
   slug_de?: string;
 };
@@ -225,21 +233,22 @@ const createPortableTextComponents = (locale: string) => ({
 });
 
 const postBySlugQuery = groq`
-  *[_type == "blogPost" && coalesce(select($locale == "de" => slug_de.current, slug_en.current), select($locale == "de" => slug_en.current, slug_de.current), slug.current) == $slug][0] {
+  *[_type == "blogPost" && ${BLOG_MATCH_BY_ANY_SLUG}][0] {
     _id,
-    "title": coalesce(select($locale == "de" => title_de, title_en), title, "Untitled"),
-    "slug_en": slug_en.current,
-    "slug_de": slug_de.current,
-    "mainImage": coalesce(select($locale == "de" => mainImage_de, mainImage_en), mainImage),
-    "imageAlt": coalesce(select($locale == "de" => mainImage_de.alt, mainImage_en.alt), mainImage.alt, title_de, title_en, title, "Blog post image"),
-    "body": coalesce(select($locale == "de" => body_de, body_en), body, [])
+    "title": ${BLOG_TITLE_BY_LOCALE},
+    "slug_en": coalesce(slug_en.current, slug.current, slug_de.current),
+    "slug_de": coalesce(slug_de.current, slug.current, slug_en.current),
+    "mainImage": ${BLOG_IMAGE_BY_LOCALE},
+    "imageAlt": ${BLOG_IMAGE_ALT_BY_LOCALE},
+    "body": ${BLOG_BODY_BY_LOCALE}
   }
 `;
 
 const blogSlugsQuery = groq`
   *[_type == "blogPost"] {
-    "slug_en": slug_en.current,
-    "slug_de": slug_de.current
+    "slug_legacy": slug.current,
+    "slug_en": coalesce(slug_en.current, slug.current, slug_de.current),
+    "slug_de": coalesce(slug_de.current, slug.current, slug_en.current)
   }
 `;
 
@@ -247,14 +256,16 @@ export async function generateStaticParams(): Promise<Array<{ locale: "en" | "de
   const rows = await client.fetch<BlogSlugRow[]>(blogSlugsQuery);
 
   const params = new Map<string, { locale: "en" | "de"; slug: string }>();
+  const addParam = (locale: "en" | "de", value?: string) => {
+    if (!value) return;
+    params.set(`${locale}:${value}`, { locale, slug: value });
+  };
 
   for (const row of rows) {
-    if (row.slug_en) {
-      params.set(`en:${row.slug_en}`, { locale: "en", slug: row.slug_en });
-    }
-    if (row.slug_de) {
-      params.set(`de:${row.slug_de}`, { locale: "de", slug: row.slug_de });
-    }
+    addParam("en", row.slug_en);
+    addParam("de", row.slug_de);
+    addParam("en", row.slug_legacy);
+    addParam("de", row.slug_legacy);
   }
 
   return Array.from(params.values());
@@ -278,13 +289,17 @@ export async function generateMetadata({
     };
   }
 
+  const resolvedEnSlug = post.slug_en ?? slug;
+  const resolvedDeSlug = post.slug_de ?? slug;
+  const resolvedCanonicalSlug = locale === "de" ? resolvedDeSlug : resolvedEnSlug;
+
   return {
     title: `${post.title} | XCLER`,
     alternates: {
-      canonical: getCanonicalPath(locale, `/blog/${locale === "de" ? post.slug_de ?? slug : post.slug_en ?? slug}`),
+      canonical: getCanonicalPath(locale, `/blog/${resolvedCanonicalSlug}`),
       languages: getLanguageAlternates(`/blog/${slug}`, {
-        enPath: `/blog/${post.slug_en ?? slug}`,
-        dePath: `/blog/${post.slug_de ?? slug}`,
+        enPath: `/blog/${resolvedEnSlug}`,
+        dePath: `/blog/${resolvedDeSlug}`,
       }),
     },
   };
@@ -309,6 +324,7 @@ export default async function BlogPostPage({
       <article className="container-custom max-w-3xl">
         <Link
           href="/blog"
+          locale={locale as "en" | "de"}
           className="mb-8 inline-flex items-center gap-2 text-sm text-richblack/40 dark:text-cream/40 transition-colors hover:text-terracotta"
         >
           <span aria-hidden="true">←</span>

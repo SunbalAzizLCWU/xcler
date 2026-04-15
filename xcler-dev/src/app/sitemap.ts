@@ -6,6 +6,7 @@ import { client } from "@/sanity/lib/client";
 type Locale = "en" | "de";
 
 type BlogSitemapRow = {
+  slug_legacy?: string;
   slug_en?: string;
   slug_de?: string;
   updatedAt?: string;
@@ -36,9 +37,10 @@ const staticRouteConfig: Array<{
 ];
 
 const blogSitemapQuery = groq`
-  *[_type == "blogPost" && (defined(slug_en.current) || defined(slug_de.current))] {
-    "slug_en": slug_en.current,
-    "slug_de": slug_de.current,
+  *[_type == "blogPost" && (defined(slug.current) || defined(slug_en.current) || defined(slug_de.current))] {
+    "slug_legacy": slug.current,
+    "slug_en": coalesce(slug_en.current, slug.current, slug_de.current),
+    "slug_de": coalesce(slug_de.current, slug.current, slug_en.current),
     "updatedAt": _updatedAt,
     "createdAt": _createdAt
   }
@@ -90,8 +92,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
     blogEntries = rows.flatMap((row) => {
       const entries: MetadataRoute.Sitemap = [];
-      const enSlug = row.slug_en;
-      const deSlug = row.slug_de;
+      const enSlug = row.slug_en ?? row.slug_legacy ?? row.slug_de;
+      const deSlug = row.slug_de ?? row.slug_legacy ?? row.slug_en;
 
       if (!enSlug && !deSlug) {
         return entries;
@@ -102,35 +104,31 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       const enPath = getLocalizedPath("en", `/blog/${enSlug ?? fallbackSlug}`);
       const dePath = getLocalizedPath("de", `/blog/${deSlug ?? fallbackSlug}`);
 
-      if (enSlug) {
-        entries.push({
-          url: toAbsoluteUrl(enPath),
-          lastModified,
-          changeFrequency: "weekly",
-          priority: 0.7,
-          alternates: {
-            languages: {
-              en: toAbsoluteUrl(enPath),
-              de: toAbsoluteUrl(dePath),
-            },
+      entries.push({
+        url: toAbsoluteUrl(enPath),
+        lastModified,
+        changeFrequency: "weekly",
+        priority: 0.7,
+        alternates: {
+          languages: {
+            en: toAbsoluteUrl(enPath),
+            de: toAbsoluteUrl(dePath),
           },
-        });
-      }
+        },
+      });
 
-      if (deSlug) {
-        entries.push({
-          url: toAbsoluteUrl(dePath),
-          lastModified,
-          changeFrequency: "weekly",
-          priority: 0.7,
-          alternates: {
-            languages: {
-              en: toAbsoluteUrl(enPath),
-              de: toAbsoluteUrl(dePath),
-            },
+      entries.push({
+        url: toAbsoluteUrl(dePath),
+        lastModified,
+        changeFrequency: "weekly",
+        priority: 0.7,
+        alternates: {
+          languages: {
+            en: toAbsoluteUrl(enPath),
+            de: toAbsoluteUrl(dePath),
           },
-        });
-      }
+        },
+      });
 
       return entries;
     });

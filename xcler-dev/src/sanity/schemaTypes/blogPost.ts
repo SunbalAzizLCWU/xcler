@@ -155,18 +155,24 @@ export const blogPost = defineType({
       title_en: 'title_en',
       title_de: 'title_de',
       legacy_title: 'title',
-      slug: 'slug.current',
+      slug_en: 'slug_en.current',
+      slug_de: 'slug_de.current',
+      slug_legacy: 'slug.current',
       media_en: 'mainImage_en',
+      media_de: 'mainImage_de',
       legacy_media: 'mainImage'
     },
     prepare(selection: unknown) {
       const safeSelection = selection && typeof selection === 'object' ? selection : {}
-      const {title_en, title_de, legacy_title, slug, media_en, legacy_media} = safeSelection as {
+      const {title_en, title_de, legacy_title, slug_en, slug_de, slug_legacy, media_en, media_de, legacy_media} = safeSelection as {
         title_en?: unknown
         title_de?: unknown
         legacy_title?: unknown
-        slug?: unknown
+        slug_en?: unknown
+        slug_de?: unknown
+        slug_legacy?: unknown
         media_en?: unknown
+        media_de?: unknown
         legacy_media?: unknown
       }
 
@@ -174,8 +180,10 @@ export const blogPost = defineType({
         (value): value is string => typeof value === 'string' && value.trim().length > 0
       ) || 'Untitled Post'
 
-      const subtitle = typeof slug === 'string' && slug.trim().length > 0 ? slug : 'No slug defined'
-      const media = (media_en || legacy_media) as PreviewValue['media']
+      const subtitle = [slug_en, slug_de, slug_legacy].find(
+        (value): value is string => typeof value === 'string' && value.trim().length > 0
+      ) || 'No slug defined'
+      const media = (media_en || media_de || legacy_media) as PreviewValue['media']
 
       return {
         title,

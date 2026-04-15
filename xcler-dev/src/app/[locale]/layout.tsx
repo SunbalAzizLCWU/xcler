@@ -95,7 +95,7 @@ export async function generateMetadata({
       description: pageDescription,
       images: [
         {
-          url: "/og-image.png",
+          url: "/og-image.webp",
           width: 1200,
           height: 630,
           alt: "XCLER — Web & App Development Agency",
@@ -106,7 +106,7 @@ export async function generateMetadata({
       card: "summary_large_image",
       title: pageTitle,
       description: pageDescription,
-      images: ["/og-image.png"],
+      images: ["/og-image.webp"],
     },
     robots: {
       index: true,

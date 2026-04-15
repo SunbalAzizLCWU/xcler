@@ -74,7 +74,7 @@ export async function POST(request: Request) {
     }
 
     const logoUrl = `${assetBaseUrl}/logo.png`;
-    const ogImageUrl = `${assetBaseUrl}/og-image.png`;
+    const ogImageUrl = `${assetBaseUrl}/og-image.webp`;
     const blogUrl = `${assetBaseUrl}/blog`;
     const workUrl = `${assetBaseUrl}/work`;
     const whatsappUrl = "https://wa.me/923154823517";
@@ -91,7 +91,7 @@ export async function POST(request: Request) {
 
     try {
       const logoPath = path.join(process.cwd(), "public", "logo-email.png");
-      const ogPath = path.join(process.cwd(), "public", "og-image.png");
+      const ogPath = path.join(process.cwd(), "public", "og-image.webp");
       const logoBase64 = fs.readFileSync(logoPath).toString("base64");
       const ogBase64 = fs.readFileSync(ogPath).toString("base64");
 
@@ -103,9 +103,9 @@ export async function POST(request: Request) {
           content_id: "xcler-logo",
         },
         {
-          filename: "og-image.png",
+          filename: "og-image.webp",
           content: ogBase64,
-          content_type: "image/png",
+          content_type: "image/webp",
           content_id: "xcler-og-image",
         }
       );

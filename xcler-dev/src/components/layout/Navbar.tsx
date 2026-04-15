@@ -1,5 +1,6 @@
 "use client";
 
+import type { ComponentProps } from "react";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { MagneticButton } from "@/components/ui/MagneticButton";
@@ -7,17 +8,18 @@ import { LanguageSwitcher } from "@/components/ui/LanguageSwitcher";
 import { cn } from "@/lib/utils";
 // IMPORTANT: Use the localized Link and hooks from your navigation file
 import { Link, usePathname } from '@/navigation'; 
-import { useTranslations, useLocale } from 'next-intl';
+import { useTranslations } from 'next-intl';
+
+type LocalizedHref = ComponentProps<typeof Link>["href"];
 
 export function Navbar() {
   const t = useTranslations('Navigation'); // This looks for the "Navigation" section in your JSON files
-  const locale = useLocale();
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
   // These hrefs will now automatically be prefixed with /en or /de by the localized Link
-  const navLinks = [
+  const navLinks: { href: LocalizedHref; label: string }[] = [
     { href: "/", label: t('home') },
     { href: "/services", label: t('services') },
     { href: "/work", label: t('work') },
@@ -70,7 +72,7 @@ export function Navbar() {
           <div className="hidden items-center gap-8 lg:flex">
             {navLinks.map((link) => (
               <Link
-                key={link.href}
+                key={link.label}
                 href={link.href}
                 className={cn(
                   "group relative font-heading text-sm font-medium tracking-wide transition-colors",
@@ -136,7 +138,7 @@ export function Navbar() {
             <div className="flex h-full flex-col items-center justify-center gap-8">
               {navLinks.map((link, i) => (
                 <motion.div
-                  key={link.href}
+                  key={link.label}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: 20 }}

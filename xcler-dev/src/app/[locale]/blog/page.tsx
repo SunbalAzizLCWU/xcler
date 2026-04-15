@@ -12,7 +12,8 @@ export const dynamic = "force-dynamic";
 type BlogPostCard = {
   _id: string;
   title: string;
-  slug: string;
+  slug_en?: string;
+  slug_de?: string;
   mainImage?: unknown;
   imageAlt: string;
   excerpt: string;
@@ -21,10 +22,11 @@ type BlogPostCard = {
 };
 
 const blogPostsQuery = groq`
-  *[_type == "blogPost" && defined(slug.current)] | order(_createdAt desc) {
+  *[_type == "blogPost" && defined(select($locale == "de" => slug_de.current, slug_en.current))] | order(_createdAt desc) {
     _id,
     "title": select($locale == "de" => coalesce(title_de, title_en), coalesce(title_en, title_de)),
-    "slug": slug.current,
+    "slug_en": slug_en.current,
+    "slug_de": slug_de.current,
     "mainImage": select($locale == "de" => mainImage_de, mainImage_en),
     "imageAlt": coalesce(select($locale == "de" => mainImage_de.alt, mainImage_en.alt), title_en, title_de, "Blog post image"),
     "excerpt": select($locale == "de" => pt::text(body_de), pt::text(body_en))[0...180],
@@ -106,8 +108,21 @@ export default async function BlogPage({
           </div>
         ) : (
           <div className="mt-16 grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
-            {posts.map((post) => (
-              <Link key={post._id} href={`/blog/${post.slug}`} className="group block">
+            {posts.map((post) => {
+              const localizedSlug = locale === "de" ? post.slug_de : post.slug_en;
+              const fallbackSlug = locale === "de" ? post.slug_en : post.slug_de;
+              const resolvedSlug = localizedSlug ?? fallbackSlug;
+
+              if (!resolvedSlug) {
+                return null;
+              }
+
+              return (
+                <Link
+                  key={post._id}
+                  href={{ pathname: "/blog/[slug]", params: { slug: resolvedSlug } }}
+                  className="group block"
+                >
                 <article className="h-full overflow-hidden rounded-2xl border border-stone/10 dark:border-stone-dark/10 bg-white dark:bg-richblack/30 transition-all duration-300 hover:-translate-y-1 hover:border-terracotta/30 hover:shadow-xl">
                   <div className="relative h-52 w-full overflow-hidden bg-gradient-to-br from-stone/20 to-stone/5 dark:from-stone-dark/20 dark:to-stone-dark/5">
                     {post.mainImage ? (
@@ -150,8 +165,9 @@ export default async function BlogPage({
                     </p>
                   </div>
                 </article>
-              </Link>
-            ))}
+                </Link>
+              );
+            })}
           </div>
         )}
       </div>

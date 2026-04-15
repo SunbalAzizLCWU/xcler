@@ -1,12 +1,9 @@
+import { getPathname } from "@/navigation";
+
 export function getCanonicalPath(locale: string, path: string) {
-  const localePrefix = locale === "de" ? "" : "/en";
+  const resolvedLocale = locale === "en" ? "en" : "de";
   const normalizedPath = path.startsWith("/") ? path : `/${path}`;
-
-  if (normalizedPath === "/") {
-    return localePrefix || "/";
-  }
-
-  return `${localePrefix}${normalizedPath}`;
+  return getPathname({ locale: resolvedLocale, href: normalizedPath as never });
 }
 
 function toAbsoluteUrl(path: string) {
@@ -17,16 +14,6 @@ function toAbsoluteUrl(path: string) {
   }
 
   return `https://xcler.dev${normalizedPath}`;
-}
-
-function getLocaleSubdirectoryPath(locale: "en" | "de", path: string) {
-  const normalizedPath = path.startsWith("/") ? path : `/${path}`;
-
-  if (normalizedPath === "/") {
-    return `/${locale}`;
-  }
-
-  return `/${locale}${normalizedPath}`;
 }
 
 export function getLanguageAlternates(
@@ -43,8 +30,8 @@ export function getLanguageAlternates(
   const xDefaultPath = xDefaultLocale === "de" ? dePath : enPath;
 
   return {
-    en: toAbsoluteUrl(getLocaleSubdirectoryPath("en", enPath)),
-    de: toAbsoluteUrl(getLocaleSubdirectoryPath("de", dePath)),
-    "x-default": toAbsoluteUrl(getLocaleSubdirectoryPath(xDefaultLocale, xDefaultPath)),
+    en: toAbsoluteUrl(getPathname({ locale: "en", href: enPath as never })),
+    de: toAbsoluteUrl(getPathname({ locale: "de", href: dePath as never })),
+    "x-default": toAbsoluteUrl(getPathname({ locale: xDefaultLocale, href: xDefaultPath as never })),
   };
 }

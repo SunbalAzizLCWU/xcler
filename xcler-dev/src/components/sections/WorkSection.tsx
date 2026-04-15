@@ -1,12 +1,26 @@
+import type { ComponentProps } from "react";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { Link } from "@/navigation";
 import Image from "next/image";
 import { getTranslations } from "next-intl/server";
 
+type WorkHref = Extract<ComponentProps<typeof Link>["href"], { pathname: "/work/[slug]" }>;
+
+type WorkProject = {
+  title: string;
+  category: string;
+  description: string;
+  tech: string[];
+  image: string;
+  imageClassName?: string;
+  href: WorkHref;
+  color: string;
+};
+
 export async function WorkSection() {
   const t = await getTranslations("Portfolio");
 
-  const projects = [
+  const projects: WorkProject[] = [
     {
       title: t("project1.title"),
       category: t("project1.category"),
@@ -19,7 +33,7 @@ export async function WorkSection() {
       ],
       image: "/projects/green-navigator.jpg",
       imageClassName: "object-top",
-      href: "/work/green-navigator",
+      href: { pathname: "/work/[slug]", params: { slug: "green-navigator" } },
       color: "from-sage/20 to-sage/5",
     },
     {
@@ -33,7 +47,7 @@ export async function WorkSection() {
         t("project2.tags.tag4"),
       ],
       image: "/projects/aegisflow.jpg",
-      href: "/work/aegisflow",
+      href: { pathname: "/work/[slug]", params: { slug: "aegisflow" } },
       color: "from-terracotta/20 to-terracotta/5",
     },
     {
@@ -47,7 +61,7 @@ export async function WorkSection() {
         t("project3.tags.tag4"),
       ],
       image: "/projects/visapath.jpg",
-      href: "/work/visapath",
+      href: { pathname: "/work/[slug]", params: { slug: "visapath" } },
       color: "from-stone/20 to-stone/5",
     },
     {
@@ -62,7 +76,7 @@ export async function WorkSection() {
       ],
       image: "/projects/overwatch.jpg",
       imageClassName: "object-top",
-      href: "/work/overwatch-ai",
+      href: { pathname: "/work/[slug]", params: { slug: "overwatch-ai" } },
       color: "from-richblack/20 to-richblack/5",
     },
   ];

@@ -20,15 +20,44 @@ export const blogPost = defineType({
       description: 'SEO-ready German title.'
     }),
     defineField({
-      name: 'slug',
-      title: 'Slug',
+      name: 'slug_en',
+      title: 'English Slug',
       type: 'slug',
       options: {
         source: 'title_en',
         maxLength: 96
       },
-      validation: (rule) => rule.required(),
-      description: 'URL slug used in locale routes.'
+      validation: (rule) =>
+        rule
+          .custom((value, context) => {
+            const document = context.document as {title_en?: string} | undefined
+            if (document?.title_en && !value?.current) {
+              return 'Add an English slug when English title is set.'
+            }
+            return true
+          })
+          .warning(),
+      description: 'URL slug used for English locale routes.'
+    }),
+    defineField({
+      name: 'slug_de',
+      title: 'German Slug',
+      type: 'slug',
+      options: {
+        source: 'title_de',
+        maxLength: 96
+      },
+      validation: (rule) =>
+        rule
+          .custom((value, context) => {
+            const document = context.document as {title_de?: string} | undefined
+            if (document?.title_de && !value?.current) {
+              return 'Add a German slug when German title is set.'
+            }
+            return true
+          })
+          .warning(),
+      description: 'URL slug used for German locale routes.'
     }),
     defineField({
       name: 'author',
@@ -123,7 +152,7 @@ export const blogPost = defineType({
   preview: {
     select: {
       title: 'title_en',
-      subtitle: 'slug.current',
+      subtitle: 'slug_en.current',
       media: 'mainImage_en'
     }
   }

@@ -3,7 +3,8 @@
 import { useMemo } from "react";
 import { motion } from "framer-motion";
 import { useLocale } from "next-intl";
-import { Link, usePathname } from "@/navigation";
+import { useParams } from "next/navigation";
+import { usePathname, useRouter } from "@/navigation";
 
 type Locale = "en" | "de";
 const LOCALES: Locale[] = ["de", "en"];
@@ -11,6 +12,12 @@ const LOCALES: Locale[] = ["de", "en"];
 export function LanguageSwitcher() {
   const locale = useLocale() as Locale;
   const pathname = usePathname();
+  const router = useRouter();
+  const params = useParams();
+
+  const switchLocale = (nextLocale: Locale) => {
+    router.replace({ pathname, params } as never, { locale: nextLocale });
+  };
 
   const activeIndex = useMemo(() => Math.max(0, LOCALES.indexOf(locale)), [locale]);
 
@@ -27,11 +34,9 @@ export function LanguageSwitcher() {
         const isActive = item === locale;
 
         return (
-          <Link
+          <button
             key={item}
-            href={pathname}
-            locale={item}
-            prefetch
+            onClick={() => switchLocale(item)}
             className={`relative z-10 inline-flex h-8 w-[50px] items-center justify-center rounded-full font-mono text-[11px] font-semibold tracking-wider uppercase transition-colors ${
               isActive
                 ? "text-white"
@@ -39,9 +44,10 @@ export function LanguageSwitcher() {
             }`}
             aria-current={isActive ? "true" : undefined}
             aria-label={`Switch language to ${item.toUpperCase()}`}
+            type="button"
           >
             {item}
-          </Link>
+          </button>
         );
       })}
     </div>

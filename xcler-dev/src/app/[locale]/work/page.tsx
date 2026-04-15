@@ -109,7 +109,7 @@ export default async function WorkPage({
                   </div>
 
                   <Link
-                    href={`/work/${project.slug}`}
+                    href={{ pathname: "/work/[slug]", params: { slug: project.slug } }}
                     className="mt-6 inline-flex items-center gap-2 font-heading text-sm font-medium text-terracotta transition-all hover:gap-3"
                   >
                     {locale === "de" ? "Fallstudie ansehen" : "View Case Study"}

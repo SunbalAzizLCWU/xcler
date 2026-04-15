@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import type { ComponentProps } from "react";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { Link } from "@/navigation";
@@ -9,6 +10,8 @@ type RouteParams = {
   locale: "en" | "de";
   slug: string;
 };
+
+type LocalizedHref = ComponentProps<typeof Link>["href"];
 
 export function generateStaticParams() {
   return caseStudies.map((study) => ({ slug: study.slug }));
@@ -187,7 +190,7 @@ export default async function WorkCaseStudyPage({
                 {study.relatedServices.map((service) => (
                   <Link
                     key={service.href}
-                    href={service.href}
+                    href={service.href as LocalizedHref}
                     className="rounded-2xl border border-stone/20 bg-white p-5 transition-colors hover:border-terracotta/40"
                   >
                     <h3 className="font-heading text-xl font-semibold">{service.title[locale]}</h3>

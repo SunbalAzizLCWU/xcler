@@ -43,10 +43,16 @@ type RichTableValue = {
 type SanityBlogPost = {
   _id: string;
   title: string;
-  slug: string;
+  slug_en?: string;
+  slug_de?: string;
   mainImage?: unknown;
   imageAlt: string;
   body: Array<Record<string, unknown>>;
+};
+
+type BlogSlugRow = {
+  slug_en?: string;
+  slug_de?: string;
 };
 
 const parseAmount = (value: number | string | undefined) => {
@@ -212,15 +218,40 @@ const createPortableTextComponents = (locale: string) => ({
 });
 
 const postBySlugQuery = groq`
-  *[_type == "blogPost" && slug.current == $slug][0] {
+  *[_type == "blogPost" && select($locale == "de" => slug_de.current == $slug, slug_en.current == $slug)][0] {
     _id,
     "title": select($locale == "de" => coalesce(title_de, title_en), coalesce(title_en, title_de)),
-    "slug": slug.current,
+    "slug_en": slug_en.current,
+    "slug_de": slug_de.current,
     "mainImage": select($locale == "de" => mainImage_de, mainImage_en),
     "imageAlt": coalesce(select($locale == "de" => mainImage_de.alt, mainImage_en.alt), title_en, title_de, "Blog post image"),
     "body": select($locale == "de" => body_de, body_en)
   }
 `;
+
+const blogSlugsQuery = groq`
+  *[_type == "blogPost"] {
+    "slug_en": slug_en.current,
+    "slug_de": slug_de.current
+  }
+`;
+
+export async function generateStaticParams(): Promise<Array<{ locale: "en" | "de"; slug: string }>> {
+  const rows = await client.fetch<BlogSlugRow[]>(blogSlugsQuery);
+
+  const params = new Map<string, { locale: "en" | "de"; slug: string }>();
+
+  for (const row of rows) {
+    if (row.slug_en) {
+      params.set(`en:${row.slug_en}`, { locale: "en", slug: row.slug_en });
+    }
+    if (row.slug_de) {
+      params.set(`de:${row.slug_de}`, { locale: "de", slug: row.slug_de });
+    }
+  }
+
+  return Array.from(params.values());
+}
 
 export async function generateMetadata({
   params,
@@ -243,8 +274,11 @@ export async function generateMetadata({
   return {
     title: `${post.title} | XCLER`,
     alternates: {
-      canonical: getCanonicalPath(locale, `/blog/${slug}`),
-      languages: getLanguageAlternates(`/blog/${slug}`),
+      canonical: getCanonicalPath(locale, `/blog/${locale === "de" ? post.slug_de ?? slug : post.slug_en ?? slug}`),
+      languages: getLanguageAlternates(`/blog/${slug}`, {
+        enPath: `/blog/${post.slug_en ?? slug}`,
+        dePath: `/blog/${post.slug_de ?? slug}`,
+      }),
     },
   };
 }

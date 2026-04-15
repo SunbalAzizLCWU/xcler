@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import type { ComponentProps } from "react";
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/navigation";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
@@ -15,6 +16,8 @@ type ServicesPageItem = {
   href: string;
   lead: string;
 };
+
+type LocalizedHref = ComponentProps<typeof Link>["href"];
 
 const leadAvatars: Record<string, string> = {
   "abeel mehr": "/team/abeel.jpg",
@@ -88,7 +91,7 @@ export default async function ServicesPage({
         <div className="mt-20 space-y-8">
           {services.map((service, i) => (
             <AnimatedSection key={service.number} delay={i * 0.1}>
-              <Link href={service.href} className="group block">
+              <Link href={service.href as LocalizedHref} className="group block">
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 rounded-2xl border border-stone/10 dark:border-stone-dark/10 bg-white dark:bg-richblack/30 p-8 transition-all duration-500 hover:border-terracotta/20 hover:shadow-xl hover:-translate-y-1">
                   {/* Number */}
                   <div className="lg:col-span-1">

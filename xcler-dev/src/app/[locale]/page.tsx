@@ -1,5 +1,6 @@
 // src/app/page.tsx
 import type { Metadata } from "next";
+import type { ComponentProps } from "react";
 import dynamic from "next/dynamic";
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/navigation";
@@ -28,6 +29,8 @@ const FAQSection = dynamic(
 const ContactSection = dynamic(
   () => import("@/components/sections/ContactSection").then((module) => module.ContactSection)
 );
+
+type LocalizedHref = ComponentProps<typeof Link>["href"];
 
 export async function generateMetadata({
   params,
@@ -92,7 +95,7 @@ export default async function HomePage({
                 </h2>
                 <p className="mt-3 text-sm leading-relaxed text-richblack/78 dark:text-cream/82">{pillar.body}</p>
                 <Link
-                  href={pillar.href}
+                  href={pillar.href as LocalizedHref}
                   className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-terracotta transition-all hover:gap-3"
                 >
                   {pillar.cta}

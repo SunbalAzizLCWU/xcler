@@ -1,12 +1,24 @@
+import type { ComponentProps } from "react";
 import { Link } from "@/navigation";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { getLocale, getTranslations } from "next-intl/server";
+
+type LocalizedHref = ComponentProps<typeof Link>["href"];
+
+type FooterLink = {
+  label: string;
+  href: LocalizedHref;
+};
 
 export async function Footer() {
   const t = await getTranslations("Footer");
   const locale = await getLocale();
   const currentYear = new Date().getFullYear();
-  const footerLinks = {
+  const footerLinks: {
+    services: FooterLink[];
+    company: FooterLink[];
+    legal: FooterLink[];
+  } = {
     services: [
       { label: t("links.services.webDevelopment"), href: "/services/web-development" },
       { label: t("links.services.appDevelopment"), href: "/services/app-development" },
@@ -104,7 +116,7 @@ export async function Footer() {
             </h4>
             <ul className="space-y-3">
               {footerLinks.services.map((link) => (
-                <li key={link.href}>
+                <li key={link.label}>
                   <Link
                     href={link.href}
                     className="text-sm text-zinc-400 transition-colors hover:text-white"
@@ -123,7 +135,7 @@ export async function Footer() {
             </h4>
             <ul className="space-y-3">
               {footerLinks.company.map((link) => (
-                <li key={link.href}>
+                <li key={link.label}>
                   <Link
                     href={link.href}
                     className="text-sm text-zinc-400 transition-colors hover:text-white"
@@ -142,7 +154,7 @@ export async function Footer() {
             </h4>
             <ul className="space-y-3">
               {footerLinks.legal.map((link) => (
-                <li key={link.href}>
+                <li key={link.label}>
                   <Link
                     href={link.href}
                     className="text-sm text-zinc-400 transition-colors hover:text-white"

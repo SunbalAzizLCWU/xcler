@@ -59,6 +59,9 @@ async function migrate() {
 
   const posts = await migrationClient.fetch<BlogPostMigrationRow[]>(blogPostsQuery)
 
+  const resolveLocalizedValue = <T>(currentValue: T | undefined, fallbackValue: T | undefined) =>
+    currentValue ?? fallbackValue
+
   let migratedCount = 0
   for (const post of posts) {
     const legacyTitle = post.title?.trim()
@@ -66,14 +69,20 @@ async function migrate() {
     const legacyBody = Array.isArray(post.body) ? post.body : undefined
     const legacyImage = post.mainImage
 
-    const nextTitleEn = post.title_en?.trim() || legacyTitle
-    const nextTitleDe = post.title_de?.trim() || legacyTitle
-    const nextSlugEn = post.slug_en?.current?.trim() || legacySlug
-    const nextSlugDe = post.slug_de?.current?.trim() || legacySlug
-    const nextBodyEn = Array.isArray(post.body_en) ? post.body_en : legacyBody
-    const nextBodyDe = Array.isArray(post.body_de) ? post.body_de : legacyBody
-    const nextImageEn = post.mainImage_en || legacyImage
-    const nextImageDe = post.mainImage_de || legacyImage
+    const nextTitleEn = resolveLocalizedValue(post.title_en?.trim(), legacyTitle)
+    const nextTitleDe = resolveLocalizedValue(post.title_de?.trim(), legacyTitle)
+    const nextSlugEn = resolveLocalizedValue(post.slug_en?.current?.trim(), legacySlug)
+    const nextSlugDe = resolveLocalizedValue(post.slug_de?.current?.trim(), legacySlug)
+    const nextBodyEn = resolveLocalizedValue(
+      Array.isArray(post.body_en) ? post.body_en : undefined,
+      legacyBody
+    )
+    const nextBodyDe = resolveLocalizedValue(
+      Array.isArray(post.body_de) ? post.body_de : undefined,
+      legacyBody
+    )
+    const nextImageEn = resolveLocalizedValue(post.mainImage_en, legacyImage)
+    const nextImageDe = resolveLocalizedValue(post.mainImage_de, legacyImage)
 
     const hasUpdates =
       (nextTitleEn && nextTitleEn !== post.title_en) ||

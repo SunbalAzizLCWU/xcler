@@ -92,8 +92,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
     blogEntries = rows.flatMap((row) => {
       const entries: MetadataRoute.Sitemap = [];
-      const enSlug = row.slug_en ?? row.slug_legacy ?? row.slug_de;
-      const deSlug = row.slug_de ?? row.slug_legacy ?? row.slug_en;
+      const enSlug = row.slug_en;
+      const deSlug = row.slug_de;
 
       if (!enSlug && !deSlug) {
         return entries;

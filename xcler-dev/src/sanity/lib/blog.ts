@@ -34,4 +34,4 @@ export const BLOG_BODY_BY_LOCALE = `coalesce(
   []
 )`
 
-export const BLOG_MATCH_BY_ANY_SLUG = `($slug in [slug.current, slug_en.current, slug_de.current])`
+export const BLOG_SLUG_MATCH_CONDITION = `($slug in [slug.current, slug_en.current, slug_de.current])`

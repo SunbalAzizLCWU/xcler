@@ -9,7 +9,7 @@ import {
   BLOG_BODY_BY_LOCALE,
   BLOG_IMAGE_ALT_BY_LOCALE,
   BLOG_IMAGE_BY_LOCALE,
-  BLOG_MATCH_BY_ANY_SLUG,
+  BLOG_SLUG_MATCH_CONDITION,
   BLOG_TITLE_BY_LOCALE,
 } from "@/sanity/lib/blog";
 import { urlFor } from "@/sanity/lib/image";
@@ -233,7 +233,7 @@ const createPortableTextComponents = (locale: string) => ({
 });
 
 const postBySlugQuery = groq`
-  *[_type == "blogPost" && ${BLOG_MATCH_BY_ANY_SLUG}][0] {
+  *[_type == "blogPost" && ${BLOG_SLUG_MATCH_CONDITION}][0] {
     _id,
     "title": ${BLOG_TITLE_BY_LOCALE},
     "slug_en": coalesce(slug_en.current, slug.current, slug_de.current),

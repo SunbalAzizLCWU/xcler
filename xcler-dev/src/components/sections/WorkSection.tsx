@@ -17,8 +17,8 @@ type WorkProject = {
   color: string;
 };
 
-export async function WorkSection() {
-  const t = await getTranslations("Portfolio");
+export async function WorkSection({ locale }: { locale: string }) {
+  const t = await getTranslations({ locale, namespace: "Portfolio" });
 
   const projects: WorkProject[] = [
     {

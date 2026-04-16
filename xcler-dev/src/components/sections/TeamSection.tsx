@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { groq } from "next-sanity";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
-import { getLocale, getTranslations } from "next-intl/server";
+import { getTranslations } from "next-intl/server";
 import { client } from "@/sanity/lib/client";
 import { urlFor } from "@/sanity/lib/image";
 
@@ -9,7 +9,10 @@ type TeamMemberFromSanity = {
   _id: string;
   name?: string;
   role?: string;
+  expertise?: string;
   bio?: string;
+  tools?: string;
+  imagePosition?: "center" | "top" | "bottom" | "top-left" | "top-right";
   image?: unknown;
   imageAlt?: string;
 };
@@ -18,12 +21,12 @@ type TeamMemberCard = {
   _id: string;
   name: string;
   role: string;
-  expertise: string;
   bio: string;
   tools: string;
   image: string;
   imageAlt?: string;
   imageUrl?: string;
+  imagePosition: string;
 };
 
 const teamMembersQuery = groq`
@@ -31,11 +34,22 @@ const teamMembersQuery = groq`
     _id,
     name,
     "role": select($locale == "de" => coalesce(role_de, role_en), coalesce(role_en, role_de)),
+    "expertise": select($locale == "de" => coalesce(speciality_de, speciality_en), coalesce(speciality_en, speciality_de)),
     "bio": select($locale == "de" => coalesce(bio_de, bio_en), coalesce(bio_en, bio_de)),
+    "tools": select($locale == "de" => coalesce(technologies_de, technologies_en), coalesce(technologies_en, technologies_de)),
+    "imagePosition": coalesce(imagePosition, "center"),
     image,
     "imageAlt": coalesce(image.alt, name, "Team member")
   }
 `;
+
+const objectPositionMap: Record<string, string> = {
+  center: "center center",
+  top: "center top",
+  bottom: "center bottom",
+  "top-left": "left top",
+  "top-right": "right top",
+};
 
 const getInitials = (name: string) => {
   const parts = name.trim().split(/\s+/).filter(Boolean);
@@ -44,9 +58,8 @@ const getInitials = (name: string) => {
   return `${parts[0].charAt(0)}${parts[1].charAt(0)}`.toUpperCase();
 };
 
-export async function TeamSection() {
-  const t = await getTranslations("Team");
-  const locale = await getLocale();
+export async function TeamSection({ locale }: { locale: string }) {
+  const t = await getTranslations({ locale, namespace: "Team" });
 
   let sanityTeam: TeamMemberFromSanity[] = [];
 
@@ -68,6 +81,7 @@ export async function TeamSection() {
       tools: "Make.com, n8n, Zapier, GoHighLevel",
       image: "/team/musharraf.jpg",
       imageAlt: "Musharraf Aziz",
+      imagePosition: "center",
     },
     {
       _id: "fallback-abeel",
@@ -78,6 +92,7 @@ export async function TeamSection() {
       tools: "Next.js, Python, FastAPI, Flask, CI/CD",
       image: "/team/abeel.jpg",
       imageAlt: "Abeel Mehr",
+      imagePosition: "center",
     },
     {
       _id: "fallback-mehru",
@@ -88,6 +103,7 @@ export async function TeamSection() {
       tools: "WordPress, Shopify, WooCommerce, Liquid",
       image: "/team/mehru.jpg",
       imageAlt: "Mehru Seemab",
+      imagePosition: "center",
     },
   ];
 
@@ -96,12 +112,13 @@ export async function TeamSection() {
         _id: member._id,
         name: member.name || "Team Member",
         role: member.role || (locale === "de" ? "Teammitglied" : "Team Member"),
-        expertise: locale === "de" ? "Spezialist" : "Specialist",
+        expertise: member.expertise || "",
         bio: member.bio || (locale === "de" ? "Profil wird aktualisiert." : "Profile is being updated."),
-        tools: locale === "de" ? "Technologien auf Anfrage" : "Technologies on request",
+        tools: member.tools || "",
         image: "/team/musharraf.jpg",
         imageAlt: member.imageAlt || member.name || "Team member",
         imageUrl: member.image ? urlFor(member.image).width(900).height(980).fit("crop").quality(80).url() : undefined,
+        imagePosition: objectPositionMap[member.imagePosition || "center"] || objectPositionMap.center,
       }))
     : fallbackTeam;
 
@@ -125,12 +142,12 @@ export async function TeamSection() {
           </p>
         </AnimatedSection>
 
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="mx-auto mt-16 grid max-w-[72rem] grid-cols-1 gap-6 md:grid-cols-3 md:gap-5 lg:gap-6">
           {team.map((member, i) => (
             <AnimatedSection key={member._id} delay={i * 0.15} className="h-full">
-              <div className="group flex h-full flex-col rounded-2xl border border-stone/10 dark:border-stone-dark/10 bg-white dark:bg-richblack/30 overflow-hidden transition-all duration-500 hover:-translate-y-1 hover:border-terracotta/30 hover:shadow-xl">
+              <div className="group mx-auto flex h-full w-full max-w-[22rem] flex-col overflow-hidden rounded-2xl border border-stone/10 bg-white transition-all duration-500 hover:-translate-y-1 hover:border-terracotta/30 hover:shadow-xl dark:border-stone-dark/10 dark:bg-richblack/30">
                 {/* Photo */}
-                <div className="relative h-72 bg-gradient-to-br from-stone/20 to-stone/5 overflow-hidden">
+                <div className="relative h-80 overflow-hidden bg-gradient-to-br from-stone/20 to-stone/5 md:h-[22rem]">
                   <div className="absolute inset-0 flex items-center justify-center">
                     <span className="font-heading text-6xl font-bold text-richblack/5 dark:text-cream/5">
                       {getInitials(member.name)}
@@ -143,6 +160,7 @@ export async function TeamSection() {
                       alt={member.imageAlt || member.name}
                       loading="lazy"
                       className="h-full w-full object-cover"
+                      style={{ objectPosition: member.imagePosition }}
                     />
                   ) : (
                     <Image
@@ -151,6 +169,7 @@ export async function TeamSection() {
                       fill
                       loading="lazy"
                       className="object-cover"
+                      style={{ objectPosition: member.imagePosition }}
                       sizes="(max-width: 768px) 100vw, 33vw"
                     />
                   )}
@@ -164,17 +183,21 @@ export async function TeamSection() {
                   <p className="mt-1 text-sm text-terracotta font-medium">
                     {member.role}
                   </p>
-                  <p className="mt-3 text-sm text-richblack/70 dark:text-cream/80">
-                    {member.expertise}
-                  </p>
+                  {member.expertise ? (
+                    <p className="mt-3 text-sm text-richblack/70 dark:text-cream/80">
+                      {member.expertise}
+                    </p>
+                  ) : null}
                   <p className="mt-3 text-sm text-richblack/70 dark:text-cream/80">
                     {member.bio}
                   </p>
-                  <div className="mt-auto pt-4 border-t border-stone/10 dark:border-stone-dark/10">
-                    <p className="font-mono text-xs text-richblack/60 dark:text-cream/75">
-                      {member.tools}
-                    </p>
-                  </div>
+                  {member.tools ? (
+                    <div className="mt-auto pt-4 border-t border-stone/10 dark:border-stone-dark/10">
+                      <p className="font-mono text-xs text-richblack/60 dark:text-cream/75">
+                        {member.tools}
+                      </p>
+                    </div>
+                  ) : null}
                 </div>
               </div>
             </AnimatedSection>

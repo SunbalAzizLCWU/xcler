@@ -1,8 +1,8 @@
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { getTranslations } from "next-intl/server";
 
-export async function ProcessSection() {
-  const t = await getTranslations("Process");
+export async function ProcessSection({ locale }: { locale: string }) {
+  const t = await getTranslations({ locale, namespace: "Process" });
 
   const steps = [
     {

@@ -67,13 +67,13 @@
   "Hero": {
     "title": "Web development and AI automation for measurable business growth.",
     "subtitle": "We deliver scalable Next.js platforms, Shopify solutions, and autonomous RAG AI agents for established B2B companies.",
-    "headlineTop": "Digital agency for",
+    "headlineTop": "Best Digital Agency for",
     "headlineBottom": "in Germany",
     "cta": "Let's Talk",
     "availabilityBadge": "AVAILABLE FOR NEW PROJECTS",
     "lineOne": "We build",
     "lineTwoPrefix": "that",
-    "lineTwoEmphasis": "actually",
+    "lineTwoEmphasis": "Web Development",
     "lineTwoSuffix": "work.",
     "description": "A focused team for web development and automation. We turn business goals into digital products with measurable outcomes. Efficiency in delivery. Precision in execution. Built for scale.",
     "primaryCta": "Request a Project",
@@ -94,14 +94,14 @@
     },
     "rotatingWordsList": [
       "Web Development",
-      "SaaS",
-      "AI Systems",
-      "Next.js Platforms",
-      "Shopify Stores",
-      "RAG Agents",
-      "Workflow Automations",
-      "Chatbots",
-      "Customer Portals"
+      "App Development",
+      "CMS-Based Development",
+      "Shopify Development",
+      "SaaS Development",
+      "Headless Commerce",
+      "AI Chatbots & Agents",
+      "Workflow Automation",
+      "RAG AI Systems"
     ]
   },
   "Services": {

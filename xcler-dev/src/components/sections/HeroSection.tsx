@@ -1,8 +1,10 @@
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/navigation";
+import { RotatingServiceKeyword } from "@/components/ui/RotatingServiceKeyword";
 
-export async function HeroSection() {
-  const t = await getTranslations("Hero");
+export async function HeroSection({ locale }: { locale: string }) {
+  const t = await getTranslations({ locale, namespace: "Hero" });
+  const rotatingWords = t.raw("rotatingWordsList") as string[];
 
   return (
     <section
@@ -41,9 +43,9 @@ export async function HeroSection() {
           {/* Main Heading */}
           <h1 className="font-heading text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-[0.96] text-richblack dark:text-cream">
             <span className="block">{t("headlineTop")}</span>
-            <span className="mt-2 block min-h-[1.1em] text-terracotta">
-              <span className="inline-block border-y border-terracotta/35 px-3 py-1">
-                {t("lineTwoEmphasis")}
+            <span className="mt-2 block min-h-[1.25em] text-terracotta">
+              <span className="inline-flex border-y border-terracotta/35 px-3 py-1">
+                <RotatingServiceKeyword words={rotatingWords} />
               </span>
             </span>
             <span className="mt-2 block">{t("headlineBottom")}</span>

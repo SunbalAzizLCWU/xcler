@@ -74,7 +74,7 @@ export default async function HomePage({
   return (
     <>
       <JsonLd id={`faq-schema-${locale}`} data={getFaqSchema(locale === "en" ? "en" : "de", faqItems)} />
-      <HeroSection />
+      <HeroSection locale={locale} />
       <section className="section-padding pt-10" aria-labelledby="homepage-seo-pillars">
         <div className="container-custom">
           <div className="mb-6 flex items-center gap-4">
@@ -109,9 +109,9 @@ export default async function HomePage({
       <LogoMarquee />
       <ServicesSection />
       <StatsSection />
-      <WorkSection />
-      <ProcessSection />
-      <TeamSection />
+      <WorkSection locale={locale} />
+      <ProcessSection locale={locale} />
+      <TeamSection locale={locale} />
       <TestimonialsSection />
       <FAQSection />
       <ContactSection />

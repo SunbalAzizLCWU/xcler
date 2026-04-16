@@ -67,13 +67,13 @@
   "Hero": {
     "title": "Webentwicklung und KI-Automatisierung für messbares Unternehmenswachstum.",
     "subtitle": "Wir realisieren skalierbare Next.js Plattformen, Shopify-Lösungen und autonome RAG KI-Agenten für etablierte B2B-Unternehmen.",
-    "headlineTop": "Digitale Agentur für",
+    "headlineTop": "Beste Digitalagentur für",
     "headlineBottom": "in Deutschland",
     "cta": "Lassen Sie uns sprechen",
     "availabilityBadge": "JETZT FÜR NEUE PROJEKTE VERFÜGBAR",
     "lineOne": "Wir entwickeln",
     "lineTwoPrefix": "die",
-    "lineTwoEmphasis": "wirklich",
+    "lineTwoEmphasis": "Webentwicklung",
     "lineTwoSuffix": "funktionieren.",
     "description": "Ein fokussiertes Team für Entwicklung und Automatisierung. Wir übersetzen Ihre Geschäftsziele in digitale Produkte mit messbarem Ergebnis. Effizienz in der Umsetzung. Präzision im Detail. Skalierung im Betrieb.",
     "primaryCta": "Projekt anfragen",
@@ -94,14 +94,14 @@
     },
     "rotatingWordsList": [
       "Webentwicklung",
-      "SaaS",
-      "KI-Systeme",
-      "Next.js Plattformen",
-      "Shopify Stores",
-      "RAG Agenten",
-      "Workflow-Automationen",
-      "Chatbots",
-      "Kundenportale"
+      "App-Entwicklung",
+      "CMS-basierte Entwicklung",
+      "Shopify-Entwicklung",
+      "SaaS-Entwicklung",
+      "Headless Commerce",
+      "KI-Chatbots & Agenten",
+      "Workflow-Automatisierung",
+      "RAG-KI-Systeme"
     ]
   },
   "Services": {

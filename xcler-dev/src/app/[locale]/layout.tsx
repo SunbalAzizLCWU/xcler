@@ -4,6 +4,7 @@ import { Inter, JetBrains_Mono, Space_Grotesk } from "next/font/google";
 import dynamic from "next/dynamic";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { JsonLd } from "@/components/seo/JsonLd";
@@ -362,6 +363,7 @@ export default async function RootLayout({
           <Footer locale={locale} />
           <WhatsAppButton />
         </NextIntlClientProvider>
+        <SpeedInsights />
       </body>
     </html>
   );

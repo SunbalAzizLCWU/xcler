@@ -21,6 +21,7 @@ type TeamMemberCard = {
   _id: string;
   name: string;
   role: string;
+  expertise: string;
   bio: string;
   tools: string;
   image: string;

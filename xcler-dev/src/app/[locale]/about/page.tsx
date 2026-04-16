@@ -54,7 +54,7 @@ export default async function AboutPage({
         </div>
       </section>
 
-      <Team />
+      <Team locale={locale} />
     </>
   );
 }

@@ -4,6 +4,8 @@ import { groq, PortableText } from "next-sanity";
 import { notFound } from "next/navigation";
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/navigation";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { truncatePortableText } from "@/lib/portableText";
 import { client } from "@/sanity/lib/client";
 import {
   BLOG_BODY_BY_LOCALE,
@@ -59,8 +61,14 @@ type SanityBlogPost = {
   slug_en?: string;
   slug_de?: string;
   mainImage?: unknown;
+  seoImage?: unknown;
+  excerpt?: string;
+  seoTitle?: string;
+  seoDescription?: string;
   imageAlt: string;
   body: PortableTextBlock[];
+  publishedAt: string;
+  updatedAt: string;
 };
 
 type BlogSlugRow = {
@@ -70,6 +78,9 @@ type BlogSlugRow = {
 };
 
 type Locale = "en" | "de";
+
+const BASE_URL = "https://xcler.dev";
+const FALLBACK_OG_IMAGE = `${BASE_URL}/og-image.webp`;
 
 const parseAmount = (value: number | string | undefined) => {
   if (typeof value === "number") return Number.isFinite(value) ? value : 0;
@@ -245,8 +256,26 @@ const postBySlugQuery = groq`
     "slug_en": coalesce(slug_en.current, slug.current, slug_de.current),
     "slug_de": coalesce(slug_de.current, slug.current, slug_en.current),
     "mainImage": ${BLOG_IMAGE_BY_LOCALE},
+    "seoImage": coalesce(seo.image, ${BLOG_IMAGE_BY_LOCALE}),
+    "excerpt": coalesce(
+      select($locale == "de" => excerpt.de, excerpt.en),
+      select($locale == "de" => excerpt.en, excerpt.de),
+      null
+    ),
+    "seoTitle": coalesce(
+      select($locale == "de" => seo.title.de, seo.title.en),
+      select($locale == "de" => seo.title.en, seo.title.de),
+      null
+    ),
+    "seoDescription": coalesce(
+      select($locale == "de" => seo.description.de, seo.description.en),
+      select($locale == "de" => seo.description.en, seo.description.de),
+      null
+    ),
     "imageAlt": ${BLOG_IMAGE_ALT_BY_LOCALE},
-    "body": ${BLOG_BODY_BY_LOCALE}
+    "body": ${BLOG_BODY_BY_LOCALE},
+    "publishedAt": _createdAt,
+    "updatedAt": _updatedAt
   }
 `;
 
@@ -320,15 +349,40 @@ export async function generateMetadata({
   const resolvedEnSlug = post.slug_en ?? slug;
   const resolvedDeSlug = post.slug_de ?? slug;
   const resolvedCanonicalSlug = locale === "de" ? resolvedDeSlug : resolvedEnSlug;
+  const description = post.seoDescription || post.excerpt || truncatePortableText(post.body, 160) || post.title;
+  const title = post.seoTitle || post.title;
+  const imageUrl = post.seoImage
+    ? urlFor(post.seoImage as Parameters<typeof urlFor>[0]).width(1200).height(630).fit("crop").quality(82).url()
+    : post.mainImage
+      ? urlFor(post.mainImage as Parameters<typeof urlFor>[0]).width(1200).height(630).fit("crop").quality(82).url()
+      : FALLBACK_OG_IMAGE;
 
   return {
-    title: `${post.title} | XCLER`,
+    title: `${title} | XCLER`,
+    description,
     alternates: {
       canonical: getCanonicalPath(locale, `/blog/${resolvedCanonicalSlug}`),
       languages: getLanguageAlternates(`/blog/${slug}`, {
         enPath: `/blog/${resolvedEnSlug}`,
         dePath: `/blog/${resolvedDeSlug}`,
       }),
+    },
+    openGraph: {
+      type: "article",
+      title: `${title} | XCLER`,
+      description,
+      url: getCanonicalPath(locale, `/blog/${resolvedCanonicalSlug}`),
+      locale: locale === "de" ? "de_DE" : "en_US",
+      alternateLocale: locale === "de" ? "en_US" : "de_DE",
+      images: [{ url: imageUrl, alt: post.imageAlt || title }],
+      publishedTime: post.publishedAt,
+      modifiedTime: post.updatedAt,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${title} | XCLER`,
+      description,
+      images: [imageUrl],
     },
   };
 }
@@ -347,9 +401,46 @@ export default async function BlogPostPage({
     notFound();
   }
 
+  const resolvedEnSlug = post.slug_en ?? slug;
+  const resolvedDeSlug = post.slug_de ?? slug;
+  const resolvedCanonicalSlug = locale === "de" ? resolvedDeSlug : resolvedEnSlug;
+  const seoTitle = post.seoTitle || post.title;
+  const seoDescription = post.seoDescription || post.excerpt || truncatePortableText(post.body, 160) || post.title;
+  const seoImageUrl = post.seoImage
+    ? urlFor(post.seoImage as Parameters<typeof urlFor>[0]).width(1200).height(630).fit("crop").quality(82).url()
+    : post.mainImage
+      ? urlFor(post.mainImage as Parameters<typeof urlFor>[0]).width(1200).height(630).fit("crop").quality(82).url()
+      : FALLBACK_OG_IMAGE;
+
   return (
     <section className="section-padding pt-32">
       <article className="container-custom max-w-3xl">
+        <JsonLd
+          id={`blog-posting-${post._id}`}
+          data={{
+            "@context": "https://schema.org",
+            "@type": "BlogPosting",
+            headline: seoTitle,
+            description: seoDescription,
+            image: seoImageUrl,
+            author: {
+              "@type": "Organization",
+              name: "XCLER",
+            },
+            publisher: {
+              "@type": "Organization",
+              name: "XCLER",
+              logo: {
+                "@type": "ImageObject",
+                url: `${BASE_URL}/logo.png`,
+              },
+            },
+            datePublished: post.publishedAt,
+            dateModified: post.updatedAt,
+            inLanguage: locale === "de" ? "de-DE" : "en-US",
+            mainEntityOfPage: getCanonicalPath(locale, `/blog/${resolvedCanonicalSlug}`),
+          }}
+        />
         <Link
           href="/blog"
           locale={locale}

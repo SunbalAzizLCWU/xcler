@@ -65,10 +65,12 @@ type SanityBlogPost = {
   excerpt?: string;
   seoTitle?: string;
   seoDescription?: string;
+  tags?: string[];
+  readingTime?: number;
   imageAlt: string;
   body: PortableTextBlock[];
   publishedAt: string;
-  updatedAt: string;
+  updatedAt?: string;
 };
 
 type BlogSlugRow = {
@@ -81,6 +83,12 @@ type Locale = "en" | "de";
 
 const BASE_URL = "https://xcler.dev";
 const FALLBACK_OG_IMAGE = `${BASE_URL}/og-image.webp`;
+
+const toIsoDurationMinutes = (minutes?: number) => {
+  if (!Number.isFinite(minutes)) return undefined;
+  const safeMinutes = Math.max(1, Math.round(minutes as number));
+  return `PT${safeMinutes}M`;
+};
 
 const parseAmount = (value: number | string | undefined) => {
   if (typeof value === "number") return Number.isFinite(value) ? value : 0;
@@ -272,10 +280,12 @@ const postBySlugQuery = groq`
       select($locale == "de" => seo.description.en, seo.description.de),
       null
     ),
+    "tags": coalesce(tags, []),
+    "readingTime": readingTime,
     "imageAlt": ${BLOG_IMAGE_ALT_BY_LOCALE},
     "body": ${BLOG_BODY_BY_LOCALE},
-    "publishedAt": _createdAt,
-    "updatedAt": _updatedAt
+    "publishedAt": coalesce(publishedAt, _createdAt),
+    "updatedAt": coalesce(updatedAt, _updatedAt)
   }
 `;
 
@@ -351,6 +361,8 @@ export async function generateMetadata({
   const resolvedCanonicalSlug = locale === "de" ? resolvedDeSlug : resolvedEnSlug;
   const description = post.seoDescription || post.excerpt || truncatePortableText(post.body, 160) || post.title;
   const title = post.seoTitle || post.title;
+  const tags = Array.isArray(post.tags) ? post.tags.filter(Boolean) : [];
+  const modifiedTime = post.updatedAt || post.publishedAt;
   const imageUrl = post.seoImage
     ? urlFor(post.seoImage as Parameters<typeof urlFor>[0]).width(1200).height(630).fit("crop").quality(82).url()
     : post.mainImage
@@ -360,6 +372,7 @@ export async function generateMetadata({
   return {
     title: `${title} | XCLER`,
     description,
+    keywords: tags.length ? tags : undefined,
     alternates: {
       canonical: getCanonicalPath(locale, `/blog/${resolvedCanonicalSlug}`),
       languages: getLanguageAlternates(`/blog/${slug}`, {
@@ -376,7 +389,8 @@ export async function generateMetadata({
       alternateLocale: locale === "de" ? "en_US" : "de_DE",
       images: [{ url: imageUrl, alt: post.imageAlt || title }],
       publishedTime: post.publishedAt,
-      modifiedTime: post.updatedAt,
+      modifiedTime,
+      tags: tags.length ? tags : undefined,
     },
     twitter: {
       card: "summary_large_image",
@@ -406,6 +420,9 @@ export default async function BlogPostPage({
   const resolvedCanonicalSlug = locale === "de" ? resolvedDeSlug : resolvedEnSlug;
   const seoTitle = post.seoTitle || post.title;
   const seoDescription = post.seoDescription || post.excerpt || truncatePortableText(post.body, 160) || post.title;
+  const tags = Array.isArray(post.tags) ? post.tags.filter(Boolean) : [];
+  const modifiedTime = post.updatedAt || post.publishedAt;
+  const timeRequired = toIsoDurationMinutes(post.readingTime);
   const seoImageUrl = post.seoImage
     ? urlFor(post.seoImage as Parameters<typeof urlFor>[0]).width(1200).height(630).fit("crop").quality(82).url()
     : post.mainImage
@@ -436,9 +453,11 @@ export default async function BlogPostPage({
               },
             },
             datePublished: post.publishedAt,
-            dateModified: post.updatedAt,
+            dateModified: modifiedTime,
             inLanguage: locale === "de" ? "de-DE" : "en-US",
             mainEntityOfPage: getCanonicalPath(locale, `/blog/${resolvedCanonicalSlug}`),
+            keywords: tags.length ? tags.join(", ") : undefined,
+            timeRequired,
           }}
         />
         <Link

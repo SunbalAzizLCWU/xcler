@@ -105,7 +105,7 @@ export default async function WordPressDevelopmentPage({
           <div className="absolute bottom-0 right-1/4 h-56 w-56 rounded-full bg-stone/20 blur-3xl" />
         </div>
 
-        <div className="container-custom relative z-10">
+        <div className="container-custom relative z-10 xl:pr-[340px] 2xl:pr-[380px]">
           <AnimatedSection>
             <Link
               href="/services/wordpress-shopify"

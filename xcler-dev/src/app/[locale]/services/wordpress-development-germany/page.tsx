@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/navigation";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
+import { SideContactCta } from "@/components/sections/SideContactCta";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { getServiceSchema } from "@/lib/structuredData";
 import { getCanonicalPath, getLanguageAlternates } from "@/lib/canonical";
@@ -75,6 +76,12 @@ export default async function WordPressDevelopmentPage({
   const infrastructureHighlight = t("infrastructureHighlight");
   const faqItems = t.raw("aeoFaq") as FaqItem[];
   const backToHubLabel = locale === "de" ? "Zurueck zum E-Commerce & CMS Hub" : "Back to E-Commerce & CMS Hub";
+  const contactCtaTitle = locale === "de" ? "Planen wir Ihr WordPress-Projekt" : "Let us plan your WordPress project";
+  const contactCtaDescription =
+    locale === "de"
+      ? "Erhalten Sie ein klares Setup fuer Architektur, Performance und langfristige Wartbarkeit."
+      : "Get a clear setup for architecture, performance, and long-term maintainability.";
+  const contactCtaButton = locale === "de" ? "WordPress-Beratung starten" : "Start WordPress Consultation";
   const schema = getServiceSchema({
     locale: locale === "en" ? "en" : "de",
     slug: "wordpress-development-germany",
@@ -86,6 +93,12 @@ export default async function WordPressDevelopmentPage({
     <>
       <JsonLd id={`service-wordpress-development-${locale}`} data={schema} />
       <section className="section-padding pt-32 relative overflow-hidden">
+        <SideContactCta
+          locale={locale === "de" ? "de" : "en"}
+          title={contactCtaTitle}
+          description={contactCtaDescription}
+          buttonLabel={contactCtaButton}
+        />
         <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
           <div className="absolute -top-28 right-0 h-72 w-72 rounded-full bg-terracotta/10 blur-3xl" />
           <div className="absolute top-1/3 -left-24 h-64 w-64 rounded-full bg-sage/10 blur-3xl" />

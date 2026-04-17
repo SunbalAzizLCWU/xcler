@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/navigation";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
+import { SideContactCta } from "@/components/sections/SideContactCta";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { getServiceSchema } from "@/lib/structuredData";
 import { getCanonicalPath, getLanguageAlternates } from "@/lib/canonical";
@@ -76,6 +77,12 @@ export default async function ShopifyDevelopmentPage({
   const automationArchitecture = t("automationArchitecture");
   const backToHubLabel = locale === "de" ? "Zurueck zum E-Commerce & CMS Hub" : "Back to E-Commerce & CMS Hub";
   const faqTitle = locale === "de" ? "FAQ" : "FAQ";
+  const contactCtaTitle = locale === "de" ? "Lassen Sie uns Ihr Shopify-Projekt planen" : "Let us plan your Shopify project";
+  const contactCtaDescription =
+    locale === "de"
+      ? "Kurz anfragen, klares Setup erhalten: Architektur, Scope und ein realistischer Fahrplan."
+      : "Send a short brief and get a clear setup: architecture, scope, and a realistic roadmap.";
+  const contactCtaButton = locale === "de" ? "Shopify-Beratung starten" : "Start Shopify Consultation";
   const schema = getServiceSchema({
     locale: locale === "en" ? "en" : "de",
     slug: "shopify-development-germany",
@@ -87,6 +94,12 @@ export default async function ShopifyDevelopmentPage({
     <>
       <JsonLd id={`service-shopify-development-${locale}`} data={schema} />
       <section className="section-padding pt-32 relative overflow-hidden">
+        <SideContactCta
+          locale={locale === "de" ? "de" : "en"}
+          title={contactCtaTitle}
+          description={contactCtaDescription}
+          buttonLabel={contactCtaButton}
+        />
         <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
           <div className="absolute -top-28 right-0 h-72 w-72 rounded-full bg-terracotta/10 blur-3xl" />
           <div className="absolute top-1/3 -left-24 h-64 w-64 rounded-full bg-sage/10 blur-3xl" />

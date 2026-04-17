@@ -28,7 +28,7 @@ export function SideContactCta({ locale, title, description, buttonLabel }: Side
         </Link>
       </aside>
 
-      <aside className="hidden xl:block xl:sticky xl:top-28 xl:self-start" aria-label={locale === "de" ? "Kontaktbox" : "Contact box"}>
+      <aside className="hidden xl:block xl:self-start" aria-label={locale === "de" ? "Kontaktbox" : "Contact box"}>
         <div className="relative overflow-hidden rounded-3xl border border-terracotta/30 bg-gradient-to-br from-white via-white/95 to-terracotta/10 p-6 shadow-[0_26px_65px_-40px_rgba(184,92,56,0.65)] backdrop-blur-sm dark:from-richblack/65 dark:via-richblack/55 dark:to-richblack/45">
           <div className="absolute -right-10 -top-10 h-24 w-24 rounded-full bg-terracotta/20 blur-2xl" aria-hidden="true" />
           <p className="relative font-mono text-[11px] uppercase tracking-[0.24em] text-richblack/45 dark:text-cream/45">

@@ -93,26 +93,22 @@ export default async function WordPressDevelopmentPage({
     <>
       <JsonLd id={`service-wordpress-development-${locale}`} data={schema} />
       <section className="section-padding pt-32 relative overflow-hidden">
-        <SideContactCta
-          locale={locale === "de" ? "de" : "en"}
-          title={contactCtaTitle}
-          description={contactCtaDescription}
-          buttonLabel={contactCtaButton}
-        />
         <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
           <div className="absolute -top-28 right-0 h-72 w-72 rounded-full bg-terracotta/10 blur-3xl" />
           <div className="absolute top-1/3 -left-24 h-64 w-64 rounded-full bg-sage/10 blur-3xl" />
           <div className="absolute bottom-0 right-1/4 h-56 w-56 rounded-full bg-stone/20 blur-3xl" />
         </div>
 
-        <div className="container-custom relative z-10 xl:pr-[340px] 2xl:pr-[380px]">
-          <AnimatedSection>
-            <Link
-              href="/services/wordpress-shopify"
-              className="inline-flex items-center gap-2 rounded-full border border-stone/20 bg-white/70 px-4 py-2 text-sm text-richblack/50 backdrop-blur-sm transition-colors hover:border-terracotta/40 hover:text-terracotta dark:border-stone-dark/20 dark:bg-richblack/40 dark:text-cream/50"
-            >
-              ← {backToHubLabel}
-            </Link>
+        <div className="container-custom relative z-10">
+          <div className="xl:grid xl:grid-cols-[minmax(0,1fr)_320px] xl:gap-10 xl:items-start">
+            <div>
+              <AnimatedSection>
+                <Link
+                  href="/services/wordpress-shopify"
+                  className="inline-flex items-center gap-2 rounded-full border border-stone/20 bg-white/70 px-4 py-2 text-sm text-richblack/50 backdrop-blur-sm transition-colors hover:border-terracotta/40 hover:text-terracotta dark:border-stone-dark/20 dark:bg-richblack/40 dark:text-cream/50"
+                >
+                  ← {backToHubLabel}
+                </Link>
 
             <div className="mt-8 rounded-3xl border border-stone/15 bg-gradient-to-br from-white/85 via-white/70 to-stone/10 p-8 shadow-[0_20px_60px_-40px_rgba(13,13,13,0.45)] backdrop-blur-sm dark:border-stone-dark/20 dark:from-richblack/40 dark:via-richblack/35 dark:to-richblack/20 md:p-12">
               <div className="flex items-center gap-4 mb-6">
@@ -141,9 +137,9 @@ export default async function WordPressDevelopmentPage({
                 </div>
               </div>
             </div>
-          </AnimatedSection>
+              </AnimatedSection>
 
-          <AnimatedSection>
+              <AnimatedSection>
             <div className="mt-20 grid grid-cols-1 gap-8 lg:grid-cols-[220px_minmax(0,1fr)]">
               <div className="lg:sticky lg:top-28 h-max rounded-2xl border border-stone/15 bg-white/70 p-5 dark:border-stone-dark/20 dark:bg-richblack/30">
                 <p className="font-mono text-[11px] tracking-[0.25em] uppercase text-richblack/40 dark:text-cream/40">{locale === "de" ? "Technischer Brief" : "Technical Brief"}</p>
@@ -158,9 +154,9 @@ export default async function WordPressDevelopmentPage({
                 ))}
               </div>
             </div>
-          </AnimatedSection>
+              </AnimatedSection>
 
-          <AnimatedSection>
+              <AnimatedSection>
             <div className="mt-20">
               <div className="flex items-center gap-4 mb-6">
                 <div className="line-decoration" />
@@ -182,9 +178,9 @@ export default async function WordPressDevelopmentPage({
                 ))}
               </div>
             </div>
-          </AnimatedSection>
+              </AnimatedSection>
 
-          <AnimatedSection>
+              <AnimatedSection>
             <div className="mt-20 relative overflow-hidden rounded-3xl bg-richblack p-8 md:p-10 text-cream shadow-[0_30px_80px_-45px_rgba(13,13,13,0.8)]">
               <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
                 <div className="absolute -right-10 -top-10 h-40 w-40 rounded-full bg-terracotta/20 blur-3xl" />
@@ -195,9 +191,9 @@ export default async function WordPressDevelopmentPage({
                 <p className="mt-4 text-cream/75 leading-relaxed">{infrastructureHighlight}</p>
               </div>
             </div>
-          </AnimatedSection>
+              </AnimatedSection>
 
-          <AnimatedSection>
+              <AnimatedSection>
             <div className="mt-20 rounded-3xl border border-stone/15 bg-white/80 p-8 md:p-10 shadow-[0_20px_55px_-40px_rgba(13,13,13,0.5)] dark:border-stone-dark/20 dark:bg-richblack/35">
               <div className="flex items-end justify-between gap-6 border-b border-stone/15 pb-6 dark:border-stone-dark/20">
                 <h2 className="font-heading text-3xl md:text-4xl font-semibold">FAQ</h2>
@@ -218,9 +214,9 @@ export default async function WordPressDevelopmentPage({
                 ))}
               </div>
             </div>
-          </AnimatedSection>
+              </AnimatedSection>
 
-          <AnimatedSection>
+              <AnimatedSection>
             <div className="mt-20 relative overflow-hidden rounded-3xl bg-richblack p-10 text-cream text-center shadow-[0_35px_80px_-45px_rgba(13,13,13,0.85)]">
               <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
                 <div className="absolute left-1/2 top-0 h-36 w-36 -translate-x-1/2 rounded-full bg-terracotta/20 blur-3xl" />
@@ -234,7 +230,16 @@ export default async function WordPressDevelopmentPage({
                 {locale === "de" ? "Projekt starten ->" : "Start Your Project ->"}
               </Link>
             </div>
-          </AnimatedSection>
+              </AnimatedSection>
+            </div>
+
+            <SideContactCta
+              locale={locale === "de" ? "de" : "en"}
+              title={contactCtaTitle}
+              description={contactCtaDescription}
+              buttonLabel={contactCtaButton}
+            />
+          </div>
         </div>
       </section>
     </>

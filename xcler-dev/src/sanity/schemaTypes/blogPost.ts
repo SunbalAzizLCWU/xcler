@@ -231,7 +231,14 @@ export const blogPost = defineType({
               type: 'string',
               validation: (rule) => rule.required(),
               description: 'Critical for SEO and accessibility. Describe what is in the image.'
-            }
+            },
+            defineField({
+              name: 'link',
+              title: 'Optional Link URL',
+              type: 'url',
+              validation: (rule) => rule.uri({scheme: ['http', 'https']}),
+              description: 'Optional external URL. If set, the image becomes clickable in the blog content.'
+            })
           ]
         },
         {type: 'richTable'},
@@ -257,7 +264,14 @@ export const blogPost = defineType({
               type: 'string',
               validation: (rule) => rule.required(),
               description: 'Critical for SEO and accessibility. Describe what is in the image.'
-            }
+            },
+            defineField({
+              name: 'link',
+              title: 'Optional Link URL',
+              type: 'url',
+              validation: (rule) => rule.uri({scheme: ['http', 'https']}),
+              description: 'Optional external URL. If set, the image becomes clickable in the blog content.'
+            })
           ]
         },
         {type: 'richTable'},

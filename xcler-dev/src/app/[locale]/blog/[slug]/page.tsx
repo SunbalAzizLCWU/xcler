@@ -53,6 +53,7 @@ type RichTableValue = {
 type PortableImageValue = {
   asset?: unknown;
   alt?: string;
+  link?: string;
 };
 
 type SanityBlogPost = {
@@ -90,6 +91,21 @@ const toIsoDurationMinutes = (minutes?: number) => {
   return `PT${safeMinutes}M`;
 };
 
+const getSafeExternalUrl = (value?: string) => {
+  if (!value || typeof value !== "string") return null;
+
+  try {
+    const parsed = new URL(value);
+    if (parsed.protocol === "http:" || parsed.protocol === "https:") {
+      return parsed.toString();
+    }
+  } catch {
+    return null;
+  }
+
+  return null;
+};
+
 const parseAmount = (value: number | string | undefined) => {
   if (typeof value === "number") return Number.isFinite(value) ? value : 0;
   if (typeof value !== "string") return 0;
@@ -125,13 +141,27 @@ const createPortableTextComponents = (locale: string) => ({
     image: ({ value }: { value: PortableImageValue }) => {
       if (!value?.asset) return null;
 
-      return (
+      const imageUrl = urlFor(value).url();
+      const linkedUrl = getSafeExternalUrl(value.link);
+      const imageElement = (
         // eslint-disable-next-line @next/next/no-img-element
         <img
-          src={urlFor(value).url()}
+          src={imageUrl}
           alt={value.alt || "Xcler Blog Image"}
           className="my-8 h-auto w-full rounded-2xl"
         />
+      );
+
+      if (linkedUrl) {
+        return (
+          <a href={linkedUrl} target="_blank" rel="noopener noreferrer nofollow" className="block">
+            {imageElement}
+          </a>
+        );
+      }
+
+      return (
+        imageElement
       );
     },
     table: ({ value }: { value: { rows?: Array<{ _key?: string; cells?: unknown[] }> } }) => {

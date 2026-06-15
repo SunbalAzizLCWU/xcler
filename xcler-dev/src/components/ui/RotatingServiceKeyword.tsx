@@ -30,7 +30,7 @@ export function RotatingServiceKeyword({
   }
 
   return (
-    <span className="relative inline-flex min-h-[1.1em] min-w-[11ch] items-center justify-center overflow-hidden text-center align-middle">
+    <span className="relative inline-flex min-h-[1.1em] max-w-full items-center justify-center overflow-hidden text-center align-middle">
       <AnimatePresence mode="wait" initial={false}>
         <motion.span
           key={`${safeWords[index]}-${index}`}
@@ -38,7 +38,7 @@ export function RotatingServiceKeyword({
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: "-0.45em" }}
           transition={{ duration: 0.32, ease: [0.2, 0.9, 0.2, 1] }}
-          className="inline-block whitespace-nowrap"
+          className="inline-block text-balance"
         >
           {safeWords[index]}
         </motion.span>

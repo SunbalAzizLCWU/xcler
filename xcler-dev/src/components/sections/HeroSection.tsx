@@ -8,7 +8,7 @@ export async function HeroSection({ locale }: { locale: string }) {
 
   return (
     <section
-      className="relative min-h-[max(42rem,100svh)] flex items-center justify-center overflow-hidden"
+      className="relative min-h-[max(42rem,100svh)] flex items-center justify-center overflow-x-hidden"
     >
       {/* Background Elements */}
       <div className="absolute inset-0 pointer-events-none" style={{ contain: "paint" }} aria-hidden="true">
@@ -27,7 +27,7 @@ export async function HeroSection({ locale }: { locale: string }) {
         />
       </div>
 
-      <div className="relative z-10 container-custom pt-24 min-h-[calc(100svh-6rem)] flex w-full items-center">
+      <div className="relative z-10 container-custom pt-24 pb-16 min-h-[calc(100svh-6rem)] flex w-full items-center">
         <div className="max-w-5xl mx-auto text-center">
           {/* Badge */}
           <div className="inline-flex items-center gap-2 rounded-full border border-stone/25 bg-white/75 dark:border-white/35 dark:bg-black/45 px-4 py-1.5 mb-8">
@@ -41,10 +41,10 @@ export async function HeroSection({ locale }: { locale: string }) {
           </div>
 
           {/* Main Heading */}
-          <h1 className="font-heading text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-[0.96] text-richblack dark:text-cream">
+          <h1 className="font-heading text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-[0.96] text-richblack dark:text-cream">
             <span className="block">{t("headlineTop")}</span>
             <span className="mt-2 block min-h-[1.25em] text-terracotta">
-              <span className="inline-flex border-y border-terracotta/35 px-3 py-1">
+              <span className="inline-flex border-y border-terracotta/35 px-3 py-1 max-w-full overflow-hidden">
                 <RotatingServiceKeyword words={rotatingWords} />
               </span>
             </span>
@@ -86,7 +86,7 @@ export async function HeroSection({ locale }: { locale: string }) {
           </div>
 
           {/* Trust indicators */}
-          <div className="mt-16 flex flex-wrap items-center justify-center gap-8 text-sm text-richblack/75 dark:text-cream/90">
+          <div className="mt-16 flex flex-wrap items-center justify-center gap-4 sm:gap-8 text-sm text-richblack/75 dark:text-cream/90">
             <div className="flex items-center gap-2">
               <svg className="h-4 w-4 text-sage" fill="currentColor" viewBox="0 0 20 20">
                 <path

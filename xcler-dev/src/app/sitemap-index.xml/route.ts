@@ -6,9 +6,10 @@ export const dynamic = "force-dynamic";
 export async function GET() {
   const now = new Date();
   const xml = sitemapIndexToXml([
+    { loc: "https://xcler.dev/sitemap.xml", lastmod: now },
     { loc: "https://xcler.dev/sitemap-de.xml", lastmod: now },
     { loc: "https://xcler.dev/sitemap-en.xml", lastmod: now },
-    { loc: "https://xcler.dev/sitemap.xml", lastmod: now },
+    { loc: "https://xcler.dev/sitemap-english.xml", lastmod: now },
   ]);
 
   return new Response(xml, {

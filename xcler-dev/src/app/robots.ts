@@ -39,6 +39,7 @@ export default function robots(): MetadataRoute.Robots {
       "https://xcler.dev/sitemap-index.xml",
       "https://xcler.dev/sitemap-de.xml",
       "https://xcler.dev/sitemap-en.xml",
+      "https://xcler.dev/sitemap-english.xml",
     ],
     host: "https://xcler.dev",
   };

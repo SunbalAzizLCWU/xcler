@@ -65,6 +65,29 @@ export function toAbsoluteUrl(path: string) {
 }
 
 function getLocalizedPath(locale: Locale, href: string) {
+  // Dynamic work/blog segments need the pathname object form for correct DE/EN rewrites.
+  const workMatch = href.match(/^\/work\/([^/]+)$/);
+  if (workMatch) {
+    return getPathname({
+      locale,
+      href: {
+        pathname: "/work/[slug]",
+        params: { slug: workMatch[1] },
+      },
+    });
+  }
+
+  const blogMatch = href.match(/^\/blog\/([^/]+)$/);
+  if (blogMatch) {
+    return getPathname({
+      locale,
+      href: {
+        pathname: "/blog/[slug]",
+        params: { slug: blogMatch[1] },
+      },
+    });
+  }
+
   return getPathname({ locale, href: href as never });
 }
 
@@ -112,7 +135,12 @@ export async function buildLocaleSitemap(locale: Locale): Promise<SitemapEntry[]
   }
 
   try {
-    const rows = await client.fetch<BlogSitemapRow[]>(blogSitemapQuery);
+    const rows = await Promise.race([
+      client.fetch<BlogSitemapRow[]>(blogSitemapQuery),
+      new Promise<BlogSitemapRow[]>((_, reject) =>
+        setTimeout(() => reject(new Error("sitemap blog fetch timeout")), 2500)
+      ),
+    ]);
     for (const row of rows) {
       if (!row.slug_en && !row.slug_de) continue;
       const lastModified = new Date(row.updatedAt ?? row.createdAt ?? now.toISOString());
@@ -130,7 +158,7 @@ export async function buildLocaleSitemap(locale: Locale): Promise<SitemapEntry[]
       });
     }
   } catch {
-    // CMS optional
+    // CMS optional / timed out — keep static routes so Google still gets a 200.
   }
 
   return entries;

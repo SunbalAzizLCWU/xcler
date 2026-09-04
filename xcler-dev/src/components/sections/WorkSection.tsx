@@ -12,7 +12,6 @@ type WorkProject = {
   description: string;
   tech: string[];
   image: string;
-  imageClassName?: string;
   href: WorkHref;
   color: string;
 };
@@ -31,8 +30,7 @@ export async function WorkSection({ locale }: { locale: string }) {
         t("project1.tags.tag3"),
         t("project1.tags.tag4"),
       ],
-      image: "/projects/green-navigator.webp",
-      imageClassName: "object-top",
+      image: "/projects/green-navigator-v3.webp",
       href: { pathname: "/work/[slug]", params: { slug: "green-navigator" } },
       color: "from-sage/20 to-sage/5",
     },
@@ -46,7 +44,7 @@ export async function WorkSection({ locale }: { locale: string }) {
         t("project2.tags.tag3"),
         t("project2.tags.tag4"),
       ],
-      image: "/projects/aegisflow.webp",
+      image: "/projects/aegisflow-v3.webp",
       href: { pathname: "/work/[slug]", params: { slug: "aegisflow" } },
       color: "from-terracotta/20 to-terracotta/5",
     },
@@ -60,7 +58,7 @@ export async function WorkSection({ locale }: { locale: string }) {
         t("project3.tags.tag3"),
         t("project3.tags.tag4"),
       ],
-      image: "/projects/visapath.webp",
+      image: "/projects/visapath-v3.webp",
       href: { pathname: "/work/[slug]", params: { slug: "visapath" } },
       color: "from-stone/20 to-stone/5",
     },
@@ -74,8 +72,7 @@ export async function WorkSection({ locale }: { locale: string }) {
         t("project4.tags.tag3"),
         t("project4.tags.tag4"),
       ],
-      image: "/projects/overwatch.webp",
-      imageClassName: "object-top",
+      image: "/projects/overwatch-v3.webp",
       href: { pathname: "/work/[slug]", params: { slug: "overwatch-ai" } },
       color: "from-richblack/20 to-richblack/5",
     },
@@ -89,19 +86,19 @@ export async function WorkSection({ locale }: { locale: string }) {
             <div>
               <div className="flex items-center gap-4 mb-4">
                 <div className="line-decoration" />
-                <span className="font-mono text-xs tracking-[0.3em] text-richblack/40 dark:text-cream/40 uppercase">
+                <span className="font-mono text-xs tracking-[0.3em] text-stone-light uppercase">
                   {t("eyebrow")}
                 </span>
               </div>
               <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
-                {t("headingLine1")} {" "}
-                <span className="text-terracotta">{t("headingLine2")}</span>{" "}
+                {t("headingLine1")}{" "}
+                <span className="text-gradient-signal">{t("headingLine2")}</span>{" "}
                 <span className="text-stone">{t("headingLine3")}</span>
               </h2>
             </div>
             <Link
               href="/work"
-              className="inline-flex items-center gap-2 font-heading text-sm font-medium text-terracotta transition-all hover:gap-3"
+              className="inline-flex items-center gap-2 font-heading text-sm font-medium text-sage transition-all hover:gap-3"
             >
               {t("viewAll")}
               <svg
@@ -125,44 +122,41 @@ export async function WorkSection({ locale }: { locale: string }) {
           {projects.map((project, i) => (
             <AnimatedSection key={project.title} delay={i * 0.15} className="h-full">
               <Link href={project.href} className="group block h-full">
-                <div className="relative flex h-full flex-col overflow-hidden rounded-2xl border border-stone/10 dark:border-stone-dark/10 bg-white dark:bg-richblack/50 transition-all duration-500 hover:-translate-y-1 hover:border-terracotta/30 hover:shadow-2xl">
-                  {/* Project image */}
-                  <div className="relative h-64 overflow-hidden">
+                <div className="panel relative flex h-full flex-col overflow-hidden transition-all duration-500 group-hover:-translate-y-2 group-hover:border-sage/45 group-hover:shadow-[0_24px_80px_-40px_rgba(45,255,154,0.45)]">
+                  <div className="relative aspect-[3/2] bg-richblack p-3 sm:p-4">
                     <Image
                       src={project.image}
-                      alt={project.title}
-                      width={800}
-                      height={512}
+                      alt={`${project.title} — XCLER AI automation case study`}
+                      width={1600}
+                      height={1067}
                       loading={i === 0 ? "eager" : "lazy"}
                       fetchPriority={i === 0 ? "high" : "auto"}
                       sizes="(max-width: 768px) 100vw, 50vw"
-                      className={`h-full w-full object-cover transition-transform duration-700 group-hover:scale-105 ${project.imageClassName ?? ""}`}
+                      className="h-full w-full object-contain object-center"
                     />
 
-                    {/* Hover overlay */}
-                    <div className="absolute inset-0 bg-richblack/60 opacity-0 transition-opacity duration-500 group-hover:opacity-100 flex items-center justify-center">
-                      <span className="font-heading text-sm text-white border border-white/30 rounded-full px-6 py-2 translate-y-4 opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
+                    <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-gradient-to-t from-richblack/85 via-richblack/30 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+                      <span className="translate-y-4 border border-sage/50 bg-richblack/70 px-6 py-2 font-heading text-sm text-sage opacity-0 backdrop-blur-sm transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
                         {t("viewProject")}
                       </span>
                     </div>
                   </div>
 
-                  {/* Content */}
                   <div className="flex flex-1 flex-col p-6">
-                    <span className="font-mono text-xs text-stone dark:text-stone-dark tracking-wider">
+                    <span className="font-mono text-xs tracking-wider text-stone">
                       {project.category}
                     </span>
-                    <h3 className="mt-2 font-heading text-xl font-semibold group-hover:text-terracotta transition-colors">
+                    <h3 className="mt-2 font-heading text-xl font-semibold transition-colors group-hover:text-sage">
                       {project.title}
                     </h3>
-                    <p className="mt-2 text-sm text-richblack/70 dark:text-cream/80 line-clamp-2">
+                    <p className="mt-2 line-clamp-2 text-sm text-cream/75">
                       {project.description}
                     </p>
                     <div className="mt-auto grid grid-cols-2 gap-2 pt-4">
                       {project.tech.map((t) => (
                         <span
                           key={t}
-                          className="truncate whitespace-nowrap rounded-full bg-stone/10 px-3 py-1 font-mono text-[11px] dark:bg-stone-dark/10"
+                          className="truncate whitespace-nowrap border border-cream/10 bg-cream/5 px-3 py-1 font-mono text-[11px]"
                           title={t}
                         >
                           {t}

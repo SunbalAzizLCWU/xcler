@@ -108,38 +108,38 @@ export default async function AIChatbotsPage({
       <section className="section-padding pt-32 relative overflow-hidden">
         <div className="container-custom relative z-10">
           <AnimatedSection>
-            <nav aria-label="Breadcrumb" className="mb-6 text-sm text-richblack/45 dark:text-cream/45">
+            <nav aria-label="Breadcrumb" className="mb-6 text-sm text-cream/45">
               <ol className="flex flex-wrap items-center gap-2">
                 <li>
-                  <Link href="/" className="hover:text-terracotta">
+                  <Link href="/" className="hover:text-sage">
                     XCLER
                   </Link>
                 </li>
                 <li aria-hidden="true">/</li>
                 <li>
-                  <Link href="/services" className="hover:text-terracotta">
+                  <Link href="/services" className="hover:text-sage">
                     {resolvedLocale === "de" ? "Leistungen" : "Services"}
                   </Link>
                 </li>
                 <li aria-hidden="true">/</li>
-                <li className="text-richblack/70 dark:text-cream/70">{hero.h1}</li>
+                <li className="text-cream/70">{hero.h1}</li>
               </ol>
             </nav>
 
             <div className="grid gap-8 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
               <div>
-                <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.05]">
+                <h1 className="font-heading text-4xl font-bold leading-[1.05] tracking-tight md:text-5xl lg:text-6xl">
                   {hero.h1}
                 </h1>
-                <p className="mt-6 text-lg text-richblack/70 dark:text-cream/70 max-w-3xl leading-relaxed">{lede}</p>
-                <div className="mt-4 text-xl text-terracotta max-w-3xl leading-relaxed">{hero.h2}</div>
+                <p className="mt-6 max-w-3xl text-lg leading-relaxed text-cream/70">{lede}</p>
+                <div className="mt-4 max-w-3xl text-xl leading-relaxed text-sage">{hero.h2}</div>
               </div>
-              <div className="overflow-hidden rounded-3xl border border-stone/15 bg-stone/10">
+              <div className="overflow-hidden border border-cream/10 bg-charcoal/50">
                 <Image
-                  src="/og-image.webp"
-                  alt={hero.h1}
+                  src="/services/ai-chatbots.webp"
+                  alt={`${hero.h1} — XCLER AI chatbots and agents service visual`}
                   width={1200}
-                  height={630}
+                  height={675}
                   priority
                   fetchPriority="high"
                   className="h-auto w-full object-cover"
@@ -209,13 +209,13 @@ export default async function AIChatbotsPage({
                   {coreFeatures.map((item, index) => (
                     <div
                       key={item.title}
-                      className="rounded-3xl border border-stone/15 bg-white/80 p-7 dark:border-stone-dark/20 dark:bg-richblack/30"
+                      className="panel panel-hover p-7"
                     >
-                      <span className="font-mono text-xs text-terracotta">{String(index + 1).padStart(2, "0")}</span>
+                      <span className="font-mono text-xs text-sage">{String(index + 1).padStart(2, "0")}</span>
                       <h3 id={`ai-feature-${index}`} className="mt-3 font-heading text-xl font-semibold">
                         {item.title}
                       </h3>
-                      <p className="mt-3 text-richblack/65 dark:text-cream/65 leading-relaxed">{item.description}</p>
+                      <p className="mt-3 leading-relaxed text-cream/65">{item.description}</p>
                     </div>
                   ))}
                 </div>
@@ -229,30 +229,30 @@ export default async function AIChatbotsPage({
                 <h2 id={section.id} className="font-heading text-3xl font-bold">
                   {section.heading}
                 </h2>
-                <p className="mt-4 text-richblack/70 dark:text-cream/70 leading-relaxed">{section.body}</p>
+                <p className="mt-4 leading-relaxed text-cream/70">{section.body}</p>
               </div>
             </AnimatedSection>
           ))}
 
           {architectureHighlight ? (
             <AnimatedSection>
-              <div className="mt-20 rounded-3xl bg-richblack p-8 md:p-10 text-cream">
-                <h2 id="ai-architecture" className="font-heading text-2xl md:text-3xl font-semibold">
+              <div className="panel mt-20 p-8 md:p-10">
+                <h2 id="ai-architecture" className="font-heading text-2xl font-semibold md:text-3xl">
                   {resolvedLocale === "de" ? "Technische Architektur" : "Technical architecture"}
                 </h2>
-                <p className="mt-4 text-cream/75 leading-relaxed">{architectureHighlight}</p>
+                <p className="mt-4 leading-relaxed text-cream/75">{architectureHighlight}</p>
                 <p className="mt-6 text-sm text-cream/55">
                   {resolvedLocale === "de" ? (
                     <>
                       Verwandte Leistung:{" "}
-                      <Link href="/services/workflow-automation" className="text-terracotta underline-offset-2 hover:underline">
+                      <Link href="/services/workflow-automation" className="text-sage underline-offset-2 hover:underline">
                         Workflow-Automatisierung Make n8n Deutschland
                       </Link>
                     </>
                   ) : (
                     <>
                       Related service:{" "}
-                      <Link href="/services/workflow-automation" className="text-terracotta underline-offset-2 hover:underline">
+                      <Link href="/services/workflow-automation" className="text-sage underline-offset-2 hover:underline">
                         Workflow automation Make n8n Germany
                       </Link>
                     </>
@@ -270,9 +270,9 @@ export default async function AIChatbotsPage({
                 </h2>
                 <div className="space-y-6">
                   {aeoFaq.map((item) => (
-                    <div key={item.question} className="rounded-2xl border border-stone/12 p-6 dark:border-stone-dark/20">
+                    <div key={item.question} className="panel p-6">
                       <h3 className="font-heading text-xl font-semibold">{item.question}</h3>
-                      <p className="mt-3 text-richblack/65 dark:text-cream/65 leading-relaxed">{item.answer}</p>
+                      <p className="mt-3 leading-relaxed text-cream/65">{item.answer}</p>
                     </div>
                   ))}
                 </div>
@@ -281,16 +281,17 @@ export default async function AIChatbotsPage({
           ) : null}
 
           <AnimatedSection>
-            <div className="mt-20 rounded-2xl bg-richblack p-10 text-center text-cream">
+            <div className="mt-20 border border-cream/10 bg-gradient-to-br from-charcoal to-richblack p-10 text-center">
               <h2 id="ai-cta" className="font-heading text-3xl font-bold">
                 {t("ctaHeading")}
               </h2>
               <p className="mt-3 text-cream/60">{t("ctaDescription")}</p>
               <Link
                 href="/contact"
-                className="mt-8 inline-flex items-center gap-2 rounded-full bg-terracotta px-8 py-3 font-heading font-medium text-white hover:bg-terracotta-light"
+                className="btn-signal mt-8"
               >
                 {t("ctaButton")}
+                <span aria-hidden="true">→</span>
               </Link>
             </div>
           </AnimatedSection>

@@ -53,10 +53,10 @@
   "Metadata": {
     "siteTitle": "XCLER — KI-Engineering, Webentwicklung & Automatisierung",
     "siteDescription": "Wir sind XCLER. Wir bieten KI-Chatbots und Agenten, Workflow-Automatisierung, Webentwicklung und App-Entwicklung fuer Unternehmen in Deutschland, DACH, den Niederlanden, Belgien und den von uns betreuten US-Maerkten inklusive Kalifornien, Florida und Chicago.",
-    "pageTitle": "XCLER — KI-Engineering, Web & Automatisierung",
-    "pageDescription": "Wir sind XCLER. Wir bieten KI-Chatbots und Agenten, Workflow-Automatisierung, Webentwicklung und App-Entwicklung fuer Unternehmen in Deutschland, DACH, den Niederlanden, Belgien und den von uns betreuten US-Maerkten inklusive Kalifornien, Florida und Chicago.",
-    "homeTitle": "KI-Chatbots und Automatisierung Agentur",
-    "homeDescription": "Wir bieten KI-Chatbots, RAG-Agenten, Make.com- und n8n-Automatisierung sowie Next.js-Entwicklung fuer Deutschland, DACH, die Niederlande, Belgien und betreute US-Maerkte."
+    "pageTitle": "XCLER — KI-Automatisierungsagentur",
+    "pageDescription": "XCLER ist eine KI-Automatisierungsagentur fuer Chatbots, Agenten und Workflows. Zusaetzlich liefern wir Web, Apps und Commerce fuer Deutschland, DACH, Benelux und remote US-Maerkte.",
+    "homeTitle": "KI-Automatisierung fuer Chatbots, Agenten und Workflows",
+    "homeDescription": "XCLER baut KI-Automatisierung fuer Chatbots, Agenten und Make/n8n-Workflows in Deutschland, DACH, Benelux und remote US — plus Web und Commerce bei Bedarf."
   },
   "home": {
     "heroTitle": "Wir bauen",
@@ -72,24 +72,25 @@
     "contactBtn": "Kontakt"
   },
   "Hero": {
-    "title": "Wir entwickeln KI-Systeme, Automatisierung und Webplattformen mit messbarem Wachstum.",
-    "subtitle": "Wir sind XCLER, eine Berliner Digitalagentur fuer KI-Engineering, Workflow-Automatisierung und Webentwicklung. Wir bieten KI-Chatbots und Agenten, Make.com- und n8n-Automatisierung sowie Next.js-Plattformen fuer B2B-Teams in Deutschland, DACH, den Niederlanden und Belgien — inklusive Berlin, Muenchen, Hamburg, Frankfurt, Koeln, Amsterdam, Rotterdam und Bruessel — sowie remote fuer US-Kunden in Kalifornien, Florida und Chicago.",
-    "headlineTop": "KI-Chatbots und Automatisierung Agentur",
+    "title": "KI-Automatisierung fuer Chatbots, Agenten und Workflows",
+    "subtitle": "XCLER ist eine KI-Automatisierungsagentur fuer Chatbots, Agenten und Workflows. Wir bauen RAG-Assistenten, KI-Call-Agenten sowie Make.com- und n8n-Automatisierungen fuer B2B-Teams in Deutschland, DACH, den Niederlanden und Belgien — inklusive Berlin, Muenchen, Hamburg, Frankfurt, Koeln, Amsterdam, Rotterdam und Bruessel — sowie remote fuer US-Kunden in Kalifornien, Florida und Chicago. Wenn Automatisierung eine Produktflaeche braucht, liefern wir auch Next.js-Web, Apps und Shopify-Commerce.",
+    "headlineTop": "KI-Automatisierung fuer Chatbots, Agenten und Workflows",
     "headlineBottom": "",
-    "cta": "Lassen Sie uns sprechen",
-    "availabilityBadge": "JETZT FÜR NEUE PROJEKTE VERFÜGBAR",
-    "lineOne": "Wir entwickeln",
-    "lineTwoPrefix": "die",
-    "lineTwoEmphasis": "Webentwicklung",
-    "lineTwoSuffix": "funktionieren.",
-    "description": "XCLER liefert KI-Engineering, Automatisierung und Webentwicklung aus einem Team. Wir verwandeln Geschaeftsziele in produktive Systeme — effizient, praezise und skalierbar fuer DACH und Remote-Projekte in den USA.",
-    "primaryCta": "Projekt anfragen",
+    "supportLine": "KI-Chatbots und Workflows, die Leads qualifizieren, Kunden antworten und Ops-Arbeit reduzieren — gebaut fuer Teams in Deutschland, DACH und darueber hinaus.",
+    "cta": "Mit XCLER automatisieren",
+    "availabilityBadge": "JETZT FUER NEUE PROJEKTE VERFUEGBAR",
+    "lineOne": "Wir automatisieren",
+    "lineTwoPrefix": "mit",
+    "lineTwoEmphasis": "KI-Systemen",
+    "lineTwoSuffix": "die liefern.",
+    "description": "XCLER liefert zuerst KI-Automatisierung — Chatbots, Agenten, RAG, Make.com und n8n — und danach Web, Apps und Commerce, wenn Ihr Produkt eine Flaeche braucht. Gebaut fuer DACH und Remote-US-Teams.",
+    "primaryCta": "Automatisierungs-Discovery starten",
     "secondaryCta": "Projekte ansehen",
     "scrollLabel": "Scrollen",
     "trust": {
-      "projectsFrom": "Projekte ab €150",
-      "experience": "3+ Jahre Erfahrung",
-      "region": "Deutschland, DACH & betreute US-Maerkte"
+      "projectsFrom": "Automatisierungsprojekte ab €150",
+      "experience": "3+ Jahre KI-Systeme in Produktion",
+      "region": "Deutschland, DACH, Benelux & remote US"
     },
     "rotatingWords": {
       "websites": "Websites",
@@ -100,15 +101,14 @@
       "stores": "Onlineshops"
     },
     "rotatingWordsList": [
-      "KI-Engineering",
       "KI-Chatbots & Agenten",
       "Workflow-Automatisierung",
       "RAG-KI-Systeme",
-      "Webentwicklung",
+      "Make.com & n8n",
+      "KI-Call-Agenten",
+      "Next.js-Webplattformen",
       "App-Entwicklung",
-      "Shopify-Entwicklung",
-      "SaaS-Entwicklung",
-      "Headless Commerce"
+      "Shopify & WordPress"
     ]
   },
   "Services": {
@@ -139,43 +139,43 @@
     }
   },
   "HomeSeo": {
-    "eyebrow": "Worauf wir uns fokussieren",
-    "intro": "Wir sind XCLER, eine Berliner Digitalagentur fuer KI-Engineering, Workflow-Automatisierung und Webentwicklung. Wir bieten KI-Chatbots und Agenten, Make.com- und n8n-Automatisierung sowie Next.js-Plattformen fuer B2B-Teams in Deutschland, DACH, den Niederlanden und Belgien — inklusive Berlin, Muenchen, Hamburg, Frankfurt, Koeln, Amsterdam, Rotterdam und Bruessel — sowie remote fuer US-Kunden in Kalifornien, Florida und Chicago.",
+    "eyebrow": "Zuerst KI-Automatisierung",
+    "intro": "XCLER ist eine KI-Automatisierungsagentur fuer Chatbots, Agenten und Workflows. Wir bauen RAG-Assistenten, KI-Call-Agenten sowie Make.com- und n8n-Automatisierungen fuer B2B-Teams in Deutschland, DACH, den Niederlanden und Belgien — inklusive Berlin, Muenchen, Hamburg, Frankfurt, Koeln, Amsterdam, Rotterdam und Bruessel — sowie remote fuer US-Kunden in Kalifornien, Florida und Chicago. Wenn Automatisierung eine Produktflaeche braucht, liefern wir auch Next.js-Web, Apps und Shopify-Commerce.",
     "pillars": {
       "ai": {
         "title": "KI-Chatbots & Agenten",
-        "body": "Wir entwickeln RAG-Agenten, LLM-Chatbots und autonome Assistenten fuer Support, Lead-Qualifizierung und Operations. XCLER liefert produktive KI-Systeme fuer Teams in Deutschland und ausgewaehlten US-Maerkten.",
+        "body": "Produktive RAG-Agenten, LLM-Chatbots und KI-Call-Assistenten fuer Support, Lead-Qualifizierung und Operations in Deutschland und remote US-Maerkten.",
         "href": "/services/ai-chatbots-agents",
         "cta": "KI-Agenten entdecken"
       },
       "workflow": {
         "title": "Workflow-Automatisierung",
-        "body": "Wir automatisieren Umsatz und Operations mit Make.com, n8n, Zapier und GoHighLevel. XCLER verbindet Ihre Tools, damit Arbeit ohne manuelle Handoffs laeuft — in DACH und remote in den USA.",
+        "body": "Make.com-, n8n-, Zapier- und GoHighLevel-Szenarien, die manuelle Handoffs entfernen und CRM, Messaging, Billing und Ops synchronisieren.",
         "href": "/services/workflow-automation",
         "cta": "Automatisierung entdecken"
       },
       "shopify": {
         "title": "Shopify & Headless Commerce",
-        "body": "Wir bauen performante Shopify-Architekturen fuer B2B und D2C, inklusive Headless-Frontends mit Next.js und conversion-first Struktur.",
+        "body": "Commerce-Builds, wenn Ihr Automatisierungsstack einen conversion-starken Storefront braucht — Shopify, WordPress oder Headless Next.js.",
         "href": "/services/wordpress-shopify",
         "cta": "Commerce entdecken"
       },
       "next": {
-        "title": "Next.js Webentwicklung",
-        "body": "Wir entwickeln Next.js-Frontends fuer Geschwindigkeit, Core Web Vitals und nachhaltiges SEO auf High-Intent-Landingpages in Deutschland und darueber hinaus.",
+        "title": "Next.js Web & Apps",
+        "body": "Performante Web- und App-Flaechen, die Ihre KI- und Automatisierungssysteme mit starken Core Web Vitals fuer Kunden sichtbar machen.",
         "href": "/services/web-development",
         "cta": "Webentwicklung entdecken"
       }
     },
-    "citablePassage": "XCLER bietet KI-Chatbots und Agenten, Workflow-Automatisierung und performante Webentwicklung in einem verantwortlichen Team. Wir bauen RAG-Systeme, verbinden Make.com- und n8n-Szenarien mit CRM und Ops-Tools und liefern Next.js-Erlebnisse mit starken Core Web Vitals. Unser Primaermarkt ist Deutschland und die DACH-Region aus Berlin, Muenchen, Hamburg und Frankfurt, und wir liefern remote fuer Teams in den Niederlanden und Belgien inklusive Amsterdam, Rotterdam, Utrecht und Bruessel sowie Kalifornien, Florida und Chicago, ohne lokale Storefronts zu erfinden. Jedes Projekt startet mit klarem Scope, Meilensteinen und First-Person-Ownership bis zum Production-Monitoring. delivery milestones evaluation harnesses retrieval quality human escalation measurable outcomes Germany Netherlands Belgium. Wir dokumentieren Delivery-Meilensteine, Evaluation Harnesses, Retrieval Qualitaet, Human Escalation und messbare Outcomes fuer Deutschland, Oesterreich, die Schweiz, die Niederlande, Belgien, Kalifornien, Florida und Chicago. Wir dokumentieren Delivery-Meilensteine, Evaluation Harnesses, Retrieval Qualitaet, Human Escalation und messbare Outcomes fuer Deutschland, Oesterreich, die Schweiz, die Niederlande, Belgien, Kalifornien, Florida und Chicago.",
-    "answerHeading": "Was bietet XCLER fuer KI und Automatisierung?",
-    "listTitle": "Leistungen, die wir liefern",
+    "citablePassage": "XCLER fokussiert KI-Automatisierung fuer Chatbots, Agenten und Workflows und ergaenzt Web, Apps und Commerce, wenn eine Produktflaeche noetig ist. Wir bauen RAG-Systeme mit Evaluation Harnesses, verbinden Make.com- und n8n-Szenarien mit CRM und Ops-Tools und halten Human-Escalation fuer sensible Faelle. Unser Primaermarkt ist Deutschland und die DACH-Region aus Berlin, Muenchen, Hamburg, Frankfurt und Koeln, und wir liefern remote fuer Amsterdam, Rotterdam, Utrecht, Bruessel, Kalifornien, Florida und Chicago, ohne lokale Storefronts zu erfinden. Projekte starten mit klarem Scope, Meilensteinen und First-Person-Ownership bis zum Production-Monitoring. Wir dokumentieren Delivery-Meilensteine, Evaluation Harnesses, Retrieval Qualitaet, Human Escalation und messbare Outcomes fuer Deutschland, Oesterreich, die Schweiz, die Niederlande, Belgien, Kalifornien, Florida und Chicago, damit Entscheider den Fit vor dem Discovery-Call vergleichen koennen. Entscheider erhalten bilinguale DE- und EN-Delivery-Dokumentation mit klarer Ownership ab Sprint eins. So bleibt der Fit fuer KI-Automatisierung in DACH und Benelux transparent.",
+    "answerHeading": "Welche KI-Automatisierung liefert XCLER?",
+    "listTitle": "Automatisierung zuerst",
     "listItems": [
       "KI-Chatbots und Agenten mit RAG und Evaluation",
       "Workflow-Automatisierung mit Make.com, n8n, Zapier und GoHighLevel",
-      "Next.js-Webentwicklung mit Fokus auf Core Web Vitals",
-      "Custom SaaS und App-Entwicklung",
-      "Shopify- und WordPress-Commerce"
+      "KI-Call-Agenten fuer Qualifizierung und Support-Handoffs",
+      "Next.js-Webentwicklung, wenn Automatisierung eine Flaeche braucht",
+      "Custom SaaS, Apps sowie Shopify- und WordPress-Commerce"
     ]
   },
   "Process": {

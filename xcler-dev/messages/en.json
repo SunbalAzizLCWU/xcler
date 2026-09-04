@@ -53,10 +53,10 @@
   "Metadata": {
     "siteTitle": "XCLER — AI Engineering, Web Development & Automation Agency",
     "siteDescription": "We are XCLER. We offer AI chatbots and agents, workflow automation, web development, and app development for businesses in Germany, DACH, the Netherlands, Belgium, and the US markets we serve including California, Florida, and Chicago.",
-    "pageTitle": "XCLER — AI Engineering, Web & Automation Agency",
-    "pageDescription": "We are XCLER. We offer AI chatbots and agents, workflow automation, web development, and app development for businesses in Germany, DACH, the Netherlands, Belgium, and the US markets we serve including California, Florida, and Chicago.",
-    "homeTitle": "AI chatbots and automation agency",
-    "homeDescription": "We offer AI chatbots, RAG agents, Make.com and n8n automation, and Next.js development for Germany, DACH, the Netherlands, Belgium, and US markets we serve."
+    "pageTitle": "XCLER — AI Automation Agency",
+    "pageDescription": "XCLER is an AI automation agency for chatbots, agents, and workflows. We also deliver web, apps, and commerce for Germany, DACH, Benelux, and remote US markets.",
+    "homeTitle": "AI Automation for Chatbots, Agents & Workflows",
+    "homeDescription": "XCLER builds AI automation for chatbots, agents and Make/n8n workflows across Germany, DACH, Benelux and remote US — plus web and commerce when needed."
   },
   "home": {
     "heroTitle": "We build",
@@ -72,24 +72,25 @@
     "contactBtn": "Let's Talk"
   },
   "Hero": {
-    "title": "We build AI systems, automation, and web platforms that drive growth.",
-    "subtitle": "We are XCLER, a Berlin digital agency for AI engineering, workflow automation, and web development. We offer AI chatbots and agents, Make.com and n8n automation, and Next.js platforms for B2B teams across Germany, DACH, the Netherlands, and Belgium — including Berlin, Munich, Hamburg, Frankfurt, Cologne, Amsterdam, Rotterdam, and Brussels — plus remote US clients in California, Florida, and Chicago.",
-    "headlineTop": "AI chatbots and automation agency",
+    "title": "AI Automation for Chatbots, Agents & Workflows",
+    "subtitle": "XCLER is an AI automation agency for chatbots, agents and workflows. We build RAG assistants, AI call agents, and Make.com / n8n automations for B2B teams across Germany, DACH, the Netherlands and Belgium — including Berlin, Munich, Hamburg, Frankfurt, Cologne, Amsterdam, Rotterdam and Brussels — plus remote US clients in California, Florida and Chicago. When automation needs a product surface, we also ship Next.js web, apps and Shopify commerce.",
+    "headlineTop": "AI Automation for Chatbots, Agents & Workflows",
     "headlineBottom": "",
-    "cta": "Let's Talk",
+    "supportLine": "AI chatbots and workflows that qualify leads, answer customers, and cut ops work — built for teams in Germany, DACH and beyond.",
+    "cta": "Automate with XCLER",
     "availabilityBadge": "AVAILABLE FOR NEW PROJECTS",
-    "lineOne": "We build",
-    "lineTwoPrefix": "that",
-    "lineTwoEmphasis": "Web Development",
-    "lineTwoSuffix": "work.",
-    "description": "XCLER delivers AI engineering, automation, and web development in one team. We turn business goals into production systems — efficient delivery, precise execution, built to scale across DACH and remote US engagements.",
-    "primaryCta": "Request a Project",
+    "lineOne": "We automate",
+    "lineTwoPrefix": "with",
+    "lineTwoEmphasis": "AI systems",
+    "lineTwoSuffix": "that ship.",
+    "description": "XCLER delivers AI automation first — chatbots, agents, RAG, Make.com and n8n — then web, apps and commerce when your product needs a surface. Built for DACH and remote US teams.",
+    "primaryCta": "Start Automation Discovery",
     "secondaryCta": "View Our Work",
     "scrollLabel": "Scroll",
     "trust": {
-      "projectsFrom": "Projects from €150",
-      "experience": "3+ Years Experience",
-      "region": "Germany, DACH & US markets we serve"
+      "projectsFrom": "Automation projects from €150",
+      "experience": "3+ years shipping AI systems",
+      "region": "Germany, DACH, Benelux & remote US"
     },
     "rotatingWords": {
       "websites": "Websites",
@@ -100,15 +101,14 @@
       "stores": "Stores"
     },
     "rotatingWordsList": [
-      "AI Engineering",
       "AI Chatbots & Agents",
       "Workflow Automation",
       "RAG AI Systems",
-      "Web Development",
+      "Make.com & n8n",
+      "AI Call Agents",
+      "Next.js Web Platforms",
       "App Development",
-      "Shopify Development",
-      "SaaS Development",
-      "Headless Commerce"
+      "Shopify & WordPress"
     ]
   },
   "Services": {
@@ -139,43 +139,43 @@
     }
   },
   "HomeSeo": {
-    "eyebrow": "What we focus on",
-    "intro": "We are XCLER, a Berlin digital agency for AI engineering, workflow automation, and web development. We offer AI chatbots and agents, Make.com and n8n automation, and Next.js platforms for B2B teams across Germany, DACH, the Netherlands, and Belgium — including Berlin, Munich, Hamburg, Frankfurt, Cologne, Amsterdam, Rotterdam, and Brussels — plus remote US clients in California, Florida, and Chicago.",
+    "eyebrow": "AI automation first",
+    "intro": "XCLER is an AI automation agency for chatbots, agents and workflows. We build RAG assistants, AI call agents, and Make.com / n8n automations for B2B teams across Germany, DACH, the Netherlands and Belgium — including Berlin, Munich, Hamburg, Frankfurt, Cologne, Amsterdam, Rotterdam and Brussels — plus remote US clients in California, Florida and Chicago. When automation needs a product surface, we also ship Next.js web, apps and Shopify commerce.",
     "pillars": {
       "ai": {
         "title": "AI Chatbots & Agents",
-        "body": "We build RAG agents, LLM chatbots, and autonomous assistants for support, lead qualification, and operations. XCLER designs production AI systems for teams in Germany, California, Florida, and Chicago.",
+        "body": "Production RAG agents, LLM chatbots, and AI call assistants for support, lead qualification, and operations across Germany and remote US markets.",
         "href": "/services/ai-chatbots-agents",
         "cta": "Explore AI Agents"
       },
       "workflow": {
         "title": "Workflow Automation",
-        "body": "We automate revenue and operations with Make.com, n8n, Zapier, and GoHighLevel. XCLER connects your tools so work moves without manual handoffs across DACH and remote US clients.",
+        "body": "Make.com, n8n, Zapier, and GoHighLevel scenarios that remove manual handoffs and sync CRM, messaging, billing, and ops.",
         "href": "/services/workflow-automation",
         "cta": "Explore Automation"
       },
       "shopify": {
         "title": "Shopify & Headless Commerce",
-        "body": "We build high-performance Shopify architectures for B2B and D2C, including headless Next.js frontends and conversion-first structure.",
+        "body": "Commerce builds when your automation stack needs a conversion-ready storefront — Shopify, WordPress, or headless Next.js.",
         "href": "/services/wordpress-shopify",
         "cta": "Explore Commerce"
       },
       "next": {
-        "title": "Next.js Web Development",
-        "body": "We engineer Next.js frontends for speed, Core Web Vitals, and durable SEO across high-intent landing pages in Germany and beyond.",
+        "title": "Next.js Web & Apps",
+        "body": "High-performance web and app surfaces that present your AI and automation systems to customers with strong Core Web Vitals.",
         "href": "/services/web-development",
         "cta": "Explore Web Development"
       }
     },
-    "citablePassage": "XCLER offers AI chatbots and agents, workflow automation, and high-performance web development in one accountable team. We engineer RAG systems, connect Make.com and n8n scenarios to CRM and ops tools, and ship Next.js experiences with strong Core Web Vitals. Our primary market is Germany and the DACH region from Berlin, Munich, Hamburg, and Frankfurt, and we also deliver remotely for clients in the Netherlands and Belgium including Amsterdam, Rotterdam, Utrecht, and Brussels, plus California, Florida, and Chicago without inventing fake local offices. Every engagement starts with clear scope, milestones, and first-person ownership from discovery through production monitoring. delivery milestones evaluation harnesses retrieval quality human escalation measurable outcomes Germany Netherlands Belgium. We document delivery milestones, evaluation harnesses, retrieval quality, human escalation paths, and measurable outcomes for Germany, Austria, Switzerland, the Netherlands, Belgium, California, Florida, and Chicago.",
-    "answerHeading": "What does XCLER offer for AI and automation?",
-    "listTitle": "Services we deliver",
+    "citablePassage": "XCLER focuses on AI automation for chatbots, agents, and workflows, then layers web, apps, and commerce when a product surface is required. We engineer RAG systems with evaluation harnesses, connect Make.com and n8n scenarios to CRM and ops tools, and keep human escalation paths for sensitive cases. Our primary market is Germany and the DACH region from Berlin, Munich, Hamburg, Frankfurt, and Cologne, and we deliver remotely for Amsterdam, Rotterdam, Utrecht, Brussels, California, Florida, and Chicago without inventing fake local offices. Engagements start with clear scope, milestones, and first-person ownership from discovery through production monitoring. We document delivery milestones, evaluation harnesses, retrieval quality, human escalation paths, and measurable outcomes for Germany, Austria, Switzerland, the Netherlands, Belgium, California, Florida, and Chicago so buyers can compare fit before a discovery call. Buyers get bilingual DE and EN delivery documentation with ownership clear from sprint one.",
+    "answerHeading": "What AI automation does XCLER deliver?",
+    "listTitle": "Automation-first services",
     "listItems": [
       "AI chatbots and agents with RAG and evaluation",
       "Workflow automation on Make.com, n8n, Zapier, and GoHighLevel",
-      "Next.js web development with Core Web Vitals focus",
-      "Custom SaaS and app development",
-      "Shopify and WordPress commerce builds"
+      "AI call agents for qualification and support handoffs",
+      "Next.js web development when automation needs a surface",
+      "Custom SaaS, apps, and Shopify / WordPress commerce"
     ]
   },
   "Process": {

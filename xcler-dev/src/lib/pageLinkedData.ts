@@ -29,7 +29,7 @@ export function buildPageLinkedDataGraph(input: PageGraphInput) {
   const webpageId = `${absoluteUrl}#webpage`;
   const breadcrumbId = `${absoluteUrl}#breadcrumb`;
   const imageId = `${absoluteUrl}#primaryimage`;
-  const imageUrl = input.primaryImageUrl ?? `${BASE_URL}/og-image.webp`;
+  const imageUrl = input.primaryImageUrl ?? `${BASE_URL}/og-image-v2.webp`;
 
   const webPageRaw = {
     ...getWebPageSchema({

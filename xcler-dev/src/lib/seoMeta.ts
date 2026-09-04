@@ -48,10 +48,10 @@ export function buildPageMetadata({
       siteName: "XCLER",
       images: [
         {
-          url: "/og-image.webp",
+          url: "/og-image-v2.webp",
           width: 1200,
           height: 630,
-          alt: "XCLER — Web, AI & Automation Agency",
+          alt: "XCLER — AI Automation for Chatbots, Agents & Workflows",
         },
       ],
     },
@@ -63,7 +63,7 @@ export function buildPageMetadata({
       card: "summary_large_image",
       title: cleanTitle,
       description,
-      images: ["/og-image.webp"],
+      images: ["/og-image-v2.webp"],
     },
     robots: noIndex
       ? { index: false, follow: false }

@@ -1,27 +1,42 @@
+"use client";
+
+import { useState } from "react";
+
 const industries = [
-  "HEALTHCARE",
-  "RESTAURANTS",
-  "E-COMMERCE",
-  "EDUCATION",
-  "DENTAL",
-  "SaaS",
-  "STARTUPS",
-  "REAL ESTATE",
+  "AI ENGINEERING",
+  "RAG SYSTEMS",
+  "WORKFLOW AUTOMATION",
+  "N8N · MAKE",
+  "NEXT.JS",
+  "B2B PLATFORMS",
+  "DACH",
+  "BENELUX",
+  "AI CHATBOTS",
+  "AGENTS",
 ];
 
 export function LogoMarquee() {
-  const repeatedIndustries = [...industries, ...industries];
+  const repeated = [...industries, ...industries];
+  const [paused, setPaused] = useState(false);
 
   return (
-    <section className="relative border-y border-stone/10 dark:border-stone-dark/10 py-6 overflow-hidden">
-      <div className="flex w-max animate-marquee">
-        {repeatedIndustries.map((industry, i) => (
+    <section
+      className="relative overflow-hidden border-y border-cream/10 bg-charcoal/40 py-5"
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
+      aria-label="Capabilities"
+    >
+      <div
+        className="flex w-max animate-marquee"
+        style={{ animationPlayState: paused ? "paused" : "running" }}
+      >
+        {repeated.map((item, i) => (
           <span
-            key={`${industry}-${i}`}
-            className="flex shrink-0 items-center gap-4 px-4 font-heading text-sm tracking-[0.3em] text-richblack/70 dark:text-cream/80"
+            key={`${item}-${i}`}
+            className="flex shrink-0 items-center gap-5 px-5 font-mono text-[11px] tracking-[0.35em] text-cream/55 transition-colors hover:text-sage"
           >
-            {industry}
-            <span className="h-1.5 w-1.5 rounded-full bg-terracotta/85" />
+            {item}
+            <span className="h-1.5 w-1.5 bg-sage shadow-[0_0_8px_rgba(45,255,154,0.7)]" />
           </span>
         ))}
       </div>

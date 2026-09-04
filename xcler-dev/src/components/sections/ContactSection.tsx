@@ -86,29 +86,28 @@ export function ContactSection() {
   };
 
   return (
-    <section className="section-padding bg-cream dark:bg-richblack" id="contact">
+    <section className="section-padding" id="contact">
       <div className="container-custom">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-          {/* Left */}
+        <div className="grid grid-cols-1 gap-16 lg:grid-cols-2">
           <AnimatedSection>
-            <div className="flex items-center gap-4 mb-4">
+            <div className="mb-4 flex items-center gap-4">
               <div className="line-decoration" />
-              <span className="font-mono text-xs tracking-[0.3em] text-richblack/40 dark:text-cream/40 uppercase">
+              <span className="font-mono text-xs uppercase tracking-[0.3em] text-stone-light">
                 {t("eyebrow")}
               </span>
             </div>
-            <h2 className="font-heading text-4xl md:text-5xl font-bold tracking-tight text-richblack dark:text-white">
+            <h2 className="font-heading text-4xl font-bold tracking-tight text-cream md:text-5xl">
               {t("headingLine1")}
               <br />
-              <span className="text-terracotta">{t("headingLine2")}</span>
+              <span className="text-gradient-signal">{t("headingLine2")}</span>
             </h2>
-            <p className="mt-4 text-lg text-richblack dark:text-gray-200 max-w-md">
+            <p className="mt-4 max-w-md text-lg text-cream/70">
               {t("description")}
             </p>
 
             <div className="mt-10 space-y-6">
               <div className="flex items-center gap-4">
-                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-stone/10 dark:bg-stone-dark/10">
+                <div className="flex h-10 w-10 items-center justify-center border border-cream/10 bg-cream/5">
                   <svg
                     className="h-5 w-5 text-terracotta"
                     fill="none"
@@ -124,12 +123,12 @@ export function ContactSection() {
                   </svg>
                 </div>
                 <div>
-                  <p className="text-xs text-richblack dark:text-gray-300">
+                  <p className="text-xs text-cream/55">
                     Email
                   </p>
                   <a
                     href="mailto:hello@xcler.dev"
-                    className="font-medium text-richblack dark:text-white hover:text-terracotta transition-colors"
+                    className="font-medium text-cream transition-colors hover:text-sage"
                   >
                     hello@xcler.dev
                   </a>
@@ -137,7 +136,7 @@ export function ContactSection() {
               </div>
 
               <div className="flex items-center gap-4">
-                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-stone/10 dark:bg-stone-dark/10">
+                <div className="flex h-10 w-10 items-center justify-center border border-cream/10 bg-cream/5">
                   <svg
                     className="h-5 w-5 text-terracotta"
                     fill="currentColor"
@@ -147,12 +146,12 @@ export function ContactSection() {
                   </svg>
                 </div>
                 <div>
-                  <p className="text-xs text-richblack dark:text-gray-300">
+                  <p className="text-xs text-cream/55">
                     WhatsApp
                   </p>
                   <a
                     href="https://wa.me/923154823517"
-                    className="font-medium text-richblack dark:text-white hover:text-terracotta transition-colors"
+                    className="font-medium text-cream transition-colors hover:text-sage"
                   >
                     +92 315 4823517
                   </a>
@@ -160,7 +159,7 @@ export function ContactSection() {
               </div>
 
               <div className="flex items-center gap-4">
-                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-stone/10 dark:bg-stone-dark/10">
+                <div className="flex h-10 w-10 items-center justify-center border border-cream/10 bg-cream/5">
                   <svg
                     className="h-5 w-5 text-terracotta"
                     fill="none"
@@ -181,10 +180,10 @@ export function ContactSection() {
                   </svg>
                 </div>
                 <div>
-                  <p className="text-xs text-richblack dark:text-gray-300">
+                  <p className="text-xs text-cream/55">
                     {t("locationLabel")}
                   </p>
-                  <p className="font-medium text-richblack dark:text-white">{t("locationValue")}</p>
+                  <p className="font-medium text-cream">{t("locationValue")}</p>
                 </div>
               </div>
             </div>
@@ -196,7 +195,7 @@ export function ContactSection() {
               <motion.div
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
-                className="flex h-full items-center justify-center rounded-2xl border border-sage/20 bg-sage/5 p-12 text-center"
+                className="flex h-full items-center justify-center rounded-none border border-sage/20 bg-sage/5 p-12 text-center"
               >
                 <div>
                   <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-sage/20">
@@ -214,10 +213,10 @@ export function ContactSection() {
                       />
                     </svg>
                   </div>
-                  <h3 className="font-heading text-2xl font-bold text-richblack dark:text-cream">
+                  <h3 className="font-heading text-2xl font-bold text-cream">
                     Message sent!
                   </h3>
-                    <p className="mt-2 text-richblack/65 dark:text-cream/75">
+                    <p className="mt-2 text-cream/70">
                     We&apos;ll get back to you within 24 hours. Check your
                     WhatsApp or email.
                   </p>
@@ -229,7 +228,7 @@ export function ContactSection() {
                 <div>
                   <label
                     htmlFor="contact-name"
-                    className="block text-sm font-medium mb-2 text-richblack dark:text-cream"
+                    className="block text-sm font-medium mb-2 text-cream"
                   >
                     {tForm("nameLabel")} <span className="text-terracotta">*</span>
                   </label>
@@ -241,7 +240,7 @@ export function ContactSection() {
                     required
                     value={formData.name}
                     onChange={handleChange}
-                    className="w-full rounded-xl border border-stone/20 dark:border-stone-dark/20 bg-transparent px-4 py-3 font-body text-sm outline-none transition-all focus:border-terracotta focus:ring-1 focus:ring-terracotta/20 placeholder:text-richblack/30 dark:placeholder:text-cream/30"
+                    className="w-full border border-cream/10 bg-charcoal/40 px-4 py-3 font-body text-sm text-cream outline-none transition-all placeholder:text-cream/30 focus:border-sage focus:ring-1 focus:ring-sage/20"
                     placeholder={tForm("namePlaceholder")}
                   />
                 </div>
@@ -250,7 +249,7 @@ export function ContactSection() {
                 <div>
                   <label
                     htmlFor="contact-email"
-                    className="block text-sm font-medium mb-2 text-richblack dark:text-cream"
+                    className="block text-sm font-medium mb-2 text-cream"
                   >
                     {tForm("emailLabel")} <span className="text-terracotta">*</span>
                   </label>
@@ -262,7 +261,7 @@ export function ContactSection() {
                     required
                     value={formData.email}
                     onChange={handleChange}
-                    className="w-full rounded-xl border border-stone/20 dark:border-stone-dark/20 bg-transparent px-4 py-3 font-body text-sm outline-none transition-all focus:border-terracotta focus:ring-1 focus:ring-terracotta/20 placeholder:text-richblack/30 dark:placeholder:text-cream/30"
+                    className="w-full border border-cream/10 bg-charcoal/40 px-4 py-3 font-body text-sm text-cream outline-none transition-all placeholder:text-cream/30 focus:border-sage focus:ring-1 focus:ring-sage/20"
                     placeholder={tForm("emailPlaceholder")}
                   />
                 </div>
@@ -271,7 +270,7 @@ export function ContactSection() {
                 <div>
                   <label
                     htmlFor="contact-company"
-                    className="block text-sm font-medium mb-2 text-richblack dark:text-cream"
+                    className="block text-sm font-medium mb-2 text-cream"
                   >
                     {tForm("companyLabel")}
                   </label>
@@ -282,7 +281,7 @@ export function ContactSection() {
                     autoComplete="organization"
                     value={formData.company}
                     onChange={handleChange}
-                    className="w-full rounded-xl border border-stone/20 dark:border-stone-dark/20 bg-transparent px-4 py-3 font-body text-sm outline-none transition-all focus:border-terracotta focus:ring-1 focus:ring-terracotta/20 placeholder:text-richblack/30 dark:placeholder:text-cream/30"
+                    className="w-full border border-cream/10 bg-charcoal/40 px-4 py-3 font-body text-sm text-cream outline-none transition-all placeholder:text-cream/30 focus:border-sage focus:ring-1 focus:ring-sage/20"
                     placeholder={tForm("companyPlaceholder")}
                   />
                 </div>
@@ -291,7 +290,7 @@ export function ContactSection() {
                 <div>
                   <label
                     htmlFor="service"
-                    className="block text-sm font-medium mb-2 text-richblack dark:text-cream"
+                    className="block text-sm font-medium mb-2 text-cream"
                   >
                     {tForm("serviceLabel")} {" "}
                     <span className="text-terracotta">*</span>
@@ -302,7 +301,7 @@ export function ContactSection() {
                     required
                     value={formData.service}
                     onChange={handleChange}
-                    className="w-full rounded-xl border border-stone/20 dark:border-stone-dark/20 bg-transparent px-4 py-3 font-body text-sm outline-none transition-all focus:border-terracotta focus:ring-1 focus:ring-terracotta/20 text-richblack dark:text-cream"
+                    className="w-full border border-cream/10 bg-charcoal/40 px-4 py-3 font-body text-sm text-cream outline-none transition-all focus:border-sage focus:ring-1 focus:ring-sage/20"
                   >
                     <option value="" disabled>
                       {tForm("servicePlaceholder")}
@@ -317,7 +316,7 @@ export function ContactSection() {
 
                 {/* Budget */}
                 <div>
-                  <label className="block text-sm font-medium mb-3 text-richblack dark:text-cream">
+                  <label className="block text-sm font-medium mb-3 text-cream">
                     {tForm("budgetLabel")}
                   </label>
                   <div className="flex flex-wrap gap-2">
@@ -331,10 +330,10 @@ export function ContactSection() {
                             budget: range,
                           }))
                         }
-                        className={`rounded-full border px-4 py-2 font-mono text-xs transition-all ${
+                        className={`border px-4 py-2 font-mono text-xs transition-all ${
                           formData.budget === range
-                            ? "border-terracotta bg-terracotta text-white"
-                            : "border-stone/20 dark:border-stone-dark/20 hover:border-terracotta"
+                            ? "border-sage bg-sage text-richblack"
+                            : "border-cream/10 hover:border-sage/50"
                         }`}
                       >
                         {range}
@@ -347,7 +346,7 @@ export function ContactSection() {
                 <div>
                   <label
                     htmlFor="message"
-                    className="block text-sm font-medium mb-2 text-richblack dark:text-cream"
+                    className="block text-sm font-medium mb-2 text-cream"
                   >
                     {tForm("messageLabel")} {" "}
                     <span className="text-terracotta">*</span>
@@ -359,7 +358,7 @@ export function ContactSection() {
                     rows={4}
                     value={formData.message}
                     onChange={handleChange}
-                    className="w-full rounded-xl border border-stone/20 dark:border-stone-dark/20 bg-transparent px-4 py-3 font-body text-sm outline-none transition-all focus:border-terracotta focus:ring-1 focus:ring-terracotta/20 resize-none placeholder:text-richblack/30 dark:placeholder:text-cream/30"
+                    className="w-full resize-none border border-cream/10 bg-charcoal/40 px-4 py-3 font-body text-sm text-cream outline-none transition-all placeholder:text-cream/30 focus:border-sage focus:ring-1 focus:ring-sage/20"
                     placeholder={tForm("messagePlaceholder")}
                   />
                 </div>
@@ -370,7 +369,7 @@ export function ContactSection() {
                   disabled={isSubmitting}
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  className="w-full rounded-xl bg-terracotta py-4 font-heading font-medium text-white transition-all hover:bg-terracotta-dark disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="btn-signal w-full disabled:cursor-not-allowed disabled:opacity-50"
                 >
                   {isSubmitting ? (
                     <span className="flex items-center justify-center gap-2">
@@ -400,7 +399,7 @@ export function ContactSection() {
                   )}
                 </motion.button>
 
-                <p className="text-center text-xs text-richblack/40 dark:text-cream/60">
+                <p className="text-center text-xs text-cream/45">
                   {tForm("footer")}
                 </p>
               </form>

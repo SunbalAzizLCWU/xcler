@@ -74,37 +74,33 @@ export async function Pricing({ locale }: { locale: string }) {
     <section className="section-padding pt-32">
       <div className="container-custom">
         <AnimatedSection>
-          <div className="text-center max-w-2xl mx-auto">
-            <div className="flex items-center justify-center gap-4 mb-4">
+          <div className="mx-auto max-w-2xl text-center">
+            <div className="mb-4 flex items-center justify-center gap-4">
               <div className="line-decoration" />
-              <span className="font-mono text-xs tracking-[0.3em] text-richblack/40 dark:text-cream/40 uppercase">
+              <span className="font-mono text-xs uppercase tracking-[0.3em] text-stone-light">
                 {t("eyebrow")}
               </span>
               <div className="line-decoration" />
             </div>
-            <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
+            <h1 className="font-heading text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl">
               {t("headingLine1")}
               <br />
-              <span className="text-terracotta">{t("headingLine2")}</span>
+              <span className="text-gradient-signal">{t("headingLine2")}</span>
             </h1>
-            <p className="mt-4 text-lg text-richblack/50 dark:text-cream/50">
-              {t("introDescription")}
-            </p>
+            <p className="mt-4 text-lg text-cream/60">{t("introDescription")}</p>
           </div>
         </AnimatedSection>
 
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="mt-16 grid grid-cols-1 gap-6 md:grid-cols-3">
           {packages.map((pkg, i) => (
             <AnimatedSection key={pkg.name} delay={i * 0.15} className="h-full">
               <div
-                className={`relative flex h-full flex-col rounded-2xl border p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl ${
-                  pkg.popular
-                    ? "border-terracotta bg-terracotta/5 dark:bg-terracotta/10"
-                    : "border-stone/10 dark:border-stone-dark/10 bg-white dark:bg-richblack/30"
+                className={`panel panel-hover relative flex h-full flex-col p-8 ${
+                  pkg.popular ? "border-sage/40 bg-sage/5" : ""
                 }`}
               >
                 {pkg.popular && (
-                  <span className="absolute -top-3 left-6 rounded-full bg-terracotta px-4 py-1 text-xs font-heading font-medium text-white">
+                  <span className="absolute -top-3 left-6 bg-sage px-4 py-1 font-heading text-xs font-medium text-richblack">
                     {t("popularBadge")}
                   </span>
                 )}
@@ -112,13 +108,9 @@ export async function Pricing({ locale }: { locale: string }) {
                 <h3 className="font-heading text-xl font-semibold">{pkg.name}</h3>
                 <div className="mt-4">
                   <span className="font-heading text-4xl font-bold">{pkg.price}</span>
-                  <span className="text-sm text-richblack/40 dark:text-cream/40 ml-2">
-                    {pkg.period}
-                  </span>
+                  <span className="ml-2 text-sm text-cream/40">{pkg.period}</span>
                 </div>
-                <p className="mt-2 text-sm text-richblack/50 dark:text-cream/50">
-                  {pkg.description}
-                </p>
+                <p className="mt-2 text-sm text-cream/55">{pkg.description}</p>
 
                 <ul className="mt-8 flex-1 space-y-3">
                   {pkg.features.map((feature) => (
@@ -134,17 +126,17 @@ export async function Pricing({ locale }: { locale: string }) {
                           clipRule="evenodd"
                         />
                       </svg>
-                      <span className="text-sm">{feature}</span>
+                      <span className="text-sm text-cream/80">{feature}</span>
                     </li>
                   ))}
                 </ul>
 
                 <Link
-                  href="/contact"
-                  className={`mt-8 block w-full rounded-xl py-3 text-center font-heading font-medium transition-all ${
+                  href={`/${locale}/contact`}
+                  className={`mt-8 block w-full py-3 text-center font-heading font-medium transition-all ${
                     pkg.popular
-                      ? "bg-terracotta text-white hover:bg-terracotta-dark"
-                      : "border border-stone/20 dark:border-stone-dark/20 hover:border-terracotta hover:text-terracotta"
+                      ? "btn-signal"
+                      : "btn-ghost"
                   }`}
                 >
                   {pkg.cta}
@@ -156,17 +148,17 @@ export async function Pricing({ locale }: { locale: string }) {
 
         <AnimatedSection>
           <div className="mt-20">
-            <h2 className="font-heading text-2xl font-bold text-center mb-8">
+            <h2 className="mb-8 text-center font-heading text-2xl font-bold">
               {t("addonsHeading")}
             </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-4xl mx-auto">
+            <div className="mx-auto grid max-w-4xl grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {addons.map((addon) => (
                 <div
                   key={addon.name}
-                  className="flex items-center justify-between rounded-xl border border-stone/10 dark:border-stone-dark/10 p-4"
+                  className="panel flex items-center justify-between p-4"
                 >
                   <span className="text-sm font-medium">{addon.name}</span>
-                  <span className="font-mono text-sm text-terracotta">{addon.price}</span>
+                  <span className="font-mono text-sm text-sage">{addon.price}</span>
                 </div>
               ))}
             </div>
@@ -175,11 +167,11 @@ export async function Pricing({ locale }: { locale: string }) {
 
         <AnimatedSection>
           <div className="mt-20 text-center">
-            <p className="text-richblack/50 dark:text-cream/50 text-lg">
-              {t("bottomCtaPrefix")} {" "}
+            <p className="text-lg text-cream/55">
+              {t("bottomCtaPrefix")}{" "}
               <a
                 href="https://wa.me/923154823517"
-                className="text-terracotta underline underline-offset-2"
+                className="text-sage underline underline-offset-2"
               >
                 {t("bottomCtaLink")}
               </a>{" "}

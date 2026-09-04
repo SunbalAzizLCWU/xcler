@@ -136,7 +136,7 @@ export function getGlobalSchema(locale: Locale) {
         "@type": ["LocalBusiness", "ProfessionalService"],
         "@id": BUSINESS_ID,
         name: "XCLER",
-        image: [`${BASE_URL}/og-image.webp`, { "@id": `${BASE_URL}#logo` }],
+        image: [`${BASE_URL}/og-image-v2.webp`, { "@id": `${BASE_URL}#logo` }],
         url: BASE_URL,
         telephone: "+923154823517",
         email: "hello@xcler.dev",

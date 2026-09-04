@@ -58,12 +58,12 @@ function BlogPageHeader({
     <header className="max-w-3xl">
       <div className="mb-4 flex items-center gap-4">
         <div className="line-decoration" />
-        <p className="font-mono text-xs uppercase tracking-[0.3em] text-richblack/40 dark:text-cream/40">
+        <p className="font-mono text-xs uppercase tracking-[0.3em] text-stone-light">
           {eyebrow}
         </p>
       </div>
       <h1 className="font-heading text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl">{title}</h1>
-      <p className="mt-6 max-w-2xl text-lg leading-relaxed text-richblack/50 dark:text-cream/50">
+      <p className="mt-6 max-w-2xl text-lg leading-relaxed text-cream/60">
         {description}
       </p>
     </header>
@@ -119,8 +119,8 @@ export default async function BlogPage({
         />
 
         {posts.length === 0 ? (
-          <div className="mt-16 rounded-2xl border border-dashed border-stone/20 dark:border-stone-dark/30 p-12 text-center">
-            <p className="text-richblack/50 dark:text-cream/50">{t("emptyState")}</p>
+          <div className="panel mt-16 border-dashed p-12 text-center">
+            <p className="text-cream/55">{t("emptyState")}</p>
           </div>
         ) : (
           <div className="mt-16 grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
@@ -133,11 +133,11 @@ export default async function BlogPage({
                 return (
                   <article
                     key={post._id}
-                    className="h-full overflow-hidden rounded-2xl border border-dashed border-stone/20 dark:border-stone-dark/20 bg-white dark:bg-richblack/30 p-6"
+                    className="panel h-full overflow-hidden border-dashed p-6"
                   >
                     <p className="font-heading text-xl font-semibold">{post.title}</p>
-                    <p className="mt-3 text-sm text-richblack/60 dark:text-cream/60">{post.excerpt}</p>
-                    <p className="mt-5 font-mono text-xs uppercase tracking-[0.2em] text-richblack/40 dark:text-cream/40">Missing Slug</p>
+                    <p className="mt-3 text-sm text-cream/60">{post.excerpt}</p>
+                    <p className="mt-5 font-mono text-xs uppercase tracking-[0.2em] text-cream/40">Missing Slug</p>
                   </article>
                 );
               }
@@ -149,8 +149,8 @@ export default async function BlogPage({
                   locale={locale as "en" | "de"}
                   className="group block"
                 >
-                <article className="h-full overflow-hidden rounded-2xl border border-stone/10 dark:border-stone-dark/10 bg-white dark:bg-richblack/30 transition-all duration-300 hover:-translate-y-1 hover:border-terracotta/30 hover:shadow-xl">
-                  <div className="relative h-52 w-full overflow-hidden bg-gradient-to-br from-stone/20 to-stone/5 dark:from-stone-dark/20 dark:to-stone-dark/5">
+                <article className="panel panel-hover h-full overflow-hidden">
+                  <div className="relative h-52 w-full overflow-hidden bg-gradient-to-br from-stone/20 to-stone/5">
                     {post.mainImage ? (
                       // eslint-disable-next-line @next/next/no-img-element
                       <img
@@ -161,7 +161,7 @@ export default async function BlogPage({
                       />
                     ) : (
                       <div className="flex h-full w-full items-center justify-center">
-                        <span className="font-mono text-xs uppercase tracking-[0.22em] text-richblack/30 dark:text-cream/35">
+                        <span className="font-mono text-xs uppercase tracking-[0.22em] text-cream/35">
                           {t("imageFallback")}
                         </span>
                       </div>
@@ -170,24 +170,24 @@ export default async function BlogPage({
 
                   <div className="p-6">
                     <div className="mb-3 flex items-center justify-between gap-3">
-                      <p className="text-xs uppercase tracking-[0.16em] text-richblack/35 dark:text-cream/35">
+                      <p className="text-xs uppercase tracking-[0.16em] text-cream/35">
                         {formatter.format(new Date(post.publishedAt))}
                       </p>
                       {post.authorName && (
-                        <p className="text-xs text-richblack/40 dark:text-cream/40">
+                        <p className="text-xs text-cream/40">
                           {t("byLabel")} {post.authorName}
                         </p>
                       )}
                     </div>
 
-                    <h2 className="font-heading text-2xl font-semibold transition-colors group-hover:text-terracotta">
+                    <h2 className="font-heading text-2xl font-semibold transition-colors group-hover:text-sage">
                       {post.title}
                     </h2>
-                    <p className="mt-3 line-clamp-3 text-sm leading-relaxed text-richblack/60 dark:text-cream/60">
+                    <p className="mt-3 line-clamp-3 text-sm leading-relaxed text-cream/60">
                       {post.excerpt}
                     </p>
 
-                    <p className="mt-5 font-mono text-xs uppercase tracking-[0.2em] text-terracotta">
+                    <p className="mt-5 font-mono text-xs uppercase tracking-[0.2em] text-sage">
                       {t("readArticle")}
                     </p>
                   </div>

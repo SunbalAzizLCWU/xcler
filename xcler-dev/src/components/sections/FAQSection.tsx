@@ -19,28 +19,27 @@ export function FAQSection() {
   ];
 
   return (
-    <section className="section-padding bg-cream dark:bg-richblack" id="faq">
+    <section className="section-padding" id="faq">
       <div className="container-custom">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-          {/* Left */}
+        <div className="grid grid-cols-1 gap-16 lg:grid-cols-2">
           <AnimatedSection>
             <div className="lg:sticky lg:top-32">
-              <div className="flex items-center gap-4 mb-4">
+              <div className="mb-4 flex items-center gap-4">
                 <div className="line-decoration" />
-                <span className="font-mono text-xs tracking-[0.3em] text-richblack/40 dark:text-cream/40 uppercase">
+                <span className="font-mono text-xs uppercase tracking-[0.3em] text-stone-light">
                   {t("eyebrow")}
                 </span>
               </div>
-              <h2 className="font-heading text-4xl md:text-5xl font-bold tracking-tight text-richblack dark:text-white">
+              <h2 className="font-heading text-4xl font-bold tracking-tight text-cream md:text-5xl">
                 {t("headingLine1")}
                 <br />
-                <span className="text-terracotta">{t("headingLine2")}</span>
+                <span className="text-gradient-signal">{t("headingLine2")}</span>
               </h2>
-              <p className="mt-4 text-richblack dark:text-gray-200">
-                {t("contactPrefix")} {" "}
+              <p className="mt-4 text-cream/70">
+                {t("contactPrefix")}{" "}
                 <a
                   href="https://wa.me/923154823517"
-                  className="text-terracotta underline underline-offset-2"
+                  className="text-sage underline underline-offset-2"
                 >
                   {t("contactLink")}
                 </a>
@@ -49,24 +48,22 @@ export function FAQSection() {
             </div>
           </AnimatedSection>
 
-          {/* Right */}
           <div className="space-y-0">
             {faqs.map((faq, i) => (
               <AnimatedSection key={i} delay={i * 0.1}>
-                <div className="border-b border-stone/10 dark:border-stone-dark/10">
+                <div className="border-b border-cream/10">
                   <button
-                    onClick={() =>
-                      setOpenIndex(openIndex === i ? null : i)
-                    }
-                    className="flex w-full items-start justify-between py-6 text-left group"
+                    onClick={() => setOpenIndex(openIndex === i ? null : i)}
+                    className="group flex w-full items-start justify-between py-6 text-left"
+                    type="button"
                   >
-                    <h3 className="font-heading text-lg font-medium pr-4 text-richblack dark:text-white group-hover:text-terracotta transition-colors">
+                    <h3 className="pr-4 font-heading text-lg font-medium text-cream transition-colors group-hover:text-sage">
                       {faq.question}
                     </h3>
                     <motion.svg
                       animate={{ rotate: openIndex === i ? 180 : 0 }}
                       transition={{ duration: 0.3 }}
-                      className="mt-1 h-5 w-5 shrink-0 text-stone dark:text-stone-light"
+                      className="mt-1 h-5 w-5 shrink-0 text-stone-light"
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
@@ -89,7 +86,7 @@ export function FAQSection() {
                         transition={{ duration: 0.3 }}
                         className="overflow-hidden"
                       >
-                        <p className="pb-6 text-richblack dark:text-gray-200 leading-relaxed">
+                        <p className="pb-6 leading-relaxed text-cream/70">
                           {faq.answer}
                         </p>
                       </motion.div>

@@ -120,7 +120,7 @@ export function ContactForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6 rounded-2xl border border-stone-dark/25 bg-richblack/70 p-6 md:p-8">
+    <form onSubmit={handleSubmit} className="space-y-6">
       <div>
         <label
           htmlFor="contact-page-name"
@@ -221,10 +221,10 @@ export function ContactForm() {
                   budget: range,
                 }))
               }
-              className={`rounded-full border px-4 py-2 font-mono text-xs transition-all ${
+              className={`border px-4 py-2 font-mono text-xs transition-all ${
                 formData.budget === range
-                  ? "border-terracotta bg-terracotta text-white"
-                  : "border-stone-dark/35 text-cream hover:border-terracotta"
+                  ? "border-sage bg-sage text-richblack"
+                  : "border-cream/15 text-cream hover:border-sage/50"
               }`}
             >
               {range}
@@ -257,7 +257,7 @@ export function ContactForm() {
         disabled={isSubmitting}
         whileHover={{ scale: 1.02 }}
         whileTap={{ scale: 0.98 }}
-        className="w-full rounded-xl bg-terracotta py-4 font-heading font-medium text-white transition-all hover:bg-terracotta-dark disabled:opacity-50 disabled:cursor-not-allowed"
+        className="btn-signal w-full disabled:cursor-not-allowed disabled:opacity-50"
       >
         {isSubmitting ? (
           <span className="flex items-center justify-center gap-2">

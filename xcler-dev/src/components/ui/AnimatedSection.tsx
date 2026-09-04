@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, useReducedMotion } from "framer-motion";
 import { useRef } from "react";
 import { cn } from "@/lib/utils";
 
@@ -18,15 +18,20 @@ export function AnimatedSection({
   direction = "up",
 }: AnimatedSectionProps) {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const reduceMotion = useReducedMotion();
+  const isInView = useInView(ref, { once: true, margin: "-80px" });
 
   const directions = {
-    up: { y: 40, x: 0 },
-    down: { y: -40, x: 0 },
-    left: { y: 0, x: -40 },
-    right: { y: 0, x: 40 },
+    up: { y: 48, x: 0 },
+    down: { y: -48, x: 0 },
+    left: { y: 0, x: -48 },
+    right: { y: 0, x: 48 },
     none: { y: 0, x: 0 },
   };
+
+  if (reduceMotion) {
+    return <div className={cn(className)}>{children}</div>;
+  }
 
   return (
     <motion.div
@@ -35,18 +40,20 @@ export function AnimatedSection({
         opacity: 0,
         y: directions[direction].y,
         x: directions[direction].x,
+        filter: "blur(8px)",
       }}
       animate={
         isInView
-          ? { opacity: 1, y: 0, x: 0 }
+          ? { opacity: 1, y: 0, x: 0, filter: "blur(0px)" }
           : {
               opacity: 0,
               y: directions[direction].y,
               x: directions[direction].x,
+              filter: "blur(8px)",
             }
       }
       transition={{
-        duration: 0.7,
+        duration: 0.85,
         delay,
         ease: [0.16, 1, 0.3, 1],
       }}

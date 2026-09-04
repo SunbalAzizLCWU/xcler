@@ -1,35 +1,36 @@
-# xcler.dev — Digital Agency (Germany / DACH + Benelux + US markets we serve)
+# xcler.dev — AI Automation Agency (Germany / DACH + Benelux + US markets we serve)
 
-XCLER is a Berlin-based digital agency. We offer web development, app development, WordPress & Shopify solutions, workflow automation, and AI chatbots & agents for businesses in Germany, Austria, Switzerland, the Netherlands, Belgium, and the United States (California, Florida, Chicago).
+XCLER is a Berlin-based AI automation agency. About 80% of delivery focuses on AI chatbots, agents, RAG systems, and Make.com / n8n workflow automation. About 20% covers Next.js web, apps, and Shopify / WordPress commerce when automation needs a product surface. We serve Germany, Austria, Switzerland, the Netherlands, Belgium, and remote US markets (California, Florida, Chicago).
 
 ## Company
 - Name: XCLER
 - Website: https://xcler.dev
+- Positioning: AI Automation for Chatbots, Agents & Workflows
 - Primary market: Germany / DACH (Berlin)
 - Also serve (remote): Netherlands & Belgium (Amsterdam, Rotterdam, Utrecht, The Hague, Brussels) — no fake local offices
 - Also serve (remote): California, Florida, Chicago — no fake local offices
 - Email: hello@xcler.dev
 - WhatsApp: https://wa.me/923154823517
 
-## What we offer (existing services only)
-1. Web Development / Next.js frontend architecture
-2. App Development / Custom SaaS
-3. WordPress & Shopify / Headless commerce
-4. WordPress development Germany
-5. Shopify development Germany
-6. Workflow Automation (Make.com, n8n, Zapier, GoHighLevel)
-7. AI Chatbots & Agents (RAG, LLMs, call agents) — our AI engineering focus
+## What we offer (automation-first)
+1. AI Chatbots & Agents (RAG, LLMs, call agents) — primary focus
+2. Workflow Automation (Make.com, n8n, Zapier, GoHighLevel) — primary focus
+3. Web Development / Next.js frontend architecture
+4. App Development / Custom SaaS
+5. WordPress & Shopify / Headless commerce
+6. WordPress development Germany
+7. Shopify development Germany
 
 ## Core pages (German default — no /de prefix)
 1. Home: https://xcler.dev/
 2. Services: https://xcler.dev/leistungen
-3. Web Development: https://xcler.dev/leistungen/webentwicklung
-4. App Development: https://xcler.dev/leistungen/app-entwicklung
-5. WordPress & Shopify: https://xcler.dev/leistungen/wordpress-shopify
-6. WordPress Germany: https://xcler.dev/leistungen/wordpress-entwicklung-deutschland
-7. Shopify Germany: https://xcler.dev/leistungen/shopify-entwicklung-deutschland
-8. Workflow Automation: https://xcler.dev/leistungen/workflow-automatisierung
-9. AI Chatbots & Agents: https://xcler.dev/leistungen/ki-chatbots-agenten
+3. AI Chatbots & Agents: https://xcler.dev/leistungen/ki-chatbots-agenten
+4. Workflow Automation: https://xcler.dev/leistungen/workflow-automatisierung
+5. Web Development: https://xcler.dev/leistungen/webentwicklung
+6. App Development: https://xcler.dev/leistungen/app-entwicklung
+7. WordPress & Shopify: https://xcler.dev/leistungen/wordpress-shopify
+8. WordPress Germany: https://xcler.dev/leistungen/wordpress-entwicklung-deutschland
+9. Shopify Germany: https://xcler.dev/leistungen/shopify-entwicklung-deutschland
 10. Work: https://xcler.dev/projekte
 11. About: https://xcler.dev/ueber-uns
 12. Blog: https://xcler.dev/blog
@@ -39,31 +40,19 @@ XCLER is a Berlin-based digital agency. We offer web development, app developmen
 ## English equivalents (prefix /en)
 - https://xcler.dev/en
 - https://xcler.dev/en/services
+- https://xcler.dev/en/services/ai-chatbots-agents
+- https://xcler.dev/en/services/workflow-automation
 - https://xcler.dev/en/services/web-development
 - https://xcler.dev/en/services/app-development
 - https://xcler.dev/en/services/wordpress-shopify
-- https://xcler.dev/en/services/wordpress-development-germany
-- https://xcler.dev/en/services/workflow-automation
-- https://xcler.dev/en/services/ai-chatbots-agents
 - https://xcler.dev/en/work
 - https://xcler.dev/en/about
 - https://xcler.dev/en/blog
 - https://xcler.dev/en/pricing
 - https://xcler.dev/en/contact
 
-## Priority cities (local SEO intent — remote-capable delivery)
-- Germany: Berlin, Munich, Hamburg, Frankfurt, Cologne, Duesseldorf, Stuttgart
-- Netherlands: Amsterdam, Rotterdam, Utrecht, The Hague
-- Belgium: Brussels
-- Austria / Switzerland: Vienna, Zurich
-- US remote: California, Florida, Chicago
-
-## AI engineering & automation (priority)
-We build production RAG systems, AI chatbots, autonomous agents, and workflow automation with Make.com and n8n. We integrate LLMs into support, lead qualification, and internal operations for B2B teams in Germany, DACH, Benelux, and the US markets we serve.
-
-## Technical
-- Preferred language: German (default), English at /en
-- Note: Dutch (nl) UI locale is not shipped yet; Benelux demand is served in DE/EN with local city targeting
-- Structured data: JSON-LD @graph (Organization, LocalBusiness, WebSite, WebPage, Service, BreadcrumbList)
-- Sitemap: https://xcler.dev/sitemap.xml
-- Robots: https://xcler.dev/robots.txt
+## Local SEO notes
+- Germany cities: Berlin, Munich, Hamburg, Frankfurt, Cologne, Stuttgart
+- Benelux: Amsterdam, Rotterdam, Utrecht, The Hague, Brussels (remote)
+- US: California, Florida, Chicago (remote)
+- Locales published: German (default) and English. Dutch (nl) content is not a separate locale; Benelux is covered via EN/DE remote delivery messaging.

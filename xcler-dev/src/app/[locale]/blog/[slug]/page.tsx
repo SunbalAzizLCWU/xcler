@@ -85,7 +85,7 @@ type BlogSlugRow = {
 type Locale = "en" | "de";
 
 const BASE_URL = "https://xcler.dev";
-const FALLBACK_OG_IMAGE = `${BASE_URL}/og-image.webp`;
+const FALLBACK_OG_IMAGE = `${BASE_URL}/og-image-v2.webp`;
 
 const toIsoDurationMinutes = (minutes?: number) => {
   if (!Number.isFinite(minutes)) return undefined;

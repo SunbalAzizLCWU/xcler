@@ -34,7 +34,7 @@ export default async function AboutPage({
           <div className="max-w-3xl">
             <div className="mb-4 flex items-center gap-4">
               <div className="line-decoration" />
-              <span className="font-mono text-xs uppercase tracking-[0.3em] text-richblack/40 dark:text-cream/40">
+              <span className="font-mono text-xs uppercase tracking-[0.3em] text-stone-light">
                 {t("eyebrow")}
               </span>
             </div>
@@ -42,10 +42,10 @@ export default async function AboutPage({
             <h1 className="font-heading text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl">
               {t("heroTitleLine1")}
               <br />
-              <span className="text-terracotta">{t("heroTitleLine2")}</span>
+              <span className="text-gradient-signal">{t("heroTitleLine2")}</span>
             </h1>
 
-            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-richblack/50 dark:text-cream/50">
+            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-cream/70">
               {t("mission")}
             </p>
           </div>

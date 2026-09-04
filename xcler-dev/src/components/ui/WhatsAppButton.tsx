@@ -34,7 +34,7 @@ export function WhatsAppButton() {
               initial={{ opacity: 0, x: 10, scale: 0.8 }}
               animate={{ opacity: 1, x: 0, scale: 1 }}
               exit={{ opacity: 0, x: 10, scale: 0.8 }}
-              className="absolute right-full mr-3 whitespace-nowrap rounded-lg bg-richblack dark:bg-cream px-4 py-2 text-sm font-medium text-cream dark:text-richblack shadow-lg"
+              className="absolute right-full mr-3 whitespace-nowrap border border-cream/10 bg-charcoal px-4 py-2 text-sm font-medium text-cream shadow-lg"
             >
               {t("whatsAppHover")}
             </motion.span>

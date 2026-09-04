@@ -87,7 +87,7 @@ export async function TeamSection({ locale }: { locale: string }) {
       bio: t("member1.bio"),
       tools: "Make.com, n8n, Zapier, GoHighLevel",
       image: "/team/musharraf.webp",
-      imageAlt: "Musharraf Aziz",
+      imageAlt: "Musharraf Aziz, XCLER AI automation engineer for chatbots and workflows",
       imagePosition: "center",
     },
     {
@@ -98,7 +98,7 @@ export async function TeamSection({ locale }: { locale: string }) {
       bio: t("member2.bio"),
       tools: "Next.js, Python, FastAPI, Flask, CI/CD",
       image: "/team/abeel.webp",
-      imageAlt: "Abeel Mehr",
+      imageAlt: "Abeel Mehr, XCLER web and app development lead",
       imagePosition: "center",
     },
     {
@@ -109,7 +109,7 @@ export async function TeamSection({ locale }: { locale: string }) {
       bio: t("member3.bio"),
       tools: "WordPress, Shopify, WooCommerce, Liquid",
       image: "/team/mehru.webp",
-      imageAlt: "Mehru Seemab",
+      imageAlt: "Mehru Seemab, XCLER WordPress and Shopify commerce specialist",
       imagePosition: "center",
     },
   ];
@@ -126,7 +126,9 @@ export async function TeamSection({ locale }: { locale: string }) {
           bio: member.bio || (locale === "de" ? "Profil wird aktualisiert." : "Profile is being updated."),
           tools: member.tools || "",
           image: localImage || "/team/musharraf.webp",
-          imageAlt: member.imageAlt || member.name || "Team member",
+          imageAlt:
+            member.imageAlt ||
+            `${member.name}, XCLER team — AI automation, web and commerce`,
           // Prefer local WebP so homepage image SEO checks stay next-gen.
           imageUrl: localImage
             ? undefined
@@ -144,16 +146,16 @@ export async function TeamSection({ locale }: { locale: string }) {
         <AnimatedSection>
           <div className="flex items-center gap-4 mb-4">
             <div className="line-decoration" />
-            <span className="font-mono text-xs tracking-[0.3em] text-richblack/40 dark:text-cream/40 uppercase">
+            <span className="font-mono text-xs tracking-[0.3em] text-stone-light uppercase">
               {t("eyebrow")}
             </span>
           </div>
           <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
             {t("headingLine1")}
             <br />
-            <span className="text-terracotta">{t("headingLine2")}</span>
+            <span className="text-gradient-signal">{t("headingLine2")}</span>
           </h2>
-          <p className="mt-4 text-lg text-richblack/70 dark:text-cream/82 max-w-xl">
+          <p className="mt-4 max-w-xl text-lg text-cream/75">
             {t("intro")}
           </p>
         </AnimatedSection>
@@ -161,11 +163,10 @@ export async function TeamSection({ locale }: { locale: string }) {
         <div className="mx-auto mt-16 grid max-w-[72rem] grid-cols-1 gap-6 md:grid-cols-3 md:gap-5 lg:gap-6">
           {team.map((member, i) => (
             <AnimatedSection key={member._id} delay={i * 0.15} className="h-full">
-              <div className="group mx-auto flex h-full w-full max-w-[22rem] flex-col overflow-hidden rounded-2xl border border-stone/10 bg-white transition-all duration-500 hover:-translate-y-1 hover:border-terracotta/30 hover:shadow-xl dark:border-stone-dark/10 dark:bg-richblack/30">
-                {/* Photo */}
-                <div className="relative h-80 overflow-hidden bg-gradient-to-br from-stone/20 to-stone/5 md:h-[22rem]">
+              <div className="panel panel-hover group mx-auto flex h-full w-full max-w-[22rem] flex-col overflow-hidden">
+                <div className="relative h-80 overflow-hidden bg-gradient-to-br from-charcoal to-richblack md:h-[22rem]">
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <span className="font-heading text-6xl font-bold text-richblack/5 dark:text-cream/5">
+                    <span className="font-heading text-6xl font-bold text-cream/5">
                       {getInitials(member.name)}
                     </span>
                   </div>
@@ -177,7 +178,7 @@ export async function TeamSection({ locale }: { locale: string }) {
                       width={720}
                       height={900}
                       loading="lazy"
-                      className="h-full w-full object-cover"
+                      className="h-full w-full object-cover contrast-[1.05] saturate-[0.85] transition duration-700 group-hover:scale-105 group-hover:saturate-100"
                       style={{ objectPosition: member.imagePosition }}
                     />
                   ) : (
@@ -187,32 +188,36 @@ export async function TeamSection({ locale }: { locale: string }) {
                       width={720}
                       height={900}
                       loading="lazy"
-                      className="h-full w-full object-cover"
+                      className="h-full w-full object-cover contrast-[1.05] saturate-[0.85] transition duration-700 group-hover:scale-105 group-hover:saturate-100"
                       style={{ objectPosition: member.imagePosition }}
                       sizes="(max-width: 768px) 100vw, 33vw"
                     />
                   )}
+                  <div
+                    className="pointer-events-none absolute inset-0 bg-gradient-to-t from-richblack via-transparent to-sage/5 mix-blend-multiply"
+                    aria-hidden="true"
+                  />
                 </div>
 
                 {/* Info */}
                 <div className="flex flex-1 flex-col p-6">
-                  <h3 className="font-heading text-xl font-semibold group-hover:text-terracotta transition-colors">
+                  <h3 className="font-heading text-xl font-semibold transition-colors group-hover:text-sage">
                     {member.name}
                   </h3>
-                  <p className="mt-1 text-sm text-terracotta font-medium">
+                  <p className="mt-1 text-sm font-medium text-sage">
                     {member.role}
                   </p>
                   {member.expertise ? (
-                    <p className="mt-3 text-sm text-richblack/70 dark:text-cream/80">
+                    <p className="mt-3 text-sm text-cream/75">
                       {member.expertise}
                     </p>
                   ) : null}
-                  <p className="mt-3 text-sm text-richblack/70 dark:text-cream/80">
+                  <p className="mt-3 text-sm text-cream/75">
                     {member.bio}
                   </p>
                   {member.tools ? (
-                    <div className="mt-auto pt-4 border-t border-stone/10 dark:border-stone-dark/10">
-                      <p className="font-mono text-xs text-richblack/60 dark:text-cream/75">
+                    <div className="mt-auto pt-4 border-t border-cream/10">
+                      <p className="font-mono text-xs text-cream/60">
                         {member.tools}
                       </p>
                     </div>

@@ -1,12 +1,13 @@
 // src/app/layout.tsx
 import type { Metadata } from "next";
-import { Inter, JetBrains_Mono, Space_Grotesk } from "next/font/google";
+import { DM_Sans, IBM_Plex_Mono, Syne } from "next/font/google";
 import dynamic from "next/dynamic";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
+import { SiteMotionChrome } from "@/components/ui/SiteMotionChrome";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { getCanonicalPath, getLanguageAlternates } from "@/lib/canonical";
 import { getGlobalSchema } from "@/lib/structuredData";
@@ -16,22 +17,23 @@ const WhatsAppButton = dynamic(
   () => import("@/components/ui/WhatsAppButton").then((module) => module.WhatsAppButton)
 );
 
-const inter = Inter({
+const dmSans = DM_Sans({
   subsets: ["latin", "latin-ext"],
   display: "swap",
-  variable: "--font-inter",
+  variable: "--font-dm-sans",
 });
 
-const spaceGrotesk = Space_Grotesk({
+const syne = Syne({
   subsets: ["latin", "latin-ext"],
   display: "swap",
-  variable: "--font-space-grotesk",
+  variable: "--font-syne",
 });
 
-const jetBrainsMono = JetBrains_Mono({
+const ibmPlexMono = IBM_Plex_Mono({
   subsets: ["latin", "latin-ext"],
+  weight: ["400", "500"],
   display: "swap",
-  variable: "--font-jetbrains-mono",
+  variable: "--font-ibm-plex-mono",
 });
 
 // This tells Next.js to pre-build both the /en and /de versions of the site
@@ -57,7 +59,7 @@ export async function generateMetadata({
     },
     description: pageDescription,
     icons: {
-      icon: [{ url: "/icon.png" }, { url: "/favicon.ico" }],
+      icon: [{ url: "/icon.png" }, { url: "/favicon.ico" }, { url: "/logo.svg", type: "image/svg+xml" }],
       shortcut: [{ url: "/favicon.ico" }],
       apple: [{ url: "/apple-icon.png" }, { url: "/apple-touch-icon.png" }],
     },
@@ -97,10 +99,10 @@ export async function generateMetadata({
       description: pageDescription,
       images: [
         {
-          url: "/og-image.webp",
+          url: "/og-image-v2.webp",
           width: 1200,
           height: 630,
-          alt: "XCLER — AI, Web & Automation Agency",
+          alt: "XCLER — AI Automation for Chatbots, Agents & Workflows",
         },
       ],
     },
@@ -108,7 +110,7 @@ export async function generateMetadata({
       card: "summary_large_image",
       title: pageTitle.replace(/\s*\|\s*XCLER\s*$/i, "").trim(),
       description: pageDescription,
-      images: ["/og-image.webp"],
+      images: ["/og-image-v2.webp"],
     },
     robots: {
       index: true,
@@ -149,7 +151,7 @@ export default async function RootLayout({
     <html
       lang={locale}
       data-scroll-behavior="smooth"
-      className={`${inter.variable} ${spaceGrotesk.variable} ${jetBrainsMono.variable}`}
+      className={`dark ${dmSans.variable} ${syne.variable} ${ibmPlexMono.variable}`}
       suppressHydrationWarning
     >
       <head>
@@ -159,38 +161,42 @@ export default async function RootLayout({
             __html: `
               html, body { margin: 0; padding: 0; }
               body {
-                background: #F5F0EB;
-                color: #0D0D0D;
-                font-family: var(--font-inter), sans-serif;
+                background: #07080c;
+                color: #f2f4f7;
+                font-family: var(--font-dm-sans), sans-serif;
                 -webkit-font-smoothing: antialiased;
                 -moz-osx-font-smoothing: grayscale;
               }
               .container-custom {
-                max-width: 1400px;
+                max-width: 1440px;
                 margin-left: auto;
                 margin-right: auto;
-                padding-left: 1.5rem;
-                padding-right: 1.5rem;
+                padding-left: 1.25rem;
+                padding-right: 1.25rem;
               }
               .section-padding {
-                padding-left: 1.5rem;
-                padding-right: 1.5rem;
-                padding-top: 5rem;
-                padding-bottom: 5rem;
+                padding-left: 1.25rem;
+                padding-right: 1.25rem;
+                padding-top: 5.5rem;
+                padding-bottom: 5.5rem;
               }
               @media (min-width: 768px) {
                 .container-custom {
-                  padding-left: 3rem;
-                  padding-right: 3rem;
+                  padding-left: 2.5rem;
+                  padding-right: 2.5rem;
                 }
                 .section-padding {
-                  padding-left: 3rem;
-                  padding-right: 3rem;
-                  padding-top: 8rem;
-                  padding-bottom: 8rem;
+                  padding-left: 2.5rem;
+                  padding-right: 2.5rem;
+                  padding-top: 7.5rem;
+                  padding-bottom: 7.5rem;
                 }
               }
-              .line-decoration { width: 3rem; height: 2px; background: #B85C38; }
+              .line-decoration {
+                width: 2.5rem;
+                height: 2px;
+                background: linear-gradient(90deg, #2dff9a, #ff4d1c);
+              }
             `,
           }}
         />
@@ -366,7 +372,10 @@ export default async function RootLayout({
           content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
         />
       </head>
-      <body className="font-body antialiased" suppressHydrationWarning>
+      <body className="font-body antialiased text-cream bg-richblack" suppressHydrationWarning>
+        <div className="site-atmosphere" aria-hidden="true" />
+        <div className="site-grid" aria-hidden="true" />
+        <div className="scan-line motion-safe:block hidden" aria-hidden="true" />
         <noscript
           dangerouslySetInnerHTML={{
             __html:
@@ -376,14 +385,17 @@ export default async function RootLayout({
         <NextIntlClientProvider locale={locale} messages={messages}>
           <a
             href="#main-content"
-            className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[200] focus:rounded-lg focus:bg-terracotta focus:px-4 focus:py-2 focus:text-white"
+            className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[200] focus:bg-terracotta focus:px-4 focus:py-2 focus:text-white"
           >
             Skip to content
           </a>
-          <Navbar />
-          <main id="main-content">{children}</main>
-          <Footer locale={locale} />
-          <WhatsAppButton />
+          <div className="relative z-10">
+            <SiteMotionChrome />
+            <Navbar />
+            <main id="main-content">{children}</main>
+            <Footer locale={locale} />
+            <WhatsAppButton />
+          </div>
         </NextIntlClientProvider>
         <SpeedInsights />
       </body>

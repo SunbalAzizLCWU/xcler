@@ -101,14 +101,14 @@ export default async function WorkCaseStudyPage({
           <span>{labels.backToWork}</span>
         </Link>
 
-        <div className="overflow-hidden rounded-2xl border border-stone/15 bg-richblack/95">
+        <div className="overflow-hidden border border-cream/10 bg-richblack p-3 sm:p-4 md:p-6">
           <Image
             src={study.heroImage}
-            alt={study.title[locale]}
-            width={1200}
-            height={630}
+            alt={`${study.title[locale]} — XCLER AI automation case study`}
+            width={1600}
+            height={1067}
             sizes="(max-width: 1280px) 100vw, 1200px"
-            className="block h-auto w-full"
+            className="mx-auto block h-auto w-full object-contain"
             priority
           />
         </div>

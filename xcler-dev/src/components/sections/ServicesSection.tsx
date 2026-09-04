@@ -72,14 +72,14 @@ export function ServicesSection() {
         <AnimatedSection>
           <div className="flex items-center gap-4 mb-4">
             <div className="line-decoration" />
-            <span className="font-mono text-xs tracking-[0.3em] text-richblack/40 dark:text-cream/40 uppercase">
+            <span className="font-mono text-xs tracking-[0.3em] text-stone-light uppercase">
               {t("eyebrow")}
             </span>
           </div>
           <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
             {t("headingLine1")}
             <br />
-            <span className="text-terracotta">{t("headingLine2")}</span>
+            <span className="text-gradient-signal">{t("headingLine2")}</span>
           </h2>
         </AnimatedSection>
 
@@ -90,22 +90,24 @@ export function ServicesSection() {
               <AnimatedSection key={service.number} delay={i * 0.1}>
                 <motion.div
                   onClick={() => setActiveService(i)}
-                  className={`group cursor-pointer border-b border-stone/10 dark:border-stone-dark/10 py-6 transition-all duration-300 ${
+                  whileHover={{ x: 6 }}
+                  transition={{ type: "spring", stiffness: 320, damping: 24 }}
+                  className={`group cursor-pointer border-b border-cream/10 py-6 transition-all duration-300 ${
                     activeService === i
-                      ? "pl-4 border-l-2 border-l-terracotta"
+                      ? "border-l-2 border-l-sage pl-4"
                       : "pl-0 hover:pl-4"
                   }`}
                 >
                   <div className="flex items-start justify-between">
                     <div>
-                      <span className="font-mono text-xs text-stone dark:text-stone-dark">
+                      <span className="font-mono text-xs text-stone">
                         {service.number}
                       </span>
                       <h3
-                        className={`font-heading text-2xl md:text-3xl font-semibold transition-colors ${
+                        className={`font-heading text-2xl font-semibold transition-colors md:text-3xl ${
                           activeService === i
-                            ? "text-terracotta"
-                            : "text-richblack dark:text-cream group-hover:text-terracotta"
+                            ? "text-sage"
+                            : "text-cream group-hover:text-sage"
                         }`}
                       >
                         {service.title}
@@ -113,7 +115,7 @@ export function ServicesSection() {
                     </div>
                     <motion.svg
                       animate={{ rotate: activeService === i ? 45 : 0 }}
-                      className="mt-2 h-5 w-5 text-stone transition-colors group-hover:text-terracotta"
+                      className="mt-2 h-5 w-5 text-stone transition-colors group-hover:text-sage"
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
@@ -136,14 +138,14 @@ export function ServicesSection() {
                         transition={{ duration: 0.3 }}
                         className="overflow-hidden lg:hidden"
                       >
-                        <p className="mt-3 text-richblack/60 dark:text-cream/60 leading-relaxed">
+                        <p className="mt-3 text-cream/65 leading-relaxed">
                           {service.description}
                         </p>
                         <div className="mt-4 flex flex-wrap gap-2">
                           {service.tech.map((t) => (
                             <span
                               key={t}
-                              className="rounded-full bg-stone/10 dark:bg-stone-dark/10 px-3 py-1 font-mono text-xs"
+                              className="border border-cream/10 bg-cream/5 px-3 py-1 font-mono text-xs"
                             >
                               {t}
                             </span>
@@ -167,15 +169,15 @@ export function ServicesSection() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -20 }}
                   transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-                  className="rounded-2xl border border-stone/10 dark:border-stone-dark/10 bg-white/50 dark:bg-richblack/50 p-8 backdrop-blur-sm"
+                  className="rounded-none border border-cream/10 bg-charcoal/70 p-8 backdrop-blur-sm transition-shadow duration-500 hover:shadow-[0_30px_80px_-48px_rgba(45,255,154,0.4)]"
                 >
-                  <span className="font-mono text-6xl font-bold text-stone/10 dark:text-stone-dark/10">
+                  <span className="font-mono text-6xl font-bold text-sage/10">
                     {services[activeService].number}
                   </span>
                   <h3 className="mt-4 font-heading text-3xl font-bold">
                     {services[activeService].title}
                   </h3>
-                  <p className="mt-4 text-richblack/60 dark:text-cream/60 leading-relaxed text-lg">
+                  <p className="mt-4 text-lg leading-relaxed text-cream/65">
                     {services[activeService].description}
                   </p>
 
@@ -183,7 +185,7 @@ export function ServicesSection() {
                     {services[activeService].tech.map((t) => (
                       <span
                         key={t}
-                        className="rounded-full bg-stone/10 dark:bg-stone-dark/10 px-4 py-1.5 font-mono text-sm"
+                        className="border border-cream/10 bg-cream/5 px-4 py-1.5 font-mono text-sm"
                       >
                         {t}
                       </span>
@@ -194,7 +196,7 @@ export function ServicesSection() {
                     {getLeadAvatar(services[activeService].lead) ? (
                       <Image
                         src={getLeadAvatar(services[activeService].lead)!}
-                        alt={services[activeService].lead}
+                        alt={`${services[activeService].lead}, XCLER service lead`}
                         width={32}
                         height={32}
                         loading="lazy"
@@ -204,7 +206,7 @@ export function ServicesSection() {
                       <div className="h-8 w-8 rounded-full bg-stone/20" />
                     )}
                     <div>
-                      <p className="text-xs text-richblack/40 dark:text-cream/40">
+                      <p className="text-xs text-stone-light">
                         {t("ledBy")}
                       </p>
                       <p className="text-sm font-medium">
@@ -215,7 +217,7 @@ export function ServicesSection() {
 
                   <Link
                     href={services[activeService].href}
-                    className="mt-8 inline-flex items-center gap-2 font-heading text-sm font-medium text-terracotta transition-all hover:gap-3"
+                    className="mt-8 inline-flex items-center gap-2 font-heading text-sm font-medium text-sage transition-all hover:gap-3"
                   >
                     {t("learnMore")}
                     <svg

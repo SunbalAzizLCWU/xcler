@@ -170,7 +170,7 @@ export default async function HomePage({
 
           <div className="mb-6 mt-16 flex items-center gap-4">
             <div className="line-decoration" />
-            <span className="font-mono text-xs uppercase tracking-[0.3em] text-richblack/40 dark:text-cream/40">
+            <span className="font-mono text-xs uppercase tracking-[0.3em] text-stone-light">
               {tHomeSeo("eyebrow")}
             </span>
           </div>
@@ -178,20 +178,20 @@ export default async function HomePage({
             {Object.entries(pillars).map(([key, pillar], index) => (
               <article
                 key={key}
-                className="rounded-2xl border border-stone/15 bg-white/80 p-6 dark:border-stone-dark/20 dark:bg-richblack/35"
+                className="panel panel-hover p-6"
               >
                 <h2
                   id={index === 0 ? "homepage-seo-pillars" : `home-pillar-${key}`}
-                  className="font-heading text-2xl font-semibold tracking-tight text-richblack dark:text-cream"
+                  className="font-heading text-2xl font-semibold tracking-tight text-cream"
                 >
                   {pillar.title}
                 </h2>
-                <p className="mt-3 text-sm leading-relaxed text-richblack/78 dark:text-cream/82">
+                <p className="mt-3 text-sm leading-relaxed text-cream/75">
                   {pillar.body}
                 </p>
                 <Link
                   href={pillar.href as LocalizedHref}
-                  className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-terracotta transition-all hover:gap-3"
+                  className="mt-5 inline-flex items-center gap-2 text-sm font-medium text-sage transition-all hover:gap-3"
                 >
                   {pillar.cta}
                   <span aria-hidden="true">→</span>

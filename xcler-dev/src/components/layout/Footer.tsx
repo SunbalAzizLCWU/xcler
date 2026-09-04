@@ -1,6 +1,7 @@
 import type { ComponentProps } from "react";
 import { Link } from "@/navigation";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
+import { XclerLogo } from "@/components/ui/XclerLogo";
 import { getTranslations } from "next-intl/server";
 
 type LocalizedHref = ComponentProps<typeof Link>["href"];
@@ -43,47 +44,29 @@ export async function Footer({ locale }: { locale: string }) {
   };
 
   return (
-    <footer className="border-t border-zinc-800/80 bg-[#121212] text-zinc-200">
+    <footer className="border-t border-cream/10 bg-richblack text-cream">
       <AnimatedSection>
         <div className="section-padding text-center">
-          <h2 className="font-heading text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6">
+          <h2 className="mb-6 font-heading text-4xl font-bold tracking-tight md:text-6xl lg:text-7xl">
             {t("cta.headingLine1")}
             <br />
-            <span className="text-zinc-400">{t("cta.headingLine2")}</span>
+            <span className="text-gradient-signal">{t("cta.headingLine2")}</span>
           </h2>
-          <p className="mx-auto mb-10 max-w-xl text-lg text-zinc-400">
+          <p className="mx-auto mb-10 max-w-xl text-lg text-cream/60">
             {t("cta.description")}
           </p>
-          <Link
-            href="/contact"
-            className="inline-flex items-center gap-2 rounded-full border border-zinc-700 bg-zinc-900 px-10 py-4 font-heading font-medium text-zinc-100 transition-colors hover:border-zinc-500 hover:bg-zinc-800"
-          >
+          <Link href="/contact" className="btn-signal">
             {t("cta.button")}
-            <svg
-              className="h-4 w-4"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth={2}
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M17 8l4 4m0 0l-4 4m4-4H3"
-              />
-            </svg>
+            <span aria-hidden="true">→</span>
           </Link>
         </div>
       </AnimatedSection>
 
-      <div className="container-custom border-t border-zinc-800/80 py-16">
+      <div className="container-custom border-t border-cream/10 py-16">
         <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
           <div className="col-span-2 md:col-span-1">
-            <span className="font-heading text-2xl font-bold">
-              XCL<span className="text-zinc-500">ER</span>
-              <span className="text-zinc-600 text-sm font-mono">.dev</span>
-            </span>
-            <p className="mt-4 max-w-xs text-sm text-zinc-500">
+            <XclerLogo />
+            <p className="mt-4 max-w-xs text-sm text-cream/50">
               {t("brandDescription")}
             </p>
             <div className="mt-6 flex gap-4">
@@ -91,7 +74,7 @@ export async function Footer({ locale }: { locale: string }) {
                 href="https://www.facebook.com/xcler.dev"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-zinc-500 transition-colors hover:text-white"
+                className="text-cream/45 transition-colors hover:text-sage"
                 aria-label="XCLER on Facebook"
               >
                 <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
@@ -102,7 +85,7 @@ export async function Footer({ locale }: { locale: string }) {
                 href="https://www.instagram.com/xcler.dev"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-zinc-500 transition-colors hover:text-white"
+                className="text-cream/45 transition-colors hover:text-sage"
                 aria-label="XCLER on Instagram"
               >
                 <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
@@ -113,7 +96,7 @@ export async function Footer({ locale }: { locale: string }) {
           </div>
 
           <div>
-            <h4 className="mb-4 font-heading text-sm font-semibold uppercase tracking-wider text-zinc-500">
+            <h4 className="mb-4 font-heading text-sm font-semibold uppercase tracking-wider text-stone-light">
               {t("sections.services")}
             </h4>
             <ul className="space-y-3">
@@ -121,7 +104,7 @@ export async function Footer({ locale }: { locale: string }) {
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="text-sm text-zinc-400 transition-colors hover:text-white"
+                    className="text-sm text-cream/55 transition-colors hover:text-cream"
                   >
                     {link.label}
                   </Link>
@@ -131,7 +114,7 @@ export async function Footer({ locale }: { locale: string }) {
           </div>
 
           <div>
-            <h4 className="mb-4 font-heading text-sm font-semibold uppercase tracking-wider text-zinc-500">
+            <h4 className="mb-4 font-heading text-sm font-semibold uppercase tracking-wider text-stone-light">
               {t("sections.company")}
             </h4>
             <ul className="space-y-3">
@@ -139,7 +122,7 @@ export async function Footer({ locale }: { locale: string }) {
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="text-sm text-zinc-400 transition-colors hover:text-white"
+                    className="text-sm text-cream/55 transition-colors hover:text-cream"
                   >
                     {link.label}
                   </Link>
@@ -149,7 +132,7 @@ export async function Footer({ locale }: { locale: string }) {
           </div>
 
           <div>
-            <h4 className="mb-4 font-heading text-sm font-semibold uppercase tracking-wider text-zinc-500">
+            <h4 className="mb-4 font-heading text-sm font-semibold uppercase tracking-wider text-stone-light">
               {t("sections.legal")}
             </h4>
             <ul className="space-y-3">
@@ -157,7 +140,7 @@ export async function Footer({ locale }: { locale: string }) {
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="text-sm text-zinc-400 transition-colors hover:text-white"
+                    className="text-sm text-cream/55 transition-colors hover:text-cream"
                   >
                     {link.label}
                   </Link>
@@ -167,11 +150,11 @@ export async function Footer({ locale }: { locale: string }) {
           </div>
         </div>
 
-        <div className="mt-16 flex flex-col items-center justify-between gap-4 border-t border-zinc-800/80 pt-8 md:flex-row">
-          <p className="text-xs text-zinc-600">
+        <div className="mt-16 flex flex-col items-center justify-between gap-4 border-t border-cream/10 pt-8 md:flex-row">
+          <p className="text-xs text-stone">
             {t("copyright", { year: currentYear })}
           </p>
-          <p className="text-xs text-zinc-500">
+          <p className="text-xs text-stone-light">
             <a href="mailto:hello@xcler.dev" className="transition-colors hover:text-white">
               hello@xcler.dev
             </a>

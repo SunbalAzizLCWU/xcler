@@ -144,7 +144,8 @@ export async function POST(request: Request) {
     const safePageUrl = escapeHtml(String(pageUrl || "unknown"));
 
     // Send email notification via Resend
-    const resendApiKey = process.env.RESEND_API_KEY;
+    // Tolerate a duplicated "RESEND_API_KEY=" prefix from mis-copied env values.
+    const resendApiKey = process.env.RESEND_API_KEY?.replace(/^RESEND_API_KEY=/i, "").trim();
     if (!resendApiKey) {
       console.error("Missing RESEND_API_KEY in server environment.");
       newLead.emailStatus = "failed";
@@ -277,36 +278,28 @@ export async function POST(request: Request) {
       }),
     });
 
+    // Notification to the team is the critical path. Customer confirmation is best-effort —
+    // do not fail the whole submission if Resend rejects the confirmation (invalid to-domain, etc.).
+    let customerEmailId: string | null = null;
+    let customerEmailError = "";
+
     if (!customerResponse.ok) {
-      const customerError = await customerResponse.text();
-      console.error("Resend customer email error:", customerError);
-      newLead.emailStatus = "failed";
-      newLead.notificationEmailId = notificationData.id;
-      newLead.emailError = customerError;
-      leads.push(newLead);
-      fs.writeFileSync(leadsFile, JSON.stringify(leads, null, 2));
-      return NextResponse.json(
-        { error: "Failed to deliver customer confirmation email" },
-        { status: 502 }
-      );
+      customerEmailError = await customerResponse.text();
+      console.error("Resend customer email error:", customerEmailError);
+    } else {
+      const customerData = (await customerResponse.json()) as { id?: string };
+      if (customerData?.id) {
+        customerEmailId = customerData.id;
+      } else {
+        customerEmailError = "Missing customer email id in Resend response";
+        console.error(customerEmailError);
+      }
     }
 
-    const customerData = (await customerResponse.json()) as { id?: string };
-    if (!customerData?.id) {
-      newLead.emailStatus = "failed";
-      newLead.notificationEmailId = notificationData.id;
-      newLead.emailError = "Missing customer email id in Resend response";
-      leads.push(newLead);
-      fs.writeFileSync(leadsFile, JSON.stringify(leads, null, 2));
-      return NextResponse.json(
-        { error: "Customer email response was invalid" },
-        { status: 502 }
-      );
-    }
-
-    newLead.emailStatus = "sent";
+    newLead.emailStatus = customerEmailId ? "sent" : "notification_sent";
     newLead.notificationEmailId = notificationData.id;
-    newLead.customerEmailId = customerData.id;
+    newLead.customerEmailId = customerEmailId;
+    newLead.emailError = customerEmailError;
     leads.push(newLead);
 
     // Save final lead with delivery metadata
@@ -319,7 +312,8 @@ export async function POST(request: Request) {
         success: true,
         message: "Lead captured successfully",
         emailId: notificationData.id,
-        customerEmailId: customerData.id,
+        customerEmailId,
+        customerEmailDelivered: Boolean(customerEmailId),
       },
       { status: 200 }
     );

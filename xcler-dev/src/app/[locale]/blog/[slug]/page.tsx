@@ -5,6 +5,8 @@ import { notFound } from "next/navigation";
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/navigation";
 import { JsonLd } from "@/components/seo/JsonLd";
+import { ORG_ID } from "@/lib/structuredData";
+import { buildPageLinkedDataGraph } from "@/lib/pageLinkedData";
 import { truncatePortableText } from "@/lib/portableText";
 import { client } from "@/sanity/lib/client";
 import {
@@ -460,36 +462,45 @@ export default async function BlogPostPage({
       : FALLBACK_OG_IMAGE;
 
   return (
+    <>
+      <JsonLd
+        id={`page-graph-blog-${post._id}`}
+        data={buildPageLinkedDataGraph({
+          locale: locale === "en" ? "en" : "de",
+          path: `/blog/${resolvedCanonicalSlug}`,
+          name: seoTitle,
+          description: seoDescription,
+          primaryImageUrl: seoImageUrl,
+          datePublished: post.publishedAt,
+          dateModified: modifiedTime,
+          breadcrumbs: [
+            { name: "XCLER", path: "/" },
+            { name: locale === "de" ? "Insights" : "Insights", path: "/blog" },
+            { name: post.title, path: `/blog/${resolvedCanonicalSlug}` },
+          ],
+          entities: [
+            {
+              "@type": "BlogPosting",
+              "@id": `${BASE_URL}${getCanonicalPath(locale, `/blog/${resolvedCanonicalSlug}`)}#article`,
+              headline: seoTitle,
+              description: seoDescription,
+              image: seoImageUrl,
+              author: { "@id": ORG_ID },
+              publisher: { "@id": ORG_ID },
+              datePublished: post.publishedAt,
+              dateModified: modifiedTime,
+              inLanguage: locale === "de" ? "de-DE" : "en-US",
+              mainEntityOfPage: {
+                "@id": `${BASE_URL}${getCanonicalPath(locale, `/blog/${resolvedCanonicalSlug}`)}#webpage`,
+              },
+              keywords: tags.length ? tags.join(", ") : undefined,
+              timeRequired,
+            },
+          ],
+        })}
+      />
     <section className="section-padding pt-32">
       <article className="container-custom max-w-3xl">
-        <JsonLd
-          id={`blog-posting-${post._id}`}
-          data={{
-            "@context": "https://schema.org",
-            "@type": "BlogPosting",
-            headline: seoTitle,
-            description: seoDescription,
-            image: seoImageUrl,
-            author: {
-              "@type": "Organization",
-              name: "XCLER",
-            },
-            publisher: {
-              "@type": "Organization",
-              name: "XCLER",
-              logo: {
-                "@type": "ImageObject",
-                url: `${BASE_URL}/logo.png`,
-              },
-            },
-            datePublished: post.publishedAt,
-            dateModified: modifiedTime,
-            inLanguage: locale === "de" ? "de-DE" : "en-US",
-            mainEntityOfPage: getCanonicalPath(locale, `/blog/${resolvedCanonicalSlug}`),
-            keywords: tags.length ? tags.join(", ") : undefined,
-            timeRequired,
-          }}
-        />
         <Link
           href="/blog"
           locale={locale}
@@ -517,5 +528,6 @@ export default async function BlogPostPage({
         </div>
       </article>
     </section>
+    </>
   );
 }

@@ -66,20 +66,23 @@ export async function generateMetadata({
       languages: getLanguageAlternates("/", { xDefaultLocale: "de" }),
     },
     keywords: [
+      "AI engineering agency Germany",
+      "AI chatbot development",
+      "AI agents RAG",
+      "workflow automation Germany",
+      "n8n automation",
+      "make.com automation",
       "web development agency Germany",
       "app development Germany",
       "WordPress developer Germany",
       "Shopify developer Germany",
-      "workflow automation",
-      "AI chatbot development",
-      "n8n automation",
-      "make.com automation",
       "Next.js development",
-      "full stack development Germany",
       "Webentwicklung Deutschland",
-      "App Entwicklung Deutschland",
-      "Website erstellen lassen",
-      "Webdesign Agentur",
+      "KI Chatbots Agentur",
+      "Prozessautomatisierung Deutschland",
+      "AI agency California",
+      "AI automation Florida",
+      "workflow automation Chicago",
     ],
     authors: [{ name: "XCLER", url: "https://xcler.dev" }],
     creator: "XCLER",
@@ -88,28 +91,31 @@ export async function generateMetadata({
       type: "website",
       locale: locale === "de" ? "de_DE" : "en_US",
       alternateLocale: locale === "de" ? "en_US" : "de_DE",
-      url: "https://xcler.dev",
+      url: getCanonicalPath(locale, "/") === "/" ? "https://xcler.dev" : `https://xcler.dev${getCanonicalPath(locale, "/")}`,
       siteName: "XCLER",
-      title: pageTitle,
+      title: pageTitle.replace(/\s*\|\s*XCLER\s*$/i, "").trim(),
       description: pageDescription,
       images: [
         {
           url: "/og-image.webp",
           width: 1200,
           height: 630,
-          alt: "XCLER — Web & App Development Agency",
+          alt: "XCLER — AI, Web & Automation Agency",
         },
       ],
     },
     twitter: {
       card: "summary_large_image",
-      title: pageTitle,
+      title: pageTitle.replace(/\s*\|\s*XCLER\s*$/i, "").trim(),
       description: pageDescription,
       images: ["/og-image.webp"],
     },
     robots: {
       index: true,
       follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
       googleBot: {
         index: true,
         follow: true,
@@ -118,9 +124,13 @@ export async function generateMetadata({
         "max-snippet": -1,
       },
     },
-    verification: {
-      google: "your-google-verification-code", // Add later
-    },
+    ...(process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
+      ? {
+          verification: {
+            google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
+          },
+        }
+      : {}),
   };
 }
 
@@ -346,9 +356,15 @@ export default async function RootLayout({
           }}
         />
         <JsonLd id={`global-graph-${locale}`} data={getGlobalSchema(locale === "en" ? "en" : "de")} />
+        <meta property="article:published_time" content="2024-01-15" />
+        <meta property="article:modified_time" content={new Date().toISOString().slice(0, 10)} />
         <link rel="icon" href="/favicon.ico" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/manifest.json" />
+        <meta
+          name="robots"
+          content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+        />
       </head>
       <body className="font-body antialiased" suppressHydrationWarning>
         <noscript
@@ -358,8 +374,14 @@ export default async function RootLayout({
           }}
         />
         <NextIntlClientProvider locale={locale} messages={messages}>
+          <a
+            href="#main-content"
+            className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[200] focus:rounded-lg focus:bg-terracotta focus:px-4 focus:py-2 focus:text-white"
+          >
+            Skip to content
+          </a>
           <Navbar />
-          <main>{children}</main>
+          <main id="main-content">{children}</main>
           <Footer locale={locale} />
           <WhatsAppButton />
         </NextIntlClientProvider>

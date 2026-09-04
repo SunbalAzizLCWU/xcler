@@ -3,8 +3,8 @@ import { getTranslations } from "next-intl/server";
 import { Link } from "@/navigation";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { getServiceSchema } from "@/lib/structuredData";
-import { getCanonicalPath, getLanguageAlternates } from "@/lib/canonical";
+import { getBreadcrumbSchema, getServiceSchema } from "@/lib/structuredData";
+import { buildPageMetadata } from "@/lib/seoMeta";
 
 type FeatureItem = {
   title: string;
@@ -51,14 +51,12 @@ export async function generateMetadata({
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "ServiceWebDevelopmentPage" });
 
-  return {
+  return buildPageMetadata({
+    locale,
+    path: "/services/web-development",
     title: t("metaTitle"),
     description: t("metaDescription"),
-    alternates: {
-      canonical: getCanonicalPath(locale, "/services/web-development"),
-      languages: getLanguageAlternates("/services/web-development"),
-    },
-  };
+  });
 }
 
 export default async function WebDevelopmentPage({
@@ -67,6 +65,7 @@ export default async function WebDevelopmentPage({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
+  const resolvedLocale = locale === "en" ? "en" : "de";
   const t = await getTranslations({ locale, namespace: "ServiceWebDevelopmentPage" });
 
   const getRaw = <T,>(key: string, fallback: T): T => {
@@ -100,11 +99,16 @@ export default async function WebDevelopmentPage({
   const ctaSecondary = getText("ctaSecondary", locale === "de" ? "Auf WhatsApp schreiben" : "Message us on WhatsApp");
 
   const schema = getServiceSchema({
-    locale: locale === "en" ? "en" : "de",
-    slug: "web-development",
+    locale: resolvedLocale,
+    path: "/services/web-development",
     name: hero.h1,
     description: t("metaDescription"),
   });
+  const breadcrumb = getBreadcrumbSchema(resolvedLocale, [
+    { name: "XCLER", path: "/" },
+    { name: resolvedLocale === "de" ? "Leistungen" : "Services", path: "/services" },
+    { name: resolvedLocale === "de" ? "Webentwicklung" : "Web Development", path: "/services/web-development" },
+  ]);
 
   const faqSchema =
     aeoFaq.length > 0
@@ -125,6 +129,7 @@ export default async function WebDevelopmentPage({
   return (
     <>
       <JsonLd id={`service-web-development-${locale}`} data={schema} />
+      <JsonLd id={`breadcrumb-web-development-${locale}`} data={breadcrumb} />
       {faqSchema ? <JsonLd id={`service-web-development-faq-${locale}`} data={faqSchema} /> : null}
       <section className="section-padding pt-32 relative overflow-hidden">
         <div className="absolute inset-0 pointer-events-none" aria-hidden="true">

@@ -4,13 +4,13 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { useTranslations } from "next-intl";
-import Link from "next/link";
 import Image from "next/image";
+import { Link } from "@/navigation";
 
 const leadAvatars: Record<string, string> = {
-  "abeel mehr": "/team/abeel.jpg",
-  "mehru seemab": "/team/mehru.jpg",
-  "musharraf aziz": "/team/musharraf.jpg",
+  "abeel mehr": "/team/abeel.webp",
+  "mehru seemab": "/team/mehru.webp",
+  "musharraf aziz": "/team/musharraf.webp",
 };
 
 function getLeadAvatar(name: string): string | null {
@@ -23,38 +23,38 @@ export function ServicesSection() {
   const serviceConfig = [
     {
       number: "01",
-      key: "service1",
-      tech: ["Next.js", "React", "TypeScript", "Tailwind"],
-      href: "/services/web-development",
-      lead: "Abeel Mehr",
+      key: "service5",
+      tech: ["RAG", "LLMs", "Call Agents", "Chatbots"],
+      href: "/services/ai-chatbots-agents" as const,
+      lead: "Musharraf Aziz",
     },
     {
       number: "02",
-      key: "service2",
-      tech: ["React Native", "Flutter", "Python", "APIs"],
-      href: "/services/app-development",
-      lead: "Abeel Mehr",
+      key: "service4",
+      tech: ["Make.com", "n8n", "Zapier", "GoHighLevel"],
+      href: "/services/workflow-automation" as const,
+      lead: "Musharraf Aziz",
     },
     {
       number: "03",
-      key: "service3",
-      tech: ["WordPress", "Shopify", "WooCommerce", "Liquid"],
-      href: "/services/wordpress-shopify",
-      lead: "Mehru Seemab",
+      key: "service1",
+      tech: ["Next.js", "React", "TypeScript", "Tailwind"],
+      href: "/services/web-development" as const,
+      lead: "Abeel Mehr",
     },
     {
       number: "04",
-      key: "service4",
-      tech: ["Make.com", "n8n", "Zapier", "GoHighLevel"],
-      href: "/services/workflow-automation",
-      lead: "Musharraf Aziz",
+      key: "service2",
+      tech: ["React Native", "Flutter", "Python", "APIs"],
+      href: "/services/app-development" as const,
+      lead: "Abeel Mehr",
     },
     {
       number: "05",
-      key: "service5",
-      tech: ["RAG", "LLMs", "Call Agents", "Chatbots"],
-      href: "/services/ai-chatbots-agents",
-      lead: "Musharraf Aziz",
+      key: "service3",
+      tech: ["WordPress", "Shopify", "WooCommerce", "Liquid"],
+      href: "/services/wordpress-shopify" as const,
+      lead: "Mehru Seemab",
     },
   ];
 
@@ -192,16 +192,14 @@ export function ServicesSection() {
 
                   <div className="mt-6 flex items-center gap-3">
                     {getLeadAvatar(services[activeService].lead) ? (
-                      <div className="relative h-8 w-8 overflow-hidden rounded-full">
-                        <Image
-                          src={getLeadAvatar(services[activeService].lead)!}
-                          alt={services[activeService].lead}
-                          fill
-                          loading="lazy"
-                          className="object-cover"
-                          sizes="32px"
-                        />
-                      </div>
+                      <Image
+                        src={getLeadAvatar(services[activeService].lead)!}
+                        alt={services[activeService].lead}
+                        width={32}
+                        height={32}
+                        loading="lazy"
+                        className="h-8 w-8 rounded-full object-cover"
+                      />
                     ) : (
                       <div className="h-8 w-8 rounded-full bg-stone/20" />
                     )}

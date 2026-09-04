@@ -5,10 +5,41 @@ export default function robots(): MetadataRoute.Robots {
     rules: [
       {
         userAgent: "*",
-        allow: "/",
-        disallow: ["/admin/", "/api/"],
+        allow: ["/", "/llms.txt"],
+        disallow: ["/admin/", "/api/", "/studio/"],
+      },
+      {
+        userAgent: "GPTBot",
+        allow: ["/", "/llms.txt"],
+        disallow: ["/admin/", "/api/", "/studio/"],
+      },
+      {
+        userAgent: "ChatGPT-User",
+        allow: ["/", "/llms.txt"],
+        disallow: ["/admin/", "/api/", "/studio/"],
+      },
+      {
+        userAgent: "Google-Extended",
+        allow: ["/", "/llms.txt"],
+        disallow: ["/admin/", "/api/", "/studio/"],
+      },
+      {
+        userAgent: "PerplexityBot",
+        allow: ["/", "/llms.txt"],
+        disallow: ["/admin/", "/api/", "/studio/"],
+      },
+      {
+        userAgent: "ClaudeBot",
+        allow: ["/", "/llms.txt"],
+        disallow: ["/admin/", "/api/", "/studio/"],
       },
     ],
-    sitemap: "https://xcler.dev/sitemap.xml",
+    sitemap: [
+      "https://xcler.dev/sitemap.xml",
+      "https://xcler.dev/sitemap-index.xml",
+      "https://xcler.dev/sitemap-de.xml",
+      "https://xcler.dev/sitemap-en.xml",
+    ],
+    host: "https://xcler.dev",
   };
 }

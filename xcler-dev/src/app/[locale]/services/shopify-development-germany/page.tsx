@@ -4,8 +4,8 @@ import { Link } from "@/navigation";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { SideContactCta } from "@/components/sections/SideContactCta";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { getServiceSchema } from "@/lib/structuredData";
-import { getCanonicalPath, getLanguageAlternates } from "@/lib/canonical";
+import { getBreadcrumbSchema, getServiceSchema } from "@/lib/structuredData";
+import { buildPageMetadata } from "@/lib/seoMeta";
 
 type FeatureItem = {
   title: string;
@@ -52,14 +52,12 @@ export async function generateMetadata({
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "ServiceShopifyDevelopmentPage" });
 
-  return {
+  return buildPageMetadata({
+    locale,
+    path: "/services/shopify-development-germany",
     title: t("metaTitle"),
     description: t("metaDescription"),
-    alternates: {
-      canonical: getCanonicalPath(locale, "/services/shopify-development-germany"),
-      languages: getLanguageAlternates("/services/shopify-development-germany"),
-    },
-  };
+  });
 }
 
 export default async function ShopifyDevelopmentPage({
@@ -68,6 +66,7 @@ export default async function ShopifyDevelopmentPage({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
+  const resolvedLocale = locale === "en" ? "en" : "de";
   const tMeta = await getTranslations({ locale, namespace: "ServiceShopifyDevelopmentPage" });
   const t = await getTranslations({ locale, namespace: "ServiceShopifyPage" });
   const hero = t.raw("hero") as HeroContent;
@@ -84,15 +83,21 @@ export default async function ShopifyDevelopmentPage({
       : "Send a short brief and get a clear setup: architecture, scope, and a realistic roadmap.";
   const contactCtaButton = locale === "de" ? "Shopify-Beratung starten" : "Start Shopify Consultation";
   const schema = getServiceSchema({
-    locale: locale === "en" ? "en" : "de",
-    slug: "shopify-development-germany",
+    locale: resolvedLocale,
+    path: "/services/shopify-development-germany",
     name: hero.h1,
     description: tMeta("metaDescription"),
   });
+  const breadcrumb = getBreadcrumbSchema(resolvedLocale, [
+    { name: "XCLER", path: "/" },
+    { name: resolvedLocale === "de" ? "Leistungen" : "Services", path: "/services" },
+    { name: "Shopify", path: "/services/shopify-development-germany" },
+  ]);
 
   return (
     <>
       <JsonLd id={`service-shopify-development-${locale}`} data={schema} />
+      <JsonLd id={`breadcrumb-shopify-development-${locale}`} data={breadcrumb} />
       <section className="section-padding pt-32 relative overflow-hidden">
         <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
           <div className="absolute -top-28 right-0 h-72 w-72 rounded-full bg-terracotta/10 blur-3xl" />

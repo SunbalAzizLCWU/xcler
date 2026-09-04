@@ -1,52 +1,18 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/navigation";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { JsonLd } from "@/components/seo/JsonLd";
+import { SeoAnswerBlock } from "@/components/seo/SeoAnswerBlock";
 import { getServiceSchema } from "@/lib/structuredData";
-import { getCanonicalPath, getLanguageAlternates } from "@/lib/canonical";
+import { buildPageLinkedDataGraph } from "@/lib/pageLinkedData";
+import { buildPageMetadata } from "@/lib/seoMeta";
 
-type CapabilityItem = {
-  title: string;
-  desc: string;
-};
-
-type FeatureItem = {
-  title: string;
-  description: string;
-};
-
-type HeroContent = {
-  h1: string;
-  h2: string;
-  paragraph: string;
-};
-
-type FaqItem = {
-  question: string;
-  answer: string;
-};
-
-type SeoIntroObject = {
-  paragraph1?: string;
-  paragraph2?: string;
-};
-
-function getSeoIntroParagraphs(raw: unknown): string[] {
-  if (typeof raw === "string") {
-    return raw
-      .split("\n\n")
-      .map((part) => part.trim())
-      .filter(Boolean);
-  }
-
-  if (raw && typeof raw === "object") {
-    const intro = raw as SeoIntroObject;
-    return [intro.paragraph1, intro.paragraph2].filter((part): part is string => Boolean(part?.trim()));
-  }
-
-  return [];
-}
+type FeatureItem = { title: string; description: string };
+type HeroContent = { h1: string; h2: string; paragraph: string };
+type ExtraSection = { id: string; heading: string; body: string };
+type FaqItem = { question: string; answer: string };
 
 export async function generateMetadata({
   params,
@@ -55,15 +21,20 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "ServiceWorkflowAutomationPage" });
-
-  return {
+  return buildPageMetadata({
+    locale,
+    path: "/services/workflow-automation",
     title: t("metaTitle"),
     description: t("metaDescription"),
-    alternates: {
-      canonical: getCanonicalPath(locale, "/services/workflow-automation"),
-      languages: getLanguageAlternates("/services/workflow-automation"),
-    },
-  };
+    keywords: [
+      "workflow automation Germany",
+      "n8n Make.com Zapier",
+      "Workflow Automatisierung Agentur",
+      "Make n8n automation",
+      "workflow automation Netherlands Amsterdam",
+      "Automatisierung Niederlande",
+    ],
+  });
 }
 
 export default async function WorkflowAutomationPage({
@@ -72,6 +43,7 @@ export default async function WorkflowAutomationPage({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
+  const resolvedLocale = locale === "en" ? "en" : "de";
   const t = await getTranslations({ locale, namespace: "ServiceWorkflowAutomationPage" });
 
   const getRaw = <T,>(key: string, fallback: T): T => {
@@ -82,162 +54,246 @@ export default async function WorkflowAutomationPage({
     }
   };
 
-  const getText = (key: string, fallback = ""): string => {
-    try {
-      return t(key);
-    } catch {
-      return fallback;
-    }
-  };
-
-  const defaultHero: HeroContent = {
-    h1: `${t("headingLine1")} ${t("headingLine2")}`,
+  const hero = getRaw<HeroContent>("hero", {
+    h1: t("metaTitle"),
     h2: t("intro"),
     paragraph: t("intro"),
-  };
-
-  const hero = getRaw<HeroContent>("hero", defaultHero);
-  const seoIntroParagraphs = getSeoIntroParagraphs(getRaw<unknown>("seoIntro", ""));
-  const coreFeatures = getRaw<FeatureItem[]>(
-    "coreFeatures",
-    (getRaw<CapabilityItem[]>("capabilities", [])).map((item) => ({ title: item.title, description: item.desc }))
+  });
+  const lede = getRaw<string>("seoLede", hero.paragraph);
+  const citablePassage = getRaw<string>("citablePassage", hero.paragraph);
+  const answerHeading = getRaw<string>(
+    "answerHeading",
+    resolvedLocale === "de" ? "Wie setzen wir Workflow-Automatisierung um?" : "How do we implement workflow automation?"
   );
-  const architectureHighlight = getText("architectureHighlight", "");
+  const listTitle = getRaw<string>("listTitle", "AI engineering");
+  const listItems = getRaw<string[]>("listItems", []);
+  const coreFeatures = getRaw<FeatureItem[]>("coreFeatures", []);
+  const extras = getRaw<ExtraSection[]>("extraSections", []);
   const aeoFaq = getRaw<FaqItem[]>("aeoFaq", []);
+  const architectureHighlight = (() => {
+    try {
+      return t("architectureHighlight");
+    } catch {
+      return "";
+    }
+  })();
 
-  const schema = getServiceSchema({
-    locale: locale === "en" ? "en" : "de",
-    slug: "workflow-automation",
+  const service = getServiceSchema({
+    locale: resolvedLocale,
+    path: "/services/workflow-automation",
     name: hero.h1,
     description: t("metaDescription"),
   });
-
-  const faqSchema =
-    aeoFaq.length > 0
-      ? {
-          "@context": "https://schema.org",
-          "@type": "FAQPage",
-          mainEntity: aeoFaq.map((item) => ({
-            "@type": "Question",
-            name: item.question,
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: item.answer,
-            },
-          })),
-        }
-      : null;
+  const { "@context": _ctx, ...serviceNode } = service as Record<string, unknown> & {
+    "@context"?: string;
+  };
+  void _ctx;
+  const pageGraph = buildPageLinkedDataGraph({
+    locale: resolvedLocale,
+    path: "/services/workflow-automation",
+    name: hero.h1,
+    description: t("metaDescription"),
+    breadcrumbs: [
+      { name: "XCLER", path: "/" },
+      { name: resolvedLocale === "de" ? "Leistungen" : "Services", path: "/services" },
+      { name: hero.h1, path: "/services/workflow-automation" },
+    ],
+    entities: [serviceNode],
+  });
 
   return (
     <>
-      <JsonLd id={`service-workflow-automation-${locale}`} data={schema} />
-      {faqSchema ? <JsonLd id={`service-workflow-automation-faq-${locale}`} data={faqSchema} /> : null}
+      <JsonLd id={`page-graph-wf-${locale}`} data={pageGraph} />
+
       <section className="section-padding pt-32 relative overflow-hidden">
-        <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
-          <div className="absolute -top-28 right-0 h-72 w-72 rounded-full bg-terracotta/10 blur-3xl" />
-          <div className="absolute top-1/3 -left-24 h-64 w-64 rounded-full bg-sage/10 blur-3xl" />
-        </div>
-
         <div className="container-custom relative z-10">
-        <AnimatedSection>
-          <Link
-            href="/services"
-            className="inline-flex items-center gap-2 rounded-full border border-stone/20 bg-white/70 px-4 py-2 text-sm text-richblack/50 backdrop-blur-sm transition-colors hover:border-terracotta/40 hover:text-terracotta dark:border-stone-dark/20 dark:bg-richblack/40 dark:text-cream/50"
-          >
-            ← {t("backToServices")}
-          </Link>
-
-          <div className="mt-8 rounded-3xl border border-stone/15 bg-gradient-to-br from-white/85 via-white/70 to-stone/10 p-8 shadow-[0_20px_60px_-40px_rgba(13,13,13,0.45)] backdrop-blur-sm dark:border-stone-dark/20 dark:from-richblack/40 dark:via-richblack/35 dark:to-richblack/20 md:p-12">
-            <div className="flex items-center gap-4 mb-6">
-              <div className="line-decoration" />
-              <span className="font-mono text-xs tracking-[0.3em] text-richblack/40 dark:text-cream/40 uppercase">
-                {t("serviceLabel")}
-              </span>
-            </div>
-            <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.05] text-balance">{hero.h1}</h1>
-            <p className="mt-6 text-xl text-terracotta max-w-4xl leading-relaxed">{hero.h2}</p>
-            <p className="mt-8 text-lg text-richblack/60 dark:text-cream/65 max-w-4xl leading-relaxed">{hero.paragraph}</p>
-          </div>
-        </AnimatedSection>
-
-        {seoIntroParagraphs.length > 0 ? (
           <AnimatedSection>
-            <div className="mt-20 space-y-5 max-w-5xl">
-              {seoIntroParagraphs.map((paragraph, index) => (
-                <p key={`${index}-${paragraph.slice(0, 24)}`} className="rounded-2xl border border-stone/12 bg-white/75 p-6 text-base md:text-lg leading-relaxed text-richblack/70 shadow-[0_14px_40px_-30px_rgba(13,13,13,0.35)] dark:border-stone-dark/20 dark:bg-richblack/30 dark:text-cream/70">
-                  {paragraph}
-                </p>
-              ))}
+            <nav aria-label="Breadcrumb" className="mb-6 text-sm text-richblack/45 dark:text-cream/45">
+              <ol className="flex flex-wrap items-center gap-2">
+                <li>
+                  <Link href="/" className="hover:text-terracotta">
+                    XCLER
+                  </Link>
+                </li>
+                <li aria-hidden="true">/</li>
+                <li>
+                  <Link href="/services" className="hover:text-terracotta">
+                    {resolvedLocale === "de" ? "Leistungen" : "Services"}
+                  </Link>
+                </li>
+                <li aria-hidden="true">/</li>
+                <li className="text-richblack/70 dark:text-cream/70">{hero.h1}</li>
+              </ol>
+            </nav>
+
+            <div className="grid gap-8 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
+              <div>
+                <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.05]">
+                  {hero.h1}
+                </h1>
+                <p className="mt-6 text-lg text-richblack/70 dark:text-cream/70 max-w-3xl leading-relaxed">{lede}</p>
+                <div className="mt-4 text-xl text-terracotta max-w-3xl leading-relaxed">{hero.h2}</div>
+              </div>
+              <div className="overflow-hidden rounded-3xl border border-stone/15 bg-stone/10">
+                <Image
+                  src="/og-image.webp"
+                  alt={hero.h1}
+                  width={1200}
+                  height={630}
+                  priority
+                  fetchPriority="high"
+                  className="h-auto w-full object-cover"
+                />
+              </div>
             </div>
           </AnimatedSection>
-        ) : null}
 
-        <AnimatedSection>
-          <div className="mt-20">
-            <div className="flex items-center gap-4 mb-6">
-              <div className="line-decoration" />
-              <h2 className="font-heading text-3xl md:text-4xl font-bold">{locale === "de" ? "Core Features" : "Core Features"}</h2>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {coreFeatures.map((item, index) => (
-                <div key={item.title} className="group relative overflow-hidden rounded-3xl border border-stone/15 bg-gradient-to-br from-white to-stone/10 p-7 shadow-[0_18px_45px_-35px_rgba(13,13,13,0.5)] transition-all duration-500 hover:-translate-y-1 hover:border-terracotta/30 hover:shadow-[0_24px_60px_-35px_rgba(184,92,56,0.45)] dark:border-stone-dark/20 dark:from-richblack/35 dark:to-richblack/20">
-                  <span className="inline-flex h-8 min-w-8 items-center justify-center rounded-full border border-terracotta/30 bg-terracotta/10 px-2 font-mono text-xs text-terracotta">
-                    {String(index + 1).padStart(2, "0")}
-                  </span>
-                  <h3 className="mt-4 font-heading text-xl font-semibold">{item.title}</h3>
-                  <p className="mt-4 text-richblack/60 dark:text-cream/60 leading-relaxed">{item.description}</p>
-                </div>
-              ))}
-              </div>
-          </div>
-        </AnimatedSection>
+          <SeoAnswerBlock
+            headingId="wf-answer"
+            heading={answerHeading}
+            lede={lede}
+            citablePassage={citablePassage}
+            listTitle={listTitle}
+            listItems={listItems}
+            tableCaption={resolvedLocale === "de" ? "Leistungsumfang" : "Delivery scope"}
+            tableRows={[
+              {
+                label: resolvedLocale === "de" ? "Fokus" : "Focus",
+                value: "Make.com, n8n, Zapier",
+              },
+              {
+                label: resolvedLocale === "de" ? "Regionen" : "Regions",
+                value:
+                  resolvedLocale === "de"
+                    ? "Deutschland, DACH, Niederlande, Belgien, Kalifornien, Florida, Chicago"
+                    : "Germany, DACH, Netherlands, Belgium, California, Florida, Chicago",
+              },
+              {
+                label: resolvedLocale === "de" ? "Stack" : "Stack",
+                value: "Make.com, n8n, Zapier, GoHighLevel",
+              },
+            ]}
+            numericClaims={
+              resolvedLocale === "de"
+                ? [
+                    "50+ Projekte mit KI- und Automationsanteilen.",
+                    "3+ Jahre Delivery in DACH.",
+                    "24 Stunden Ziel-Response in Discovery.",
+                    "98 Prozent der Launches mit Monitoring-Hooks.",
+                    "6 Branchen mit produktiven Assistenten.",
+                  ]
+                : [
+                    "50+ projects with AI and automation scope.",
+                    "3+ years shipping in DACH.",
+                    "24 hours target response in discovery.",
+                    "98 percent of launches include monitoring hooks.",
+                    "6 industries running production assistants.",
+                  ]
+            }
+            citationQuote={
+              resolvedLocale === "de"
+                ? "n8n ist eine Workflow-Automatisierungsplattform, mit der Sie Apps verbinden und Prozesse visuell automatisieren können."
+                : "n8n is a workflow automation platform that lets you connect apps and automate processes with a visual editor."
+            }
+            citationHref="https://docs.n8n.io/"
+            citationLabel="n8n documentation"
+          />
 
-        {architectureHighlight ? (
-          <AnimatedSection>
-            <div className="mt-20 relative overflow-hidden rounded-3xl bg-richblack p-8 md:p-10 text-cream shadow-[0_30px_80px_-45px_rgba(13,13,13,0.8)]">
-              <div className="absolute -right-10 -top-10 h-40 w-40 rounded-full bg-terracotta/20 blur-3xl" />
-              <h2 className="relative font-heading text-2xl md:text-3xl font-semibold">{locale === "de" ? "Technische Architektur" : "Technical Architecture"}</h2>
-              <p className="relative mt-4 text-cream/75 leading-relaxed">{architectureHighlight}</p>
-            </div>
-          </AnimatedSection>
-        ) : null}
-
-        {aeoFaq.length > 0 ? (
-          <AnimatedSection>
-            <div className="mt-20 rounded-3xl border border-stone/15 bg-white/80 p-8 md:p-10 shadow-[0_20px_55px_-40px_rgba(13,13,13,0.5)] dark:border-stone-dark/20 dark:bg-richblack/35">
-              <div className="flex items-end justify-between gap-6 border-b border-stone/15 pb-6 dark:border-stone-dark/20">
-                <h2 className="font-heading text-3xl md:text-4xl font-semibold">FAQ</h2>
-                <p className="font-mono text-xs tracking-[0.25em] uppercase text-richblack/40 dark:text-cream/40">AEO</p>
-              </div>
-              <div className="mt-8 grid grid-cols-1 gap-4">
-                {aeoFaq.map((item, index) => (
-                  <div key={item.question} className="rounded-2xl border border-stone/12 bg-gradient-to-br from-white to-stone/5 p-6 dark:border-stone-dark/20 dark:from-richblack/30 dark:to-richblack/15">
-                    <div className="flex items-start gap-3">
-                      <span className="mt-1 inline-flex h-6 min-w-6 items-center justify-center rounded-full bg-terracotta/15 font-mono text-[11px] text-terracotta">{index + 1}</span>
-                      <div>
-                        <h3 className="font-heading text-xl font-semibold leading-snug">{item.question}</h3>
-                        <p className="mt-3 text-richblack/65 dark:text-cream/65 leading-relaxed">{item.answer}</p>
-                      </div>
+          {coreFeatures.length > 0 ? (
+            <AnimatedSection>
+              <div className="mt-20">
+                <h2 id="wf-core-features" className="font-heading text-3xl md:text-4xl font-bold mb-6">
+                  {resolvedLocale === "de" ? "Kernfunktionen" : "Core features"}
+                </h2>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  {coreFeatures.map((item, index) => (
+                    <div
+                      key={item.title}
+                      className="rounded-3xl border border-stone/15 bg-white/80 p-7 dark:border-stone-dark/20 dark:bg-richblack/30"
+                    >
+                      <span className="font-mono text-xs text-terracotta">{String(index + 1).padStart(2, "0")}</span>
+                      <h3 id={`wf-feature-${index}`} className="mt-3 font-heading text-xl font-semibold">
+                        {item.title}
+                      </h3>
+                      <p className="mt-3 text-richblack/65 dark:text-cream/65 leading-relaxed">{item.description}</p>
                     </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
+            </AnimatedSection>
+          ) : null}
+
+          {extras.map((section) => (
+            <AnimatedSection key={section.id}>
+              <div className="mt-16 max-w-4xl">
+                <h2 id={section.id} className="font-heading text-3xl font-bold">
+                  {section.heading}
+                </h2>
+                <p className="mt-4 text-richblack/70 dark:text-cream/70 leading-relaxed">{section.body}</p>
+              </div>
+            </AnimatedSection>
+          ))}
+
+          {architectureHighlight ? (
+            <AnimatedSection>
+              <div className="mt-20 rounded-3xl bg-richblack p-8 md:p-10 text-cream">
+                <h2 id="wf-architecture" className="font-heading text-2xl md:text-3xl font-semibold">
+                  {resolvedLocale === "de" ? "Technische Architektur" : "Technical architecture"}
+                </h2>
+                <p className="mt-4 text-cream/75 leading-relaxed">{architectureHighlight}</p>
+                <p className="mt-6 text-sm text-cream/55">
+                  {resolvedLocale === "de" ? (
+                    <>
+                      Verwandte Leistung:{" "}
+                      <Link href="/services/ai-chatbots-agents" className="text-terracotta underline-offset-2 hover:underline">
+                        KI-Chatbots und Agenten Deutschland
+                      </Link>
+                    </>
+                  ) : (
+                    <>
+                      Related service:{" "}
+                      <Link href="/services/ai-chatbots-agents" className="text-terracotta underline-offset-2 hover:underline">
+                        AI chatbots and agents Germany
+                      </Link>
+                    </>
+                  )}
+                </p>
+              </div>
+            </AnimatedSection>
+          ) : null}
+
+          {aeoFaq.length > 0 ? (
+            <AnimatedSection>
+              <div className="mt-20">
+                <h2 id="wf-faq" className="font-heading text-3xl md:text-4xl font-semibold mb-8">
+                  FAQ
+                </h2>
+                <div className="space-y-6">
+                  {aeoFaq.map((item) => (
+                    <div key={item.question} className="rounded-2xl border border-stone/12 p-6 dark:border-stone-dark/20">
+                      <h3 className="font-heading text-xl font-semibold">{item.question}</h3>
+                      <p className="mt-3 text-richblack/65 dark:text-cream/65 leading-relaxed">{item.answer}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </AnimatedSection>
+          ) : null}
+
+          <AnimatedSection>
+            <div className="mt-20 rounded-2xl bg-richblack p-10 text-center text-cream">
+              <h2 id="wf-cta" className="font-heading text-3xl font-bold">
+                {t("ctaHeading")}
+              </h2>
+              <p className="mt-3 text-cream/60">{t("ctaDescription")}</p>
+              <Link
+                href="/contact"
+                className="mt-8 inline-flex items-center gap-2 rounded-full bg-terracotta px-8 py-3 font-heading font-medium text-white hover:bg-terracotta-light"
+              >
+                {t("ctaButton")}
+              </Link>
             </div>
           </AnimatedSection>
-        ) : null}
-
-        <AnimatedSection>
-          <div className="mt-20 rounded-2xl bg-richblack dark:bg-cream/5 p-10 text-cream text-center">
-            <h2 className="font-heading text-3xl font-bold">{t("ctaHeading")}</h2>
-            <p className="mt-3 text-cream/60">{t("ctaDescription")}</p>
-            <Link
-              href="/contact"
-              className="mt-8 inline-flex items-center gap-2 rounded-full bg-terracotta px-8 py-3 font-heading font-medium text-white hover:bg-terracotta-light transition-colors"
-            >
-              {t("ctaButton")}
-            </Link>
-          </div>
-        </AnimatedSection>
         </div>
       </section>
     </>

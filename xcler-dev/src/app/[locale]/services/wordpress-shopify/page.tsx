@@ -3,8 +3,8 @@ import { getTranslations } from "next-intl/server";
 import { Link } from "@/navigation";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { getServiceSchema } from "@/lib/structuredData";
-import { getCanonicalPath, getLanguageAlternates } from "@/lib/canonical";
+import { getBreadcrumbSchema, getServiceSchema } from "@/lib/structuredData";
+import { buildPageMetadata } from "@/lib/seoMeta";
 
 type CapabilityItem = {
   title: string;
@@ -26,14 +26,12 @@ export async function generateMetadata({
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "ServicesHub" });
 
-  return {
+  return buildPageMetadata({
+    locale,
+    path: "/services/wordpress-shopify",
     title: t("metaTitle"),
     description: t("metaDescription"),
-    alternates: {
-      canonical: getCanonicalPath(locale, "/services/wordpress-shopify"),
-      languages: getLanguageAlternates("/services/wordpress-shopify"),
-    },
-  };
+  });
 }
 
 export default async function WordPressShopifyPage({
@@ -42,19 +40,26 @@ export default async function WordPressShopifyPage({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
+  const resolvedLocale = locale === "en" ? "en" : "de";
   const t = await getTranslations({ locale, namespace: "ServicesHub" });
   const capabilities = t.raw("capabilities") as CapabilityItem[];
   const spokes = t.raw("spokes") as SpokeItem[];
   const schema = getServiceSchema({
-    locale: locale === "en" ? "en" : "de",
-    slug: "wordpress-shopify",
+    locale: resolvedLocale,
+    path: "/services/wordpress-shopify",
     name: t("headingLine1") + " " + t("headingLine2"),
     description: t("metaDescription"),
   });
+  const breadcrumb = getBreadcrumbSchema(resolvedLocale, [
+    { name: "XCLER", path: "/" },
+    { name: resolvedLocale === "de" ? "Leistungen" : "Services", path: "/services" },
+    { name: "WordPress & Shopify", path: "/services/wordpress-shopify" },
+  ]);
 
   return (
     <>
       <JsonLd id={`service-wordpress-shopify-${locale}`} data={schema} />
+      <JsonLd id={`breadcrumb-wordpress-shopify-${locale}`} data={breadcrumb} />
       <section className="section-padding pt-32">
         <div className="container-custom">
         <AnimatedSection>

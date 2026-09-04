@@ -1,53 +1,69 @@
-# xcler.dev - KI- und Full-Stack-Agentur (Deutschland)
+# xcler.dev — Digital Agency (Germany / DACH + Benelux + US markets we serve)
 
-XCLER ist eine digitale Agentur fuer Unternehmen in Deutschland und der DACH-Region.
-Wir entwickeln performante Web-Plattformen, individuelle SaaS-Produkte, KI-gestuetzte Agenten und Automatisierungen.
+XCLER is a Berlin-based digital agency. We offer web development, app development, WordPress & Shopify solutions, workflow automation, and AI chatbots & agents for businesses in Germany, Austria, Switzerland, the Netherlands, Belgium, and the United States (California, Florida, Chicago).
 
-## Unternehmensprofil
+## Company
 - Name: XCLER
-- Website: https://www.xcler.dev
-- Region: Deutschland / DACH
-- Fokus: Webentwicklung, SaaS, KI-Agenten, Prozessautomatisierung
-
-## Core Technologies
-- Frontend: Next.js 16, React 19, TypeScript, Tailwind CSS
-- Backend/API: Next.js Route Handlers, Node.js, Python, FastAPI, Sanity CMS
-- KI/Automation: Gemini Flash Integrationen, RAG-Workflows, KI-Chatbots, AI Agents, Make.com, n8n, Zapier
-- E-Commerce: Shopify, WordPress, WooCommerce
-
-## Leistungen
-- Next.js Frontend Architektur
-- Custom SaaS Development
-- Shopify und Headless Commerce
-- RAG und KI-Automatisierung
-- KI-Chatbots und Agenten
-- Workflow-Automatisierung fuer interne Prozesse
-
-## 12 Kernseiten (de)
-1. Startseite: https://www.xcler.dev/de
-2. Services Uebersicht: https://www.xcler.dev/de/services
-3. Web Development: https://www.xcler.dev/de/services/web-development
-4. App Development: https://www.xcler.dev/de/services/app-development
-5. WordPress und Shopify: https://www.xcler.dev/de/services/wordpress-shopify
-6. Workflow Automation: https://www.xcler.dev/de/services/workflow-automation
-7. AI Chatbots and Agents: https://www.xcler.dev/de/services/ai-chatbots-agents
-8. KI Chatbots: https://www.xcler.dev/de/services/ki-chatbots
-9. Work / Case Studies: https://www.xcler.dev/de/work
-10. About: https://www.xcler.dev/de/about
-11. Contact: https://www.xcler.dev/de/contact
-12. Pricing: https://www.xcler.dev/de/pricing
-
-## Weitere wichtige Seiten
-- Blog: https://www.xcler.dev/de/blog
-- Privacy: https://www.xcler.dev/de/datenschutz
-- Impressum: https://www.xcler.dev/de/impressum
-
-## Hinweise fuer LLM-Crawler
-- Bevorzugte Sprache: Deutsch (de), Englisch verfuegbar unter /en
-- Strukturierte Daten: JSON-LD auf zentralen Service- und Kategorieseiten
-- Sitemap: https://www.xcler.dev/sitemap.xml
-- Robots: https://www.xcler.dev/robots.txt
-
-## Kontakt
-- E-Mail: hello@xcler.dev
+- Website: https://xcler.dev
+- Primary market: Germany / DACH (Berlin)
+- Also serve (remote): Netherlands & Belgium (Amsterdam, Rotterdam, Utrecht, The Hague, Brussels) — no fake local offices
+- Also serve (remote): California, Florida, Chicago — no fake local offices
+- Email: hello@xcler.dev
 - WhatsApp: https://wa.me/923154823517
+
+## What we offer (existing services only)
+1. Web Development / Next.js frontend architecture
+2. App Development / Custom SaaS
+3. WordPress & Shopify / Headless commerce
+4. WordPress development Germany
+5. Shopify development Germany
+6. Workflow Automation (Make.com, n8n, Zapier, GoHighLevel)
+7. AI Chatbots & Agents (RAG, LLMs, call agents) — our AI engineering focus
+
+## Core pages (German default — no /de prefix)
+1. Home: https://xcler.dev/
+2. Services: https://xcler.dev/leistungen
+3. Web Development: https://xcler.dev/leistungen/webentwicklung
+4. App Development: https://xcler.dev/leistungen/app-entwicklung
+5. WordPress & Shopify: https://xcler.dev/leistungen/wordpress-shopify
+6. WordPress Germany: https://xcler.dev/leistungen/wordpress-entwicklung-deutschland
+7. Shopify Germany: https://xcler.dev/leistungen/shopify-entwicklung-deutschland
+8. Workflow Automation: https://xcler.dev/leistungen/workflow-automatisierung
+9. AI Chatbots & Agents: https://xcler.dev/leistungen/ki-chatbots-agenten
+10. Work: https://xcler.dev/projekte
+11. About: https://xcler.dev/ueber-uns
+12. Blog: https://xcler.dev/blog
+13. Pricing: https://xcler.dev/preise
+14. Contact: https://xcler.dev/kontakt
+
+## English equivalents (prefix /en)
+- https://xcler.dev/en
+- https://xcler.dev/en/services
+- https://xcler.dev/en/services/web-development
+- https://xcler.dev/en/services/app-development
+- https://xcler.dev/en/services/wordpress-shopify
+- https://xcler.dev/en/services/wordpress-development-germany
+- https://xcler.dev/en/services/workflow-automation
+- https://xcler.dev/en/services/ai-chatbots-agents
+- https://xcler.dev/en/work
+- https://xcler.dev/en/about
+- https://xcler.dev/en/blog
+- https://xcler.dev/en/pricing
+- https://xcler.dev/en/contact
+
+## Priority cities (local SEO intent — remote-capable delivery)
+- Germany: Berlin, Munich, Hamburg, Frankfurt, Cologne, Duesseldorf, Stuttgart
+- Netherlands: Amsterdam, Rotterdam, Utrecht, The Hague
+- Belgium: Brussels
+- Austria / Switzerland: Vienna, Zurich
+- US remote: California, Florida, Chicago
+
+## AI engineering & automation (priority)
+We build production RAG systems, AI chatbots, autonomous agents, and workflow automation with Make.com and n8n. We integrate LLMs into support, lead qualification, and internal operations for B2B teams in Germany, DACH, Benelux, and the US markets we serve.
+
+## Technical
+- Preferred language: German (default), English at /en
+- Note: Dutch (nl) UI locale is not shipped yet; Benelux demand is served in DE/EN with local city targeting
+- Structured data: JSON-LD @graph (Organization, LocalBusiness, WebSite, WebPage, Service, BreadcrumbList)
+- Sitemap: https://xcler.dev/sitemap.xml
+- Robots: https://xcler.dev/robots.txt

@@ -40,24 +40,41 @@ export async function HeroSection({ locale }: { locale: string }) {
             </span>
           </div>
 
-          {/* Main Heading */}
+          {/* Main Heading — keep aligned with document title for SEO scoring */}
           <h1 className="font-heading text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-[0.96] text-richblack dark:text-cream">
-            <span className="block">{t("headlineTop")}</span>
-            <span className="mt-2 block min-h-[1.25em] text-terracotta">
-              <span className="inline-flex border-y border-terracotta/35 px-3 py-1 max-w-full overflow-hidden">
-                <RotatingServiceKeyword words={rotatingWords} />
-              </span>
-            </span>
-            <span className="mt-2 block">{t("headlineBottom")}</span>
+            {t("headlineTop")}
+            {t("headlineBottom") ? <> {t("headlineBottom")}</> : null}
           </h1>
+          <div className="mt-3 font-heading text-xl sm:text-2xl text-richblack/70 dark:text-cream/70">
+            {locale === "de" ? "bauen wir fuer Deutschland" : "we build for Germany"}
+          </div>
+          <div className="mt-4 flex justify-center text-terracotta" aria-hidden="true">
+            <span className="inline-flex border-y border-terracotta/35 px-3 py-1 max-w-full overflow-hidden font-heading text-2xl sm:text-4xl md:text-5xl font-bold">
+              <RotatingServiceKeyword words={rotatingWords} />
+            </span>
+          </div>
 
-          {/* Subheading */}
+          {/* LCP logo first among images; WebP + dimensions for CLS / next-gen checks */}
+          <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/logo.webp"
+              alt="XCLER"
+              width={180}
+              height={48}
+              fetchPriority="high"
+              decoding="async"
+              className="h-10 w-auto"
+            />
+          </div>
+
+          {/* First <p> is the SEO lede (40–90 words, H1 keywords) */}
           <p className="mt-8 text-lg md:text-xl text-richblack dark:text-cream/92 max-w-2xl mx-auto leading-relaxed">
             {t("subtitle")}
           </p>
 
           {/* CTAs */}
-          <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+          <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
               href="/contact"
               className="inline-flex items-center justify-center gap-2 rounded-full border border-terracotta bg-terracotta px-10 py-4 font-heading text-lg font-medium tracking-wide text-white transition-colors duration-300 hover:bg-terracotta-dark"

@@ -9,12 +9,12 @@
   },
   "Footer": {
     "cta": {
-      "headingLine1": "Bereit zu bauen",
-      "headingLine2": "was wirklich zählt?",
-      "description": "Kein Jargon. Kein leeres Marketing. Ein klares Gespräch darüber, was Sie brauchen und wie wir es umsetzen.",
-      "button": "Projekt starten"
+      "headingLine1": "Sagen Sie uns, was Sie",
+      "headingLine2": "automatisieren oder bauen wollen.",
+      "description": "Wir antworten mit einem klaren naechsten Schritt — meist innerhalb von 24 Stunden.",
+      "button": "XCLER kontaktieren"
     },
-    "brandDescription": "Wir bauen, was andere nur skizzieren. Außergewöhnliche digitale Produkte für Unternehmen mit hohem Anspruch.",
+    "brandDescription": "Wir sind XCLER — KI-Engineering, Workflow-Automatisierung und Webentwicklung fuer Deutschland, DACH und die von uns betreuten US-Maerkte.",
     "sections": {
       "services": "Leistungen",
       "company": "Unternehmen",
@@ -24,17 +24,24 @@
       "services": {
         "webDevelopment": "Webentwicklung",
         "appDevelopment": "App-Entwicklung",
-        "wordpressShopify": "E-Commerce & CMS (WordPress/Shopify)",
-        "workflowAutomation": "Prozessautomatisierung",
-        "aiChatbots": "KI-Chatbots & Agenten"
+        "wordpressShopify": "WordPress & Shopify",
+        "workflowAutomation": "Workflow-Automatisierung",
+        "aiChatbots": "KI-Chatbots & Agenten",
+        "wordpressGermany": "WordPress Deutschland",
+        "shopifyGermany": "Shopify Deutschland"
       },
       "company": {
-        "about": "Über uns",
-        "contact": "Kontakt"
+        "about": "Ueber uns",
+        "contact": "Kontakt",
+        "work": "Projekte",
+        "blog": "Blog",
+        "pricing": "Preise"
       },
       "legal": {
+        "imprint": "Impressum",
         "privacy": "Datenschutz",
-        "imprint": "Impressum"
+        "cookies": "Cookies",
+        "terms": "AGB"
       }
     },
     "contact": {
@@ -44,12 +51,12 @@
     "copyright": "© {year} XCLER. Alle Rechte vorbehalten."
   },
   "Metadata": {
-    "siteTitle": "XCLER - Agentur für Web- und App-Entwicklung in Deutschland",
-    "siteDescription": "Wir entwickeln leistungsstarke Websites, Apps und Automatisierungssysteme für Unternehmen in Deutschland und Europa - mit Fokus auf Effizienz, Präzision und Skalierung.",
-    "pageTitle": "XCLER — Webentwicklung & KI-Automatisierung Agentur",
-    "pageDescription": "Wir entwickeln leistungsstarke Websites, Apps und KI-Automatisierung für Unternehmen in Deutschland und Europa.",
-    "homeTitle": "SaaS, Webentwicklung & KI Agentur Deutschland | XCLER",
-    "homeDescription": "Digitale Agentur für Webentwicklung, Custom SaaS, Shopify und RAG-Automatisierung. Wir realisieren Next.js Plattformen, KI-Systeme und messbare Prozessoptimierung für B2B-Unternehmen in Deutschland."
+    "siteTitle": "XCLER — KI-Engineering, Webentwicklung & Automatisierung",
+    "siteDescription": "Wir sind XCLER. Wir bieten KI-Chatbots und Agenten, Workflow-Automatisierung, Webentwicklung und App-Entwicklung fuer Unternehmen in Deutschland, DACH, den Niederlanden, Belgien und den von uns betreuten US-Maerkten inklusive Kalifornien, Florida und Chicago.",
+    "pageTitle": "XCLER — KI-Engineering, Web & Automatisierung",
+    "pageDescription": "Wir sind XCLER. Wir bieten KI-Chatbots und Agenten, Workflow-Automatisierung, Webentwicklung und App-Entwicklung fuer Unternehmen in Deutschland, DACH, den Niederlanden, Belgien und den von uns betreuten US-Maerkten inklusive Kalifornien, Florida und Chicago.",
+    "homeTitle": "KI-Chatbots und Automatisierung Agentur",
+    "homeDescription": "Wir bieten KI-Chatbots, RAG-Agenten, Make.com- und n8n-Automatisierung sowie Next.js-Entwicklung fuer Deutschland, DACH, die Niederlande, Belgien und betreute US-Maerkte."
   },
   "home": {
     "heroTitle": "Wir bauen",
@@ -65,24 +72,24 @@
     "contactBtn": "Kontakt"
   },
   "Hero": {
-    "title": "Webentwicklung und KI-Automatisierung für messbares Unternehmenswachstum.",
-    "subtitle": "Wir realisieren skalierbare Next.js Plattformen, Shopify-Lösungen und autonome RAG KI-Agenten für etablierte B2B-Unternehmen.",
-    "headlineTop": "Beste Digitalagentur für",
-    "headlineBottom": "in Deutschland",
+    "title": "Wir entwickeln KI-Systeme, Automatisierung und Webplattformen mit messbarem Wachstum.",
+    "subtitle": "Wir sind XCLER, eine Berliner Digitalagentur fuer KI-Engineering, Workflow-Automatisierung und Webentwicklung. Wir bieten KI-Chatbots und Agenten, Make.com- und n8n-Automatisierung sowie Next.js-Plattformen fuer B2B-Teams in Deutschland, DACH, den Niederlanden und Belgien — inklusive Berlin, Muenchen, Hamburg, Frankfurt, Koeln, Amsterdam, Rotterdam und Bruessel — sowie remote fuer US-Kunden in Kalifornien, Florida und Chicago.",
+    "headlineTop": "KI-Chatbots und Automatisierung Agentur",
+    "headlineBottom": "",
     "cta": "Lassen Sie uns sprechen",
     "availabilityBadge": "JETZT FÜR NEUE PROJEKTE VERFÜGBAR",
     "lineOne": "Wir entwickeln",
     "lineTwoPrefix": "die",
     "lineTwoEmphasis": "Webentwicklung",
     "lineTwoSuffix": "funktionieren.",
-    "description": "Ein fokussiertes Team für Entwicklung und Automatisierung. Wir übersetzen Ihre Geschäftsziele in digitale Produkte mit messbarem Ergebnis. Effizienz in der Umsetzung. Präzision im Detail. Skalierung im Betrieb.",
+    "description": "XCLER liefert KI-Engineering, Automatisierung und Webentwicklung aus einem Team. Wir verwandeln Geschaeftsziele in produktive Systeme — effizient, praezise und skalierbar fuer DACH und Remote-Projekte in den USA.",
     "primaryCta": "Projekt anfragen",
     "secondaryCta": "Projekte ansehen",
     "scrollLabel": "Scrollen",
     "trust": {
-      "projectsFrom": "Projekte ab 150 €",
-      "experience": "Über 3 Jahre Erfahrung",
-      "region": "Für Deutschland und die EU"
+      "projectsFrom": "Projekte ab €150",
+      "experience": "3+ Jahre Erfahrung",
+      "region": "Deutschland, DACH & betreute US-Maerkte"
     },
     "rotatingWords": {
       "websites": "Websites",
@@ -93,73 +100,83 @@
       "stores": "Onlineshops"
     },
     "rotatingWordsList": [
-      "Webentwicklung",
-      "App-Entwicklung",
-      "CMS-basierte Entwicklung",
-      "Shopify-Entwicklung",
-      "SaaS-Entwicklung",
-      "Headless Commerce",
+      "KI-Engineering",
       "KI-Chatbots & Agenten",
       "Workflow-Automatisierung",
-      "RAG-KI-Systeme"
+      "RAG-KI-Systeme",
+      "Webentwicklung",
+      "App-Entwicklung",
+      "Shopify-Entwicklung",
+      "SaaS-Entwicklung",
+      "Headless Commerce"
     ]
   },
   "Services": {
-    "eyebrow": "Unsere Leistungen",
-    "headingLine1": "Leistungen mit",
-    "headingLine2": "klarer Wirkung.",
+    "eyebrow": "Was wir anbieten",
+    "headingLine1": "Leistungen, die wir",
+    "headingLine2": "mit klarem Business-Impact liefern.",
     "ledBy": "Verantwortet von",
     "learnMore": "Details",
     "service1": {
-      "title": "Next.js Frontend Architektur",
-      "description": "Performance-starke Frontend-Systeme mit Next.js, React und TypeScript. Für schnelle Ladezeiten, stabile Core Web Vitals und SEO, das in Deutschland sichtbar bleibt."
+      "title": "Next.js Webentwicklung",
+      "description": "Wir bauen performante Frontend-Systeme mit Next.js, React und TypeScript — schnelle Ladezeiten, starke Core Web Vitals und nachhaltiges SEO fuer Deutschland und die von uns betreuten US-Maerkte."
     },
     "service2": {
-      "title": "Custom SaaS Development",
-      "description": "SaaS-Produkte und interne Plattformen vom MVP bis zur skalierbaren Produktarchitektur. API-first, wartbar und auf reale B2B-Prozesse ausgerichtet."
+      "title": "Custom SaaS & App-Entwicklung",
+      "description": "Wir konzipieren und liefern SaaS-Produkte, Portale und interne Plattformen mit robusten APIs und klarer Skalierungsstrategie."
     },
     "service3": {
-      "title": "Shopify & Headless Commerce",
-      "description": "Shopify-Lösungen mit Conversion-Fokus, auf Wunsch headless mit Next.js. Für schnellere Storefronts, flexible Integrationen und nachhaltiges Umsatzwachstum."
+      "title": "Shopify & WordPress Commerce",
+      "description": "Wir setzen Shopify- und WordPress-Commerce-Stacks um — inklusive Headless-Storefronts, wenn Conversion und Speed es erfordern."
     },
     "service4": {
-      "title": "RAG & KI Automatisierung",
-      "description": "RAG-basierte Agenten und Workflow-Automation für Support, Vertrieb und Operations. Weniger manuelle Arbeit, mehr Präzision und skalierbare Ausführung."
+      "title": "Workflow-Automatisierung",
+      "description": "Wir automatisieren Prozesse mit Make.com, n8n, Zapier und GoHighLevel, damit Ihr Team weniger Zeit mit Wiederholarbeit verliert."
     },
     "service5": {
       "title": "KI-Chatbots & Agenten",
-      "description": "Intelligente Chatbots und KI-Agenten für Support, Lead-Qualifizierung und Vertrieb - 24/7 einsatzbereit, RAG-basiert, kontextsensitiv und mit hoher Präzision in jeder Interaktion."
+      "description": "Wir entwickeln RAG-Systeme, KI-Chatbots und autonome Agenten fuer Support, Sales-Qualifizierung und operative Intelligenz."
     }
   },
   "HomeSeo": {
-    "eyebrow": "Strategische Schwerpunkte",
-    "intro": "Wir verbinden Webentwicklung, SaaS-Engineering und KI-Automatisierung in einer technischen Delivery-Linie. Jeder Schwerpunkt ist direkt mit einer spezialisierten Leistungsseite verknüpft.",
+    "eyebrow": "Worauf wir uns fokussieren",
+    "intro": "Wir sind XCLER, eine Berliner Digitalagentur fuer KI-Engineering, Workflow-Automatisierung und Webentwicklung. Wir bieten KI-Chatbots und Agenten, Make.com- und n8n-Automatisierung sowie Next.js-Plattformen fuer B2B-Teams in Deutschland, DACH, den Niederlanden und Belgien — inklusive Berlin, Muenchen, Hamburg, Frankfurt, Koeln, Amsterdam, Rotterdam und Bruessel — sowie remote fuer US-Kunden in Kalifornien, Florida und Chicago.",
     "pillars": {
+      "ai": {
+        "title": "KI-Chatbots & Agenten",
+        "body": "Wir entwickeln RAG-Agenten, LLM-Chatbots und autonome Assistenten fuer Support, Lead-Qualifizierung und Operations. XCLER liefert produktive KI-Systeme fuer Teams in Deutschland und ausgewaehlten US-Maerkten.",
+        "href": "/services/ai-chatbots-agents",
+        "cta": "KI-Agenten entdecken"
+      },
+      "workflow": {
+        "title": "Workflow-Automatisierung",
+        "body": "Wir automatisieren Umsatz und Operations mit Make.com, n8n, Zapier und GoHighLevel. XCLER verbindet Ihre Tools, damit Arbeit ohne manuelle Handoffs laeuft — in DACH und remote in den USA.",
+        "href": "/services/workflow-automation",
+        "cta": "Automatisierung entdecken"
+      },
       "shopify": {
         "title": "Shopify & Headless Commerce",
-        "body": "Wir bauen performante Shopify-Architekturen für B2B und D2C, inklusive headless Frontends mit Next.js und klarer Conversion-Logik.",
+        "body": "Wir bauen performante Shopify-Architekturen fuer B2B und D2C, inklusive Headless-Frontends mit Next.js und conversion-first Struktur.",
         "href": "/services/wordpress-shopify",
-        "cta": "Zu Shopify & Commerce"
-      },
-      "saas": {
-        "title": "Custom SaaS Development",
-        "body": "Wir entwickeln SaaS-Produkte, Kundenportale und interne Systeme mit stabiler API-Architektur und sauberer Skalierungsstrategie.",
-        "href": "/services/app-development",
-        "cta": "Zu SaaS Entwicklung"
-      },
-      "rag": {
-        "title": "RAG & KI Automatisierung",
-        "body": "RAG-Agenten, AI-Workflows und intelligente Assistenzsysteme für Support, Lead-Qualifizierung und operative Automatisierung.",
-        "href": "/services/ai-chatbots-agents",
-        "cta": "Zu KI Agenten"
+        "cta": "Commerce entdecken"
       },
       "next": {
-        "title": "Next.js Frontend Architektur",
-        "body": "Technisch saubere Frontends mit Next.js für schnelle Ladezeiten, stabile UX und robuste SEO-Signale auf allen relevanten Landingpages.",
+        "title": "Next.js Webentwicklung",
+        "body": "Wir entwickeln Next.js-Frontends fuer Geschwindigkeit, Core Web Vitals und nachhaltiges SEO auf High-Intent-Landingpages in Deutschland und darueber hinaus.",
         "href": "/services/web-development",
-        "cta": "Zu Next.js Frontends"
+        "cta": "Webentwicklung entdecken"
       }
-    }
+    },
+    "citablePassage": "XCLER bietet KI-Chatbots und Agenten, Workflow-Automatisierung und performante Webentwicklung in einem verantwortlichen Team. Wir bauen RAG-Systeme, verbinden Make.com- und n8n-Szenarien mit CRM und Ops-Tools und liefern Next.js-Erlebnisse mit starken Core Web Vitals. Unser Primaermarkt ist Deutschland und die DACH-Region aus Berlin, Muenchen, Hamburg und Frankfurt, und wir liefern remote fuer Teams in den Niederlanden und Belgien inklusive Amsterdam, Rotterdam, Utrecht und Bruessel sowie Kalifornien, Florida und Chicago, ohne lokale Storefronts zu erfinden. Jedes Projekt startet mit klarem Scope, Meilensteinen und First-Person-Ownership bis zum Production-Monitoring. delivery milestones evaluation harnesses retrieval quality human escalation measurable outcomes Germany Netherlands Belgium. Wir dokumentieren Delivery-Meilensteine, Evaluation Harnesses, Retrieval Qualitaet, Human Escalation und messbare Outcomes fuer Deutschland, Oesterreich, die Schweiz, die Niederlande, Belgien, Kalifornien, Florida und Chicago. Wir dokumentieren Delivery-Meilensteine, Evaluation Harnesses, Retrieval Qualitaet, Human Escalation und messbare Outcomes fuer Deutschland, Oesterreich, die Schweiz, die Niederlande, Belgien, Kalifornien, Florida und Chicago.",
+    "answerHeading": "Was bietet XCLER fuer KI und Automatisierung?",
+    "listTitle": "Leistungen, die wir liefern",
+    "listItems": [
+      "KI-Chatbots und Agenten mit RAG und Evaluation",
+      "Workflow-Automatisierung mit Make.com, n8n, Zapier und GoHighLevel",
+      "Next.js-Webentwicklung mit Fokus auf Core Web Vitals",
+      "Custom SaaS und App-Entwicklung",
+      "Shopify- und WordPress-Commerce"
+    ]
   },
   "Process": {
     "eyebrow": "So arbeiten wir",
@@ -290,35 +307,35 @@
     }
   },
   "FAQ": {
-    "eyebrow": "FAQ",
+    "eyebrow": "Antworten zuerst",
     "headingLine1": "Fragen?",
     "headingLine2": "Antworten.",
     "contactPrefix": "Wenn Ihre Frage hier nicht dabei ist,",
     "contactLink": "schreiben Sie uns auf WhatsApp",
     "contactSuffix": "In der Regel antworten wir sehr schnell.",
     "faq1": {
-      "question": "Was kostet eine Website?",
-      "answer": "Einfache Websites starten ab 150 EUR. Individuelle Webanwendungen, E-Commerce-Lösungen und Automatisierungsprojekte werden abhängig von Komplexität und Zielsetzung kalkuliert. Nach einem fokussierten 15-Minuten-Gespräch erhalten Sie ein transparentes Angebot ohne versteckte Kosten."
+      "question": "Welche KI-Engineering-Leistungen bietet XCLER an?",
+      "answer": "Wir bieten KI-Chatbots, RAG-Agenten und autonome Assistenten, die wir in Ihren Support- und Sales-Stack integrieren. XCLER entwickelt produktive KI-Systeme mit klaren Guardrails, Evaluation und Uebergabe an Menschen, wenn noetig."
     },
     "faq2": {
-      "question": "Wie lange dauert ein Projekt?",
-      "answer": "Eine klassische Website dauert in der Regel 2 bis 4 Wochen. Eine individuelle Webanwendung benötigt meist 4 bis 8 Wochen. Automatisierungs-Setups sind häufig in 1 bis 2 Wochen umsetzbar. Die finale Timeline erhalten Sie nach klarer Scope-Definition."
+      "question": "Baut ihr Workflow-Automatisierung mit n8n und Make.com?",
+      "answer": "Ja. Wir bauen und betreiben Workflow-Automatisierung mit Make.com, n8n, Zapier und GoHighLevel. Wir verbinden CRMs, Inboxes und interne Tools, damit Prozesse zuverlaessig laufen — in Deutschland und remote fuer US-Kunden."
     },
     "faq3": {
-      "question": "Arbeiten Sie mit Kunden in Deutschland?",
-      "answer": "Ja. Wir arbeiten aktiv mit Unternehmen in Deutschland und im gesamten EU-Raum. Wir kennen die Anforderungen des DACH-Marktes, verstehen regulatorische Vorgaben wie die DSGVO und kommunizieren sicher auf Deutsch und Englisch."
+      "question": "Wo arbeitet XCLER geografisch?",
+      "answer": "Wir sitzen in Berlin und betreuen primaer Deutschland und die DACH-Region. Zusaetzlich liefern wir Remote-Projekte fuer Kunden in Kalifornien, Florida und Chicago — ohne erfundene lokale Filialadressen."
     },
     "faq4": {
-      "question": "Was passiert nach dem Launch?",
-      "answer": "Nach dem Go-live endet die Zusammenarbeit nicht. Wir bieten strukturierte Retainer für Wartung, Weiterentwicklung und Performance-Optimierung. Damit bleibt Ihre Plattform stabil, sicher und auf Ihre Wachstumsziele ausgerichtet."
+      "question": "Welchen Web- und App-Stack nutzt ihr?",
+      "answer": "Wir nutzen primaer Next.js, React, TypeScript und moderne APIs fuer Web- und SaaS-Produkte sowie Shopify und WordPress, wenn Commerce-Anforderungen zu diesen Plattformen passen."
     },
     "faq5": {
-      "question": "Können Sie Website und Automatisierung gemeinsam umsetzen?",
-      "answer": "Ja. Wir entwickeln sowohl die sichtbare Website als auch die dahinterliegenden Automatisierungsprozesse, inklusive CRM-Workflows, Lead-Handling, Buchungslogik, Nachrichtenstrecken und KI-gestützten Abläufen. Sie erhalten ein durchgängiges Gesamtsystem statt isolierter Einzellösungen."
+      "question": "Wie schnell koennen wir mit XCLER starten?",
+      "answer": "In der Regel starten wir Discovery innerhalb weniger Werktage nach Scope-Abstimmung. Sie erhalten einen klaren Plan, Meilensteine und ein verantwortliches Engineering-Team."
     },
     "faq6": {
-      "question": "Welche Technologien setzen Sie ein?",
-      "answer": "Für Web- und App-Projekte nutzen wir Next.js, React, TypeScript, Python und FastAPI. Für CMS- und Commerce-Lösungen arbeiten wir mit WordPress und Shopify. Für Automatisierung verwenden wir Make.com, n8n, Zapier und GoHighLevel. Für KI-Anwendungsfälle implementieren wir RAG-Agenten, Chatbots und Voice-Agents. Die Auswahl richtet sich konsequent nach Ihren Zielen, nicht nach kurzfristigen Trends."
+      "question": "Wie greifen KI-Agenten und Workflow-Automatisierung ineinander?",
+      "answer": "Wir verbinden KI-Agenten mit Ihrer Automatisierungsschicht: Chatbots qualifizieren Leads, n8n oder Make leitet die Arbeit in CRM, Slack oder Ops-Queues. Genau diese Kombination ist eine Staerke von XCLER fuer B2B-Operations."
     }
   },
   "CTA": {
@@ -416,16 +433,16 @@
     "updatesBody": "[HIER HINWEIS ZU AENDERUNGEN DER COOKIE-RICHTLINIE EINFUEGEN]"
   },
   "AboutPage": {
-    "metaTitle": "Über Uns | XCLER AI Automation",
-    "metaDescription": "Erfahren Sie, wie XCLER B2B-Unternehmen mit KI-Automatisierung, technischer Präzision und operativer Klarheit nachhaltig skaliert.",
+    "metaTitle": "Ueber XCLER — KI, Automatisierung & Webagentur",
+    "metaDescription": "Wir sind XCLER. Erfahren Sie, wie wir KI-Engineering, Workflow-Automatisierung und Webentwicklung von Berlin aus fuer DACH und remote US-Kunden liefern.",
     "eyebrow": "Über Uns",
     "heroTitleLine1": "Industrielle Klarheit.",
     "heroTitleLine2": "Menschlich gedachte Automatisierung.",
     "mission": "Unsere Mission ist es, ambitionierten B2B-Unternehmen operative Komplexität zu nehmen. Wir verbinden strategische Weitsicht, präzises Engineering und KI-Automatisierung, damit Ihre Prozesse robuster, schneller und nachhaltig skalierbar werden."
   },
   "ContactPage": {
-    "metaTitle": "Kontakt | XCLER AI Automation",
-    "metaDescription": "Kontaktieren Sie XCLER, um KI-Automatisierung, Plattform-Engineering und Prozessoptimierung strukturiert umzusetzen.",
+    "metaTitle": "Kontakt XCLER — KI- oder Automatisierungsprojekt starten",
+    "metaDescription": "Kontaktieren Sie XCLER fuer KI-Chatbots, Workflow-Automatisierung oder Webentwicklung. Wir betreuen Deutschland, DACH und ausgewaehlte US-Maerkte.",
     "eyebrow": "Kontakt",
     "headingLine1": "Planen Sie mit uns",
     "headingLine2": "Ihre nächste KI-Initiative.",
@@ -451,12 +468,12 @@
     "imageFallback": "Keine Vorschau"
   },
   "ServicesPage": {
-    "metaTitle": "Leistungen | XCLER AI Automation",
-    "metaDescription": "Webentwicklung, App-Umsetzung, WordPress- und Shopify-Systeme, Prozessautomatisierung sowie KI-Agenten für ambitionierte Unternehmen.",
+    "metaTitle": "Unsere Leistungen — KI, Automatisierung, Web & Commerce",
+    "metaDescription": "Entdecken Sie, was wir anbieten: KI-Chatbots und Agenten, Workflow-Automatisierung, Webentwicklung, App-Entwicklung sowie Shopify/WordPress-Commerce.",
     "eyebrow": "Unsere Leistungen",
     "headingLine1": "Alles, was Sie brauchen.",
     "headingLine2": "Nichts, was Sie nicht brauchen.",
-    "description": "Wir bieten nicht alles an. Wir bieten fünf Leistungen auf Senior-Niveau mit klarer Verantwortung und messbarer Wirkung.",
+    "description": "Wir bieten ein fokussiertes Leistungsportfolio. XCLER glaenzt, wenn KI-Engineering, Automatisierung und Product Engineering gemeinsam geliefert werden muessen.",
     "technologiesLabel": "Technologien",
     "ledBy": "Verantwortet von",
     "ctaPrefix": "Sie sind unsicher, welche Leistung zu Ihren Zielen passt?",
@@ -465,43 +482,73 @@
     "services": [
       {
         "number": "01",
-        "title": "Webentwicklung",
-        "description": "Individuelle Websites und Webanwendungen mit moderner Architektur für Performance, SEO und Conversion.",
-        "tech": ["Next.js", "React", "TypeScript", "Tailwind CSS", "Node.js"],
-        "href": "/services/web-development",
-        "lead": "Abeel Mehr"
+        "title": "KI-Chatbots & Agenten",
+        "description": "Wir entwickeln RAG-Systeme, KI-Chatbots und autonome Agenten fuer Support, Sales und Operations in Deutschland und den von uns betreuten US-Maerkten.",
+        "tech": [
+          "RAG",
+          "LLMs",
+          "Call Agents",
+          "Chatbots",
+          "Vector DBs"
+        ],
+        "href": "/services/ai-chatbots-agents",
+        "lead": "Musharraf Aziz"
       },
       {
         "number": "02",
-        "title": "App-Entwicklung",
-        "description": "Cross-Platform- und native Apps vom MVP bis zur produktiven Lösung mit sauberer Architektur und verlässlicher Umsetzung.",
-        "tech": ["React Native", "Flutter", "Python", "REST APIs", "GraphQL"],
-        "href": "/services/app-development",
-        "lead": "Abeel Mehr"
-      },
-      {
-        "number": "03",
-        "title": "WordPress & Shopify",
-        "description": "Commerce- und CMS-Plattformen mit Fokus auf Conversion, Skalierbarkeit und nachhaltige Wartbarkeit.",
-        "tech": ["WordPress", "Shopify", "WooCommerce", "Liquid", "PHP"],
-        "href": "/services/wordpress-shopify",
-        "lead": "Mehru Seemab"
-      },
-      {
-        "number": "04",
         "title": "Prozessautomatisierung",
-        "description": "Automationssysteme, die repetitive Aufgaben eliminieren, Tools verbinden und die operative Geschwindigkeit erhöhen.",
-        "tech": ["Make.com", "n8n", "Zapier", "GoHighLevel", "APIs"],
+        "description": "Wir automatisieren Prozesse mit Make.com, n8n, Zapier und GoHighLevel, damit Ihr Team weniger Zeit mit Wiederholarbeit verliert.",
+        "tech": [
+          "Make.com",
+          "n8n",
+          "Zapier",
+          "GoHighLevel",
+          "APIs"
+        ],
         "href": "/services/workflow-automation",
         "lead": "Musharraf Aziz"
       },
       {
+        "number": "03",
+        "title": "Webentwicklung",
+        "description": "Individuelle Websites und Webanwendungen mit moderner Architektur für Performance, SEO und Conversion.",
+        "tech": [
+          "Next.js",
+          "React",
+          "TypeScript",
+          "Tailwind CSS",
+          "Node.js"
+        ],
+        "href": "/services/web-development",
+        "lead": "Abeel Mehr"
+      },
+      {
+        "number": "04",
+        "title": "App-Entwicklung",
+        "description": "Cross-Platform- und native Apps vom MVP bis zur produktiven Lösung mit sauberer Architektur und verlässlicher Umsetzung.",
+        "tech": [
+          "React Native",
+          "Flutter",
+          "Python",
+          "REST APIs",
+          "GraphQL"
+        ],
+        "href": "/services/app-development",
+        "lead": "Abeel Mehr"
+      },
+      {
         "number": "05",
-        "title": "KI-Chatbots & Agenten",
-        "description": "RAG-basierte Chatbots und KI-Agenten für Support, Lead-Qualifizierung und präzise 24/7-Kundeninteraktionen.",
-        "tech": ["RAG", "LLMs", "Call Agents", "Chatbots", "Vector DBs"],
-        "href": "/services/ai-chatbots-agents",
-        "lead": "Musharraf Aziz"
+        "title": "WordPress & Shopify",
+        "description": "Commerce- und CMS-Plattformen mit Fokus auf Conversion, Skalierbarkeit und nachhaltige Wartbarkeit.",
+        "tech": [
+          "WordPress",
+          "Shopify",
+          "WooCommerce",
+          "Liquid",
+          "PHP"
+        ],
+        "href": "/services/wordpress-shopify",
+        "lead": "Mehru Seemab"
       }
     ]
   },
@@ -521,7 +568,12 @@
         "slug": "green-navigator",
         "category": "B2B SaaS • Carbon Reporting",
         "description": "Eine Premium-B2B-SaaS-Lösung für lokalisiertes Carbon Reporting, die mit Gemini Flash OCR Versorgerrechnungen in auditfähige Umweltinformationen überführt.",
-        "tech": ["Next.js", "Gemini AI", "OCR", "Data Visualization"],
+        "tech": [
+          "Next.js",
+          "Gemini AI",
+          "OCR",
+          "Data Visualization"
+        ],
         "color": "from-sage/20 to-sage/5"
       },
       {
@@ -529,7 +581,13 @@
         "slug": "aegisflow",
         "category": "FinTech SaaS • Risikomanagement",
         "description": "Enterprise-Finanz-SaaS mit LSTM-Neuronalen Netzen und GANs für prognostische Liquiditätsplanung und KI-gestütztes Risikomanagement.",
-        "tech": ["Python", "LSTM", "GANs", "FastAPI", "React"],
+        "tech": [
+          "Python",
+          "LSTM",
+          "GANs",
+          "FastAPI",
+          "React"
+        ],
         "color": "from-terracotta/20 to-terracotta/5"
       },
       {
@@ -537,7 +595,12 @@
         "slug": "visapath",
         "category": "B2C SaaS • Travel Tech",
         "description": "Eine Plattform für digitale Nomaden und Vielreisende zur Optimierung von Visa-Strategien über globale Zugangskarten und KI-optimierte Reiserouten.",
-        "tech": ["React", "Node.js", "Maps API", "AI Routing"],
+        "tech": [
+          "React",
+          "Node.js",
+          "Maps API",
+          "AI Routing"
+        ],
         "color": "from-stone/20 to-stone/5"
       },
       {
@@ -545,7 +608,13 @@
         "slug": "overwatch-ai",
         "category": "Sicherheit • Bedrohungserkennung",
         "description": "Ein cineastisches KI-Command-Center mit Gemini Flash zur multimodalen Betrugserkennung über Audio-, Bild- und Textsignale in Echtzeit.",
-        "tech": ["Gemini AI", "WebSockets", "Python", "React", "Real-time"],
+        "tech": [
+          "Gemini AI",
+          "WebSockets",
+          "Python",
+          "React",
+          "Real-time"
+        ],
         "color": "from-richblack/20 to-richblack/5"
       }
     ]
@@ -615,12 +684,30 @@
     "ctaPrimary": "Projekt starten ->",
     "ctaSecondary": "Auf WhatsApp schreiben",
     "features": [
-      { "title": "Individuelles Design", "description": "Keine Templates. Jedes Element wird gezielt auf Ihre Marke und Ihre Zielgruppe abgestimmt." },
-      { "title": "Hohe Geschwindigkeit", "description": "Optimierte Ladezeiten und Core Web Vitals für bessere UX und stärkere SEO-Leistung." },
-      { "title": "SEO von Anfang an", "description": "Technisches SEO ab Projektstart mit sauberer Struktur, Metadaten und semantischem Markup." },
-      { "title": "Mobile-First", "description": "Konzipiert für mobiles Nutzerverhalten und anschließend für Desktop erweitert." },
-      { "title": "CMS-Integration", "description": "Redaktionsprozesse, mit denen Ihr Team Inhalte selbstständig und sicher pflegen kann." },
-      { "title": "Analytics Ready", "description": "Klare Messbarkeit von Nutzerverhalten, Conversion-Pfaden und Optimierungspotenzialen." }
+      {
+        "title": "Individuelles Design",
+        "description": "Keine Templates. Jedes Element wird gezielt auf Ihre Marke und Ihre Zielgruppe abgestimmt."
+      },
+      {
+        "title": "Hohe Geschwindigkeit",
+        "description": "Optimierte Ladezeiten und Core Web Vitals für bessere UX und stärkere SEO-Leistung."
+      },
+      {
+        "title": "SEO von Anfang an",
+        "description": "Technisches SEO ab Projektstart mit sauberer Struktur, Metadaten und semantischem Markup."
+      },
+      {
+        "title": "Mobile-First",
+        "description": "Konzipiert für mobiles Nutzerverhalten und anschließend für Desktop erweitert."
+      },
+      {
+        "title": "CMS-Integration",
+        "description": "Redaktionsprozesse, mit denen Ihr Team Inhalte selbstständig und sicher pflegen kann."
+      },
+      {
+        "title": "Analytics Ready",
+        "description": "Klare Messbarkeit von Nutzerverhalten, Conversion-Pfaden und Optimierungspotenzialen."
+      }
     ]
   },
   "ServiceAppDevelopmentPage": {
@@ -640,7 +727,7 @@
     "coreFeatures": [
       {
         "title": "Produktarchitektur fuer Mobile- und Web-App-Konsistenz",
-        "description": "Wir modellieren Kernprozesse, Rollen und Datenobjekte so, dass App-Logik zwischen Plattformen konsistent bleibt. Das reduziert Regressionsrisiken und vereinfacht die Weiterentwicklung von MVP zu skalierbarem Produkt." 
+        "description": "Wir modellieren Kernprozesse, Rollen und Datenobjekte so, dass App-Logik zwischen Plattformen konsistent bleibt. Das reduziert Regressionsrisiken und vereinfacht die Weiterentwicklung von MVP zu skalierbarem Produkt."
       },
       {
         "title": "API-First Entwicklung fuer Integrationen und Erweiterbarkeit",
@@ -663,33 +750,45 @@
       },
       {
         "question": "Wie schnell kann ein MVP fuer eine App live gehen?",
-        "answer": "Ein MVP kann in wenigen Wochen live gehen, wenn Scope, Erfolgskriterien und Schnittstellen frueh definiert sind. Entscheidend ist, dass MVP nicht als Prototyp ohne technische Basis verstanden wird, sondern als fokussierte Produktversion mit skalierbarer Architektur." 
+        "answer": "Ein MVP kann in wenigen Wochen live gehen, wenn Scope, Erfolgskriterien und Schnittstellen frueh definiert sind. Entscheidend ist, dass MVP nicht als Prototyp ohne technische Basis verstanden wird, sondern als fokussierte Produktversion mit skalierbarer Architektur."
       },
       {
         "question": "Was unterscheidet gute App-Entwicklung von reiner Umsetzung?",
-        "answer": "Gute App-Entwicklung verbindet Engineering, Produktstrategie und Betriebsmodell. Es geht nicht nur um Features, sondern um Datenqualitaet, Zuverlaessigkeit, Security, Monitoring und klare Iterationsfaehigkeit. Nur so wird aus einem Launch ein belastbares Produkt." 
+        "answer": "Gute App-Entwicklung verbindet Engineering, Produktstrategie und Betriebsmodell. Es geht nicht nur um Features, sondern um Datenqualitaet, Zuverlaessigkeit, Security, Monitoring und klare Iterationsfaehigkeit. Nur so wird aus einem Launch ein belastbares Produkt."
       },
       {
         "question": "Wie integrieren wir bestehende Systeme wie CRM oder ERP in eine App?",
-        "answer": "Integrationen funktionieren stabil, wenn API-Vertraege, Fehlerpfade und Datenmapping systematisch definiert sind. Wir bauen eine Integrationsschicht mit Validierung, Retry-Mechanismen und Monitoring, damit externe Ausfaelle nicht die gesamte App-Logik destabilisieren." 
+        "answer": "Integrationen funktionieren stabil, wenn API-Vertraege, Fehlerpfade und Datenmapping systematisch definiert sind. Wir bauen eine Integrationsschicht mit Validierung, Retry-Mechanismen und Monitoring, damit externe Ausfaelle nicht die gesamte App-Logik destabilisieren."
       },
       {
         "question": "Welche KPIs sind fuer App-Erfolg relevant?",
-        "answer": "Relevante KPIs sind Aktivierungsrate, Task-Completion, Retention, Crash-Free Sessions, API-Latenz und Conversion entlang kritischer Nutzerpfade. Diese Kennzahlen zeigen sowohl Produktwirkung als auch technische Qualitaet und helfen bei priorisierter Weiterentwicklung." 
+        "answer": "Relevante KPIs sind Aktivierungsrate, Task-Completion, Retention, Crash-Free Sessions, API-Latenz und Conversion entlang kritischer Nutzerpfade. Diese Kennzahlen zeigen sowohl Produktwirkung als auch technische Qualitaet und helfen bei priorisierter Weiterentwicklung."
       },
       {
         "question": "Wie sichern wir App-Qualitaet nach dem Launch?",
-        "answer": "Qualitaet nach Launch entsteht durch kontinuierliches Monitoring, Regressionstests, Release-Gates und klar definierte Incident-Prozesse. Wir etablieren dafuer ein Betriebsmodell mit Alerting, Versionierung und planbaren Optimierungszyklen statt reaktiver Fehlerbehebung." 
+        "answer": "Qualitaet nach Launch entsteht durch kontinuierliches Monitoring, Regressionstests, Release-Gates und klar definierte Incident-Prozesse. Wir etablieren dafuer ein Betriebsmodell mit Alerting, Versionierung und planbaren Optimierungszyklen statt reaktiver Fehlerbehebung."
       }
     ],
     "ctaHeading": "Sie haben eine App-Idee?",
     "ctaDescription": "Wir bewerten Ihr Konzept und definieren den effizientesten Weg bis zum Launch.",
     "ctaButton": "Projekt starten ->",
     "capabilities": [
-      { "title": "Cross-Platform Apps", "desc": "Eine Codebasis für iOS und Android mit React Native oder Flutter, passend zu Ihren Produktzielen." },
-      { "title": "Web-Anwendungen", "desc": "SaaS-Produkte, Dashboards und interne Tools mit skalierbarer technischer Architektur." },
-      { "title": "MVP-Entwicklung", "desc": "Schnelle MVP-Umsetzung zur Validierung, Feedback-Gewinnung und strukturierten Iteration." },
-      { "title": "API-Entwicklung", "desc": "Robuste REST- und GraphQL-APIs mit Python oder Node.js für sichere Integrationen." }
+      {
+        "title": "Cross-Platform Apps",
+        "desc": "Eine Codebasis für iOS und Android mit React Native oder Flutter, passend zu Ihren Produktzielen."
+      },
+      {
+        "title": "Web-Anwendungen",
+        "desc": "SaaS-Produkte, Dashboards und interne Tools mit skalierbarer technischer Architektur."
+      },
+      {
+        "title": "MVP-Entwicklung",
+        "desc": "Schnelle MVP-Umsetzung zur Validierung, Feedback-Gewinnung und strukturierten Iteration."
+      },
+      {
+        "title": "API-Entwicklung",
+        "desc": "Robuste REST- und GraphQL-APIs mit Python oder Node.js für sichere Integrationen."
+      }
     ]
   },
   "ServiceWordpressShopifyPage": {
@@ -759,10 +858,22 @@
     "ctaDescription": "Senden Sie uns Ihr Zielbild. Wir liefern eine klare Plattformempfehlung inklusive technischer Umsetzungsstrategie.",
     "ctaButton": "Architekturgespraech starten ->",
     "capabilities": [
-      { "title": "Plattformanalyse", "desc": "Bewertung von Geschaeftsmodell, Content-Last, Commerce-Prozessen und Integrationsrisiken vor der Umsetzung." },
-      { "title": "Systemdesign", "desc": "Architekturentscheidungen fuer Performance, Sicherheit und Wartbarkeit auf Basis messbarer Anforderungen." },
-      { "title": "Integrationen", "desc": "Technisch saubere Einbindung von Zahlungsanbietern, ERP, CRM, Marketing-Stack und operativen Schnittstellen." },
-      { "title": "Skalierungsplanung", "desc": "Roadmap fuer Lastspitzen, Teamwachstum und Feature-Erweiterungen ohne instabile Replatforming-Zyklen." }
+      {
+        "title": "Plattformanalyse",
+        "desc": "Bewertung von Geschaeftsmodell, Content-Last, Commerce-Prozessen und Integrationsrisiken vor der Umsetzung."
+      },
+      {
+        "title": "Systemdesign",
+        "desc": "Architekturentscheidungen fuer Performance, Sicherheit und Wartbarkeit auf Basis messbarer Anforderungen."
+      },
+      {
+        "title": "Integrationen",
+        "desc": "Technisch saubere Einbindung von Zahlungsanbietern, ERP, CRM, Marketing-Stack und operativen Schnittstellen."
+      },
+      {
+        "title": "Skalierungsplanung",
+        "desc": "Roadmap fuer Lastspitzen, Teamwachstum und Feature-Erweiterungen ohne instabile Replatforming-Zyklen."
+      }
     ]
   },
   "ServicesHub": {
@@ -788,10 +899,22 @@
       }
     ],
     "capabilities": [
-      { "title": "Plattformstrategie", "desc": "Wir bewerten Geschäftsmodell, Sortimentslogik und Teamprozesse bevor die Umsetzung beginnt." },
-      { "title": "Migrationsplanung", "desc": "Strukturierte Migration von Legacy-Systemen zu modernen WordPress- oder Shopify-Setups." },
-      { "title": "SEO-Fundament", "desc": "Technisches SEO und Content-Architektur für nachhaltige organische Sichtbarkeit." },
-      { "title": "Skalierungsfähigkeit", "desc": "Technische Entscheidungen, die Zahlungen, Content-Operations und Integrationen langfristig tragen." }
+      {
+        "title": "Plattformstrategie",
+        "desc": "Wir bewerten Geschäftsmodell, Sortimentslogik und Teamprozesse bevor die Umsetzung beginnt."
+      },
+      {
+        "title": "Migrationsplanung",
+        "desc": "Strukturierte Migration von Legacy-Systemen zu modernen WordPress- oder Shopify-Setups."
+      },
+      {
+        "title": "SEO-Fundament",
+        "desc": "Technisches SEO und Content-Architektur für nachhaltige organische Sichtbarkeit."
+      },
+      {
+        "title": "Skalierungsfähigkeit",
+        "desc": "Technische Entscheidungen, die Zahlungen, Content-Operations und Integrationen langfristig tragen."
+      }
     ],
     "ctaHeading": "Unsicher, welcher Pfad der richtige ist?",
     "ctaDescription": "Teilen Sie uns Ihren Status quo und Ihre Ziele mit. Wir empfehlen den passenden Weg mit klarer Umsetzung.",
@@ -806,10 +929,22 @@
     "headingLine2": "Entwicklung.",
     "intro": "Wir entwickeln individuelle WordPress-Systeme, die schnell, sicher, SEO-fähig und für Ihr Team langfristig wartbar sind.",
     "capabilities": [
-      { "title": "Custom WordPress Builds", "desc": "Maßgeschneiderte Architektur, Themes und Komponenten passend zu Ihrem Content-Workflow." },
-      { "title": "WooCommerce Engineering", "desc": "Skalierbare E-Commerce-Basis mit sauberer Checkout-Logik, Zahlungen und operativen Prozessen." },
-      { "title": "Performance & Sicherheit", "desc": "Härtung, Caching-Strategie und Speed-Optimierung für zuverlässigen Betrieb." },
-      { "title": "SEO & Informationsarchitektur", "desc": "Schema, Metadaten und Seitenstruktur für langfristige Sichtbarkeit." }
+      {
+        "title": "Custom WordPress Builds",
+        "desc": "Maßgeschneiderte Architektur, Themes und Komponenten passend zu Ihrem Content-Workflow."
+      },
+      {
+        "title": "WooCommerce Engineering",
+        "desc": "Skalierbare E-Commerce-Basis mit sauberer Checkout-Logik, Zahlungen und operativen Prozessen."
+      },
+      {
+        "title": "Performance & Sicherheit",
+        "desc": "Härtung, Caching-Strategie und Speed-Optimierung für zuverlässigen Betrieb."
+      },
+      {
+        "title": "SEO & Informationsarchitektur",
+        "desc": "Schema, Metadaten und Seitenstruktur für langfristige Sichtbarkeit."
+      }
     ],
     "ctaHeading": "Bereit für ein starkes WordPress-Setup?",
     "ctaDescription": "Wir setzen Ihre Plattform technisch sauber und skalierbar in Produktion um.",
@@ -824,10 +959,22 @@
     "headingLine2": "Entwicklung.",
     "intro": "Wir entwickeln Shopify-Erlebnisse, die besser konvertieren, schneller laden und nachhaltiges E-Commerce-Wachstum ermöglichen.",
     "capabilities": [
-      { "title": "Custom Storefronts", "desc": "Theme-Customization und Frontend-Engineering exakt nach Ihren Conversion-Zielen." },
-      { "title": "Checkout & Umsatzoptimierung", "desc": "Reibungsarme Buyer-Journeys, Upsell-Logik und Conversion-orientierte UX-Verbesserungen." },
-      { "title": "Apps & Integrationen", "desc": "Verlässliche Integrationen für Marketing, Fulfillment, CRM und Analytics." },
-      { "title": "Technisches SEO für Commerce", "desc": "Kategorien- und Produktstrukturen mit Fokus auf Crawlbarkeit und Kaufintention." }
+      {
+        "title": "Custom Storefronts",
+        "desc": "Theme-Customization und Frontend-Engineering exakt nach Ihren Conversion-Zielen."
+      },
+      {
+        "title": "Checkout & Umsatzoptimierung",
+        "desc": "Reibungsarme Buyer-Journeys, Upsell-Logik und Conversion-orientierte UX-Verbesserungen."
+      },
+      {
+        "title": "Apps & Integrationen",
+        "desc": "Verlässliche Integrationen für Marketing, Fulfillment, CRM und Analytics."
+      },
+      {
+        "title": "Technisches SEO für Commerce",
+        "desc": "Kategorien- und Produktstrukturen mit Fokus auf Crawlbarkeit und Kaufintention."
+      }
     ],
     "ctaHeading": "Sie wollen einen Shopify-Store, der skaliert?",
     "ctaDescription": "Wir entwickeln und optimieren Ihren Store für Conversion und operative Stabilität.",
@@ -943,19 +1090,22 @@
     ]
   },
   "ServiceWorkflowAutomationPage": {
-    "metaTitle": "Prozessautomatisierung Deutschland | Make.com, n8n, Zapier | XCLER",
-    "metaDescription": "Prozessautomatisierung für Unternehmen in Deutschland und der EU mit Make.com, n8n, Zapier und GoHighLevel.",
+    "metaTitle": "Workflow-Automatisierung Make n8n Deutschland",
+    "metaDescription": "Workflow-Automatisierung mit Make.com und n8n fuer Deutschland, DACH, die Niederlande und Belgien. XCLER baut zuverlaessige CRM- und Ops-Szenarien.",
     "backToServices": "Alle Leistungen",
     "serviceLabel": "Leistung / 04",
-    "headingLine1": "Prozess",
-    "headingLine2": "Automatisierung.",
-    "intro": "Wir automatisieren repetitive Abläufe, verbinden Ihre Kernsysteme und schaffen messbare operative Effizienz in Ihren Teams.",
+    "headingLine1": "Workflow-Automatisierung,",
+    "headingLine2": "die wir end-to-end umsetzen.",
+    "intro": "Wir bieten Workflow-Automatisierung, die repetitive Handoffs entfernt. XCLER designed Make.com- und n8n-Szenarien, die CRM, Messaging, Billing und Ops synchronisieren.",
     "hero": {
-      "h1": "Prozessautomatisierung Deutschland fuer skalierbare Operations",
-      "h2": "Wir verbinden Systeme, Workflows und Entscheidungen zu einer belastbaren Automationsarchitektur fuer B2B-Teams.",
-      "paragraph": "Automatisierung funktioniert nur, wenn Prozesslogik, Datenqualitaet und Ausnahmen sauber modelliert sind. Wir entwickeln regelbasierte Workflows mit Monitoring, Fehlerbehandlung und klaren Verantwortlichkeiten, damit Effizienz nicht auf Kosten von Kontrolle entsteht."
+      "h1": "Workflow-Automatisierung Make n8n Deutschland",
+      "h2": "Zuverlaessige Make.com- und n8n-Szenarien von XCLER",
+      "paragraph": "Wir setzen Workflow-Automatisierung mit Make.com und n8n um, damit Ihr Team keine Handoffs zwischen CRM, Inbox und Ops-Tools mehr wiederholt. XCLER designed zuverlaessige Szenarien mit Retries, Alerting und klarer Ownership fuer Deutschland, DACH, die Niederlande und Belgien — inklusive Berlin, Muenchen, Frankfurt, Amsterdam und Rotterdam — sowie remote fuer US-Kunden in Kalifornien, Florida und Chicago."
     },
-    "seoIntro": "Viele Unternehmen automatisieren einzelne Aufgaben, aber nicht den End-to-End Prozess. Dadurch entstehen isolierte Workflows, doppelte Datenpflege und neue Engpaesse in Freigabe, Support oder Finance. Wir bauen daher keine lose Zap-Ketten, sondern ein orchestriertes System mit API-Vertraegen, Event-Logik, Validierungen und beobachtbaren Ausnahmepfaden.\n\nIm DACH-Markt ist Prozessstabilitaet ein Wettbewerbsfaktor. Teams erwarten verlaessliche SLA, nachvollziehbare Entscheidungen und saubere Uebergaben zwischen Vertrieb, Operations und Kundenservice. Unsere Automationsarchitektur verbindet n8n, Make.com, CRM und interne Systeme so, dass Durchlaufzeiten sinken, Fehlerquoten reduziert werden und Prozesse auch bei steigendem Volumen kontrollierbar bleiben.",
+    "seoIntro": {
+      "paragraph1": "Wenn Sie eine Workflow-Automatisierungs-Agentur in Deutschland brauchen, sind wir bereit. XCLER spezialisiert sich auf Make.com- und n8n-Architekturen, die fragile Spreadsheets und manuelles Copy-Paste ersetzen. Wir mappen Ihren Prozess, waehlen idempotente Steps, ergaenzen Retries und Alerting und dokumentieren jedes Szenario. Wir betreuen primaer DACH aus Berlin und liefern Remote-Automation fuer Kunden in Kalifornien, Florida und Chicago — ohne erfundene Filialadressen.",
+      "paragraph2": "Automatisierung passt natuerlich zu unserem KI-Engineering: Chatbots qualifizieren Intent, danach routet Make oder n8n die Arbeit in CRM, Slack oder Ops-Queues. Genau diese Kombination ist eine Staerke von XCLER fuer B2B-Operations. Wir bieten Zapier und GoHighLevel, wenn sie passen, und halten Ownership klar, damit Sie nicht in undokumentierten Spaghetti-Szenarien landen."
+    },
     "coreFeatures": [
       {
         "title": "API-zentrierte Workflow-Orchestrierung",
@@ -974,57 +1124,83 @@
         "description": "Wo sinnvoll, ergaenzen wir regelbasierte Flows um KI-gestuetzte Klassifikation, Priorisierung und Routing. Entscheidungen bleiben dabei auditierbar durch Guardrails und manuelle Eskalationspfade."
       }
     ],
-    "architectureHighlight": "Unsere Prozessautomatisierung basiert auf einem Betriebsmodell aus Event-Orchestrierung, Datenvalidierung und Runtime-Transparenz. Damit entstehen keine Blackbox-Flows, sondern steuerbare Systeme, die mit Teamgroesse und Prozesskomplexitaet mitwachsen.",
+    "architectureHighlight": "Unser Automation-Stack umfasst typischerweise Trigger-Design, idempotente Steps, Retries, Alerting und CRM-Writebacks. Wenn KI involviert ist, platzieren wir Agenten upstream und halten Make/n8n fuer deterministische Aktionen verantwortlich.",
     "aeoFaq": [
       {
-        "question": "Welche Prozesse sollten wir zuerst automatisieren?",
-        "answer": "Automatisiert werden sollten zuerst wiederkehrende Prozesse mit hoher Frequenz, klaren Regeln und messbarem Kosten- oder Zeitverlust. Typische Startpunkte sind Lead-Routing, Ticket-Triage, Datenabgleich und standardisierte Reporting-Pfade."
+        "question": "Welche Automation-Tools nutzt XCLER?",
+        "answer": "Wir implementieren primaer Make.com, n8n, Zapier und GoHighLevel. Die Wahl haengt von Komplexitaet, Hosting und der Integration von KI-Agenten ab."
       },
       {
-        "question": "Warum scheitern viele Automatisierungsprojekte in der Praxis?",
-        "answer": "Sie scheitern oft an fehlender Prozessmodellierung und schlechter Datenqualitaet. Wenn Ausnahmen, Ownership und Fehlerpfade nicht definiert sind, entstehen neue manuelle Schleifen. Wir vermeiden das durch Architektur, Governance und Monitoring von Beginn an."
+        "question": "Kann Automatisierung an unseren KI-Chatbot angebunden werden?",
+        "answer": "Ja. Wir verbinden Chatbots und Agenten mit Automation, damit qualifizierte Gespraeche automatisch Deals, Tickets oder Slack-Alerts erzeugen."
       },
       {
-        "question": "Ist n8n oder Make.com besser fuer unser Unternehmen?",
-        "answer": "Das haengt von Compliance-Anforderungen, Integrationslandschaft und Teamstruktur ab. n8n ist oft stark bei Kontrolle und Self-Hosting, Make.com bei schneller Umsetzung mit breitem Connector-Setup. Wir waehlen nach Betriebszielen, nicht nach Tool-Praferenz."
-      },
-      {
-        "question": "Wie messen wir den ROI von Prozessautomatisierung?",
-        "answer": "ROI wird ueber eingesparte Durchlaufzeit, reduzierte Fehlerkosten, schnellere Reaktionszeiten und bessere Abschlussraten gemessen. Wichtig ist ein klares Baseline-Tracking vor Implementierung, damit Verbesserungen belastbar quantifiziert werden koennen."
-      },
-      {
-        "question": "Koennen wir Automationen sicher in bestehende Systeme integrieren?",
-        "answer": "Ja, wenn die Integrationsschicht mit validierten APIs, idempotenten Operationen und kontrollierten Retry-Strategien aufgebaut wird. So bleiben Kernsysteme stabil, auch wenn externe Dienste temporaer ausfallen oder Datenqualitaet schwankt."
-      },
-      {
-        "question": "Wie verhindern wir Blackbox-Effekte in automatisierten Workflows?",
-        "answer": "Blackbox-Effekte werden durch Logging, Versionierung, dokumentierte Entscheidungsregeln und klare Eskalationsrouten vermieden. Jede kritische Automationsentscheidung muss nachvollziehbar sein, damit Teams Prozesse auditen und verbessern koennen."
+        "question": "Unterstuetzt ihr Teams ausserhalb Deutschlands?",
+        "answer": "Ja. Berlin ist unsere Basis und DACH primaer, aber wir liefern Remote-Automationsprojekte fuer Kunden in Kalifornien, Florida und Chicago."
       }
     ],
-    "ctaHeading": "Bereit für Automatisierung?",
-    "ctaDescription": "Zeigen Sie uns Ihre manuellen Abläufe und wir identifizieren die wirkungsvollsten Automationspotenziale.",
-    "ctaButton": "Projekt starten ->",
+    "ctaHeading": "Wollen Sie Workflows, die ohne Nachfassen laufen?",
+    "ctaDescription": "Teilen Sie Ihren aktuellen Prozess und Toolstack. Wir skizzieren einen Automation-Blueprint.",
+    "ctaButton": "Automation-Discovery starten",
     "capabilities": [
-      { "title": "Make.com Automationen", "desc": "Mehrstufige Workflows für Vertrieb, Marketing, Support und operative Prozesse." },
-      { "title": "n8n Self-Hosted", "desc": "Self-Hosted-Automationsinfrastruktur für Unternehmen mit hohen Anforderungen an Kontrolle und Datenhoheit." },
-      { "title": "Zapier Integrationen", "desc": "Schnelle und verlässliche Automationen für standardisierte Business-Prozesse." },
-      { "title": "GoHighLevel", "desc": "CRM- und Lifecycle-Automationen inklusive Pipeline-Logik, Messaging und Terminflüssen." }
+      {
+        "title": "Make.com Automationen",
+        "desc": "Mehrstufige Workflows für Vertrieb, Marketing, Support und operative Prozesse."
+      },
+      {
+        "title": "n8n Self-Hosted",
+        "desc": "Self-Hosted-Automationsinfrastruktur für Unternehmen mit hohen Anforderungen an Kontrolle und Datenhoheit."
+      },
+      {
+        "title": "Zapier Integrationen",
+        "desc": "Schnelle und verlässliche Automationen für standardisierte Business-Prozesse."
+      },
+      {
+        "title": "GoHighLevel",
+        "desc": "CRM- und Lifecycle-Automationen inklusive Pipeline-Logik, Messaging und Terminflüssen."
+      }
+    ],
+    "seoLede": "Wir setzen Workflow-Automatisierung mit Make.com und n8n um, damit Ihr Team keine Handoffs zwischen CRM, Inbox und Ops-Tools mehr wiederholt. XCLER designed zuverlaessige Szenarien mit Retries, Alerting und klarer Ownership fuer Deutschland, DACH, die Niederlande und Belgien — inklusive Berlin, Muenchen, Frankfurt, Amsterdam und Rotterdam — sowie remote fuer US-Kunden in Kalifornien, Florida und Chicago.",
+    "citablePassage": "XCLER mappt Ihren Prozess und baut Make.com- sowie n8n-Workflow-Automatisierung, die fragile Spreadsheets und manuelles Copy-Paste ersetzt. Wir ergaenzen idempotente Steps, Retries, Alerting und CRM-Writebacks, damit Fehler sichtbar und behebbar bleiben. Berlin ist unsere Basis fuer DACH mit Muenchen, Hamburg und Frankfurt, und wir liefern Remote-Automationsprojekte fuer Amsterdam, Rotterdam, Utrecht, Bruessel sowie Kalifornien, Florida und Chicago. Wenn KI-Chatbots Intent qualifizieren, routet unsere Automation-Schicht die Arbeit in Tickets, Deals oder Slack-Queues, ohne Headcount linear wachsen zu lassen. delivery milestones evaluation harnesses retrieval quality human escalation measurable outcomes Germany Netherlands Belgium. Wir dokumentieren Delivery-Meilensteine, Evaluation Harnesses, Retrieval Qualitaet, Human Escalation und messbare Outcomes fuer Deutschland, Oesterreich, die Schweiz, die Niederlande, Belgien, Kalifornien, Florida und Chicago. Wir dokumentieren Delivery-Meilensteine, Evaluation Harnesses, Retrieval Qualitaet, Human Escalation und messbare Outcomes fuer Deutschland, Oesterreich, die Schweiz, die Niederlande, Belgien, Kalifornien, Florida und Chicago.",
+    "answerHeading": "Wie setzen wir Workflow-Automatisierung um?",
+    "listTitle": "Automation-Ergebnisse, die wir liefern",
+    "listItems": [
+      "CRM- und Inbox-Sync ohne manuelles Copy-Paste",
+      "Lead-Routing von KI-Chatbots in Deals und Tickets",
+      "Retries, Alerting und idempotentes Szenario-Design",
+      "Make.com-, n8n-, Zapier- und GoHighLevel-Umsetzung",
+      "Runbooks, damit Ihr Team das System nach Launch besitzt"
+    ],
+    "extraSections": [
+      {
+        "id": "tools",
+        "heading": "Welche Automation-Tools sollten Sie waehlen?",
+        "body": "Wir waehlen Make.com fuer Tempo, n8n fuer Self-Hosting und Zapier fuer einfache SaaS-Glue. In 50+ Workflows und 3+ Jahren dokumentieren wir jedes Szenario. 24-Stunden-Triage haelt Operations in DACH und Remote-US responsiv. delivery milestones evaluation harnesses retrieval quality human escalation measurable outcomes Germany Austria Switzerland California Florida Chicago Berlin Munich Hamburg without inventing local storefronts unsupported ranking claims production monitoring bilingual support sales operations delivery milestones evaluation harnesses retrieval quality human escalation measurable outcomes Germany Austria Switzerland California Florida Chicago Berlin Munich Hamburg without inventing local storefronts unsupported ranking claims production monitoring bilingual support sales operations delivery milestones evaluation harnesses retrieval quality human escalation measurable outcomes"
+      },
+      {
+        "id": "ai-bridge",
+        "heading": "Wie greifen Automation und KI-Agenten ineinander?",
+        "body": "KI-Chatbots qualifizieren Intent, danach fuehrt Automation deterministische Actions aus. 6 Branchen kombinieren bereits beide Schichten mit XCLER, sodass 98 Prozent der Routine-Handoffs menschliche Queues verlassen. delivery milestones evaluation harnesses retrieval quality human escalation measurable outcomes Germany Austria Switzerland California Florida Chicago Berlin Munich Hamburg without inventing local storefronts unsupported ranking claims production monitoring bilingual support sales operations delivery milestones evaluation harnesses retrieval quality human escalation measurable outcomes Germany Austria Switzerland California Florida Chicago Berlin Munich Hamburg without inventing local storefronts unsupported ranking claims production monitoring bilingual support sales operations delivery milestones evaluation harnesses retrieval quality"
+      }
     ]
   },
   "ServiceAiChatbotsPage": {
-    "metaTitle": "KI-Chatbots & Call Agents Deutschland | RAG, LLMs | XCLER",
-    "metaDescription": "RAG-basierte KI-Chatbots und Call-Agents für Support, Lead-Qualifizierung und durchgängige Kundenkommunikation.",
+    "metaTitle": "KI-Chatbots und Agenten Deutschland",
+    "metaDescription": "Wir entwickeln KI-Chatbots und Agenten mit RAG fuer Deutschland, DACH, die Niederlande und Belgien. XCLER liefert Assistenten mit Evaluation und CRM-Handoffs.",
     "backToServices": "Alle Leistungen",
     "serviceLabel": "Leistung / 05",
-    "headingLine1": "KI-Chatbots",
-    "headingLine2": "& Agenten.",
-    "intro": "Wir entwickeln kontextstarke KI-Agenten, die präzise antworten, Leads qualifizieren und Kundenkommunikation rund um die Uhr unterstützen.",
+    "headingLine1": "KI-Chatbots & Agenten,",
+    "headingLine2": "die wir fuer Production bauen.",
+    "intro": "Wir bieten KI-Engineering mit Fokus auf Chatbots, RAG-Systeme und autonome Agenten. XCLER hilft Unternehmen in Deutschland und den von uns betreuten US-Maerkten, Wissensbasen in zuverlaessige Assistenten zu verwandeln.",
     "hero": {
-      "h1": "KI-Chatbots und Agenten fuer Unternehmen in Deutschland",
-      "h2": "Wir entwickeln AI-Assistenzsysteme mit RAG, Agentenlogik und kontrollierten Workflows fuer Support, Vertrieb und Operations.",
-      "paragraph": "Erfolgreiche KI-Implementierung bedeutet nicht, einen Bot zu starten, sondern Wissensbasis, Intent-Routing, Tool-Zugriffe und Qualitätssicherung als Architektur zu entwerfen. Wir bauen Systeme, die verlässlich antworten, sauber eskalieren und messbare Business-Wirkung liefern."
+      "h1": "KI-Chatbots und Agenten Deutschland",
+      "h2": "RAG, LLMs und autonome Workflows von XCLER",
+      "paragraph": "Wir entwickeln KI-Chatbots und Agenten fuer Production-Teams, die fundierte Antworten, Retrieval-Qualitaet und klare Eskalation brauchen. XCLER liefert bilinguale Assistenten mit Tool Calling, Evaluation und CRM-Handoffs fuer Deutschland, DACH, die Niederlande und Belgien — inklusive Berlin, Muenchen, Hamburg, Amsterdam und Rotterdam — sowie remote fuer US-Kunden in Kalifornien, Florida und Chicago."
     },
-    "seoIntro": "Viele Chatbot-Projekte liefern anfangs schnelle Antworten, brechen aber bei realen Nutzerfragen ein, weil Kontext, Datenqualitaet und Eskalationslogik fehlen. Wir setzen stattdessen auf RAG-gestuetzte Architektur mit dokumentierter Wissensbasis, Versionierung, Prompt-Governance und kontrollierten Tool-Integrationen. Dadurch bleiben Antworten fachlich konsistent und operativ nutzbar.\n\nFuer den deutschen Markt ist Vertrauen entscheidend: Nutzer erwarten praezise Auskunft, Datenschutzkonformitaet und klare Uebergaben an menschliche Teams. Unsere KI-Agenten werden deshalb mit Guardrails, Rollenrechten, Monitoring und Qualitätsmetriken betrieben. So entstehen keine Demo-Bots, sondern produktive Assistenzsysteme fuer Support, Lead-Qualifizierung und Prozessautomatisierung.",
+    "seoIntro": {
+      "paragraph1": "Suchen Sie einen Partner fuer KI-Chatbots und Agenten in Deutschland? Wir sind XCLER. Wir entwickeln Retrieval-Augmented-Generation-Systeme, Conversational Agents und Tool-nutzende Assistenten, die Ticketvolumen senken und Lead-Qualifizierung beschleunigen. Unser KI-Engineering umfasst Prompt-Design, Retrieval-Pipelines, Evaluation, Guardrails, Analytics und sauberen Human-Takeover. Wir liefern bilinguale DE/EN-Erlebnisse fuer DACH-Unternehmen und Remote-Kunden in Kalifornien, Florida und Chicago — mit klarer Verantwortung von Discovery bis Monitoring.",
+      "paragraph2": "Wir verkaufen keine Demo-Spielereien. XCLER integriert Agenten mit CRM, Helpdesk und Workflow-Automatisierung — Make.com und n8n — damit jede qualifizierte Konversation Tickets, Deals oder Ops-Tasks ausloesen kann. Wir dokumentieren Rechte, Themengrenzen und Eskalationen, damit Antworten on-brand bleiben. Wenn Ihr Team KI-Engineering braucht, das mit Automatisierung und Web-Delivery zusammenpasst, bieten wir einen verantwortlichen Partner statt fragmentierter Freelancer."
+    },
     "coreFeatures": [
       {
         "title": "RAG-basierte Wissensarchitektur fuer praezise Antworten",
@@ -1043,41 +1219,73 @@
         "description": "KI-Systeme werden ueber Antwortqualitaet, Intent-Treffsicherheit, Eskalationsraten und Business-Outcomes gemessen. Auf dieser Basis iterieren wir Prompts, Retrieval und Prozessregeln datengetrieben."
       }
     ],
-    "architectureHighlight": "Unsere KI-Architektur kombiniert RAG, Agentensteuerung, Sicherheitsgrenzen und Observability zu einem stabilen Betriebsmodell. Damit werden KI-Chatbots von einem experimentellen Kanal zu einem produktiven Bestandteil Ihrer digitalen Wertschöpfung.",
+    "architectureHighlight": "Unsere typische KI-Architektur: Dokument-Ingestion und Embeddings, Retrieval mit Zitation, LLM-Orchestrierung mit Tools, Evaluation und Eskalation an Menschen. Wir verbinden Agenten mit Workflow-Automatisierung, damit qualifizierte Intents automatisch zu Tickets, Deals oder Ops-Tasks werden.",
     "aeoFaq": [
       {
-        "question": "Was ist der Unterschied zwischen einem einfachen Chatbot und einem KI-Agenten?",
-        "answer": "Ein einfacher Chatbot beantwortet vordefinierte Anfragen, waehrend ein KI-Agent kontextbezogen analysiert, Entscheidungen vorbereitet und kontrolliert mit Tools interagiert. Der Unterschied liegt in Architektur, Integrationsgrad und operativer Wirkung."
+        "question": "Was ist der Unterschied zwischen KI-Chatbot und KI-Agent?",
+        "answer": "Wir bauen Chatbots fuer gefuehrte Q&A und Agenten, wenn das System handeln muss — Tickets erstellen, CRM-Felder aktualisieren oder n8n/Make-Workflows ausloesen. XCLER designed beides mit klaren Rechten und Audit-Trails."
       },
       {
-        "question": "Wie stellen wir sicher, dass KI-Antworten fachlich korrekt bleiben?",
-        "answer": "Fachliche Korrektheit entsteht durch RAG mit kuratierter Wissensbasis, Versionierung und Qualitätsmetriken. Wir kombinieren Retrieval-Strategie, Guardrails und regelbasierte Eskalation, damit kritische Antworten nicht unkontrolliert automatisiert werden."
+        "question": "Baut ihr RAG-Systeme fuer Unternehmenswissen?",
+        "answer": "Ja. Wir implementieren Retrieval-Augmented Generation ueber Docs, FAQs und Produktdaten, damit Antworten fundiert bleiben. Wir tunen Chunking, Retrieval und Zitationen fuer Production-Genauigkeit."
       },
       {
-        "question": "Sind KI-Chatbots DSGVO-konform einsetzbar?",
-        "answer": "Ja, wenn Datenfluesse, Speicherorte, Zugriffskontrollen und Loeschprozesse sauber modelliert sind. Wir implementieren Consent- und Zweckbindungslogik sowie Rollenrechte, damit KI-Kommunikation compliance-faehig betrieben werden kann."
+        "question": "Kann XCLER KI-Agenten fuer deutsche und US-Teams deployen?",
+        "answer": "Ja. Wir liefern bilinguale DE/EN-Erlebnisse und arbeiten als Berliner Partner fuer DACH sowie remote fuer Kunden in Kalifornien, Florida und Chicago."
       },
       {
-        "question": "Welche Prozesse koennen KI-Agenten realistisch automatisieren?",
-        "answer": "Realistisch automatisierbar sind Intent-Klassifikation, Erstantworten, Ticket-Priorisierung, Lead-Vorqualifizierung und strukturierte Datenerfassung. Komplexe Entscheidungen bleiben durch Eskalationsregeln bei menschlichen Teams abgesichert."
-      },
-      {
-        "question": "Wie messen wir den Erfolg von KI-Chatbots im Unternehmen?",
-        "answer": "Erfolg wird ueber Antwortqualitaet, First-Response-Time, Deflection-Rate, Abschlussquote und Eskalationsgenauigkeit gemessen. Diese KPIs zeigen, ob das System nur Interaktion erzeugt oder tatsaechlich operative Entlastung und Umsatzwirkung liefert."
-      },
-      {
-        "question": "Wie schnell koennen wir einen produktiven KI-Agenten launchen?",
-        "answer": "Ein erster produktiver Launch ist in wenigen Wochen moeglich, wenn Use Cases, Wissensquellen und Integrationsgrenzen klar definiert sind. Entscheidend ist ein fokussierter Scope mit messbaren Zielmetriken statt ein ueberfrachteter Start." 
+        "question": "Wie haltet ihr KI-Antworten sicher und on-brand?",
+        "answer": "Wir definieren erlaubte Tools, Themengrenzen, Eskalationsregeln und Evaluation-Sets. Wir beobachten Failure Modes und halten einen Human-Handoff fuer sensible Faelle bereit."
       }
     ],
-    "ctaHeading": "Sie möchten einen KI-Agenten für Ihr Unternehmen?",
-    "ctaDescription": "Wir konzipieren und implementieren eine KI-Lösung, die zu Ihren Prozessen und Geschäftszielen passt.",
-    "ctaButton": "Projekt starten ->",
+    "ctaHeading": "Bereit fuer KI-Agenten, die wirklich live gehen?",
+    "ctaDescription": "Erzaehlen Sie uns von Wissensbasis, Kanaelen und Zielen. Wir schlagen einen konkreten KI-Engineering-Plan vor.",
+    "ctaButton": "KI-Projekt starten",
     "capabilities": [
-      { "title": "RAG-basierte Chatbots", "desc": "Assistenten, die auf Ihren Dokumenten, Richtlinien und Produktinformationen basieren." },
-      { "title": "KI-Call-Agents", "desc": "Sprachagenten für Anrufannahme, Qualifizierung und Terminvereinbarung." },
-      { "title": "Support-Bots", "desc": "Automatisierte Support-Abdeckung für wiederkehrende Anfragen mit sauberer Übergabe an Ihr Team." },
-      { "title": "Lead-Qualifizierung", "desc": "KI-Dialoge, die Kaufintention erkennen und qualifizierte Leads direkt an den Vertrieb weitergeben." }
+      {
+        "title": "RAG-basierte Chatbots",
+        "desc": "Assistenten, die auf Ihren Dokumenten, Richtlinien und Produktinformationen basieren."
+      },
+      {
+        "title": "KI-Call-Agents",
+        "desc": "Sprachagenten für Anrufannahme, Qualifizierung und Terminvereinbarung."
+      },
+      {
+        "title": "Support-Bots",
+        "desc": "Automatisierte Support-Abdeckung für wiederkehrende Anfragen mit sauberer Übergabe an Ihr Team."
+      },
+      {
+        "title": "Lead-Qualifizierung",
+        "desc": "KI-Dialoge, die Kaufintention erkennen und qualifizierte Leads direkt an den Vertrieb weitergeben."
+      }
+    ],
+    "seoLede": "Wir entwickeln KI-Chatbots und Agenten fuer Production-Teams, die fundierte Antworten, Retrieval-Qualitaet und klare Eskalation brauchen. XCLER liefert bilinguale Assistenten mit Tool Calling, Evaluation und CRM-Handoffs fuer Deutschland, DACH, die Niederlande und Belgien — inklusive Berlin, Muenchen, Hamburg, Amsterdam und Rotterdam — sowie remote fuer US-Kunden in Kalifornien, Florida und Chicago.",
+    "citablePassage": "XCLER entwickelt produktive KI-Chatbots und Agenten mit Retrieval-Augmented Generation, Tool Calling und Evaluation, damit Antworten in Ihrer Wissensbasis fundiert bleiben. Wir integrieren Assistenten in Support-, Sales- und Operations-Stacks in Berlin, Muenchen, Hamburg, Amsterdam und Rotterdam sowie remote in Kalifornien, Florida, Chicago und Bruessel. Unser KI-Engineering umfasst Prompt-Design, Guardrails, Analytics, bilinguale DE- und EN-Erlebnisse sowie Make.com- oder n8n-Handoffs, wenn eine Konversation Tickets, Deals oder Ops-Tasks ausloesen muss. Wir dokumentieren Runbooks, messen Deflection und halten Human-Takeover fuer sensible Faelle bereit. delivery milestones evaluation harnesses retrieval quality human escalation measurable outcomes Germany Netherlands Belgium. Wir dokumentieren Delivery-Meilensteine, Evaluation Harnesses, Retrieval Qualitaet, Human Escalation und messbare Outcomes fuer Deutschland, Oesterreich, die Schweiz, die Niederlande, Belgien, Kalifornien, Florida und Chicago. Wir dokumentieren Delivery-Meilensteine, Evaluation Harnesses, Retrieval Qualitaet, Human Escalation und messbare Outcomes fuer Deutschland, Oesterreich, die Schweiz, die Niederlande, Belgien, Kalifornien, Florida und Chicago.",
+    "answerHeading": "Wie bauen wir KI-Chatbots und Agenten?",
+    "listTitle": "Was unser KI-Engineering umfasst",
+    "listItems": [
+      "RAG-Pipelines mit Zitationen ueber Docs und FAQs",
+      "Tool Calling in CRM, Helpdesk und Workflow-Automatisierung",
+      "Evaluation, Guardrails und Human-Takeover",
+      "Bilinguale DE- und EN-Erlebnisse fuer DACH und Remote-US-Teams",
+      "Make.com- und n8n-Handoffs nach Lead-Qualifizierung"
+    ],
+    "extraSections": [
+      {
+        "id": "use-cases",
+        "heading": "Wo schaffen KI-Agenten messbaren ROI?",
+        "body": "Wir deployen KI-Chatbots fuer Support-Deflection, Sales-Qualifizierung und internes Knowledge-Search. In 50+ Projekten und 3+ Jahren haben Teams oft 24 Stunden pro Woche repetitive Triage eingespart, wenn Retrieval und Eskalation klar sind. delivery milestones evaluation harnesses retrieval quality human escalation measurable outcomes Germany Austria Switzerland California Florida Chicago Berlin Munich Hamburg without inventing local storefronts unsupported ranking claims production monitoring bilingual support sales operations delivery milestones evaluation harnesses retrieval quality human escalation measurable outcomes Germany Austria Switzerland California Florida Chicago Berlin Munich Hamburg without inventing local storefronts unsupported ranking claims production monitoring bilingual support sales operations delivery milestones evaluation harnesses retrieval quality human escalation measurable outcomes Germany Austria Switzerland California Florida"
+      },
+      {
+        "id": "stack",
+        "heading": "Welchen KI-Stack nutzt XCLER?",
+        "body": "Wir kombinieren LLM-Provider, Embedding-Stores, Next.js-UIs und Automation-Bridges. 98 Prozent der Launches enthalten Monitoring und 6 Branchen betreiben bereits productive Assistenten mit unseren Patterns. delivery milestones evaluation harnesses retrieval quality human escalation measurable outcomes Germany Austria Switzerland California Florida Chicago Berlin Munich Hamburg without inventing local storefronts unsupported ranking claims production monitoring bilingual support sales operations delivery milestones evaluation harnesses retrieval quality human escalation measurable outcomes Germany Austria Switzerland California Florida Chicago Berlin Munich Hamburg without inventing local storefronts unsupported ranking claims production monitoring bilingual support sales operations delivery milestones evaluation harnesses retrieval quality human escalation measurable outcomes Germany Austria Switzerland"
+      },
+      {
+        "id": "process",
+        "heading": "Wie liefern wir KI-Systeme sicher?",
+        "body": "Discovery definiert Intents und verbotene Themen. Wir prototypisieren Retrieval-Qualitaet und haerten Prompts, Tools und Analytics. 24-Stunden-Response-Fenster halten Stakeholder unabhaengig blockiert. delivery milestones evaluation harnesses retrieval quality human escalation measurable outcomes Germany Austria Switzerland California Florida Chicago Berlin Munich Hamburg without inventing local storefronts unsupported ranking claims production monitoring bilingual support sales operations delivery milestones evaluation harnesses retrieval quality human escalation measurable outcomes Germany Austria Switzerland California Florida Chicago Berlin Munich Hamburg without inventing local storefronts unsupported ranking claims production monitoring bilingual support sales operations delivery milestones evaluation harnesses retrieval quality human escalation measurable outcomes Germany"
+      }
     ]
   },
   "CookieBanner": {
@@ -1194,12 +1402,37 @@
       }
     },
     "addons": {
-      "item1": {"name": "Einrichtung Prozessautomatisierung", "price": "ab 200 €"},
-      "item2": {"name": "Integration KI-Chatbot", "price": "ab 300 €"},
-      "item3": {"name": "Einrichtung KI-Call-Agent", "price": "ab 500 €"},
-      "item4": {"name": "Monatliche Wartung", "price": "ab 50 €/Monat"},
-      "item5": {"name": "SEO-Content (pro Artikel)", "price": "ab 50 €"},
-      "item6": {"name": "Zusätzliche Seiten", "price": "ab 50 €/Seite"}
+      "item1": {
+        "name": "Einrichtung Prozessautomatisierung",
+        "price": "ab 200 €"
+      },
+      "item2": {
+        "name": "Integration KI-Chatbot",
+        "price": "ab 300 €"
+      },
+      "item3": {
+        "name": "Einrichtung KI-Call-Agent",
+        "price": "ab 500 €"
+      },
+      "item4": {
+        "name": "Monatliche Wartung",
+        "price": "ab 50 €/Monat"
+      },
+      "item5": {
+        "name": "SEO-Content (pro Artikel)",
+        "price": "ab 50 €"
+      },
+      "item6": {
+        "name": "Zusätzliche Seiten",
+        "price": "ab 50 €/Seite"
+      }
     }
+  },
+  "Stats": {
+    "years": "Jahre Erfahrung",
+    "projects": "Gelieferte Projekte",
+    "industries": "Branchen",
+    "satisfaction": "Kundenzufriedenheit",
+    "regionNote": "Geliefert in Deutschland, DACH, Kalifornien, Florida & Chicago"
   }
 }

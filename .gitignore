@@ -1,2 +1,14 @@
 node_modules
+.env
+.env.*
+!.env.example
 data/leads.json
+xcler-dev/data/leads.json
+xcler-dev/data/blogs.json
+xcler-dev/.env
+xcler-dev/.env.*
+!xcler-dev/.env.example
+.cursor/
+xcler-dev/.cursor/
+xcler-dev/.cursor-seo-mcp/
+**/.DS_Store

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { ContactForm } from "@/components/sections/ContactForm";
-import { getCanonicalPath, getLanguageAlternates } from "@/lib/canonical";
+import { buildPageMetadata } from "@/lib/seoMeta";
 
 export async function generateMetadata({
   params,
@@ -11,14 +11,17 @@ export async function generateMetadata({
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "ContactPage" });
 
-  return {
+  return buildPageMetadata({
+    locale,
+    path: "/contact",
     title: t("metaTitle"),
     description: t("metaDescription"),
-    alternates: {
-      canonical: getCanonicalPath(locale, "/contact"),
-      languages: getLanguageAlternates("/contact"),
-    },
-  };
+    keywords: [
+      "contact XCLER",
+      "AI agency contact Germany",
+      "automation agency Berlin",
+    ],
+  });
 }
 
 export default async function ContactPage({

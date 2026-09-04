@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Pricing } from "@/components/sections/Pricing";
-import { getCanonicalPath, getLanguageAlternates } from "@/lib/canonical";
+import { buildPageMetadata } from "@/lib/seoMeta";
 
 export async function generateMetadata({
   params,
@@ -11,14 +11,12 @@ export async function generateMetadata({
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "Pricing" });
 
-  return {
-    title: `${t("eyebrow")} | XCLER`,
+  return buildPageMetadata({
+    locale,
+    path: "/pricing",
+    title: t("eyebrow"),
     description: t("introDescription"),
-    alternates: {
-      canonical: getCanonicalPath(locale, "/pricing"),
-      languages: getLanguageAlternates("/pricing"),
-    },
-  };
+  });
 }
 
 export default async function PricingPage({

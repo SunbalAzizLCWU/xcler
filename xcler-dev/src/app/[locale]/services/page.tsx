@@ -6,7 +6,8 @@ import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import Image from "next/image";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { getServiceCatalogSchema } from "@/lib/structuredData";
-import { getCanonicalPath, getLanguageAlternates } from "@/lib/canonical";
+import { buildPageLinkedDataGraph } from "@/lib/pageLinkedData";
+import { buildPageMetadata } from "@/lib/seoMeta";
 
 type ServicesPageItem = {
   number: string;
@@ -20,9 +21,9 @@ type ServicesPageItem = {
 type LocalizedHref = ComponentProps<typeof Link>["href"];
 
 const leadAvatars: Record<string, string> = {
-  "abeel mehr": "/team/abeel.jpg",
-  "mehru seemab": "/team/mehru.jpg",
-  "musharraf aziz": "/team/musharraf.jpg",
+  "abeel mehr": "/team/abeel.webp",
+  "mehru seemab": "/team/mehru.webp",
+  "musharraf aziz": "/team/musharraf.webp",
 };
 
 function getLeadAvatar(name: string): string | null {
@@ -37,14 +38,12 @@ export async function generateMetadata({
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "ServicesPage" });
 
-  return {
+  return buildPageMetadata({
+    locale,
+    path: "/services",
     title: t("metaTitle"),
     description: t("metaDescription"),
-    alternates: {
-      canonical: getCanonicalPath(locale, "/services"),
-      languages: getLanguageAlternates("/services"),
-    },
-  };
+  });
 }
 
 export default async function ServicesPage({
@@ -53,6 +52,7 @@ export default async function ServicesPage({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
+  const resolvedLocale = locale === "en" ? "en" : "de";
   const t = await getTranslations({ locale, namespace: "ServicesPage" });
   const services = t.raw("services") as ServicesPageItem[];
   const schemaItems = services.map((service) => ({
@@ -60,13 +60,26 @@ export default async function ServicesPage({
     description: service.description,
     href: service.href,
   }));
+  const catalog = getServiceCatalogSchema(resolvedLocale, schemaItems);
+  const { "@context": _ctx, ...catalogNode } = catalog as Record<string, unknown> & {
+    "@context"?: string;
+  };
+  void _ctx;
+  const pageGraph = buildPageLinkedDataGraph({
+    locale: resolvedLocale,
+    path: "/services",
+    name: t("metaTitle"),
+    description: t("metaDescription"),
+    breadcrumbs: [
+      { name: "XCLER", path: "/" },
+      { name: resolvedLocale === "de" ? "Leistungen" : "Services", path: "/services" },
+    ],
+    entities: [catalogNode],
+  });
 
   return (
     <>
-      <JsonLd
-        id={`services-catalog-${locale}`}
-        data={getServiceCatalogSchema(locale === "en" ? "en" : "de", schemaItems)}
-      />
+      <JsonLd id={`page-graph-services-${locale}`} data={pageGraph} />
       <section className="section-padding pt-32">
         <div className="container-custom">
         <AnimatedSection>

@@ -68,6 +68,7 @@ export function ContactSection() {
       }
     } catch (error) {
       console.error("Form submission error:", error);
+      alert("Something went wrong. Please try again.");
     } finally {
       setIsSubmitting(false);
     }

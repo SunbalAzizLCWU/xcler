@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { Team } from "@/components/sections/Team";
-import { getCanonicalPath, getLanguageAlternates } from "@/lib/canonical";
+import { buildPageMetadata } from "@/lib/seoMeta";
 
 export async function generateMetadata({
   params,
@@ -11,14 +11,12 @@ export async function generateMetadata({
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "AboutPage" });
 
-  return {
+  return buildPageMetadata({
+    locale,
+    path: "/about",
     title: t("metaTitle"),
     description: t("metaDescription"),
-    alternates: {
-      canonical: getCanonicalPath(locale, "/about"),
-      languages: getLanguageAlternates("/about"),
-    },
-  };
+  });
 }
 
 export default async function AboutPage({

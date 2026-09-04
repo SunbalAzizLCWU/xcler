@@ -1,12 +1,19 @@
-const BASE_URL = "https://xcler.dev";
-const ORG_ID = `${BASE_URL}#organization`;
-const BUSINESS_ID = `${BASE_URL}#localbusiness`;
+import { getPathname } from "@/navigation";
+import { toAbsoluteUrl } from "@/lib/canonical";
 
-type Locale = "en" | "de";
+const BASE_URL = "https://xcler.dev";
+export const ORG_ID = `${BASE_URL}#organization`;
+export const BUSINESS_ID = `${BASE_URL}#localbusiness`;
+export const WEBSITE_ID = `${BASE_URL}#website`;
+
+export type Locale = "en" | "de";
 
 type ServiceSchemaInput = {
   locale: Locale;
-  slug: string;
+  /** Internal pathname key, e.g. `/services/ai-chatbots-agents` */
+  path?: string;
+  /** Legacy slug support — prefer `path` */
+  slug?: string;
   name: string;
   description: string;
 };
@@ -14,6 +21,7 @@ type ServiceSchemaInput = {
 type ServiceCatalogItem = {
   name: string;
   description: string;
+  /** Internal pathname key */
   href: string;
 };
 
@@ -22,14 +30,68 @@ type FaqItem = {
   answer: string;
 };
 
-function getLocalePath(locale: Locale) {
-  return locale === "de" ? "" : "/en";
+type BreadcrumbItem = {
+  name: string;
+  /** Internal pathname key or absolute path */
+  path: string;
+};
+
+function localizedPath(locale: Locale, href: string) {
+  return getPathname({ locale, href: href as never });
 }
 
+function absoluteLocalized(locale: Locale, href: string) {
+  return toAbsoluteUrl(localizedPath(locale, href));
+}
+
+const AREA_SERVED = [
+  { "@type": "Country", name: "Germany" },
+  { "@type": "Country", name: "Austria" },
+  { "@type": "Country", name: "Switzerland" },
+  { "@type": "Country", name: "Netherlands" },
+  { "@type": "Country", name: "Belgium" },
+  { "@type": "Country", name: "United States" },
+  { "@type": "AdministrativeArea", name: "California" },
+  { "@type": "AdministrativeArea", name: "Florida" },
+  { "@type": "City", name: "Berlin" },
+  { "@type": "City", name: "Munich" },
+  { "@type": "City", name: "Hamburg" },
+  { "@type": "City", name: "Frankfurt" },
+  { "@type": "City", name: "Cologne" },
+  { "@type": "City", name: "Düsseldorf" },
+  { "@type": "City", name: "Stuttgart" },
+  { "@type": "City", name: "Amsterdam" },
+  { "@type": "City", name: "Rotterdam" },
+  { "@type": "City", name: "Utrecht" },
+  { "@type": "City", name: "The Hague" },
+  { "@type": "City", name: "Brussels" },
+  { "@type": "City", name: "Vienna" },
+  { "@type": "City", name: "Zurich" },
+  { "@type": "City", name: "Chicago" },
+];
+
+const KNOWS_ABOUT = [
+  "AI engineering",
+  "RAG systems",
+  "AI chatbots",
+  "AI agents",
+  "Workflow automation",
+  "n8n automation",
+  "Make.com automation",
+  "Next.js development",
+  "Web development",
+  "App development",
+  "Shopify development",
+  "WordPress development",
+  "KI-Chatbots",
+  "Prozessautomatisierung",
+];
+
 export function getGlobalSchema(locale: Locale) {
-  const localePath = getLocalePath(locale);
   const inLanguage = locale === "de" ? "de-DE" : "en-US";
-  const siteUrl = `${BASE_URL}${localePath}`;
+  const siteUrl = absoluteLocalized(locale, "/");
+  const published = "2024-01-15";
+  const modified = new Date().toISOString().slice(0, 10);
 
   return {
     "@context": "https://schema.org",
@@ -38,62 +100,87 @@ export function getGlobalSchema(locale: Locale) {
         "@type": "Organization",
         "@id": ORG_ID,
         name: "XCLER",
+        legalName: "XCLER",
         url: BASE_URL,
-        logo: `${BASE_URL}/logo.png`,
+        logo: {
+          "@type": "ImageObject",
+          "@id": `${BASE_URL}#logo`,
+          url: `${BASE_URL}/logo.webp`,
+          contentUrl: `${BASE_URL}/logo.webp`,
+          width: 180,
+          height: 48,
+          caption: "XCLER",
+        },
+        image: { "@id": `${BASE_URL}#logo` },
         sameAs: [
           "https://www.facebook.com/xcler.dev",
-          "https://www.instagram.com/xcler.dev"
+          "https://www.instagram.com/xcler.dev",
         ],
         contactPoint: [
           {
             "@type": "ContactPoint",
             telephone: "+923154823517",
             contactType: "sales",
-            areaServed: ["DE", "AT", "CH"],
-            availableLanguage: ["English", "German"]
-          }
-        ]
+            email: "hello@xcler.dev",
+            areaServed: ["DE", "AT", "CH", "NL", "BE", "US"],
+            availableLanguage: ["English", "German"],
+          },
+        ],
+        knowsAbout: KNOWS_ABOUT,
+        slogan:
+          locale === "de"
+            ? "KI-Chatbots, Automatisierung und Webentwicklung aus Berlin"
+            : "AI chatbots, automation, and web development from Berlin",
       },
       {
         "@type": ["LocalBusiness", "ProfessionalService"],
         "@id": BUSINESS_ID,
         name: "XCLER",
-        image: `${BASE_URL}/og-image.webp`,
+        image: [`${BASE_URL}/og-image.webp`, { "@id": `${BASE_URL}#logo` }],
         url: BASE_URL,
         telephone: "+923154823517",
+        email: "hello@xcler.dev",
         address: {
           "@type": "PostalAddress",
           addressLocality: "Berlin",
-          addressCountry: "DE"
+          addressCountry: "DE",
         },
-        areaServed: [
-          { "@type": "Country", name: "Germany" },
-          { "@type": "Country", name: "Austria" },
-          { "@type": "Country", name: "Switzerland" }
+        areaServed: AREA_SERVED,
+        priceRange: "€€",
+        parentOrganization: { "@id": ORG_ID },
+        description:
+          locale === "de"
+            ? "XCLER ist eine digitale Agentur in Berlin. Wir bieten Webentwicklung, App-Entwicklung, KI-Chatbots und Agenten sowie Workflow-Automatisierung fuer Unternehmen in Deutschland, der DACH-Region, den Niederlanden, Belgien und den USA."
+            : "XCLER is a digital agency based in Berlin. We offer web development, app development, AI chatbots and agents, and workflow automation for businesses in Germany, the DACH region, the Netherlands, Belgium, and the United States including California, Florida, and Chicago.",
+        knowsAbout: [
+          ...KNOWS_ABOUT,
+          "AI agency Berlin",
+          "KI Agentur Muenchen",
+          "AI chatbots Amsterdam",
         ],
-        priceRange: "EUR",
-        parentOrganization: { "@id": ORG_ID }
       },
       {
         "@type": "WebSite",
-        "@id": `${BASE_URL}#website`,
+        "@id": WEBSITE_ID,
         url: BASE_URL,
         name: "XCLER",
         inLanguage,
+        datePublished: published,
+        dateModified: modified,
         publisher: { "@id": ORG_ID },
         potentialAction: {
           "@type": "SearchAction",
-          target: `${siteUrl}/?q={search_term_string}`,
-          "query-input": "required name=search_term_string"
-        }
-      }
-    ]
+          target: `${siteUrl}?q={search_term_string}`,
+          "query-input": "required name=search_term_string",
+        },
+      },
+    ],
   };
 }
 
-export function getServiceSchema({ locale, slug, name, description }: ServiceSchemaInput) {
-  const localePath = getLocalePath(locale);
-  const serviceUrl = `${BASE_URL}${localePath}/services/${slug}`;
+export function getServiceSchema({ locale, path, slug, name, description }: ServiceSchemaInput) {
+  const resolvedPath = path ?? (slug ? `/services/${slug}` : "/services");
+  const serviceUrl = absoluteLocalized(locale, resolvedPath);
 
   return {
     "@context": "https://schema.org",
@@ -103,15 +190,30 @@ export function getServiceSchema({ locale, slug, name, description }: ServiceSch
     name,
     description,
     provider: { "@id": ORG_ID },
-    areaServed: { "@type": "Country", name: "Germany" },
+    areaServed: AREA_SERVED,
     availableLanguage: ["de", "en"],
-    url: serviceUrl
+    url: serviceUrl,
+    mainEntityOfPage: serviceUrl,
   };
 }
 
+/** @deprecated Prefer getServiceSchema with `path`. Kept for gradual migration. */
+export function getServiceSchemaBySlug(
+  locale: Locale,
+  slug: string,
+  name: string,
+  description: string
+) {
+  return getServiceSchema({
+    locale,
+    path: `/services/${slug}`,
+    name,
+    description,
+  });
+}
+
 export function getServiceCatalogSchema(locale: Locale, items: ServiceCatalogItem[]) {
-  const localePath = getLocalePath(locale);
-  const pageUrl = `${BASE_URL}${localePath}/services`;
+  const pageUrl = absoluteLocalized(locale, "/services");
 
   return {
     "@context": "https://schema.org",
@@ -126,16 +228,16 @@ export function getServiceCatalogSchema(locale: Locale, items: ServiceCatalogIte
         "@type": "Service",
         name: item.name,
         description: item.description,
-        url: `${BASE_URL}${localePath}${item.href}`,
-        provider: { "@id": ORG_ID }
-      }
-    }))
+        url: absoluteLocalized(locale, item.href),
+        provider: { "@id": ORG_ID },
+        areaServed: AREA_SERVED,
+      },
+    })),
   };
 }
 
-export function getFaqSchema(locale: Locale, items: FaqItem[]) {
-  const localePath = getLocalePath(locale);
-  const pageUrl = `${BASE_URL}${localePath || "/"}`;
+export function getFaqSchema(locale: Locale, items: FaqItem[], pagePath = "/") {
+  const pageUrl = absoluteLocalized(locale, pagePath);
 
   return {
     "@context": "https://schema.org",
@@ -147,8 +249,21 @@ export function getFaqSchema(locale: Locale, items: FaqItem[]) {
       name: item.question,
       acceptedAnswer: {
         "@type": "Answer",
-        text: item.answer
-      }
-    }))
+        text: item.answer,
+      },
+    })),
+  };
+}
+
+export function getBreadcrumbSchema(locale: Locale, items: BreadcrumbItem[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: items.map((item, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: item.name,
+      item: absoluteLocalized(locale, item.path),
+    })),
   };
 }

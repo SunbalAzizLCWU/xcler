@@ -44,6 +44,12 @@ const teamMembersQuery = groq`
   }
 `;
 
+const localTeamImages: Record<string, string> = {
+  "musharraf aziz": "/team/musharraf.webp",
+  "abeel mehr": "/team/abeel.webp",
+  "mehru seemab": "/team/mehru.webp",
+};
+
 const objectPositionMap: Record<string, string> = {
   center: "center center",
   top: "center top",
@@ -80,7 +86,7 @@ export async function TeamSection({ locale }: { locale: string }) {
       expertise: t("member1.expertise"),
       bio: t("member1.bio"),
       tools: "Make.com, n8n, Zapier, GoHighLevel",
-      image: "/team/musharraf.jpg",
+      image: "/team/musharraf.webp",
       imageAlt: "Musharraf Aziz",
       imagePosition: "center",
     },
@@ -91,7 +97,7 @@ export async function TeamSection({ locale }: { locale: string }) {
       expertise: t("member2.expertise"),
       bio: t("member2.bio"),
       tools: "Next.js, Python, FastAPI, Flask, CI/CD",
-      image: "/team/abeel.jpg",
+      image: "/team/abeel.webp",
       imageAlt: "Abeel Mehr",
       imagePosition: "center",
     },
@@ -102,25 +108,34 @@ export async function TeamSection({ locale }: { locale: string }) {
       expertise: t("member3.expertise"),
       bio: t("member3.bio"),
       tools: "WordPress, Shopify, WooCommerce, Liquid",
-      image: "/team/mehru.jpg",
+      image: "/team/mehru.webp",
       imageAlt: "Mehru Seemab",
       imagePosition: "center",
     },
   ];
 
   const team: TeamMemberCard[] = sanityTeam.length
-    ? sanityTeam.map((member) => ({
-        _id: member._id,
-        name: member.name || "Team Member",
-        role: member.role || (locale === "de" ? "Teammitglied" : "Team Member"),
-        expertise: member.expertise || "",
-        bio: member.bio || (locale === "de" ? "Profil wird aktualisiert." : "Profile is being updated."),
-        tools: member.tools || "",
-        image: "/team/musharraf.jpg",
-        imageAlt: member.imageAlt || member.name || "Team member",
-        imageUrl: member.image ? urlFor(member.image).width(900).height(980).fit("crop").quality(80).url() : undefined,
-        imagePosition: objectPositionMap[member.imagePosition || "center"] || objectPositionMap.center,
-      }))
+    ? sanityTeam.map((member) => {
+        const name = member.name || "Team Member";
+        const localImage = localTeamImages[name.trim().toLowerCase()];
+        return {
+          _id: member._id,
+          name,
+          role: member.role || (locale === "de" ? "Teammitglied" : "Team Member"),
+          expertise: member.expertise || "",
+          bio: member.bio || (locale === "de" ? "Profil wird aktualisiert." : "Profile is being updated."),
+          tools: member.tools || "",
+          image: localImage || "/team/musharraf.webp",
+          imageAlt: member.imageAlt || member.name || "Team member",
+          // Prefer local WebP so homepage image SEO checks stay next-gen.
+          imageUrl: localImage
+            ? undefined
+            : member.image
+              ? urlFor(member.image).width(900).height(980).fit("crop").format("webp").quality(80).url()
+              : undefined,
+          imagePosition: objectPositionMap[member.imagePosition || "center"] || objectPositionMap.center,
+        };
+      })
     : fallbackTeam;
 
   return (
@@ -159,6 +174,8 @@ export async function TeamSection({ locale }: { locale: string }) {
                     <img
                       src={member.imageUrl}
                       alt={member.imageAlt || member.name}
+                      width={720}
+                      height={900}
                       loading="lazy"
                       className="h-full w-full object-cover"
                       style={{ objectPosition: member.imagePosition }}
@@ -167,9 +184,10 @@ export async function TeamSection({ locale }: { locale: string }) {
                     <Image
                       src={member.image}
                       alt={member.imageAlt || member.name}
-                      fill
+                      width={720}
+                      height={900}
                       loading="lazy"
-                      className="object-cover"
+                      className="h-full w-full object-cover"
                       style={{ objectPosition: member.imagePosition }}
                       sizes="(max-width: 768px) 100vw, 33vw"
                     />

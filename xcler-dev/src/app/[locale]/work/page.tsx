@@ -3,7 +3,7 @@ import { getTranslations } from "next-intl/server";
 import { Link } from "@/navigation";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import Image from "next/image";
-import { getCanonicalPath, getLanguageAlternates } from "@/lib/canonical";
+import { buildPageMetadata } from "@/lib/seoMeta";
 
 type ProjectItem = {
   title: string;
@@ -22,14 +22,12 @@ export async function generateMetadata({
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "WorkPage" });
 
-  return {
+  return buildPageMetadata({
+    locale,
+    path: "/work",
     title: t("metaTitle"),
     description: t("metaDescription"),
-    alternates: {
-      canonical: getCanonicalPath(locale, "/work"),
-      languages: getLanguageAlternates("/work"),
-    },
-  };
+  });
 }
 
 export default async function WorkPage({
@@ -41,10 +39,10 @@ export default async function WorkPage({
   const t = await getTranslations({ locale, namespace: "WorkPage" });
   const projects = t.raw("projects") as ProjectItem[];
   const projectImages: Record<string, string> = {
-    "green-navigator": "/projects/green-navigator.jpg",
-    aegisflow: "/projects/aegisflow.jpg",
-    visapath: "/projects/visapath.jpg",
-    "overwatch-ai": "/projects/overwatch.jpg",
+    "green-navigator": "/projects/green-navigator.webp",
+    aegisflow: "/projects/aegisflow.webp",
+    visapath: "/projects/visapath.webp",
+    "overwatch-ai": "/projects/overwatch.webp",
   };
 
   return (
@@ -76,7 +74,7 @@ export default async function WorkPage({
                 {/* Project image */}
                 <div className="relative h-64 lg:h-auto min-h-[300px] overflow-hidden">
                   <Image
-                    src={projectImages[project.slug] ?? "/projects/green-navigator.jpg"}
+                    src={projectImages[project.slug] ?? "/projects/green-navigator.webp"}
                     alt={project.title}
                     fill
                     sizes="(max-width: 1024px) 100vw, 50vw"

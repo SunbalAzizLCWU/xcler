@@ -4,8 +4,8 @@ import { Link } from "@/navigation";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { SideContactCta } from "@/components/sections/SideContactCta";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { getServiceSchema } from "@/lib/structuredData";
-import { getCanonicalPath, getLanguageAlternates } from "@/lib/canonical";
+import { getBreadcrumbSchema, getServiceSchema } from "@/lib/structuredData";
+import { buildPageMetadata } from "@/lib/seoMeta";
 
 type CoreServiceItem = {
   title: string;
@@ -52,14 +52,12 @@ export async function generateMetadata({
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "ServiceWordpressDevelopmentPage" });
 
-  return {
+  return buildPageMetadata({
+    locale,
+    path: "/services/wordpress-development-germany",
     title: t("metaTitle"),
     description: t("metaDescription"),
-    alternates: {
-      canonical: getCanonicalPath(locale, "/services/wordpress-development-germany"),
-      languages: getLanguageAlternates("/services/wordpress-development-germany"),
-    },
-  };
+  });
 }
 
 export default async function WordPressDevelopmentPage({
@@ -68,6 +66,7 @@ export default async function WordPressDevelopmentPage({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
+  const resolvedLocale = locale === "en" ? "en" : "de";
   const tMeta = await getTranslations({ locale, namespace: "ServiceWordpressDevelopmentPage" });
   const t = await getTranslations({ locale, namespace: "ServiceWordpressPage" });
   const hero = t.raw("hero") as HeroContent;
@@ -83,15 +82,21 @@ export default async function WordPressDevelopmentPage({
       : "Get a clear setup for architecture, performance, and long-term maintainability.";
   const contactCtaButton = locale === "de" ? "WordPress-Beratung starten" : "Start WordPress Consultation";
   const schema = getServiceSchema({
-    locale: locale === "en" ? "en" : "de",
-    slug: "wordpress-development-germany",
+    locale: resolvedLocale,
+    path: "/services/wordpress-development-germany",
     name: hero.h1,
     description: tMeta("metaDescription"),
   });
+  const breadcrumb = getBreadcrumbSchema(resolvedLocale, [
+    { name: "XCLER", path: "/" },
+    { name: resolvedLocale === "de" ? "Leistungen" : "Services", path: "/services" },
+    { name: "WordPress", path: "/services/wordpress-development-germany" },
+  ]);
 
   return (
     <>
       <JsonLd id={`service-wordpress-development-${locale}`} data={schema} />
+      <JsonLd id={`breadcrumb-wordpress-development-${locale}`} data={breadcrumb} />
       <section className="section-padding pt-32 relative overflow-hidden">
         <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
           <div className="absolute -top-28 right-0 h-72 w-72 rounded-full bg-terracotta/10 blur-3xl" />

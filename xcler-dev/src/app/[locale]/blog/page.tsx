@@ -10,7 +10,7 @@ import {
   BLOG_TITLE_BY_LOCALE,
 } from "@/sanity/lib/blog";
 import { urlFor } from "@/sanity/lib/image";
-import { getCanonicalPath, getLanguageAlternates } from "@/lib/canonical";
+import { buildPageMetadata } from "@/lib/seoMeta";
 
 export const revalidate = 60;
 export const dynamic = "force-dynamic";
@@ -78,14 +78,12 @@ export async function generateMetadata({
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "BlogPage" });
 
-  return {
+  return buildPageMetadata({
+    locale,
+    path: "/blog",
     title: t("metaTitle"),
     description: t("metaDescription"),
-    alternates: {
-      canonical: getCanonicalPath(locale, "/blog"),
-      languages: getLanguageAlternates("/blog"),
-    },
-  };
+  });
 }
 
 export default async function BlogPage({

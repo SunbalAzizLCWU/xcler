@@ -42,7 +42,7 @@ export type CaseStudy = {
 export const caseStudies: CaseStudy[] = [
   {
     slug: "aegisflow",
-    heroImage: "/projects/aegisflow.jpg",
+    heroImage: "/projects/aegisflow.webp",
     title: {
       en: "AegisFlow (InvoiceIQ)",
       de: "AegisFlow (InvoiceIQ)",
@@ -200,7 +200,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     slug: "green-navigator",
-    heroImage: "/projects/green-navigator.jpg",
+    heroImage: "/projects/green-navigator.webp",
     title: { en: "Green Navigator", de: "Green Navigator" },
     subtitle: {
       en: "Carbon reporting, finally simple. Utility bills to audit-ready emissions insights in minutes.",
@@ -368,7 +368,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     slug: "visapath",
-    heroImage: "/projects/visapath.jpg",
+    heroImage: "/projects/visapath.webp",
     title: { en: "VisaPath", de: "VisaPath" },
     subtitle: {
       en: "AI-powered visa strategy optimization for digital nomads, frequent travelers and expats.",
@@ -528,7 +528,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     slug: "overwatch-ai",
-    heroImage: "/projects/overwatch.jpg",
+    heroImage: "/projects/overwatch.webp",
     title: { en: "Overwatch AI", de: "Overwatch AI" },
     subtitle: {
       en: "A high-performance AI command center intercepting multimodal scam threats in real time.",

@@ -31,7 +31,7 @@ export async function WorkSection({ locale }: { locale: string }) {
         t("project1.tags.tag3"),
         t("project1.tags.tag4"),
       ],
-      image: "/projects/green-navigator.jpg",
+      image: "/projects/green-navigator.webp",
       imageClassName: "object-top",
       href: { pathname: "/work/[slug]", params: { slug: "green-navigator" } },
       color: "from-sage/20 to-sage/5",
@@ -46,7 +46,7 @@ export async function WorkSection({ locale }: { locale: string }) {
         t("project2.tags.tag3"),
         t("project2.tags.tag4"),
       ],
-      image: "/projects/aegisflow.jpg",
+      image: "/projects/aegisflow.webp",
       href: { pathname: "/work/[slug]", params: { slug: "aegisflow" } },
       color: "from-terracotta/20 to-terracotta/5",
     },
@@ -60,7 +60,7 @@ export async function WorkSection({ locale }: { locale: string }) {
         t("project3.tags.tag3"),
         t("project3.tags.tag4"),
       ],
-      image: "/projects/visapath.jpg",
+      image: "/projects/visapath.webp",
       href: { pathname: "/work/[slug]", params: { slug: "visapath" } },
       color: "from-stone/20 to-stone/5",
     },
@@ -74,7 +74,7 @@ export async function WorkSection({ locale }: { locale: string }) {
         t("project4.tags.tag3"),
         t("project4.tags.tag4"),
       ],
-      image: "/projects/overwatch.jpg",
+      image: "/projects/overwatch.webp",
       imageClassName: "object-top",
       href: { pathname: "/work/[slug]", params: { slug: "overwatch-ai" } },
       color: "from-richblack/20 to-richblack/5",
@@ -131,10 +131,12 @@ export async function WorkSection({ locale }: { locale: string }) {
                     <Image
                       src={project.image}
                       alt={project.title}
-                      fill
-                      loading="lazy"
+                      width={800}
+                      height={512}
+                      loading={i === 0 ? "eager" : "lazy"}
+                      fetchPriority={i === 0 ? "high" : "auto"}
                       sizes="(max-width: 768px) 100vw, 50vw"
-                      className={`object-cover transition-transform duration-700 group-hover:scale-105 ${project.imageClassName ?? ""}`}
+                      className={`h-full w-full object-cover transition-transform duration-700 group-hover:scale-105 ${project.imageClassName ?? ""}`}
                     />
 
                     {/* Hover overlay */}

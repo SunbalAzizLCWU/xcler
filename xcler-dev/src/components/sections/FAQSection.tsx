@@ -60,9 +60,9 @@ export function FAQSection() {
                     }
                     className="flex w-full items-start justify-between py-6 text-left group"
                   >
-                    <span className="font-heading text-lg font-medium pr-4 text-richblack dark:text-white group-hover:text-terracotta transition-colors">
+                    <h3 className="font-heading text-lg font-medium pr-4 text-richblack dark:text-white group-hover:text-terracotta transition-colors">
                       {faq.question}
-                    </span>
+                    </h3>
                     <motion.svg
                       animate={{ rotate: openIndex === i ? 180 : 0 }}
                       transition={{ duration: 0.3 }}

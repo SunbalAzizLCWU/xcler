@@ -132,7 +132,7 @@ export async function Pricing({ locale }: { locale: string }) {
                 </ul>
 
                 <Link
-                  href={`/${locale}/contact`}
+                  href="/contact"
                   className={`mt-8 block w-full py-3 text-center font-heading font-medium transition-all ${
                     pkg.popular
                       ? "btn-signal"

@@ -48,16 +48,20 @@ export async function generateMetadata({
     keywords:
       locale === "en"
         ? [
-            "AI chatbots Germany Netherlands",
-            "AI agency Berlin Munich Amsterdam",
-            "workflow automation n8n Make",
-            "digital agency DACH Benelux",
+            "AI chatbot agency Germany",
+            "KI automation agency Berlin",
+            "RAG AI agents Germany",
+            "n8n Make.com workflow automation",
+            "AI call agents DACH",
+            "AI automation Benelux California Florida Chicago",
           ]
         : [
-            "KI-Chatbots Deutschland Niederlande",
-            "KI Agentur Berlin Muenchen Hamburg Amsterdam",
-            "Workflow Automatisierung n8n Make",
-            "Digitalagentur DACH Benelux",
+            "KI-Automatisierungsagentur Deutschland",
+            "KI-Chatbot Agentur Berlin",
+            "RAG KI-Agenten Deutschland",
+            "n8n Make.com Workflow-Automatisierung",
+            "KI Call Agenten DACH",
+            "KI-Automatisierung Benelux Kalifornien Florida Chicago",
           ],
   });
 }

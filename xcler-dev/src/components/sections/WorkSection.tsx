@@ -129,9 +129,9 @@ export async function WorkSection({ locale }: { locale: string }) {
                       alt={`${project.title} — XCLER AI automation case study`}
                       width={1600}
                       height={1067}
-                      loading={i === 0 ? "eager" : "lazy"}
-                      fetchPriority={i === 0 ? "high" : "auto"}
-                      sizes="(max-width: 768px) 100vw, 50vw"
+                      loading="lazy"
+                      fetchPriority="auto"
+                      sizes="(max-width: 768px) 92vw, (max-width: 1200px) 45vw, 640px"
                       className="h-full w-full object-contain object-center"
                     />
 

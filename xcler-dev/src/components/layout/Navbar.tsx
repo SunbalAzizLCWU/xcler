@@ -38,10 +38,7 @@ export function Navbar() {
 
   return (
     <>
-      <motion.nav
-        initial={{ y: -80, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+      <nav
         className={cn(
           "fixed left-0 right-0 top-0 z-[100] transition-all duration-500",
           scrolled
@@ -53,11 +50,10 @@ export function Navbar() {
           <Link href="/" className="relative z-[101] group" aria-label="XCLER home">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/logo.webp"
+              src="/logo-nav.webp"
               alt="XCLER AI automation agency logo"
-              width={180}
-              height={48}
-              fetchPriority="high"
+              width={152}
+              height={40}
               decoding="async"
               className="h-8 w-auto transition-opacity group-hover:opacity-90 md:h-9"
             />
@@ -109,7 +105,7 @@ export function Navbar() {
             </button>
           </div>
         </div>
-      </motion.nav>
+      </nav>
 
       <AnimatePresence>
         {isOpen && (

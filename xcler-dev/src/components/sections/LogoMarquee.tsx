@@ -33,7 +33,7 @@ export function LogoMarquee() {
         {repeated.map((item, i) => (
           <span
             key={`${item}-${i}`}
-            className="flex shrink-0 items-center gap-5 px-5 font-mono text-[11px] tracking-[0.35em] text-cream/55 transition-colors hover:text-sage"
+            className="flex shrink-0 items-center gap-5 px-5 font-mono text-[11px] tracking-[0.35em] text-cream/70 transition-colors hover:text-sage"
           >
             {item}
             <span className="h-1.5 w-1.5 bg-sage shadow-[0_0_8px_rgba(45,255,154,0.7)]" />

@@ -51,8 +51,7 @@ export function ContactForm() {
       });
       const data = await res.json().catch(() => null);
 
-      if (res.ok && data?.emailId) {
-        alert("Message sent successfully.");
+      if (res.ok && (data?.success || data?.emailId)) {
         setSubmittedName(formData.name);
         setIsSubmitted(true);
         setFormData({

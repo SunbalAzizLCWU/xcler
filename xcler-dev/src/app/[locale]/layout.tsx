@@ -4,7 +4,6 @@ import { DM_Sans, IBM_Plex_Mono, Syne } from "next/font/google";
 import dynamic from "next/dynamic";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
-import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { SiteMotionChrome } from "@/components/ui/SiteMotionChrome";
@@ -21,19 +20,22 @@ const dmSans = DM_Sans({
   subsets: ["latin", "latin-ext"],
   display: "swap",
   variable: "--font-dm-sans",
+  preload: true,
 });
 
 const syne = Syne({
   subsets: ["latin", "latin-ext"],
   display: "swap",
   variable: "--font-syne",
+  preload: true,
 });
 
 const ibmPlexMono = IBM_Plex_Mono({
-  subsets: ["latin", "latin-ext"],
+  subsets: ["latin"],
   weight: ["400", "500"],
   display: "swap",
   variable: "--font-ibm-plex-mono",
+  preload: false,
 });
 
 // This tells Next.js to pre-build both the /en and /de versions of the site
@@ -68,23 +70,19 @@ export async function generateMetadata({
       languages: getLanguageAlternates("/", { xDefaultLocale: "de" }),
     },
     keywords: [
-      "AI engineering agency Germany",
-      "AI chatbot development",
-      "AI agents RAG",
-      "workflow automation Germany",
-      "n8n automation",
-      "make.com automation",
-      "web development agency Germany",
-      "app development Germany",
-      "WordPress developer Germany",
-      "Shopify developer Germany",
-      "Next.js development",
-      "Webentwicklung Deutschland",
-      "KI Chatbots Agentur",
-      "Prozessautomatisierung Deutschland",
-      "AI agency California",
-      "AI automation Florida",
-      "workflow automation Chicago",
+      "KI-Automatisierungsagentur Deutschland",
+      "KI Chatbot Agentur Berlin",
+      "KI Agenten RAG Deutschland",
+      "n8n Automatisierung Agentur",
+      "Make.com Automatisierung Deutschland",
+      "Workflow Automatisierung DACH",
+      "AI chatbot agency Germany",
+      "AI agents RAG Germany",
+      "workflow automation n8n Make",
+      "AI call agents Germany",
+      "Webentwicklung Next.js Deutschland",
+      "Shopify WordPress Agentur Deutschland",
+      "AI automation California Florida Chicago",
     ],
     authors: [{ name: "XCLER", url: "https://xcler.dev" }],
     creator: "XCLER",
@@ -200,164 +198,95 @@ export default async function RootLayout({
             `,
           }}
         />
-        <script
-          data-cookieconsent="ignore"
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function () {
-                var attrs = ['bis_skin_checked', 'bis_register', 'data-bis-config'];
-
-                function strip(el) {
-                  if (!el || el.nodeType !== 1) return;
-                  for (var i = 0; i < attrs.length; i += 1) {
-                    el.removeAttribute(attrs[i]);
-                  }
-                }
-
-                function stripAll(root) {
-                  if (!root || !root.querySelectorAll) return;
-                  for (var i = 0; i < attrs.length; i += 1) {
-                    var found = root.querySelectorAll('[' + attrs[i] + ']');
-                    for (var j = 0; j < found.length; j += 1) {
-                      found[j].removeAttribute(attrs[i]);
-                    }
-                  }
-                }
-
-                stripAll(document.documentElement);
-
-                var observer = new MutationObserver(function (mutations) {
-                  for (var i = 0; i < mutations.length; i += 1) {
-                    var mutation = mutations[i];
-                    if (mutation.type === 'attributes') {
-                      strip(mutation.target);
-                      continue;
-                    }
-
-                    for (var j = 0; j < mutation.addedNodes.length; j += 1) {
-                      var node = mutation.addedNodes[j];
-                      if (node && node.nodeType === 1) {
-                        strip(node);
-                        stripAll(node);
-                      }
-                    }
-                  }
-                });
-
-                observer.observe(document.documentElement, {
-                  subtree: true,
-                  childList: true,
-                  attributes: true,
-                  attributeFilter: attrs,
-                });
-
-                window.addEventListener('load', function () {
-                  observer.disconnect();
-                });
-              })();
-            `,
-          }}
-        />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="https://consent.cookiebot.com" />
         <script
           data-cookieconsent="ignore"
           dangerouslySetInnerHTML={{
             __html: `
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
-
               gtag('consent', 'default', {
                 ad_storage: 'denied',
                 analytics_storage: 'denied',
                 ad_user_data: 'denied',
                 ad_personalization: 'denied',
-                wait_for_update: 500
+                wait_for_update: 1500
               });
             `,
           }}
         />
-        <script
-          id="Cookiebot"
-          src="https://consent.cookiebot.com/uc.js"
-          data-cbid="8452dd7f-8fce-4b63-b09d-158e0ccf7d45"
-          data-blockingmode="manual"
-          async
-          type="text/javascript"></script>
+        {/* Defer Cookiebot + GTM until idle / first interaction — major TBT win */}
         <script
           data-cookieconsent="ignore"
           dangerouslySetInnerHTML={{
             __html: `
               (function () {
-                try {
-                  var hasCookieConsent = document.cookie.split(';').some(function (cookie) {
-                    var key = cookie.trim().split('=')[0];
-                    return key === 'CookieConsent' || key === 'CookieConsentBulkTicket';
-                  });
+                var loaded = false;
+                function loadThirdParties() {
+                  if (loaded) return;
+                  loaded = true;
 
-                  if (hasCookieConsent) {
-                    document.documentElement.setAttribute('data-has-cookiebot-consent', 'true');
+                  try {
+                    var hasCookieConsent = document.cookie.split(';').some(function (cookie) {
+                      var key = cookie.trim().split('=')[0];
+                      return key === 'CookieConsent' || key === 'CookieConsentBulkTicket';
+                    });
+                    if (hasCookieConsent) {
+                      document.documentElement.setAttribute('data-has-cookiebot-consent', 'true');
+                    }
+                  } catch (_) {}
+
+                  var cookiebot = document.createElement('script');
+                  cookiebot.id = 'Cookiebot';
+                  cookiebot.src = 'https://consent.cookiebot.com/uc.js';
+                  cookiebot.setAttribute('data-cbid', '8452dd7f-8fce-4b63-b09d-158e0ccf7d45');
+                  cookiebot.setAttribute('data-blockingmode', 'manual');
+                  cookiebot.async = true;
+                  document.head.appendChild(cookiebot);
+
+                  function syncConsent() {
+                    if (!window.Cookiebot || typeof window.gtag !== 'function') return;
+                    window.gtag('consent', 'update', {
+                      ad_storage: window.Cookiebot.consent.marketing ? 'granted' : 'denied',
+                      analytics_storage: window.Cookiebot.consent.statistics ? 'granted' : 'denied',
+                      ad_user_data: window.Cookiebot.consent.marketing ? 'granted' : 'denied',
+                      ad_personalization: window.Cookiebot.consent.marketing ? 'granted' : 'denied'
+                    });
                   }
-                } catch (_) {
-                  // Ignore cookie read issues and let Cookiebot handle defaults.
-                }
-              })();
-            `,
-          }}
-        />
-        <script
-          data-cookieconsent="ignore"
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function () {
-                function syncConsent() {
-                  if (!window.Cookiebot || typeof window.gtag !== 'function') return;
+                  window.addEventListener('CookiebotOnConsentReady', syncConsent);
+                  window.addEventListener('CookiebotOnAccept', syncConsent);
+                  window.addEventListener('CookiebotOnDecline', syncConsent);
 
-                  window.gtag('consent', 'update', {
-                    ad_storage: window.Cookiebot.consent.marketing ? 'granted' : 'denied',
-                    analytics_storage: window.Cookiebot.consent.statistics ? 'granted' : 'denied',
-                    ad_user_data: window.Cookiebot.consent.marketing ? 'granted' : 'denied',
-                    ad_personalization: window.Cookiebot.consent.marketing ? 'granted' : 'denied'
-                  });
+                  if (!window.__xclerGtmLoaded) {
+                    window.__xclerGtmLoaded = true;
+                    window.dataLayer = window.dataLayer || [];
+                    window.dataLayer.push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+                    var gtmScript = document.createElement('script');
+                    gtmScript.async = true;
+                    gtmScript.src = 'https://www.googletagmanager.com/gtm.js?id=GTM-K4669PCH';
+                    document.head.appendChild(gtmScript);
+                  }
                 }
 
-                window.addEventListener('CookiebotOnConsentReady', syncConsent);
-                window.addEventListener('CookiebotOnAccept', syncConsent);
-                window.addEventListener('CookiebotOnDecline', syncConsent);
-              })();
-            `,
-          }}
-        />
-        {/* eslint-disable-next-line @next/next/next-script-for-ga */}
-        <script
-          data-cookieconsent="ignore"
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function (w, d, l, i) {
-                function loadGtm() {
-                  if (w.__xclerGtmLoaded) return;
-                  w.__xclerGtmLoaded = true;
-
-                  w[l] = w[l] || [];
-                  w[l].push({
-                    'gtm.start': new Date().getTime(),
-                    event: 'gtm.js'
-                  });
-
-                  var dl = l !== 'dataLayer' ? '&l=' + l : '';
-                  var gtmScript = d.createElement('script');
-                  gtmScript.async = true;
-                  gtmScript.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
-                  d.head.appendChild(gtmScript);
-
-                  w.dispatchEvent(new Event('afterLoad'));
+                function schedule() {
+                  if ('requestIdleCallback' in window) {
+                    requestIdleCallback(loadThirdParties, { timeout: 4000 });
+                  } else {
+                    setTimeout(loadThirdParties, 2500);
+                  }
                 }
 
-                if (d.readyState === 'complete') {
-                  loadGtm();
+                ['pointerdown', 'keydown', 'scroll', 'touchstart'].forEach(function (evt) {
+                  window.addEventListener(evt, loadThirdParties, { once: true, passive: true });
+                });
+
+                if (document.readyState === 'complete') {
+                  schedule();
                 } else {
-                  w.addEventListener('load', loadGtm, { once: true });
+                  window.addEventListener('load', schedule, { once: true });
                 }
-              })(window, document, 'dataLayer', 'GTM-K4669PCH');
+              })();
             `,
           }}
         />
@@ -385,7 +314,7 @@ export default async function RootLayout({
         <NextIntlClientProvider locale={locale} messages={messages}>
           <a
             href="#main-content"
-            className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[200] focus:bg-terracotta focus:px-4 focus:py-2 focus:text-white"
+            className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[200] focus:bg-terracotta focus:px-4 focus:py-2 focus:text-richblack"
           >
             Skip to content
           </a>
@@ -397,7 +326,6 @@ export default async function RootLayout({
             <WhatsAppButton />
           </div>
         </NextIntlClientProvider>
-        <SpeedInsights />
       </body>
     </html>
   );

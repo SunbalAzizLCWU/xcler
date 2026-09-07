@@ -119,23 +119,23 @@
     "learnMore": "Details",
     "service1": {
       "title": "Next.js Web Development",
-      "description": "We build performance-focused frontend systems with Next.js, React, and TypeScript — fast loading, strong Core Web Vitals, and durable SEO for Germany and the US markets we serve."
+      "description": "Performance-focused Next.js sites and platforms with strong Core Web Vitals and SEO for Germany, DACH, and remote US markets."
     },
     "service2": {
       "title": "Custom SaaS & App Development",
-      "description": "We design and ship SaaS products, portals, and internal platforms with resilient APIs and a clear scaling strategy."
+      "description": "SaaS products, portals, and internal platforms with resilient APIs and a clear scaling path."
     },
     "service3": {
       "title": "Shopify & WordPress Commerce",
-      "description": "We implement Shopify and WordPress commerce stacks, including headless storefronts when conversion and speed demand it."
+      "description": "Shopify and WordPress commerce stacks — including headless storefronts when conversion and speed demand it."
     },
     "service4": {
-      "title": "Workflow Automation",
-      "description": "We automate processes with Make.com, n8n, Zapier, and GoHighLevel so your team spends less time on repetitive work."
+      "title": "n8n & Make.com Automation",
+      "description": "Process automation with Make.com, n8n, Zapier, and GoHighLevel — CRM sync, lead routing, and ops workflows without busywork."
     },
     "service5": {
-      "title": "AI Chatbots & Agents",
-      "description": "We engineer RAG systems, AI chatbots, and autonomous agents for support, sales qualification, and operational intelligence."
+      "title": "AI Chatbots, Agents & RAG",
+      "description": "Production RAG systems, AI chatbots, autonomous agents, and AI call assistants for support, sales qualification, and operations."
     }
   },
   "HomeSeo": {
@@ -1090,17 +1090,17 @@
     ]
   },
   "ServiceWorkflowAutomationPage": {
-    "metaTitle": "Workflow automation Make n8n Germany",
-    "metaDescription": "Workflow automation with Make.com and n8n for Germany, DACH, the Netherlands, and Belgium. XCLER builds reliable CRM and ops scenarios.",
+    "metaTitle": "n8n & Make.com Automation Agency Germany",
+    "metaDescription": "n8n and Make.com workflow automation agency for Germany and DACH. XCLER builds CRM, ops, and lead-routing scenarios with retries, alerting, and clear ownership.",
     "backToServices": "All Services",
     "serviceLabel": "Service / 04",
     "headingLine1": "Workflow automation",
     "headingLine2": "we implement end to end.",
     "intro": "We offer workflow automation that removes repetitive handoffs. XCLER designs Make.com and n8n scenarios that sync CRM, messaging, billing, and ops — for Germany-first teams and remote US clients.",
     "hero": {
-      "h1": "Workflow automation Make n8n Germany",
-      "h2": "Reliable Make.com and n8n scenarios from XCLER",
-      "paragraph": "We implement workflow automation with Make.com and n8n so your team stops repeating handoffs between CRM, inbox, and ops tools. XCLER designs reliable scenarios with retries, alerting, and clear ownership for Germany, DACH, the Netherlands, and Belgium — including Berlin, Munich, Frankfurt, Amsterdam, and Rotterdam — plus remote US clients in California, Florida, and Chicago."
+      "h1": "n8n & Make.com Workflow Automation Agency",
+      "h2": "Reliable automation scenarios from XCLER for Germany & DACH",
+      "paragraph": "Hire an automation agency that ships production Make.com and n8n workflows — CRM sync, inbox routing, billing handoffs, and AI chatbot write-backs — for Germany, DACH, Benelux, and remote US teams in California, Florida, and Chicago."
     },
     "seoIntro": {
       "paragraph1": "If you need a workflow automation agency in Germany, we are ready. XCLER specializes in Make.com and n8n architectures that replace fragile spreadsheets and manual copy-paste between tools. We map your process, choose idempotent steps, add retries and alerting, and document every scenario so your team owns the system. We primarily serve DACH from Berlin and deliver remote automation for California, Florida, and Chicago clients without inventing fake local offices.",
@@ -1185,17 +1185,17 @@
     ]
   },
   "ServiceAiChatbotsPage": {
-    "metaTitle": "AI chatbots and agents Germany",
-    "metaDescription": "We build AI chatbots and agents with RAG for Germany, DACH, the Netherlands, and Belgium. XCLER delivers assistants with evaluation and CRM handoffs.",
+    "metaTitle": "AI Chatbot Agency Germany | RAG Agents & Call AI",
+    "metaDescription": "AI chatbot agency in Germany for RAG agents, LLM assistants, and AI call agents. XCLER ships bilingual DE/EN production systems with CRM handoffs for DACH and remote US.",
     "backToServices": "All Services",
     "serviceLabel": "Service / 05",
     "headingLine1": "AI chatbots & agents",
     "headingLine2": "we engineer for production.",
     "intro": "We offer AI engineering focused on chatbots, RAG systems, and autonomous agents. XCLER helps companies in Germany and the US markets we serve turn knowledge bases into reliable assistants that qualify leads, answer customers, and hand off to humans cleanly.",
     "hero": {
-      "h1": "AI chatbots and agents Germany",
-      "h2": "RAG, LLMs, and autonomous workflows from XCLER",
-      "paragraph": "We build AI chatbots and agents for production teams that need grounded answers, retrieval quality, and clear escalation. XCLER delivers bilingual assistants with tool calling, evaluation, and CRM handoffs for Germany, DACH, the Netherlands, and Belgium — including Berlin, Munich, Hamburg, Amsterdam, and Rotterdam — plus remote US clients in California, Florida, and Chicago."
+      "h1": "AI Chatbot & Agents Agency for Germany",
+      "h2": "RAG, LLMs, voice AI, and autonomous workflows from XCLER",
+      "paragraph": "Looking for an AI chatbot agency in Germany? XCLER builds production RAG assistants, tool-using agents, and AI call agents with evaluation, guardrails, and CRM handoffs for DACH, Benelux, and remote US clients."
     },
     "seoIntro": {
       "paragraph1": "Looking for an AI chatbot and agents partner in Germany? We are XCLER. We engineer retrieval-augmented generation systems, conversational agents, and tool-using assistants that reduce ticket volume and accelerate lead qualification. Our AI engineering covers prompt design, retrieval pipelines, evaluation harnesses, guardrails, analytics, and clean human takeover. We ship bilingual DE/EN experiences for DACH companies and remote clients in California, Florida, and Chicago, with first-person accountability from discovery through production monitoring.",

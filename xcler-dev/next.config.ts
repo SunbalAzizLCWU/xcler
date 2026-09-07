@@ -7,6 +7,12 @@ const nextConfig: NextConfig = {
   turbopack: {
     root: process.cwd(),
   },
+  images: {
+    formats: ["image/avif", "image/webp"],
+    deviceSizes: [640, 750, 828, 1080, 1200, 1600],
+    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
+    minimumCacheTTL: 60 * 60 * 24 * 30,
+  },
   async headers() {
     return [
       {
@@ -21,6 +27,12 @@ const nextConfig: NextConfig = {
             value:
               "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://consent.cookiebot.com https://va.vercel-scripts.com; style-src 'self' 'unsafe-inline' https://consent.cookiebot.com; img-src 'self' data: blob: https:; font-src 'self' data:; connect-src 'self' https:; frame-src https://consentcdn.cookiebot.com https://www.googletagmanager.com; base-uri 'self'",
           },
+        ],
+      },
+      {
+        source: "/:all*(svg|jpg|jpeg|png|webp|avif|ico|woff2)",
+        headers: [
+          { key: "Cache-Control", value: "public, max-age=31536000, immutable" },
         ],
       },
     ];
@@ -51,6 +63,34 @@ const nextConfig: NextConfig = {
       {
         source: "/de/leistungen/ki-chatbots",
         destination: "/leistungen/ki-chatbots-agenten",
+        permanent: true,
+      },
+      // Fix GSC 404: short Shopify URL → canonical DE service page
+      {
+        source: "/leistungen/shopify-entwicklung",
+        destination: "/leistungen/shopify-entwicklung-deutschland",
+        permanent: true,
+      },
+      {
+        source: "/services/shopify-development",
+        destination: "/en/services/shopify-development-germany",
+        permanent: true,
+      },
+      // Privacy: DE used /privacy historically; canonical DE is /datenschutz
+      {
+        source: "/privacy",
+        destination: "/datenschutz",
+        permanent: true,
+      },
+      {
+        source: "/en/datenschutz",
+        destination: "/en/privacy",
+        permanent: true,
+      },
+      // Stale assets / files Google still crawls
+      {
+        source: "/Cv.docx",
+        destination: "/ueber-uns",
         permanent: true,
       },
     ];

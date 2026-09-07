@@ -1,7 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
-import { motion, useReducedMotion } from "framer-motion";
+import { useRef } from "react";
 import { cn } from "@/lib/utils";
 
 type SpotlightPanelProps = {
@@ -9,43 +8,36 @@ type SpotlightPanelProps = {
   className?: string;
 };
 
-/** Panel with cursor-follow spotlight — agency-site interaction pattern. */
+/** Panel with CSS-variable spotlight — no Framer Motion state thrash. */
 export function SpotlightPanel({ children, className }: SpotlightPanelProps) {
   const ref = useRef<HTMLDivElement>(null);
-  const reduceMotion = useReducedMotion();
-  const [spot, setSpot] = useState({ x: 50, y: 40, on: false });
 
   const onMove = (e: React.MouseEvent) => {
-    if (reduceMotion || !ref.current) return;
-    const rect = ref.current.getBoundingClientRect();
-    setSpot({
-      x: ((e.clientX - rect.left) / rect.width) * 100,
-      y: ((e.clientY - rect.top) / rect.height) * 100,
-      on: true,
-    });
+    const el = ref.current;
+    if (!el || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    if (!window.matchMedia("(pointer: fine)").matches) return;
+    const rect = el.getBoundingClientRect();
+    el.style.setProperty("--spot-x", `${((e.clientX - rect.left) / rect.width) * 100}%`);
+    el.style.setProperty("--spot-y", `${((e.clientY - rect.top) / rect.height) * 100}%`);
+    el.dataset.spot = "on";
   };
 
   return (
     <div
       ref={ref}
       onMouseMove={onMove}
-      onMouseLeave={() => setSpot((s) => ({ ...s, on: false }))}
+      onMouseLeave={(e) => {
+        e.currentTarget.dataset.spot = "off";
+      }}
+      data-spot="off"
       className={cn(
         "panel relative overflow-hidden transition-[border-color,transform] duration-500 hover:-translate-y-1 hover:border-sage/40",
+        "before:pointer-events-none before:absolute before:inset-0 before:opacity-0 before:transition-opacity before:duration-300 before:content-['']",
+        "before:bg-[radial-gradient(420px_circle_at_var(--spot-x,50%)_var(--spot-y,40%),rgba(45,255,154,0.16),rgba(255,77,28,0.06)_40%,transparent_65%)]",
+        "data-[spot=on]:before:opacity-100",
         className
       )}
     >
-      {!reduceMotion ? (
-        <motion.div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-0"
-          animate={{ opacity: spot.on ? 1 : 0 }}
-          transition={{ duration: 0.35 }}
-          style={{
-            background: `radial-gradient(420px circle at ${spot.x}% ${spot.y}%, rgba(45,255,154,0.16), rgba(255,77,28,0.06) 40%, transparent 65%)`,
-          }}
-        />
-      ) : null}
       <div className="relative z-[1]">{children}</div>
     </div>
   );

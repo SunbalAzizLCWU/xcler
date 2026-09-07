@@ -43,17 +43,14 @@ const staticRouteConfig: Array<{
   { href: "/blog", changeFrequency: "weekly", priority: 0.8 },
   { href: "/pricing", changeFrequency: "monthly", priority: 0.8 },
   { href: "/contact", changeFrequency: "monthly", priority: 0.9 },
-  { href: "/privacy", changeFrequency: "yearly", priority: 0.3 },
-  { href: "/datenschutz", changeFrequency: "yearly", priority: 0.3 },
-  { href: "/impressum", changeFrequency: "yearly", priority: 0.2 },
-  { href: "/cookies", changeFrequency: "yearly", priority: 0.2 },
-  { href: "/agb", changeFrequency: "yearly", priority: 0.2 },
+  // Legal pages are intentionally noindex — do NOT list them in sitemaps
+  // (conflicting sitemap+noindex → GSC "Discovered / Excluded by noindex").
 ];
 
 const blogSitemapQuery = groq`
   *[_type == "blogPost" && (defined(slug.current) || defined(slug_en.current) || defined(slug_de.current))] {
-    "slug_en": coalesce(slug_en.current, slug.current, slug_de.current),
-    "slug_de": coalesce(slug_de.current, slug.current, slug_en.current),
+    "slug_en": coalesce(slug_en.current, slug.current),
+    "slug_de": coalesce(slug_de.current, slug.current),
     "updatedAt": _updatedAt,
     "createdAt": _createdAt
   }
@@ -142,20 +139,36 @@ export async function buildLocaleSitemap(locale: Locale): Promise<SitemapEntry[]
       ),
     ]);
     for (const row of rows) {
-      if (!row.slug_en && !row.slug_de) continue;
       const lastModified = new Date(row.updatedAt ?? row.createdAt ?? now.toISOString());
-      const fallback = row.slug_en ?? row.slug_de ?? "";
-      const enPath = getLocalizedPath("en", `/blog/${row.slug_en ?? fallback}`);
-      const dePath = getLocalizedPath("de", `/blog/${row.slug_de ?? fallback}`);
-      const localizedPath = locale === "de" ? dePath : enPath;
 
-      entries.push({
-        url: toAbsoluteUrl(localizedPath),
-        lastModified,
-        changeFrequency: "weekly",
-        priority: 0.7,
-        alternates: languageAlternates(enPath, dePath),
-      });
+      // Never cross-publish EN slug on DE path (or vice versa) — causes GSC alternate/canonical mismatches
+      if (locale === "en" && row.slug_en) {
+        const enPath = getLocalizedPath("en", `/blog/${row.slug_en}`);
+        const dePath = row.slug_de
+          ? getLocalizedPath("de", `/blog/${row.slug_de}`)
+          : enPath;
+        entries.push({
+          url: toAbsoluteUrl(enPath),
+          lastModified,
+          changeFrequency: "weekly",
+          priority: 0.7,
+          alternates: languageAlternates(enPath, dePath),
+        });
+      }
+
+      if (locale === "de" && row.slug_de) {
+        const dePath = getLocalizedPath("de", `/blog/${row.slug_de}`);
+        const enPath = row.slug_en
+          ? getLocalizedPath("en", `/blog/${row.slug_en}`)
+          : dePath;
+        entries.push({
+          url: toAbsoluteUrl(dePath),
+          lastModified,
+          changeFrequency: "weekly",
+          priority: 0.7,
+          alternates: languageAlternates(enPath, dePath),
+        });
+      }
     }
   } catch {
     // CMS optional / timed out — keep static routes so Google still gets a 200.

@@ -37,7 +37,7 @@ export async function Footer({ locale }: { locale: string }) {
     ],
     legal: [
       { label: t("links.legal.imprint"), href: "/impressum" },
-      { label: t("links.legal.privacy"), href: locale === "de" ? "/datenschutz" : "/privacy" },
+      { label: t("links.legal.privacy"), href: "/privacy" },
       { label: t("links.legal.cookies"), href: "/cookies" },
       { label: t("links.legal.terms"), href: "/agb" },
     ],
@@ -66,7 +66,7 @@ export async function Footer({ locale }: { locale: string }) {
         <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
           <div className="col-span-2 md:col-span-1">
             <XclerLogo />
-            <p className="mt-4 max-w-xs text-sm text-cream/50">
+            <p className="mt-4 max-w-xs text-sm text-cream/70">
               {t("brandDescription")}
             </p>
             <div className="mt-6 flex gap-4">
@@ -96,15 +96,15 @@ export async function Footer({ locale }: { locale: string }) {
           </div>
 
           <div>
-            <h4 className="mb-4 font-heading text-sm font-semibold uppercase tracking-wider text-stone-light">
+            <h3 className="mb-4 font-heading text-sm font-semibold uppercase tracking-wider text-stone-light">
               {t("sections.services")}
-            </h4>
+            </h3>
             <ul className="space-y-3">
               {footerLinks.services.map((link) => (
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="text-sm text-cream/55 transition-colors hover:text-cream"
+                    className="text-sm text-cream/70 transition-colors hover:text-cream"
                   >
                     {link.label}
                   </Link>
@@ -114,15 +114,15 @@ export async function Footer({ locale }: { locale: string }) {
           </div>
 
           <div>
-            <h4 className="mb-4 font-heading text-sm font-semibold uppercase tracking-wider text-stone-light">
+            <h3 className="mb-4 font-heading text-sm font-semibold uppercase tracking-wider text-stone-light">
               {t("sections.company")}
-            </h4>
+            </h3>
             <ul className="space-y-3">
               {footerLinks.company.map((link) => (
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="text-sm text-cream/55 transition-colors hover:text-cream"
+                    className="text-sm text-cream/70 transition-colors hover:text-cream"
                   >
                     {link.label}
                   </Link>
@@ -132,15 +132,15 @@ export async function Footer({ locale }: { locale: string }) {
           </div>
 
           <div>
-            <h4 className="mb-4 font-heading text-sm font-semibold uppercase tracking-wider text-stone-light">
+            <h3 className="mb-4 font-heading text-sm font-semibold uppercase tracking-wider text-stone-light">
               {t("sections.legal")}
-            </h4>
+            </h3>
             <ul className="space-y-3">
               {footerLinks.legal.map((link) => (
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="text-sm text-cream/55 transition-colors hover:text-cream"
+                    className="text-sm text-cream/70 transition-colors hover:text-cream"
                   >
                     {link.label}
                   </Link>

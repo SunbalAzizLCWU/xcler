@@ -119,23 +119,23 @@
     "learnMore": "Details",
     "service1": {
       "title": "Next.js Webentwicklung",
-      "description": "Wir bauen performante Frontend-Systeme mit Next.js, React und TypeScript — schnelle Ladezeiten, starke Core Web Vitals und nachhaltiges SEO fuer Deutschland und die von uns betreuten US-Maerkte."
+      "description": "Performante Next.js-Sites und Plattformen mit starken Core Web Vitals und SEO fuer Deutschland, DACH und remote US-Maerkte."
     },
     "service2": {
       "title": "Custom SaaS & App-Entwicklung",
-      "description": "Wir konzipieren und liefern SaaS-Produkte, Portale und interne Plattformen mit robusten APIs und klarer Skalierungsstrategie."
+      "description": "SaaS-Produkte, Portale und interne Plattformen mit robusten APIs und klarem Skalierungspfad."
     },
     "service3": {
       "title": "Shopify & WordPress Commerce",
-      "description": "Wir setzen Shopify- und WordPress-Commerce-Stacks um — inklusive Headless-Storefronts, wenn Conversion und Speed es erfordern."
+      "description": "Shopify- und WordPress-Commerce — inklusive Headless-Storefronts, wenn Conversion und Speed es erfordern."
     },
     "service4": {
-      "title": "Workflow-Automatisierung",
-      "description": "Wir automatisieren Prozesse mit Make.com, n8n, Zapier und GoHighLevel, damit Ihr Team weniger Zeit mit Wiederholarbeit verliert."
+      "title": "n8n & Make.com Automatisierung",
+      "description": "Prozessautomatisierung mit Make.com, n8n, Zapier und GoHighLevel — CRM-Sync, Lead-Routing und Ops-Workflows ohne Busywork."
     },
     "service5": {
-      "title": "KI-Chatbots & Agenten",
-      "description": "Wir entwickeln RAG-Systeme, KI-Chatbots und autonome Agenten fuer Support, Sales-Qualifizierung und operative Intelligenz."
+      "title": "KI-Chatbots, Agenten & RAG",
+      "description": "Produktive RAG-Systeme, KI-Chatbots, autonome Agenten und KI-Call-Assistenten fuer Support, Sales-Qualifizierung und Operations."
     }
   },
   "HomeSeo": {
@@ -1090,17 +1090,17 @@
     ]
   },
   "ServiceWorkflowAutomationPage": {
-    "metaTitle": "Workflow-Automatisierung Make n8n Deutschland",
-    "metaDescription": "Workflow-Automatisierung mit Make.com und n8n fuer Deutschland, DACH, die Niederlande und Belgien. XCLER baut zuverlaessige CRM- und Ops-Szenarien.",
+    "metaTitle": "n8n & Make.com Automatisierungsagentur Deutschland",
+    "metaDescription": "n8n- und Make.com-Workflow-Automatisierung fuer Deutschland und DACH. XCLER baut CRM-, Ops- und Lead-Routing-Szenarien mit Retries, Alerting und klarer Ownership.",
     "backToServices": "Alle Leistungen",
     "serviceLabel": "Leistung / 04",
     "headingLine1": "Workflow-Automatisierung,",
     "headingLine2": "die wir end-to-end umsetzen.",
     "intro": "Wir bieten Workflow-Automatisierung, die repetitive Handoffs entfernt. XCLER designed Make.com- und n8n-Szenarien, die CRM, Messaging, Billing und Ops synchronisieren.",
     "hero": {
-      "h1": "Workflow-Automatisierung Make n8n Deutschland",
-      "h2": "Zuverlaessige Make.com- und n8n-Szenarien von XCLER",
-      "paragraph": "Wir setzen Workflow-Automatisierung mit Make.com und n8n um, damit Ihr Team keine Handoffs zwischen CRM, Inbox und Ops-Tools mehr wiederholt. XCLER designed zuverlaessige Szenarien mit Retries, Alerting und klarer Ownership fuer Deutschland, DACH, die Niederlande und Belgien — inklusive Berlin, Muenchen, Frankfurt, Amsterdam und Rotterdam — sowie remote fuer US-Kunden in Kalifornien, Florida und Chicago."
+      "h1": "n8n & Make.com Workflow-Automatisierungsagentur",
+      "h2": "Zuverlaessige Automationsszenarien von XCLER fuer Deutschland & DACH",
+      "paragraph": "Beauftragen Sie eine Automatisierungsagentur, die produktive Make.com- und n8n-Workflows liefert — CRM-Sync, Inbox-Routing, Billing-Handoffs und KI-Chatbot-Writebacks — fuer Deutschland, DACH, Benelux und remote US-Teams in Kalifornien, Florida und Chicago."
     },
     "seoIntro": {
       "paragraph1": "Wenn Sie eine Workflow-Automatisierungs-Agentur in Deutschland brauchen, sind wir bereit. XCLER spezialisiert sich auf Make.com- und n8n-Architekturen, die fragile Spreadsheets und manuelles Copy-Paste ersetzen. Wir mappen Ihren Prozess, waehlen idempotente Steps, ergaenzen Retries und Alerting und dokumentieren jedes Szenario. Wir betreuen primaer DACH aus Berlin und liefern Remote-Automation fuer Kunden in Kalifornien, Florida und Chicago — ohne erfundene Filialadressen.",
@@ -1185,17 +1185,17 @@
     ]
   },
   "ServiceAiChatbotsPage": {
-    "metaTitle": "KI-Chatbots und Agenten Deutschland",
-    "metaDescription": "Wir entwickeln KI-Chatbots und Agenten mit RAG fuer Deutschland, DACH, die Niederlande und Belgien. XCLER liefert Assistenten mit Evaluation und CRM-Handoffs.",
+    "metaTitle": "KI-Chatbot Agentur Deutschland | RAG-Agenten & Voice AI",
+    "metaDescription": "KI-Chatbot-Agentur in Deutschland fuer RAG-Agenten, LLM-Assistenten und KI-Call-Agenten. XCLER liefert bilinguale DE/EN-Produktionssysteme mit CRM-Handoffs fuer DACH und remote US.",
     "backToServices": "Alle Leistungen",
     "serviceLabel": "Leistung / 05",
     "headingLine1": "KI-Chatbots & Agenten,",
     "headingLine2": "die wir fuer Production bauen.",
     "intro": "Wir bieten KI-Engineering mit Fokus auf Chatbots, RAG-Systeme und autonome Agenten. XCLER hilft Unternehmen in Deutschland und den von uns betreuten US-Maerkten, Wissensbasen in zuverlaessige Assistenten zu verwandeln.",
     "hero": {
-      "h1": "KI-Chatbots und Agenten Deutschland",
-      "h2": "RAG, LLMs und autonome Workflows von XCLER",
-      "paragraph": "Wir entwickeln KI-Chatbots und Agenten fuer Production-Teams, die fundierte Antworten, Retrieval-Qualitaet und klare Eskalation brauchen. XCLER liefert bilinguale Assistenten mit Tool Calling, Evaluation und CRM-Handoffs fuer Deutschland, DACH, die Niederlande und Belgien — inklusive Berlin, Muenchen, Hamburg, Amsterdam und Rotterdam — sowie remote fuer US-Kunden in Kalifornien, Florida und Chicago."
+      "h1": "KI-Chatbot- & Agenten-Agentur fuer Deutschland",
+      "h2": "RAG, LLMs, Voice AI und autonome Workflows von XCLER",
+      "paragraph": "Suchen Sie eine KI-Chatbot-Agentur in Deutschland? XCLER baut produktive RAG-Assistenten, tool-nutzende Agenten und KI-Call-Agenten mit Evaluation, Guardrails und CRM-Handoffs fuer DACH, Benelux und remote US-Kunden."
     },
     "seoIntro": {
       "paragraph1": "Suchen Sie einen Partner fuer KI-Chatbots und Agenten in Deutschland? Wir sind XCLER. Wir entwickeln Retrieval-Augmented-Generation-Systeme, Conversational Agents und Tool-nutzende Assistenten, die Ticketvolumen senken und Lead-Qualifizierung beschleunigen. Unser KI-Engineering umfasst Prompt-Design, Retrieval-Pipelines, Evaluation, Guardrails, Analytics und sauberen Human-Takeover. Wir liefern bilinguale DE/EN-Erlebnisse fuer DACH-Unternehmen und Remote-Kunden in Kalifornien, Florida und Chicago — mit klarer Verantwortung von Discovery bis Monitoring.",

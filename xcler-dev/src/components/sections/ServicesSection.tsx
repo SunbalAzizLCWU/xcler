@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
@@ -88,11 +87,17 @@ export function ServicesSection() {
           <div className="space-y-0">
             {services.map((service, i) => (
               <AnimatedSection key={service.number} delay={i * 0.1}>
-                <motion.div
+                <div
+                  role="button"
+                  tabIndex={0}
                   onClick={() => setActiveService(i)}
-                  whileHover={{ x: 6 }}
-                  transition={{ type: "spring", stiffness: 320, damping: 24 }}
-                  className={`group cursor-pointer border-b border-cream/10 py-6 transition-all duration-300 ${
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" || e.key === " ") {
+                      e.preventDefault();
+                      setActiveService(i);
+                    }
+                  }}
+                  className={`group cursor-pointer border-b border-cream/10 py-6 transition-all duration-300 hover:translate-x-1.5 ${
                     activeService === i
                       ? "border-l-2 border-l-sage pl-4"
                       : "pl-0 hover:pl-4"
@@ -100,7 +105,7 @@ export function ServicesSection() {
                 >
                   <div className="flex items-start justify-between">
                     <div>
-                      <span className="font-mono text-xs text-stone">
+                      <span className="font-mono text-xs text-stone-light">
                         {service.number}
                       </span>
                       <h3
@@ -113,81 +118,69 @@ export function ServicesSection() {
                         {service.title}
                       </h3>
                     </div>
-                    <motion.svg
-                      animate={{ rotate: activeService === i ? 45 : 0 }}
-                      className="mt-2 h-5 w-5 text-stone transition-colors group-hover:text-sage"
+                    <svg
+                      className={`mt-2 h-5 w-5 text-stone transition-transform duration-300 group-hover:text-sage ${
+                        activeService === i ? "rotate-45 text-sage" : ""
+                      }`}
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
                       strokeWidth={2}
+                      aria-hidden="true"
                     >
                       <path
                         strokeLinecap="round"
                         strokeLinejoin="round"
                         d="M12 4v16m8-8H4"
                       />
-                    </motion.svg>
+                    </svg>
                   </div>
 
-                  <AnimatePresence>
-                    {activeService === i && (
-                      <motion.div
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: "auto", opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.3 }}
-                        className="overflow-hidden lg:hidden"
-                      >
-                        <p className="mt-3 text-cream/65 leading-relaxed">
-                          {service.description}
-                        </p>
-                        <div className="mt-4 flex flex-wrap gap-2">
-                          {service.tech.map((t) => (
-                            <span
-                              key={t}
-                              className="border border-cream/10 bg-cream/5 px-3 py-1 font-mono text-xs"
-                            >
-                              {t}
-                            </span>
-                          ))}
-                        </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </motion.div>
+                  {activeService === i ? (
+                    <div className="overflow-hidden lg:hidden">
+                      <p className="mt-3 leading-relaxed text-cream/75">
+                        {service.description}
+                      </p>
+                      <div className="mt-4 flex flex-wrap gap-2">
+                        {service.tech.map((tech) => (
+                          <span
+                            key={tech}
+                            className="border border-cream/10 bg-cream/5 px-3 py-1 font-mono text-xs"
+                          >
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  ) : null}
+                </div>
               </AnimatedSection>
             ))}
           </div>
 
-          {/* Right: Service Detail (Desktop) */}
-          <div className="hidden lg:block relative">
+          <div className="relative hidden lg:block">
             <div className="sticky top-32">
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={activeService}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -20 }}
-                  transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-                  className="rounded-none border border-cream/10 bg-charcoal/70 p-8 backdrop-blur-sm transition-shadow duration-500 hover:shadow-[0_30px_80px_-48px_rgba(45,255,154,0.4)]"
-                >
-                  <span className="font-mono text-6xl font-bold text-sage/10">
+              <div
+                key={activeService}
+                className="rounded-none border border-cream/10 bg-charcoal/70 p-8 backdrop-blur-sm transition-shadow duration-500 hover:shadow-[0_30px_80px_-48px_rgba(45,255,154,0.4)]"
+              >
+                  <span className="font-mono text-6xl font-bold text-sage/25" aria-hidden="true">
                     {services[activeService].number}
                   </span>
                   <h3 className="mt-4 font-heading text-3xl font-bold">
                     {services[activeService].title}
                   </h3>
-                  <p className="mt-4 text-lg leading-relaxed text-cream/65">
+                  <p className="mt-4 text-lg leading-relaxed text-cream/75">
                     {services[activeService].description}
                   </p>
 
                   <div className="mt-6 flex flex-wrap gap-2">
-                    {services[activeService].tech.map((t) => (
+                    {services[activeService].tech.map((tech) => (
                       <span
-                        key={t}
+                        key={tech}
                         className="border border-cream/10 bg-cream/5 px-4 py-1.5 font-mono text-sm"
                       >
-                        {t}
+                        {tech}
                       </span>
                     ))}
                   </div>
@@ -226,6 +219,7 @@ export function ServicesSection() {
                       viewBox="0 0 24 24"
                       stroke="currentColor"
                       strokeWidth={2}
+                      aria-hidden="true"
                     >
                       <path
                         strokeLinecap="round"
@@ -234,8 +228,7 @@ export function ServicesSection() {
                       />
                     </svg>
                   </Link>
-                </motion.div>
-              </AnimatePresence>
+              </div>
             </div>
           </div>
         </div>

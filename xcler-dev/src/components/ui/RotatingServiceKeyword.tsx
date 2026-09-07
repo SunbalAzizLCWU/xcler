@@ -1,6 +1,5 @@
 "use client";
 
-import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useMemo, useState } from "react";
 
 type RotatingServiceKeywordProps = {
@@ -8,15 +7,17 @@ type RotatingServiceKeywordProps = {
   intervalMs?: number;
 };
 
+/** Lightweight keyword rotator — no Framer Motion (keeps TBT low). */
 export function RotatingServiceKeyword({
   words,
-  intervalMs = 2200,
+  intervalMs = 3200,
 }: RotatingServiceKeywordProps) {
   const safeWords = useMemo(() => words.filter(Boolean), [words]);
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
     if (safeWords.length <= 1) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
     const timer = window.setInterval(() => {
       setIndex((prev) => (prev + 1) % safeWords.length);
@@ -26,23 +27,14 @@ export function RotatingServiceKeyword({
   }, [intervalMs, safeWords.length]);
 
   if (safeWords.length === 0) {
-    return <span>Web Development</span>;
+    return <span>AI Automation</span>;
   }
 
   return (
     <span className="relative inline-flex min-h-[1.1em] max-w-full items-center justify-center overflow-hidden text-center align-middle">
-      <AnimatePresence mode="wait" initial={false}>
-        <motion.span
-          key={`${safeWords[index]}-${index}`}
-          initial={{ opacity: 0, y: "0.45em" }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: "-0.45em" }}
-          transition={{ duration: 0.32, ease: [0.2, 0.9, 0.2, 1] }}
-          className="inline-block text-balance"
-        >
-          {safeWords[index]}
-        </motion.span>
-      </AnimatePresence>
+      <span key={`${safeWords[index]}-${index}`} className="inline-block text-balance transition-opacity duration-300">
+        {safeWords[index]}
+      </span>
     </span>
   );
 }

@@ -53,7 +53,7 @@ export function ContactSection() {
       });
       const data = await res.json().catch(() => null);
 
-      if (res.ok && data?.emailId) {
+      if (res.ok && (data?.success || data?.emailId)) {
         setIsSubmitted(true);
         setFormData({
           name: "",

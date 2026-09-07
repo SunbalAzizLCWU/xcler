@@ -1,8 +1,6 @@
 "use client";
 
 import type { ComponentProps } from "react";
-import { useRef, useState } from "react";
-import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { Link } from "@/navigation";
 
@@ -25,23 +23,11 @@ export function MagneticButton({
   variant = "primary",
   size = "md",
 }: MagneticButtonProps) {
-  const ref = useRef<HTMLDivElement>(null);
-  const [position, setPosition] = useState({ x: 0, y: 0 });
-
-  const handleMouseMove = (e: React.MouseEvent) => {
-    if (!ref.current) return;
-    const { clientX, clientY } = e;
-    const { left, top, width, height } = ref.current.getBoundingClientRect();
-    setPosition({
-      x: (clientX - left - width / 2) * 0.18,
-      y: (clientY - top - height / 2) * 0.18,
-    });
-  };
-
   const variants = {
-    primary: "bg-terracotta text-white border-terracotta hover:bg-terracotta-dark",
+    // richblack on terracotta passes WCAG AA (~6:1); white fails (~3.3:1)
+    primary: "bg-terracotta text-richblack border-terracotta hover:bg-terracotta-dark hover:border-terracotta-dark",
     secondary: "bg-cream text-richblack border-cream",
-    outline: "bg-transparent text-cream border-cream/25 hover:border-sage hover:text-sage",
+    outline: "bg-transparent text-cream border-cream/40 hover:border-sage hover:text-sage",
   };
 
   const sizes = {
@@ -51,30 +37,23 @@ export function MagneticButton({
   };
 
   const classes = cn(
-    "relative inline-flex items-center justify-center gap-2 border font-heading font-semibold tracking-wide transition-colors duration-300",
+    "relative inline-flex items-center justify-center gap-2 border font-heading font-semibold tracking-wide transition-[transform,colors,box-shadow] duration-300 hover:-translate-y-0.5",
     variants[variant],
     sizes[size],
     className
   );
 
+  if (href) {
+    return (
+      <Link href={href} onClick={onClick} className={classes}>
+        {children}
+      </Link>
+    );
+  }
+
   return (
-    <motion.div
-      ref={ref}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={() => setPosition({ x: 0, y: 0 })}
-      animate={{ x: position.x, y: position.y }}
-      transition={{ type: "spring", stiffness: 160, damping: 14, mass: 0.1 }}
-      className="inline-block"
-    >
-      {href ? (
-        <Link href={href} onClick={onClick} className={classes}>
-          {children}
-        </Link>
-      ) : (
-        <button type="button" onClick={onClick} className={classes}>
-          {children}
-        </button>
-      )}
-    </motion.div>
+    <button type="button" onClick={onClick} className={classes}>
+      {children}
+    </button>
   );
 }

@@ -23,7 +23,7 @@ export function StatsSection() {
       <div className="absolute bottom-0 right-0 h-64 w-64 rounded-full bg-sage/10 blur-3xl" />
 
       <div className="container-custom relative z-10">
-        <p className="mb-10 text-center font-mono text-xs uppercase tracking-[0.25em] text-cream/45">
+        <p className="mb-10 text-center font-mono text-xs uppercase tracking-[0.25em] text-cream/70">
           {t("regionNote")}
         </p>
         <div className="grid grid-cols-2 gap-8 md:grid-cols-4">

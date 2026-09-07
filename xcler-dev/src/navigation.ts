@@ -74,12 +74,8 @@ export const routing = defineRouting({
       en: '/contact'
     },
     '/privacy': {
-      de: '/privacy',
-      en: '/privacy'
-    },
-    '/datenschutz': {
       de: '/datenschutz',
-      en: '/datenschutz'
+      en: '/privacy'
     },
     '/impressum': {
       de: '/impressum',

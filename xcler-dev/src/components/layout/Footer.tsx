@@ -20,6 +20,7 @@ export async function Footer({ locale }: { locale: string }) {
     legal: FooterLink[];
   } = {
     services: [
+      { label: t("links.services.aiAutomation"), href: "/services/ai-automation" },
       { label: t("links.services.aiChatbots"), href: "/services/ai-chatbots-agents" },
       { label: t("links.services.workflowAutomation"), href: "/services/workflow-automation" },
       { label: t("links.services.webDevelopment"), href: "/services/web-development" },
@@ -155,9 +156,9 @@ export async function Footer({ locale }: { locale: string }) {
             {t("copyright", { year: currentYear })}
           </p>
           <p className="text-xs text-stone-light">
-            <a href="mailto:hello@xcler.dev" className="transition-colors hover:text-white">
-              hello@xcler.dev
-            </a>
+            <Link href="/contact" className="transition-colors hover:text-white">
+              hello [at] xcler.dev
+            </Link>
           </p>
         </div>
       </div>

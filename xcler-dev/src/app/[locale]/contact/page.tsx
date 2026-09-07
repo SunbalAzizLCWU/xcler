@@ -62,12 +62,9 @@ export default async function ContactPage({
                 <p className="font-mono text-xs uppercase tracking-[0.24em] text-cream/40">
                   {t("emailLabel")}
                 </p>
-                <a
-                  href="mailto:hello@xcler.dev"
-                  className="mt-1 inline-block font-medium text-cream transition-colors hover:text-sage"
-                >
-                  hello@xcler.dev
-                </a>
+                <p className="mt-1 font-medium text-cream">
+                  hello [at] xcler.dev
+                </p>
               </div>
 
               <div>

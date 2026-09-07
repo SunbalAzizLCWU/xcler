@@ -12,7 +12,7 @@ const content = {
     sections: [
       {
         heading: "1. Data Controller",
-        body: "XCLER\nEmail: hello@xcler.dev\nWebsite: https://xcler.dev"
+        body: "XCLER\nEmail: hello [at] xcler.dev\nWebsite: https://xcler.dev"
       },
       {
         heading: "2. What Data We Process",
@@ -57,7 +57,7 @@ const content = {
       {
         heading: "10. Contact",
         body:
-          "For privacy-related questions or requests, contact us at hello@xcler.dev."
+          "For privacy-related questions or requests, contact us at hello [at] xcler.dev."
       }
     ],
     updated: "Last updated: April 14, 2026"
@@ -70,7 +70,7 @@ const content = {
     sections: [
       {
         heading: "1. Verantwortliche Stelle",
-        body: "XCLER\nE-Mail: hello@xcler.dev\nWebsite: https://xcler.dev"
+        body: "XCLER\nE-Mail: hello [at] xcler.dev\nWebsite: https://xcler.dev"
       },
       {
         heading: "2. Welche Daten wir verarbeiten",
@@ -115,7 +115,7 @@ const content = {
       {
         heading: "10. Kontakt",
         body:
-          "Bei Fragen zum Datenschutz oder zur Ausuebung Ihrer Rechte schreiben Sie an hello@xcler.dev."
+          "Bei Fragen zum Datenschutz oder zur Ausuebung Ihrer Rechte schreiben Sie an hello [at] xcler.dev."
       }
     ],
     updated: "Stand: 14. April 2026"

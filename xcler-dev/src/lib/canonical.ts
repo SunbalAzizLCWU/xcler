@@ -4,8 +4,36 @@ type Locale = "en" | "de";
 
 const BASE_URL = "https://xcler.dev";
 
+/**
+ * Resolve localized public paths, including dynamic /work/[slug] and /blog/[slug].
+ * Plain string hrefs for dynamic routes can omit the /en prefix and break hreflang.
+ */
 function toLocalizedPath(locale: Locale, path: string) {
-  return getPathname({ locale, href: path as never });
+  const normalizedPath = path.startsWith("/") ? path : `/${path}`;
+
+  const workMatch = normalizedPath.match(/^\/work\/([^/]+)\/?$/);
+  if (workMatch) {
+    return getPathname({
+      locale,
+      href: {
+        pathname: "/work/[slug]",
+        params: { slug: workMatch[1] },
+      },
+    });
+  }
+
+  const blogMatch = normalizedPath.match(/^\/blog\/([^/]+)\/?$/);
+  if (blogMatch) {
+    return getPathname({
+      locale,
+      href: {
+        pathname: "/blog/[slug]",
+        params: { slug: blogMatch[1] },
+      },
+    });
+  }
+
+  return getPathname({ locale, href: normalizedPath as never });
 }
 
 export function getCanonicalPath(locale: string, path: string) {
@@ -38,7 +66,6 @@ export function getLanguageAlternates(
 ) {
   const enPath = options?.enPath ?? path;
   const dePath = options?.dePath ?? path;
-  // Default locale is German — x-default must match site defaultLocale.
   const xDefaultLocale = options?.xDefaultLocale ?? "de";
   const xDefaultPath = xDefaultLocale === "de" ? dePath : enPath;
 

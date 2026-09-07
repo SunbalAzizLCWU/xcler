@@ -5,6 +5,7 @@ import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { getBreadcrumbSchema, getServiceSchema } from "@/lib/structuredData";
 import { buildPageMetadata } from "@/lib/seoMeta";
+import { RelatedServices } from "@/components/seo/RelatedServices";
 
 type FeatureItem = {
   title: string;
@@ -251,6 +252,32 @@ export default async function WebDevelopmentPage({
                   {ctaSecondary}
                 </a>
               </div>
+              <RelatedServices
+                locale={resolvedLocale}
+                items={[
+                  {
+                    href: "/services/ai-automation",
+                    label:
+                      resolvedLocale === "de"
+                        ? "KI-Automatisierungsagentur"
+                        : "AI automation agency",
+                  },
+                  {
+                    href: "/services/workflow-automation",
+                    label:
+                      resolvedLocale === "de"
+                        ? "n8n- & Make.com-Agentur"
+                        : "n8n & Make.com agency",
+                  },
+                  {
+                    href: "/services/wordpress-shopify",
+                    label:
+                      resolvedLocale === "de"
+                        ? "Shopify- & WordPress-Agentur"
+                        : "Shopify & WordPress agency",
+                  },
+                ]}
+              />
             </div>
           </AnimatedSection>
         </div>

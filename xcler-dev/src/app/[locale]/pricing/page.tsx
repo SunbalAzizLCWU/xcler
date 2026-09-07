@@ -14,8 +14,8 @@ export async function generateMetadata({
   return buildPageMetadata({
     locale,
     path: "/pricing",
-    title: t("eyebrow"),
-    description: t("introDescription"),
+    title: t("metaTitle"),
+    description: t("metaDescription"),
   });
 }
 

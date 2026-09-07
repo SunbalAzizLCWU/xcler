@@ -23,8 +23,8 @@ export function ServicesSection() {
     {
       number: "01",
       key: "service5",
-      tech: ["RAG", "LLMs", "Call Agents", "Chatbots"],
-      href: "/services/ai-chatbots-agents" as const,
+      tech: ["KI Automatisierung", "RAG", "Agents", "n8n"],
+      href: "/services/ai-automation" as const,
       lead: "Musharraf Aziz",
     },
     {

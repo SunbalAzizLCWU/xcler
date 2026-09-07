@@ -71,20 +71,23 @@ const AREA_SERVED = [
 ];
 
 const KNOWS_ABOUT = [
-  "AI engineering",
-  "RAG systems",
-  "AI chatbots",
-  "AI agents",
-  "Workflow automation",
-  "n8n automation",
-  "Make.com automation",
-  "Next.js development",
-  "Web development",
-  "App development",
-  "Shopify development",
-  "WordPress development",
-  "KI-Chatbots",
+  "KI-Automatisierungsagentur",
+  "KI Automatisierung Agentur",
+  "KI-Chatbot Agentur",
+  "n8n Agentur Deutschland",
+  "Make.com Agentur",
+  "Workflow Automatisierung",
   "Prozessautomatisierung",
+  "Webentwicklung Agentur Berlin",
+  "Shopify Agentur Deutschland",
+  "WordPress Agentur Deutschland",
+  "AI automation agency",
+  "AI chatbot agency",
+  "n8n automation agency",
+  "Make.com agency",
+  "RAG systems",
+  "AI agents",
+  "Next.js development",
 ];
 
 export function getGlobalSchema(locale: Locale) {
@@ -121,7 +124,7 @@ export function getGlobalSchema(locale: Locale) {
             "@type": "ContactPoint",
             telephone: "+923154823517",
             contactType: "sales",
-            email: "hello@xcler.dev",
+            url: `${BASE_URL}/kontakt`,
             areaServed: ["DE", "AT", "CH", "NL", "BE", "US"],
             availableLanguage: ["English", "German"],
           },
@@ -129,8 +132,8 @@ export function getGlobalSchema(locale: Locale) {
         knowsAbout: KNOWS_ABOUT,
         slogan:
           locale === "de"
-            ? "KI-Chatbots, Automatisierung und Webentwicklung aus Berlin"
-            : "AI chatbots, automation, and web development from Berlin",
+            ? "KI-Automatisierungsagentur fuer Chatbots, n8n und Make.com aus Berlin"
+            : "AI automation agency for chatbots, n8n and Make.com from Berlin",
       },
       {
         "@type": ["LocalBusiness", "ProfessionalService"],
@@ -139,7 +142,6 @@ export function getGlobalSchema(locale: Locale) {
         image: [`${BASE_URL}/og-image-v2.webp`, { "@id": `${BASE_URL}#logo` }],
         url: BASE_URL,
         telephone: "+923154823517",
-        email: "hello@xcler.dev",
         address: {
           "@type": "PostalAddress",
           addressLocality: "Berlin",
@@ -150,13 +152,13 @@ export function getGlobalSchema(locale: Locale) {
         parentOrganization: { "@id": ORG_ID },
         description:
           locale === "de"
-            ? "XCLER ist eine digitale Agentur in Berlin. Wir bieten Webentwicklung, App-Entwicklung, KI-Chatbots und Agenten sowie Workflow-Automatisierung fuer Unternehmen in Deutschland, der DACH-Region, den Niederlanden, Belgien und den USA."
-            : "XCLER is a digital agency based in Berlin. We offer web development, app development, AI chatbots and agents, and workflow automation for businesses in Germany, the DACH region, the Netherlands, Belgium, and the United States including California, Florida, and Chicago.",
+            ? "XCLER ist eine KI-Automatisierungsagentur in Berlin. Wir bieten KI-Chatbots, RAG-Agenten, n8n- und Make.com-Workflow-Automatisierung sowie Webentwicklung fuer Deutschland, DACH, Benelux und remote US."
+            : "XCLER is an AI automation agency based in Berlin. We offer AI chatbots, RAG agents, n8n and Make.com workflow automation, plus web development for Germany, DACH, Benelux and remote US including California, Florida and Chicago.",
         knowsAbout: [
           ...KNOWS_ABOUT,
           "AI agency Berlin",
           "KI Agentur Muenchen",
-          "AI chatbots Amsterdam",
+          "web development agency Germany",
         ],
       },
       {

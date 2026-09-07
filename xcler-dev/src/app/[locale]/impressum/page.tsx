@@ -59,7 +59,7 @@ export default function ImpressumPage() {
             <p className="whitespace-pre-line">
               Telefon: +923154823517{"\n"}
               Telefax: 833-415-1101{"\n"}
-              E-Mail: engrahmedrehan@gmail.com
+              E-Mail: engrahmedrehan [at] gmail.com
             </p>
           </section>
 

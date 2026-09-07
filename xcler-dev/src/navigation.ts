@@ -41,6 +41,10 @@ export const routing = defineRouting({
       de: '/leistungen/ki-chatbots-agenten',
       en: '/services/ai-chatbots-agents'
     },
+    '/services/ai-automation': {
+      de: '/leistungen/ki-automatisierung',
+      en: '/services/ai-automation'
+    },
     '/services/ki-chatbots': {
       de: '/leistungen/ki-chatbots',
       en: '/services/ki-chatbots'

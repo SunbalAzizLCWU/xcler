@@ -3,7 +3,8 @@ import { getTranslations } from "next-intl/server";
 import { Link } from "@/navigation";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { getBreadcrumbSchema, getServiceSchema } from "@/lib/structuredData";
+import { RelatedServices } from "@/components/seo/RelatedServices";
+import { getBreadcrumbSchema, getServiceSchema, getFaqSchema } from "@/lib/structuredData";
 import { buildPageMetadata } from "@/lib/seoMeta";
 
 type CapabilityItem = {
@@ -18,6 +19,8 @@ type SpokeItem = {
   cta: string;
 };
 
+type FaqItem = { question: string; answer: string };
+
 export async function generateMetadata({
   params,
 }: {
@@ -31,6 +34,12 @@ export async function generateMetadata({
     path: "/services/wordpress-shopify",
     title: t("metaTitle"),
     description: t("metaDescription"),
+    keywords: [
+      "Shopify Agentur Deutschland",
+      "WordPress Agentur Deutschland",
+      "Shopify agency Germany",
+      "WordPress agency Germany",
+    ],
   });
 }
 
@@ -44,10 +53,25 @@ export default async function WordPressShopifyPage({
   const t = await getTranslations({ locale, namespace: "ServicesHub" });
   const capabilities = t.raw("capabilities") as CapabilityItem[];
   const spokes = t.raw("spokes") as SpokeItem[];
+  const faqItems = (() => {
+    try {
+      return t.raw("aeoFaq") as FaqItem[];
+    } catch {
+      return [];
+    }
+  })();
+  const seoIntro = (() => {
+    try {
+      return t("seoIntro");
+    } catch {
+      return "";
+    }
+  })();
+
   const schema = getServiceSchema({
     locale: resolvedLocale,
     path: "/services/wordpress-shopify",
-    name: t("headingLine1") + " " + t("headingLine2"),
+    name: `${t("headingLine1")} ${t("headingLine2")}`,
     description: t("metaDescription"),
   });
   const breadcrumb = getBreadcrumbSchema(resolvedLocale, [
@@ -55,79 +79,144 @@ export default async function WordPressShopifyPage({
     { name: resolvedLocale === "de" ? "Leistungen" : "Services", path: "/services" },
     { name: "WordPress & Shopify", path: "/services/wordpress-shopify" },
   ]);
+  const faqSchema = faqItems.length
+    ? getFaqSchema(resolvedLocale, faqItems, "/services/wordpress-shopify")
+    : null;
 
   return (
     <>
       <JsonLd id={`service-wordpress-shopify-${locale}`} data={schema} />
       <JsonLd id={`breadcrumb-wordpress-shopify-${locale}`} data={breadcrumb} />
+      {faqSchema ? (
+        <JsonLd id={`faq-wordpress-shopify-${locale}`} data={faqSchema} />
+      ) : null}
       <section className="section-padding pt-32">
         <div className="container-custom">
-        <AnimatedSection>
-          <Link
-            href="/services"
-            className="inline-flex items-center gap-2 text-sm text-richblack/40 dark:text-cream/40 hover:text-terracotta transition-colors mb-8"
-          >
-            ← {t("backToServices")}
-          </Link>
-          <div className="flex items-center gap-4 mb-4">
-            <div className="line-decoration" />
-            <span className="font-mono text-xs tracking-[0.3em] text-richblack/40 dark:text-cream/40 uppercase">
-              {t("serviceLabel")}
-            </span>
-          </div>
-          <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
-            {t("headingLine1")}
-            <br />
-            <span className="text-terracotta">{t("headingLine2")}</span>
-          </h1>
-          <p className="mt-6 text-lg text-richblack/50 dark:text-cream/50 max-w-2xl">
-            {t("intro")}
-          </p>
-        </AnimatedSection>
-
-        <AnimatedSection>
-          <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-6">
-            {capabilities.map((item) => (
-              <div key={item.title} className="rounded-2xl border border-stone/10 dark:border-stone-dark/10 bg-white dark:bg-richblack/30 p-6">
-                <h3 className="font-heading text-xl font-semibold">{item.title}</h3>
-                <p className="mt-2 text-richblack/60 dark:text-cream/60 leading-relaxed">{item.desc}</p>
-              </div>
-            ))}
-          </div>
-        </AnimatedSection>
-
-        <AnimatedSection>
-          <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-6">
-            {spokes.map((spoke) => (
-              <div
-                key={spoke.href}
-                className="rounded-2xl border border-stone/10 dark:border-stone-dark/10 bg-white dark:bg-richblack/30 p-6 transition-all duration-300 hover:-translate-y-1 hover:border-terracotta/30 hover:shadow-xl"
-              >
-                <h3 className="font-heading text-2xl font-semibold">{spoke.title}</h3>
-                <p className="mt-3 text-richblack/60 dark:text-cream/60 leading-relaxed">{spoke.desc}</p>
-                <Link
-                  href={spoke.href}
-                  className="mt-6 inline-flex items-center gap-2 rounded-full bg-terracotta px-6 py-2.5 font-heading text-sm font-medium text-white transition-colors hover:bg-terracotta-light"
-                >
-                  {spoke.cta}
-                </Link>
-              </div>
-            ))}
-          </div>
-        </AnimatedSection>
-
-        <AnimatedSection>
-          <div className="mt-20 rounded-2xl bg-richblack dark:bg-cream/5 p-10 text-cream text-center">
-            <h2 className="font-heading text-3xl font-bold">{t("ctaHeading")}</h2>
-            <p className="mt-3 text-cream/60">{t("ctaDescription")}</p>
+          <AnimatedSection>
             <Link
-              href="/contact"
-              className="mt-8 inline-flex items-center gap-2 rounded-full bg-terracotta px-8 py-3 font-heading font-medium text-white hover:bg-terracotta-light transition-colors"
+              href="/services"
+              className="inline-flex items-center gap-2 text-sm text-richblack/40 dark:text-cream/40 hover:text-terracotta transition-colors mb-8"
             >
-              {t("ctaButton")}
+              ← {t("backToServices")}
             </Link>
-          </div>
-        </AnimatedSection>
+            <div className="flex items-center gap-4 mb-4">
+              <div className="line-decoration" />
+              <span className="font-mono text-xs tracking-[0.3em] text-richblack/40 dark:text-cream/40 uppercase">
+                {t("serviceLabel")}
+              </span>
+            </div>
+            <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
+              {t("headingLine1")}
+              <br />
+              <span className="text-terracotta">{t("headingLine2")}</span>
+            </h1>
+            <p className="mt-6 text-lg text-richblack/50 dark:text-cream/50 max-w-2xl">
+              {t("intro")}
+            </p>
+            {seoIntro ? (
+              <p className="mt-6 text-base leading-relaxed text-richblack/55 dark:text-cream/55 max-w-3xl">
+                {seoIntro}
+              </p>
+            ) : null}
+          </AnimatedSection>
+
+          <AnimatedSection>
+            <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-6">
+              {capabilities.map((item) => (
+                <div
+                  key={item.title}
+                  className="rounded-2xl border border-stone/10 dark:border-stone-dark/10 bg-white dark:bg-richblack/30 p-6"
+                >
+                  <h2 className="font-heading text-xl font-semibold">{item.title}</h2>
+                  <p className="mt-2 text-richblack/60 dark:text-cream/60 leading-relaxed">
+                    {item.desc}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </AnimatedSection>
+
+          <AnimatedSection>
+            <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-6">
+              {spokes.map((spoke) => (
+                <div
+                  key={spoke.href}
+                  className="rounded-2xl border border-stone/10 dark:border-stone-dark/10 bg-white dark:bg-richblack/30 p-6 transition-all duration-300 hover:-translate-y-1 hover:border-terracotta/30 hover:shadow-xl"
+                >
+                  <h2 className="font-heading text-2xl font-semibold">{spoke.title}</h2>
+                  <p className="mt-3 text-richblack/60 dark:text-cream/60 leading-relaxed">
+                    {spoke.desc}
+                  </p>
+                  <Link
+                    href={spoke.href}
+                    className="mt-6 inline-flex items-center gap-2 rounded-full bg-terracotta px-6 py-2.5 font-heading text-sm font-medium text-white transition-colors hover:bg-terracotta-light"
+                  >
+                    {spoke.cta}
+                  </Link>
+                </div>
+              ))}
+            </div>
+          </AnimatedSection>
+
+          {faqItems.length > 0 ? (
+            <AnimatedSection>
+              <div className="mt-20">
+                <h2 className="font-heading text-3xl font-semibold mb-8">FAQ</h2>
+                <div className="space-y-4">
+                  {faqItems.map((item) => (
+                    <div
+                      key={item.question}
+                      className="rounded-2xl border border-stone/10 dark:border-stone-dark/10 bg-white dark:bg-richblack/30 p-6"
+                    >
+                      <h3 className="font-heading text-xl font-semibold">{item.question}</h3>
+                      <p className="mt-3 text-richblack/60 dark:text-cream/60 leading-relaxed">
+                        {item.answer}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </AnimatedSection>
+          ) : null}
+
+          <AnimatedSection>
+            <div className="mt-20 rounded-2xl bg-richblack dark:bg-cream/5 p-10 text-cream text-center">
+              <h2 className="font-heading text-3xl font-bold">{t("ctaHeading")}</h2>
+              <p className="mt-3 text-cream/60">{t("ctaDescription")}</p>
+              <Link
+                href="/contact"
+                className="mt-8 inline-flex items-center gap-2 rounded-full bg-terracotta px-8 py-3 font-heading font-medium text-white hover:bg-terracotta-light transition-colors"
+              >
+                {t("ctaButton")}
+              </Link>
+              <RelatedServices
+                locale={resolvedLocale}
+                items={[
+                  {
+                    href: "/services/ai-automation",
+                    label:
+                      resolvedLocale === "de"
+                        ? "KI-Automatisierungsagentur"
+                        : "AI automation agency",
+                  },
+                  {
+                    href: "/services/workflow-automation",
+                    label:
+                      resolvedLocale === "de"
+                        ? "n8n- & Make.com-Agentur"
+                        : "n8n & Make.com agency",
+                  },
+                  {
+                    href: "/services/web-development",
+                    label:
+                      resolvedLocale === "de"
+                        ? "Webentwicklung-Agentur"
+                        : "Web development agency",
+                  },
+                ]}
+              />
+            </div>
+          </AnimatedSection>
         </div>
       </section>
     </>

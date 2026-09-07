@@ -4,8 +4,9 @@ import { Link } from "@/navigation";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { SideContactCta } from "@/components/sections/SideContactCta";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { getBreadcrumbSchema, getServiceSchema } from "@/lib/structuredData";
+import { getBreadcrumbSchema, getServiceSchema, getFaqSchema } from "@/lib/structuredData";
 import { buildPageMetadata } from "@/lib/seoMeta";
+import { RelatedServices } from "@/components/seo/RelatedServices";
 
 type CoreServiceItem = {
   title: string;
@@ -87,6 +88,9 @@ export default async function WordPressDevelopmentPage({
     name: hero.h1,
     description: tMeta("metaDescription"),
   });
+  const faqSchema = faqItems.length
+    ? getFaqSchema(resolvedLocale, faqItems, "/services/wordpress-development-germany")
+    : null;
   const breadcrumb = getBreadcrumbSchema(resolvedLocale, [
     { name: "XCLER", path: "/" },
     { name: resolvedLocale === "de" ? "Leistungen" : "Services", path: "/services" },
@@ -97,6 +101,9 @@ export default async function WordPressDevelopmentPage({
     <>
       <JsonLd id={`service-wordpress-development-${locale}`} data={schema} />
       <JsonLd id={`breadcrumb-wordpress-development-${locale}`} data={breadcrumb} />
+      {faqSchema ? (
+        <JsonLd id={`faq-wordpress-development-${locale}`} data={faqSchema} />
+      ) : null}
       <section className="section-padding pt-32 relative overflow-hidden">
         <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
           <div className="absolute -top-28 right-0 h-72 w-72 rounded-full bg-terracotta/10 blur-3xl" />
@@ -234,6 +241,23 @@ export default async function WordPressDevelopmentPage({
               >
                 {locale === "de" ? "Projekt starten ->" : "Start Your Project ->"}
               </Link>
+              <RelatedServices
+                locale={resolvedLocale}
+                items={[
+                  {
+                    href: "/services/shopify-development-germany",
+                    label: locale === "de" ? "Shopify-Agentur Deutschland" : "Shopify agency Germany",
+                  },
+                  {
+                    href: "/services/wordpress-shopify",
+                    label: locale === "de" ? "Shopify & WordPress Hub" : "Shopify & WordPress hub",
+                  },
+                  {
+                    href: "/services/web-development",
+                    label: locale === "de" ? "Webentwicklung-Agentur" : "Web development agency",
+                  },
+                ]}
+              />
             </div>
               </AnimatedSection>
             </div>

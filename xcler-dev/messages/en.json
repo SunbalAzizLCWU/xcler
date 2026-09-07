@@ -14,7 +14,7 @@
       "description": "We reply with a clear next step — usually within 24 hours.",
       "button": "Contact XCLER"
     },
-    "brandDescription": "We are XCLER — AI engineering, workflow automation, and web development for Germany, DACH, and the US markets we serve.",
+    "brandDescription": "XCLER is your AI automation agency for chatbots, n8n, Make.com and web development agency delivery across Germany, DACH and remote US.",
     "sections": {
       "services": "Services",
       "company": "Company",
@@ -22,6 +22,7 @@
     },
     "links": {
       "services": {
+        "aiAutomation": "AI Automation",
         "webDevelopment": "Web Development",
         "appDevelopment": "App Development",
         "wordpressShopify": "WordPress & Shopify",
@@ -51,12 +52,12 @@
     "copyright": "© {year} XCLER. All rights reserved."
   },
   "Metadata": {
-    "siteTitle": "XCLER — AI Engineering, Web Development & Automation Agency",
-    "siteDescription": "We are XCLER. We offer AI chatbots and agents, workflow automation, web development, and app development for businesses in Germany, DACH, the Netherlands, Belgium, and the US markets we serve including California, Florida, and Chicago.",
-    "pageTitle": "XCLER — AI Automation Agency",
-    "pageDescription": "XCLER is an AI automation agency for chatbots, agents, and workflows. We also deliver web, apps, and commerce for Germany, DACH, Benelux, and remote US markets.",
-    "homeTitle": "AI Automation for Chatbots, Agents & Workflows",
-    "homeDescription": "XCLER builds AI automation for chatbots, agents and Make/n8n workflows across Germany, DACH, Benelux and remote US — plus web and commerce when needed."
+    "siteTitle": "XCLER — AI Automation Agency | Chatbots, n8n & Make.com",
+    "siteDescription": "XCLER is an AI automation agency in Germany for AI chatbots, RAG agents, n8n and Make.com workflow automation, plus web development for DACH, Benelux and remote US teams.",
+    "pageTitle": "XCLER — AI Automation Agency Germany",
+    "pageDescription": "Hire an AI automation agency for chatbots, agents, n8n and Make.com workflows. XCLER also ships web and commerce for Germany, DACH, Benelux and remote US markets.",
+    "homeTitle": "AI Automation Agency for Chatbots, Agents & Workflows",
+    "homeDescription": "XCLER is an AI automation agency for chatbots, RAG agents and n8n / Make.com workflows across Germany, DACH and Benelux — plus web development when your product needs a surface."
   },
   "home": {
     "heroTitle": "We build",
@@ -72,11 +73,11 @@
     "contactBtn": "Let's Talk"
   },
   "Hero": {
-    "title": "AI Automation for Chatbots, Agents & Workflows",
-    "subtitle": "XCLER is an AI automation agency for chatbots, agents and workflows. We build RAG assistants, AI call agents, and Make.com / n8n automations for B2B teams across Germany, DACH, the Netherlands and Belgium — including Berlin, Munich, Hamburg, Frankfurt, Cologne, Amsterdam, Rotterdam and Brussels — plus remote US clients in California, Florida and Chicago. When automation needs a product surface, we also ship Next.js web, apps and Shopify commerce.",
-    "headlineTop": "AI Automation for Chatbots, Agents & Workflows",
+    "title": "AI Automation Agency for Chatbots, Agents & Workflows.",
+    "subtitle": "XCLER is an AI automation agency for chatbots, RAG agents and workflow automation. We build AI call agents and Make.com / n8n automations for B2B teams across Germany, DACH, the Netherlands and Belgium — including Berlin, Munich, Hamburg, Frankfurt, Cologne, Amsterdam, Rotterdam and Brussels — plus remote US clients in California, Florida and Chicago. When automation needs a product surface, we also ship Next.js web development and Shopify commerce.",
+    "headlineTop": "AI Automation Agency for Chatbots, Agents & Workflows.",
     "headlineBottom": "",
-    "supportLine": "AI chatbots and workflows that qualify leads, answer customers, and cut ops work — built for teams in Germany, DACH and beyond.",
+    "supportLine": "AI chatbots, RAG agents and n8n / Make.com workflows that qualify leads and cut ops work — built for teams in Germany, DACH and beyond.",
     "cta": "Automate with XCLER",
     "availabilityBadge": "AVAILABLE FOR NEW PROJECTS",
     "lineOne": "We automate",
@@ -118,64 +119,64 @@
     "ledBy": "Led by",
     "learnMore": "Details",
     "service1": {
-      "title": "Next.js Web Development",
-      "description": "Performance-focused Next.js sites and platforms with strong Core Web Vitals and SEO for Germany, DACH, and remote US markets."
+      "title": "Web Development Agency Germany",
+      "description": "Performance-focused Next.js sites and platforms with strong Core Web Vitals and SEO — your web development agency in Berlin and DACH."
     },
     "service2": {
       "title": "Custom SaaS & App Development",
       "description": "SaaS products, portals, and internal platforms with resilient APIs and a clear scaling path."
     },
     "service3": {
-      "title": "Shopify & WordPress Commerce",
-      "description": "Shopify and WordPress commerce stacks — including headless storefronts when conversion and speed demand it."
+      "title": "Shopify & WordPress Agency",
+      "description": "Shopify agency Germany and WordPress agency Germany — including headless storefronts when conversion and speed demand it."
     },
     "service4": {
-      "title": "n8n & Make.com Automation",
-      "description": "Process automation with Make.com, n8n, Zapier, and GoHighLevel — CRM sync, lead routing, and ops workflows without busywork."
+      "title": "n8n & Make.com Agency",
+      "description": "Workflow automation and process automation with Make.com, n8n, Zapier and GoHighLevel — CRM sync, lead routing and ops workflows without busywork."
     },
     "service5": {
-      "title": "AI Chatbots, Agents & RAG",
-      "description": "Production RAG systems, AI chatbots, autonomous agents, and AI call assistants for support, sales qualification, and operations."
+      "title": "AI Automation Agency",
+      "description": "AI automation with RAG chatbots, AI agents and n8n/Make workflows — your AI automation agency in Germany."
     }
   },
   "HomeSeo": {
-    "eyebrow": "AI automation first",
-    "intro": "XCLER is an AI automation agency for chatbots, agents and workflows. We build RAG assistants, AI call agents, and Make.com / n8n automations for B2B teams across Germany, DACH, the Netherlands and Belgium — including Berlin, Munich, Hamburg, Frankfurt, Cologne, Amsterdam, Rotterdam and Brussels — plus remote US clients in California, Florida and Chicago. When automation needs a product surface, we also ship Next.js web, apps and Shopify commerce.",
+    "eyebrow": "AI automation agency first",
+    "intro": "XCLER is an AI automation agency for chatbots, RAG agents and workflow automation. We build AI call agents and Make.com / n8n automations for B2B teams across Germany, DACH, the Netherlands and Belgium — including Berlin, Munich, Hamburg, Frankfurt, Cologne, Amsterdam, Rotterdam and Brussels — plus remote US clients in California, Florida and Chicago. When automation needs a product surface, we also ship Next.js web development and Shopify / WordPress commerce.",
     "pillars": {
       "ai": {
-        "title": "AI Chatbots & Agents",
-        "body": "Production RAG agents, LLM chatbots, and AI call assistants for support, lead qualification, and operations across Germany and remote US markets.",
-        "href": "/services/ai-chatbots-agents",
-        "cta": "Explore AI Agents"
+        "title": "AI Automation Agency",
+        "body": "AI automation with chatbots, agents and workflows — your AI automation agency for Germany, DACH and remote US.",
+        "href": "/services/ai-automation",
+        "cta": "Explore AI automation"
       },
       "workflow": {
-        "title": "Workflow Automation",
-        "body": "Make.com, n8n, Zapier, and GoHighLevel scenarios that remove manual handoffs and sync CRM, messaging, billing, and ops.",
+        "title": "n8n & Make.com Automation Agency",
+        "body": "Workflow automation and process automation with Make.com, n8n, Zapier and GoHighLevel that remove manual handoffs and sync CRM, messaging, billing and ops.",
         "href": "/services/workflow-automation",
         "cta": "Explore Automation"
       },
       "shopify": {
-        "title": "Shopify & Headless Commerce",
-        "body": "Commerce builds when your automation stack needs a conversion-ready storefront — Shopify, WordPress, or headless Next.js.",
+        "title": "Shopify & WordPress Agency Germany",
+        "body": "Commerce builds when your automation stack needs a conversion-ready storefront — Shopify agency Germany, WordPress agency Germany, or headless Next.js.",
         "href": "/services/wordpress-shopify",
         "cta": "Explore Commerce"
       },
       "next": {
-        "title": "Next.js Web & Apps",
-        "body": "High-performance web and app surfaces that present your AI and automation systems to customers with strong Core Web Vitals.",
+        "title": "Web Development Agency Germany",
+        "body": "High-performance web development agency delivery that presents your AI and automation systems to customers with strong Core Web Vitals — including Berlin-focused B2B builds.",
         "href": "/services/web-development",
         "cta": "Explore Web Development"
       }
     },
-    "citablePassage": "XCLER focuses on AI automation for chatbots, agents, and workflows, then layers web, apps, and commerce when a product surface is required. We engineer RAG systems with evaluation harnesses, connect Make.com and n8n scenarios to CRM and ops tools, and keep human escalation paths for sensitive cases. Our primary market is Germany and the DACH region from Berlin, Munich, Hamburg, Frankfurt, and Cologne, and we deliver remotely for Amsterdam, Rotterdam, Utrecht, Brussels, California, Florida, and Chicago without inventing fake local offices. Engagements start with clear scope, milestones, and first-person ownership from discovery through production monitoring. We document delivery milestones, evaluation harnesses, retrieval quality, human escalation paths, and measurable outcomes for Germany, Austria, Switzerland, the Netherlands, Belgium, California, Florida, and Chicago so buyers can compare fit before a discovery call. Buyers get bilingual DE and EN delivery documentation with ownership clear from sprint one.",
-    "answerHeading": "What AI automation does XCLER deliver?",
+    "citablePassage": "XCLER is an AI automation agency focused on chatbots, RAG agents and workflow automation, then layers web development and commerce when a product surface is required. We engineer RAG systems with evaluation harnesses, connect Make.com and n8n scenarios to CRM and ops tools, and keep human escalation paths for sensitive cases. Our primary market is Germany and the DACH region from Berlin, Munich, Hamburg, Frankfurt and Cologne, and we deliver remotely for Amsterdam, Rotterdam, Utrecht, Brussels, California, Florida and Chicago without inventing fake local offices. Engagements start with clear scope, milestones and first-person ownership from discovery through production monitoring.",
+    "answerHeading": "What does an AI automation agency like XCLER deliver?",
     "listTitle": "Automation-first services",
     "listItems": [
-      "AI chatbots and agents with RAG and evaluation",
-      "Workflow automation on Make.com, n8n, Zapier, and GoHighLevel",
-      "AI call agents for qualification and support handoffs",
-      "Next.js web development when automation needs a surface",
-      "Custom SaaS, apps, and Shopify / WordPress commerce"
+      "AI automation agency for AI automation in Germany",
+      "AI chatbot agency with RAG, agents and evaluation",
+      "n8n agency and Make.com agency for workflow automation",
+      "Web development agency Berlin when automation needs a surface",
+      "Shopify agency Germany and WordPress agency Germany"
     ]
   },
   "Process": {
@@ -262,7 +263,7 @@
     "intro": "You work directly with the specialists building your product. No layers, no handoffs, no communication gap.",
     "member1": {
       "role": "Founder & AI Automation Engineer",
-      "expertise": "Workflow Automation • AI Agents • RAG Systems",
+      "expertise": "Workflow Automation • AI Agents • RAG Systems.",
       "bio": "Designs automation systems that reduce manual operations and improve execution speed at scale."
     },
     "member2": {
@@ -310,16 +311,16 @@
     "eyebrow": "Answers first",
     "headingLine1": "Questions?",
     "headingLine2": "Answers.",
-    "contactPrefix": "If your question is not listed here,",
+    "contactPrefix": "If your question is not listed here",
     "contactLink": "message us on WhatsApp",
     "contactSuffix": "We usually reply quickly.",
     "faq1": {
-      "question": "What AI engineering services does XCLER offer?",
-      "answer": "We offer AI chatbots, RAG agents, and autonomous assistants integrated into your support and sales stack. XCLER designs production AI systems with clear guardrails, evaluation, and handoff to human teams when needed."
+      "question": "What does an AI automation agency like XCLER deliver?",
+      "answer": "We deliver AI chatbots, RAG agents and autonomous assistants integrated into your support and sales stack — plus n8n and Make.com workflow automation. XCLER ships production systems with guardrails, evaluation and human handoff."
     },
     "faq2": {
-      "question": "Do you build workflow automation with n8n and Make.com?",
-      "answer": "Yes. We build and maintain workflow automation with Make.com, n8n, Zapier, and GoHighLevel. We connect CRMs, inboxes, and internal tools so processes run reliably for teams in Germany and remote US clients."
+      "question": "Do you offer n8n agency and Make.com agency services?",
+      "answer": "Yes. As an n8n automation agency and Make.com agency we build CRM sync, lead routing and ops workflows with retries and alerting for Germany, DACH and remote US teams."
     },
     "faq3": {
       "question": "Where does XCLER work geographically?",
@@ -355,7 +356,7 @@
     "nameLabel": "Your Name",
     "namePlaceholder": "John Müller",
     "emailLabel": "Email",
-    "emailPlaceholder": "john@company.de",
+    "emailPlaceholder": "name [at] company.de",
     "companyLabel": "Company / Website",
     "companyPlaceholder": "Your company name or website",
     "serviceLabel": "What do you need?",
@@ -386,17 +387,17 @@
     "metaTitle": "Imprint | XCLER",
     "eyebrow": "Legal",
     "title": "Imprint",
-    "intro": "[ADD A SHORT INTRODUCTION FOR THE IMPRINT PAGE]",
-    "providerTitle": "Provider information pursuant to Section 5 TMG",
+    "intro": "[ADD A SHORT INTRODUCTION FOR THE IMPRINT PAGE].",
+    "providerTitle": "Provider information pursuant to Section 5 TMG.",
     "providerBody": "[ADD FULL LEGAL ENTITY DETAILS]",
     "contactTitle": "Contact",
     "contactBody": "[ADD CONTACT DETAILS]",
     "registerTitle": "Commercial register / VAT ID",
-    "registerBody": "[ADD COMMERCIAL REGISTER AND VAT DETAILS]",
+    "registerBody": "[ADD COMMERCIAL REGISTER AND VAT DETAILS].",
     "responsibleTitle": "Responsible for content",
-    "responsibleBody": "[ADD RESPONSIBLE PERSON DETAILS PURSUANT TO SECTION 18(2) MStV]",
+    "responsibleBody": "[ADD RESPONSIBLE PERSON DETAILS PURSUANT TO SECTION 18(2) MStV].",
     "disputeTitle": "Dispute resolution",
-    "disputeBody": "[ADD INFORMATION ABOUT EU ODR PLATFORM AND CONSUMER DISPUTE RESOLUTION]"
+    "disputeBody": "[ADD INFORMATION ABOUT EU ODR PLATFORM AND CONSUMER DISPUTE RESOLUTION]."
   },
   "AGB": {
     "metaTitle": "Terms | XCLER",
@@ -426,27 +427,27 @@
     "cookieTypesTitle": "2. Which cookies we use",
     "cookieTypesBody": "[ADD COOKIE CATEGORIES AND PURPOSES]",
     "consentTitle": "3. Consent and legal basis",
-    "consentBody": "[ADD CONSENT AND LEGAL BASIS INFORMATION]",
+    "consentBody": "[ADD CONSENT AND LEGAL BASIS INFORMATION].",
     "managementTitle": "4. Managing cookie settings",
-    "managementBody": "[ADD HOW USERS CAN MANAGE OR WITHDRAW CONSENT]",
+    "managementBody": "[ADD HOW USERS CAN MANAGE OR WITHDRAW CONSENT].",
     "updatesTitle": "5. Updates to this policy",
     "updatesBody": "[ADD NOTE ABOUT POLICY UPDATES]"
   },
   "AboutPage": {
-    "metaTitle": "About XCLER — AI, Automation & Web Agency",
-    "metaDescription": "We are XCLER. Learn how we deliver AI engineering, workflow automation, and web development from Berlin to DACH and remote US clients.",
+    "metaTitle": "About XCLER — AI Automation Agency Germany | Berlin",
+    "metaDescription": "XCLER is an AI automation agency from Berlin for AI chatbots, n8n, Make.com and web development. See how we serve DACH and remote US teams.",
     "eyebrow": "About Us",
-    "heroTitleLine1": "Industrial clarity.",
-    "heroTitleLine2": "Human-centered automation.",
-    "mission": "Our mission is to help ambitious B2B teams remove operational noise through intelligent systems. We combine strategic thinking, disciplined engineering, and AI automation to create resilient digital operations that scale with confidence."
+    "heroTitleLine1": "AI automation agency",
+    "heroTitleLine2": "with Berlin engineering clarity.",
+    "mission": "Our mission: help ambitious B2B teams in Germany remove operational noise. As an AI automation agency we connect chatbots, RAG agents, n8n/Make.com workflows and web development so processes become more resilient, faster and scalable."
   },
   "ContactPage": {
-    "metaTitle": "Contact XCLER — Start an AI or Automation Project",
-    "metaDescription": "Contact XCLER to start an AI chatbot, workflow automation, or web development project. We serve Germany, DACH, California, Florida, and Chicago.",
+    "metaTitle": "Contact — AI Automation Agency & n8n/Make Project Kickoff | XCLER",
+    "metaDescription": "Contact XCLER as your AI automation agency for chatbots, n8n, Make.com or web development agency projects across Germany, DACH and remote US.",
     "eyebrow": "Contact",
-    "headingLine1": "Let's plan your",
-    "headingLine2": "next AI initiative.",
-    "intro": "Tell us where your bottlenecks are today. We will come back with a practical path to automate, simplify, and scale your operations.",
+    "headingLine1": "Start your AI or",
+    "headingLine2": "automation project.",
+    "intro": "Describe bottlenecks in support, sales or ops. As an AI automation agency and n8n/Make.com partner we reply with a clear plan — usually within 24 hours.",
     "emailLabel": "Email",
     "phoneLabel": "Phone",
     "hoursLabel": "Business Hours",
@@ -454,13 +455,13 @@
     "responseTime": "We respond within 24 hours on business days."
   },
   "BlogPage": {
-    "metaTitle": "Insights | XCLER AI Automation",
-    "metaDescription": "Insights on AI automation, digital operations, and scalable product execution for modern B2B teams.",
-    "title": "Operational Intelligence for Ambitious Companies.",
+    "metaTitle": "Blog — AI Automation, n8n, Make.com & Web Development | XCLER",
+    "metaDescription": "Practical insights on AI automation, AI chatbots, n8n, Make.com and web development agency topics for B2B teams in Germany and DACH.",
+    "title": "AI automation and web — explained clearly.",
     "eyebrow": "Insights",
-    "headingLine1": "Operational intelligence",
-    "headingLine2": "for ambitious teams.",
-    "description": "Discover actionable insights on automation strategy, implementation, and engineering decisions that move your team forward with speed and structure.",
+    "headingLine1": "AI automation",
+    "headingLine2": "and web development — practical.",
+    "description": "Insights on AI chatbots, RAG agents, workflow automation with n8n and Make.com, plus web development agency decisions for ambitious B2B teams.",
     "emptyState": "No articles published yet. Your first insight is on the way.",
     "backToBlog": "Back to Insights",
     "readArticle": "Read Article",
@@ -468,12 +469,12 @@
     "imageFallback": "No Preview"
   },
   "ServicesPage": {
-    "metaTitle": "Our Services — AI, Automation, Web & Commerce",
-    "metaDescription": "Explore what we offer: AI chatbots and agents, workflow automation, web development, app development, and Shopify/WordPress commerce.",
+    "metaTitle": "Services — AI Automation Agency, n8n, Make.com, Web | XCLER",
+    "metaDescription": "AI chatbot agency, n8n and Make.com automation agency, web development agency Germany, plus Shopify and WordPress. Explore XCLER services for DACH and remote US.",
     "eyebrow": "Our Services",
-    "headingLine1": "Everything you need.",
-    "headingLine2": "Nothing you don't.",
-    "description": "We offer a focused set of services. XCLER excels when AI engineering, automation, and product engineering need to ship together for teams in Germany and the US markets we serve.",
+    "headingLine1": "AI automation agency first.",
+    "headingLine2": "Web and commerce when needed.",
+    "description": "Hire XCLER as your AI automation agency for AI automation, chatbots, n8n and Make.com — plus web development agency delivery and commerce when the product needs a surface.",
     "technologiesLabel": "Technologies",
     "ledBy": "Led by",
     "ctaPrefix": "Not sure which service fits your goals?",
@@ -482,8 +483,22 @@
     "services": [
       {
         "number": "01",
-        "title": "AI Chatbots & Agents",
-        "description": "We engineer RAG systems, AI chatbots, and autonomous agents for support, sales, and operations across Germany and the US markets we serve.",
+        "title": "AI Automation Agency",
+        "description": "End-to-end AI automation: chatbots, agents and workflows. Your AI automation agency for Germany and DACH.",
+        "tech": [
+          "AI automation",
+          "RAG",
+          "Agents",
+          "n8n",
+          "Make.com"
+        ],
+        "href": "/services/ai-automation",
+        "lead": "Musharraf Aziz"
+      },
+      {
+        "number": "02",
+        "title": "AI Chatbot Agency",
+        "description": "RAG chatbots, AI agents and AI call assistants for support and sales — your AI chatbot agency in Germany.",
         "tech": [
           "RAG",
           "LLMs",
@@ -495,12 +510,12 @@
         "lead": "Musharraf Aziz"
       },
       {
-        "number": "02",
-        "title": "Workflow Automation",
-        "description": "We automate processes with Make.com, n8n, Zapier, and GoHighLevel so your team spends less time on repetitive work.",
+        "number": "03",
+        "title": "n8n & Make.com Agency",
+        "description": "Workflow automation and process automation with n8n, Make.com, Zapier and GoHighLevel — CRM sync without busywork.",
         "tech": [
-          "Make.com",
           "n8n",
+          "Make.com",
           "Zapier",
           "GoHighLevel",
           "APIs"
@@ -509,43 +524,29 @@
         "lead": "Musharraf Aziz"
       },
       {
-        "number": "03",
-        "title": "Web Development",
-        "description": "Custom websites and web applications built with modern architecture for performance, SEO, and conversion.",
+        "number": "04",
+        "title": "Web Development Agency Germany",
+        "description": "Next.js platforms with SEO and conversion — web development agency Berlin and DACH.",
         "tech": [
           "Next.js",
           "React",
           "TypeScript",
-          "Tailwind CSS",
-          "Node.js"
+          "SEO",
+          "CWV"
         ],
         "href": "/services/web-development",
         "lead": "Abeel Mehr"
       },
       {
-        "number": "04",
-        "title": "App Development",
-        "description": "Cross-platform and native apps from MVP to production with clean architecture and reliable delivery.",
-        "tech": [
-          "React Native",
-          "Flutter",
-          "Python",
-          "REST APIs",
-          "GraphQL"
-        ],
-        "href": "/services/app-development",
-        "lead": "Abeel Mehr"
-      },
-      {
         "number": "05",
-        "title": "WordPress & Shopify",
-        "description": "Commerce and CMS platforms engineered for conversion, scalability, and maintainable operations.",
+        "title": "Shopify & WordPress Agency",
+        "description": "Shopify agency Germany and WordPress agency Germany for conversion-ready commerce and CMS.",
         "tech": [
-          "WordPress",
           "Shopify",
+          "WordPress",
           "WooCommerce",
-          "Liquid",
-          "PHP"
+          "Headless",
+          "SEO"
         ],
         "href": "/services/wordpress-shopify",
         "lead": "Mehru Seemab"
@@ -553,12 +554,12 @@
     ]
   },
   "WorkPage": {
-    "metaTitle": "Our Work | XCLER AI Automation",
-    "metaDescription": "Selected XCLER projects across SaaS platforms, AI systems, and automation solutions built for measurable business outcomes.",
+    "metaTitle": "Work — AI Automation, n8n, Make.com & Web Case Studies | XCLER",
+    "metaDescription": "Selected XCLER projects: AI systems, n8n/Make workflow automation and web development with measurable business outcomes for DACH teams.",
     "eyebrow": "Our Work",
-    "headingLine1": "Built. Shipped.",
-    "headingLine2": "Proven.",
-    "description": "Real projects, real engineering, real outcomes. Here is a curated selection of what we have delivered.",
+    "headingLine1": "AI, automation",
+    "headingLine2": "and web — shipped.",
+    "description": "Case studies from AI automation, process automation and web development. See how XCLER delivers as an agency.",
     "ctaHeading": "Want to be our next success story?",
     "ctaDescription": "Let us talk about your project.",
     "ctaButton": "Start Your Project ->",
@@ -620,34 +621,34 @@
     ]
   },
   "ServiceWebDevelopmentPage": {
-    "metaTitle": "Web Development Germany | Custom Websites & Web Apps | XCLER",
-    "metaDescription": "Professional web development services in Germany. Custom websites, web applications, and landing pages built for performance and conversion.",
+    "metaTitle": "Web Development Agency Germany | Berlin Next.js & B2B Web | XCLER",
+    "metaDescription": "Web development agency Germany for custom websites and web apps. XCLER builds Next.js platforms for B2B growth in Berlin, DACH and remote US markets.",
     "backToServices": "All Services",
     "serviceLabel": "Service / 01",
-    "headingLine1": "Web",
-    "headingLine2": "Development.",
-    "intro": "We build custom websites and web applications that load fast, rank high, and convert visitors into customers. No templates. Real engineering, real outcomes.",
+    "headingLine1": "Web development",
+    "headingLine2": "agency Germany.",
+    "intro": "As a web development agency in Germany, we build custom websites and web applications that load fast, rank, and convert — especially for Berlin and DACH B2B teams.",
     "hero": {
-      "h1": "Web Development Agency Germany for B2B Growth",
-      "h2": "We engineer high-performance web platforms where organic visibility, conversion, and operational reliability work as one system.",
-      "paragraph": "Our web development is not template assembly. We combine Next.js frontend architecture, API-based data flows, clean information design, and measurable conversion paths so marketing, sales, and operations can scale on a single technical foundation."
+      "h1": "Web development agency Berlin & Germany for B2B growth",
+      "h2": "Next.js web platforms where organic visibility, conversion and reliability work as one system — from Berlin across DACH",
+      "paragraph": "Our web development agency delivery is not template assembly. We combine Next.js architecture, API data flows, clean information design and measurable conversion paths so marketing, sales and operations scale on one technical foundation."
     },
     "seoIntro": "Many business websites lose rankings not because content is weak, but because technical execution is inconsistent. When rendering strategy, navigation, internal linking, structured data, and performance are misaligned, crawl efficiency and lead quality decline at the same time. We solve this with architecture-first implementation: component systems, stable URL strategy, semantic markup, controlled publishing models, and release governance that protects search visibility over time.\n\nFor the German B2B market, visual polish alone is not enough. Teams need predictable load performance, reliable analytics, clear conversion journeys, and a CMS model that can be operated without engineering bottlenecks. We design web platforms where Core Web Vitals, technical SEO, and revenue goals reinforce each other, so your site performs after launch, during campaigns, and as content complexity grows.",
     "coreFeatures": [
       {
-        "title": "Next.js Architecture with Scalable Component Governance",
+        "title": "Next.js Architecture with Scalable Component Governance.",
         "description": "We build modular frontend systems with clear component standards, routing rules, and rendering strategy. This keeps releases predictable and allows faster expansion of service pages without accumulating technical debt."
       },
       {
-        "title": "Technical SEO for Crawl Efficiency and Information Architecture",
+        "title": "Technical SEO for Crawl Efficiency and Information Architecture.",
         "description": "We implement SEO at the system layer: URL hierarchy, internal link graph, structured data, canonical signals, and indexability logic are modeled intentionally to strengthen discoverability and reduce ranking volatility."
       },
       {
-        "title": "Core Web Vitals Optimization Across the Delivery Stack",
+        "title": "Core Web Vitals Optimization Across the Delivery Stack.",
         "description": "Performance is handled as an engineering discipline across assets, scripts, caching, and interaction cost. We optimize LCP, INP, and CLS on template and component level so performance remains stable under real traffic conditions."
       },
       {
-        "title": "Conversion Engineering with Measurable Lead Paths",
+        "title": "Conversion Engineering with Measurable Lead Paths.",
         "description": "We design page flows that reduce decision friction: clear hierarchy, trust signals, focused calls to action, and instrumented funnel events. This improves lead quality and makes optimization data-driven instead of guesswork."
       }
     ],
@@ -720,25 +721,25 @@
     "intro": "From concept to launch, we build mobile and web applications with clean architecture, production-ready quality, and clear product direction.",
     "hero": {
       "h1": "App Development Germany for Scalable Digital Products",
-      "h2": "We build mobile and web applications where product strategy, technical resilience, and measurable user impact align.",
+      "h2": "We build mobile and web applications where product strategy, technical resilience, and measurable user impact align",
       "paragraph": "App projects rarely fail because features are missing; they fail because architecture is unclear. We design domain models, API contracts, release governance, and runtime observability early so products can scale without structural rewrites."
     },
     "seoIntro": "Successful app development starts with system design, not screen count. Teams that begin with feature lists alone often accumulate unstable integrations, inconsistent data behavior, and expensive refactoring after launch. We use an architecture-first model where events, APIs, user roles, security boundaries, and observability are defined up front to support long-term product velocity.\n\nIn DACH B2B environments, reliability and integration quality are commercial requirements. We implement app platforms that connect CRM, ERP, analytics, and product telemetry with controlled data flows and measurable performance. This gives product teams a stable base for iteration and growth instead of repeatedly fixing operational bottlenecks.",
     "coreFeatures": [
       {
-        "title": "Product Architecture for Mobile and Web Consistency",
+        "title": "Product Architecture for Mobile and Web Consistency.",
         "description": "We model workflows, roles, and data entities so behavior stays consistent across platforms. This reduces regression risk and supports smooth progression from MVP to production-scale application."
       },
       {
-        "title": "API-First Engineering for Integrations and Extensibility",
+        "title": "API-First Engineering for Integrations and Extensibility.",
         "description": "We build backend layers with versioned API contracts, validation, and predictable error handling. This enables stable integrations with internal systems and external services without fragile one-off logic."
       },
       {
-        "title": "Release Governance with QA, Monitoring, and Rollback",
+        "title": "Release Governance with QA, Monitoring, and Rollback.",
         "description": "Our delivery model combines CI/CD, automated testing, observability, and rollback readiness. This keeps deployment risk controlled and reduces time-to-diagnosis when issues appear in production."
       },
       {
-        "title": "Conversion and Retention-Focused UX Engineering",
+        "title": "Conversion and Retention-Focused UX Engineering.",
         "description": "We design user flows around activation, retention, and outcome-critical tasks. Interaction events are instrumented for analysis, so teams can prioritize product changes by measurable business impact."
       }
     ],
@@ -792,18 +793,18 @@
     ]
   },
   "ServiceWordpressShopifyPage": {
-    "metaTitle": "WordPress and Shopify Agency Munich | B2B Platform Strategy | XCLER",
-    "metaDescription": "Technical hub for B2B companies in Munich: when to choose WordPress or Shopify, and how to implement performance, security, and scalable infrastructure correctly.",
+    "metaTitle": "WordPress and Shopify Agency Germany | Platform Strategy | XCLER",
+    "metaDescription": "When WordPress, when Shopify? Technical hub for B2B in Germany: architecture, performance, security and scale.",
     "backToServices": "All Services",
     "serviceLabel": "Service / 03",
     "headingLine1": "WordPress &",
     "headingLine2": "Shopify.",
-    "intro": "As a technical WordPress and Shopify agency for the B2B market in and around Munich, we do not build isolated websites; we design scalable CMS and commerce systems with explicit business logic and measurable outcomes. Our process starts with architecture: data model, content structure, integration map, permissions, deployment, backup strategy, and monitoring are defined before implementation begins. This prevents expensive replatforming after launch and creates a foundation for growth. If your growth depends on organic lead acquisition, complex service-page structures, and editorial scale, we engineer WordPress platforms with strong performance and information architecture. If revenue depends on transaction reliability, we implement Shopify systems with resilient checkout flows, reliable payment-provider integrations, and predictable operational stability. Every technical decision is validated against traffic profile, team workflows, compliance constraints, and extensibility. The result is a platform that launches fast today and stays controllable as traffic, product scope, language footprint, and integration complexity increase.",
-    "seoIntro": "As a technical WordPress and Shopify agency for the B2B market in and around Munich, we do not build isolated websites; we design scalable CMS and commerce systems with explicit business logic and measurable outcomes. Our process starts with architecture: data model, content structure, integration map, permissions, deployment, backup strategy, and monitoring are defined before implementation begins. This prevents expensive replatforming after launch and creates a foundation for growth. If your growth depends on organic lead acquisition, complex service-page structures, and editorial scale, we engineer WordPress platforms with strong performance and information architecture. If revenue depends on transaction reliability, we implement Shopify systems with resilient checkout flows, reliable payment-provider integrations, and predictable operational stability. Every technical decision is validated against traffic profile, team workflows, compliance constraints, and extensibility. The result is a platform that launches fast today and stays controllable as traffic, product scope, language footprint, and integration complexity increase.",
+    "intro": "As a technical WordPress and Shopify agency for the B2B market across Germany and DACH, we do not build isolated websites; we design scalable CMS and commerce systems with explicit business logic and measurable outcomes. Our process starts with architecture: data model, content structure, integration map, permissions, deployment, backup strategy, and monitoring are defined before implementation begins. This prevents expensive replatforming after launch and creates a foundation for growth. If your growth depends on organic lead acquisition, complex service-page structures, and editorial scale, we engineer WordPress platforms with strong performance and information architecture. If revenue depends on transaction reliability, we implement Shopify systems with resilient checkout flows, reliable payment-provider integrations, and predictable operational stability. Every technical decision is validated against traffic profile, team workflows, compliance constraints, and extensibility. The result is a platform that launches fast today and stays controllable as traffic, product scope, language footprint, and integration complexity increase.",
+    "seoIntro": "As a technical WordPress and Shopify agency for the B2B market across Germany and DACH, we do not build isolated websites; we design scalable CMS and commerce systems with explicit business logic and measurable outcomes. Our process starts with architecture: data model, content structure, integration map, permissions, deployment, backup strategy, and monitoring are defined before implementation begins. This prevents expensive replatforming after launch and creates a foundation for growth. If your growth depends on organic lead acquisition, complex service-page structures, and editorial scale, we engineer WordPress platforms with strong performance and information architecture. If revenue depends on transaction reliability, we implement Shopify systems with resilient checkout flows, reliable payment-provider integrations, and predictable operational stability. Every technical decision is validated against traffic profile, team workflows, compliance constraints, and extensibility. The result is a platform that launches fast today and stays controllable as traffic, product scope, language footprint, and integration complexity increase.",
     "platformComparison": [
       {
         "platform": "WordPress",
-        "title": "WordPress for B2B lead generation and content scale",
+        "title": "WordPress for B2B lead generation and content scale.",
         "whenToChoose": "Choose WordPress when growth depends on organic visibility, thought-leadership content, and complex information architecture.",
         "details": "WordPress is ideal for businesses with high publishing velocity, many service landing pages, multilingual SEO roadmaps, and custom lead funnels. With clean taxonomy, structured editorial workflows, and technical performance optimization, the platform remains stable as traffic grows.",
         "ctaText": "Explore the WordPress engineering path",
@@ -811,7 +812,7 @@
       },
       {
         "platform": "Shopify",
-        "title": "Shopify for robust commerce operations and rapid scaling",
+        "title": "Shopify for robust commerce operations and rapid scaling.",
         "whenToChoose": "Choose Shopify when your priority is reliable ecommerce execution, operational efficiency, and fast go-to-market cycles.",
         "details": "Shopify is especially strong for B2B brands with expanding catalogs, checkout-critical revenue, and integration needs across payment providers, logistics, ERP, and CRM. Standardized core commerce flows reduce operational risk and accelerate release velocity.",
         "ctaText": "Explore the Shopify engineering path",
@@ -820,7 +821,7 @@
     ],
     "whyChooseUs": [
       {
-        "title": "Performance engineered at the system level",
+        "title": "Performance engineered at the system level.",
         "description": "We do not optimize isolated pages; we architect rendering strategy, caching tiers, asset pipelines, and observable Core Web Vitals across templates and key URLs."
       },
       {
@@ -877,13 +878,13 @@
     ]
   },
   "ServicesHub": {
-    "metaTitle": "E-Commerce & CMS Agency Germany | WordPress and Shopify | XCLER",
-    "metaDescription": "E-Commerce agency and CMS agency in Germany for WordPress and Shopify projects. Choose the right platform path for your business goals.",
+    "metaTitle": "Shopify & WordPress Agency Germany | E-Commerce & CMS | XCLER",
+    "metaDescription": "Shopify agency Germany and WordPress agency Germany for B2B commerce. XCLER builds conversion-ready storefronts that connect to AI and workflow automation.",
     "backToServices": "All Services",
     "serviceLabel": "Service Hub / 03",
-    "headingLine1": "E-Commerce & CMS",
-    "headingLine2": "Agency.",
-    "intro": "As an ecommerce agency and CMS agency in Germany, we build both WordPress and Shopify solutions and help you choose the right platform for your growth model, operations, and conversion goals.",
+    "headingLine1": "Shopify & WordPress",
+    "headingLine2": "Agency Germany.",
+    "intro": "As a Shopify agency Germany and WordPress agency Germany, we build commerce and CMS solutions and help you choose the right platform for growth, operations and conversion — especially when automation needs a storefront.",
     "spokes": [
       {
         "title": "WordPress & WooCommerce",
@@ -918,16 +919,31 @@
     ],
     "ctaHeading": "Need help selecting the right path?",
     "ctaDescription": "Tell us your current setup and growth goals. We will recommend the best-fit route with a clear action plan.",
-    "ctaButton": "Start Your Project ->"
+    "ctaButton": "Start Your Project ->",
+    "seoIntro": "As a Shopify agency Germany and WordPress agency Germany, we help you choose the right platform for conversion, content and operations. WordPress and WooCommerce fit when editorial control and SEO information architecture matter most. Shopify fits when checkout reliability, payment routing and scalable commerce ops come first. Both paths can connect to AI chatbots and n8n/Make.com workflows.",
+    "aeoFaq": [
+      {
+        "question": "When should we choose Shopify vs WordPress?",
+        "answer": "Shopify when revenue runs through checkout and fulfillment. WordPress/WooCommerce when content, service pages and SEO structure dominate. XCLER evaluates both against your operating model."
+      },
+      {
+        "question": "Can you connect Shopify and WordPress to automation?",
+        "answer": "Yes. We connect storefronts to n8n, Make.com and AI chatbots for lead routing, support and ops handoffs — with clear ownership and monitoring."
+      },
+      {
+        "question": "Do you work as a Shopify and WordPress agency across Germany?",
+        "answer": "Yes. Our primary market is Germany and DACH with a Berlin base. We deliver remotely for teams across DACH and selected US markets."
+      }
+    ]
   },
   "ServiceWordpressDevelopmentPage": {
-    "metaTitle": "WordPress Development Germany | XCLER",
-    "metaDescription": "Custom WordPress development, WooCommerce architecture, and high-performance CMS implementation for growth-focused businesses.",
+    "metaTitle": "WordPress Agency Germany | Custom WordPress & WooCommerce | XCLER",
+    "metaDescription": "WordPress agency Germany for custom WordPress, WooCommerce and SEO-ready CMS builds. XCLER delivers high-performance WordPress development for DACH teams.",
     "backToHub": "Back to E-Commerce & CMS Hub",
     "serviceLabel": "Service / WordPress",
-    "headingLine1": "WordPress",
-    "headingLine2": "Development.",
-    "intro": "We design and build custom WordPress systems that are fast, secure, SEO-ready, and easy for your team to manage.",
+    "headingLine1": "WordPress agency",
+    "headingLine2": "Germany.",
+    "intro": "As a WordPress agency in Germany, we design and build custom WordPress systems that are fast, secure, SEO-ready and easy for your team to manage.",
     "capabilities": [
       {
         "title": "Custom WordPress Builds",
@@ -951,13 +967,13 @@
     "ctaButton": "Start Your Project ->"
   },
   "ServiceShopifyDevelopmentPage": {
-    "metaTitle": "Shopify Development Germany | XCLER",
-    "metaDescription": "Conversion-focused Shopify development, storefront customization, and scalable ecommerce execution for ambitious brands.",
+    "metaTitle": "Shopify Agency Germany | Conversion-Focused Shopify Development | XCLER",
+    "metaDescription": "Shopify agency Germany for conversion-focused Shopify development, storefront customization and scalable ecommerce — connected to your automation stack.",
     "backToHub": "Back to E-Commerce & CMS Hub",
     "serviceLabel": "Service / Shopify",
-    "headingLine1": "Shopify",
-    "headingLine2": "Development.",
-    "intro": "We build Shopify experiences that convert better, load faster, and support sustained ecommerce growth.",
+    "headingLine1": "Shopify agency",
+    "headingLine2": "Germany.",
+    "intro": "As a Shopify agency in Germany, we build Shopify experiences that convert better, load faster and support sustained ecommerce growth — especially when automation needs a storefront.",
     "capabilities": [
       {
         "title": "Custom Storefronts",
@@ -983,28 +999,28 @@
   "ServiceShopifyPage": {
     "hero": {
       "h1": "Shopify Development Agency in Germany",
-      "h2": "We engineer high-performance Shopify systems for German B2B growth, combining dark-interface precision with resilient commerce architecture built for scale.",
+      "h2": "We engineer high-performance Shopify systems for German B2B growth, combining dark-interface precision with resilient commerce architecture built for scale",
       "paragraph": "We are not a design-only studio; we are systems architects for revenue-critical commerce platforms. Our team designs and operates Shopify infrastructure that unifies conversion strategy, operational reliability, and automation at every layer. From headless storefront delivery with Next.js to hardened backend workflows for catalog governance, we build platforms that stay fast under pressure and predictable under growth. Every release is tied to measurable outcomes: lower checkout friction, stronger throughput, cleaner data, and higher margin control. At the interface level we prioritize clarity, hierarchy, and trust signals that support decision-making for B2B buyers and internal teams alike."
     },
     "seoIntro": {
       "paragraph1": "Most stores fail not because of branding, but because they are assembled as disconnected templates rather than engineered as a complete E-commerce business model. A standard implementation usually treats frontend, checkout, catalog, and operations as separate tasks handled by separate tools, creating latency in decisions and fragility in execution. We build differently: architecture first, workflows second, visuals third, and optimization always. Our approach starts with data contracts across product entities, pricing logic, inventory states, customer segments, and event telemetry. We then align Shopify APIs, ERP touchpoints, marketing channels, and analytics layers so every transaction becomes operationally useful, not just financially recorded. This is where product management automation becomes transformative: the catalog is no longer a static list managed manually, but a dynamic system governed by rules, enrichment pipelines, and lifecycle triggers. In this model, storefront speed, conversion design, and backend logic are inseparable, allowing your team to move faster without introducing operational debt. The result is a platform that scales with confidence, not chaos.",
-      "paragraph2": "For the German B2B market, this architecture discipline is non-negotiable. Procurement cycles are longer, compliance expectations are higher, and customer trust depends on precision. We focus deeply on Munich and the wider DACH tech ecosystem, where growth-stage and established companies need enterprise execution without enterprise bloat. That means robust payment provider integrations for local and international buying behavior, advanced shipping options tailored to regional logistics complexity, and DACH-compliant taxes & invoicing configured as core infrastructure, not post-launch patches. We design for multilingual operations, VAT edge cases, invoice traceability, and clean handoffs between finance, sales, and support. Underneath the visual layer, we run strict release governance, observability, rollback safety, and API monitoring to protect uptime and margin. This is how a Shopify platform becomes a durable competitive asset in Germany, not just a website."
+      "paragraph2": "For the German B2B market, this architecture discipline is non-negotiable. Procurement cycles are longer, compliance expectations are higher, and customer trust depends on precision. We focus deeply on Berlin and the wider DACH tech ecosystem, where growth-stage and established companies need enterprise execution without enterprise bloat. That means robust payment provider integrations for local and international buying behavior, advanced shipping options tailored to regional logistics complexity, and DACH-compliant taxes & invoicing configured as core infrastructure, not post-launch patches. We design for multilingual operations, VAT edge cases, invoice traceability, and clean handoffs between finance, sales, and support. Underneath the visual layer, we run strict release governance, observability, rollback safety, and API monitoring to protect uptime and margin. This is how a Shopify platform becomes a durable competitive asset in Germany, not just a website."
     },
     "coreFeatures": [
       {
-        "title": "Headless Shopify Architecture with Next.js for Speed, Control, and SEO Precision",
+        "title": "Headless Shopify Architecture with Next.js for Speed, Control, and SEO Precision.",
         "description": "Headless is not a trend for us; it is an execution model for companies that require deterministic performance and strategic control over customer experience. We decouple presentation from commerce logic and build the storefront in Next.js with strict component governance, route-level performance budgets, and cache-aware rendering. This enables faster page transitions, stronger Core Web Vitals, and cleaner experimentation across B2B landing journeys, campaign pages, and product discovery flows. We design API orchestration so Shopify remains the commercial source of truth while the frontend evolves independently with minimal risk. Structured telemetry is embedded from day one, letting teams observe conversion behavior at segment, channel, and template level. This architecture supports multilingual growth, personalized content blocks, and future integrations without replatforming cycles. It also strengthens discoverability because technical SEO, schema strategy, and crawlability are engineered into the system layer rather than patched through plugins after launch."
       },
       {
-        "title": "DACH-Compliant Commerce Backend: Taxes, Invoicing, Data Protection, and Audit Readiness",
+        "title": "DACH-Compliant Commerce Backend: Taxes, Invoicing, Data Protection, and Audit Readiness.",
         "description": "Scaling in Germany requires regulatory confidence, not just visual polish. We implement backend structures that support DACH-compliant taxes & invoicing across customer types, regions, and transaction scenarios, including B2B VAT logic, reverse-charge edge cases, and invoice traceability workflows. Our implementation aligns checkout data, tax computation, order metadata, and accounting exports so finance and operations can reconcile without manual cleanup. We also enforce GDPR-aware architecture patterns around consent capture, retention boundaries, and data minimization pathways, reducing legal risk while preserving analytics quality. Compliance is integrated into operations through rule-based validations, webhook governance, and monitoring around critical failure points. We design your stack so policy adherence is not dependent on tribal knowledge from one team member, but encoded into repeatable workflows and secure permissions."
       },
       {
-        "title": "Frictionless Checkout Through Payment Provider Integrations and Advanced Shipping Options",
+        "title": "Frictionless Checkout Through Payment Provider Integrations and Advanced Shipping Options.",
         "description": "Revenue growth depends on checkout reliability as much as traffic quality. We optimize conversion by engineering payment provider integrations that match how German and international buyers actually purchase, including card, wallet, invoice-like preferences, and risk-aware routing strategies. Our goal is not merely adding providers; it is reducing decision friction, failed transaction rates, and checkout abandonment through technical flow design, latency reduction, and trust signaling. In parallel, we implement advanced shipping options that map logistics realities to customer expectations: region-specific rates, SLA-driven methods, threshold logic, carrier constraints, and operational cutoffs. This improves both conversion and post-purchase satisfaction because customers see relevant delivery choices without ambiguity. We model shipping and payment as connected systems, not isolated settings, so margin impact is visible before policy changes go live."
       },
       {
-        "title": "Product Management Automation via n8n and Make.com for Operational Throughput at Scale",
+        "title": "Product Management Automation via n8n and Make.com for Operational Throughput at Scale.",
         "description": "Manual catalog operations are one of the biggest hidden costs in growing B2B commerce. We solve that with product management automation pipelines powered by n8n and Make.com, synchronized with Shopify APIs and your broader operational stack. Product creation, enrichment, categorization, media assignment, and channel mapping can be rule-driven and event-triggered instead of repetitive human work. We design governance around these workflows so automation remains safe: validation checkpoints, exception handling, idempotent updates, and clear rollback procedures. This ensures automation increases reliability rather than creating silent data drift. We also connect catalog workflows to pricing updates, availability logic, and merchandising rules, so product data stays accurate across channels without daily firefighting. Teams gain faster launch cycles for new SKUs and cleaner metadata for search and filtering."
       }
     ],
@@ -1039,25 +1055,25 @@
   "ServiceWordpressPage": {
     "hero": {
       "h1": "Enterprise WordPress Development in Germany",
-      "h2": "We engineer industrial-grade WordPress systems for B2B teams that need speed, control, and measurable reliability under real commercial load.",
+      "h2": "We build high-performance WordPress platforms for B2B companies across Berlin, DACH and Germany — where marketing growth, technical stability and operational scale work as one system",
       "paragraph": "Most B2B websites do not fail because of design quality; they fail because legacy WordPress stacks become slow, bloated, and impossible to scale safely. We rebuild that foundation with an architecture-first model focused on throughput, observability, and operational discipline. Whether we deploy a headless frontend or optimize a traditional build to the metal, every decision is tied to business outcomes: stronger lead quality, cleaner data flows, lower operational risk, and faster release velocity. Our team replaces plugin chaos with engineered systems that deliver Secure WordPress operations, Fast Load Times, and enterprise-grade extensibility without sacrificing editorial efficiency."
     },
     "seoIntro": "Our approach to WordPress is not template assembly; it is systems architecture for revenue-critical B2B operations. We begin by modeling your platform as an end-to-end service: content lifecycle, component governance, integration boundaries, deployment controls, and performance budgets. From there, we choose the correct delivery model per business context. For content-heavy lead generation with complex editorial workflows, we can optimize core WordPress directly using strict theme architecture, curated plugin policy, database query control, and deterministic caching layers. For advanced UX and maximum frontend speed, we decouple presentation into a headless stack with API contracts and modern rendering patterns. In both models, we engineer toward the same objective: stable Core Web Vitals at scale, not isolated benchmark wins. We map every performance variable, including image pipelines, script hydration, CSS strategy, TTFB behavior, and edge cache invalidation. This is where Enterprise WordPress Hosting and High-Performance Hosting become strategic, not cosmetic: infrastructure and application design must operate as one system. We implement telemetry across key templates and high-intent pages so your team can see how technical changes impact lead conversion and commercial outcomes.",
     "coreServices": [
       {
-        "title": "Custom Theme and Plugin Engineering with a Zero-Bloat Policy",
+        "title": "Custom Theme and Plugin Engineering with a Zero-Bloat Policy.",
         "description": "We engineer custom WordPress foundations from the ground up with an explicit zero-bloat policy designed for enterprise durability. Every feature must justify itself through measurable value, and every dependency is reviewed for security profile, maintenance risk, and runtime impact. Instead of stacking generic plugins, we build controlled capabilities through modular theme components, narrowly scoped plugins, and versioned internal libraries aligned to your product roadmap. This approach reduces update collisions, eliminates hidden performance regressions, and keeps the codebase understandable for long-term ownership."
       },
       {
-        "title": "High-Performance Hosting Architecture and Fast Load Times by Design",
+        "title": "High-Performance Hosting Architecture and Fast Load Times by Design.",
         "description": "Fast websites are not produced by one plugin or one server switch; they are produced by coherent architecture across hosting, caching, rendering, and asset delivery. We design High-Performance Hosting environments for WordPress that align infrastructure behavior with application behavior, so performance remains stable even as traffic and content complexity increase. This includes edge-aware caching strategy, optimized PHP runtime configuration, database tuning, queue isolation, CDN orchestration, and image transformation pipelines tuned for real device conditions."
       },
       {
-        "title": "Enterprise Security Protocols and Secure WordPress Hosting Solutions",
+        "title": "Enterprise Security Protocols and Secure WordPress Hosting Solutions.",
         "description": "Security in enterprise WordPress environments must be systematic, testable, and continuously enforced. We implement Secure WordPress architecture through layered controls spanning application hardening, access governance, dependency validation, network controls, and operational monitoring. At the platform level, we configure least-privilege role models, MFA-ready workflows, protected admin surfaces, secret management hygiene, and deterministic update policies that minimize exploit windows."
       },
       {
-        "title": "Llama 3.3 and Groq AI Integrations Inside WordPress Admin for Content Operations",
+        "title": "Llama 3.3 and Groq AI Integrations Inside WordPress Admin for Content Operations.",
         "description": "We integrate Llama 3.3 and Groq-powered workflows directly into the WordPress Admin experience so content teams can operate faster without leaving editorial context. This is not generic chatbot embedding; it is task-oriented AI architecture tied to your taxonomy, tone rules, compliance constraints, and conversion goals. Editors can generate structured drafts, optimize metadata, propose internal linking paths, and receive quality checks against brand and legal standards within controlled workflows."
       }
     ],
@@ -1090,15 +1106,15 @@
     ]
   },
   "ServiceWorkflowAutomationPage": {
-    "metaTitle": "n8n & Make.com Automation Agency Germany",
-    "metaDescription": "n8n and Make.com workflow automation agency for Germany and DACH. XCLER builds CRM, ops, and lead-routing scenarios with retries, alerting, and clear ownership.",
+    "metaTitle": "n8n Agency & Make.com Agency | Workflow Automation Agency Germany | XCLER",
+    "metaDescription": "n8n agency and Make.com agency for Germany and DACH. XCLER builds workflow automation and process automation with CRM sync, retries, alerting and clear ownership.",
     "backToServices": "All Services",
     "serviceLabel": "Service / 04",
     "headingLine1": "Workflow automation",
     "headingLine2": "we implement end to end.",
-    "intro": "We offer workflow automation that removes repetitive handoffs. XCLER designs Make.com and n8n scenarios that sync CRM, messaging, billing, and ops — for Germany-first teams and remote US clients.",
+    "intro": "Hire XCLER as your n8n agency and Make.com agency for workflow automation that removes repetitive handoffs. We design scenarios that sync CRM, messaging, billing and ops.",
     "hero": {
-      "h1": "n8n & Make.com Workflow Automation Agency",
+      "h1": "n8n & Make.com agency for workflow automation in Germany",
       "h2": "Reliable automation scenarios from XCLER for Germany & DACH",
       "paragraph": "Hire an automation agency that ships production Make.com and n8n workflows — CRM sync, inbox routing, billing handoffs, and AI chatbot write-backs — for Germany, DACH, Benelux, and remote US teams in California, Florida, and Chicago."
     },
@@ -1112,7 +1128,7 @@
         "description": "We connect business systems through stable interfaces and explicit trigger logic instead of fragile point automations. This keeps workflows testable, traceable, and scalable."
       },
       {
-        "title": "n8n and Make.com with Governance and Rollback",
+        "title": "n8n and Make.com with Governance and Rollback.",
         "description": "Automations are versioned, validated, and documented with clear failure paths. This enables safe iteration in production without black-box risk."
       },
       {
@@ -1137,6 +1153,14 @@
       {
         "question": "Do you support teams outside Germany?",
         "answer": "Yes. Berlin is our base and DACH is primary, but we deliver remote automation projects for California, Florida, and Chicago clients."
+      },
+      {
+        "question": "What is the difference between workflow and process automation?",
+        "answer": "Workflow automation wires tools (CRM, inbox, billing). Process automation models the full operating flow including ownership, retries and escalation. XCLER delivers both as an n8n and Make.com agency."
+      },
+      {
+        "question": "When should we choose n8n vs Make.com?",
+        "answer": "Make.com fits fast SaaS glue. n8n fits self-hosting, control and denser logic. We recommend the stack based on compliance, volume and team ownership."
       }
     ],
     "ctaHeading": "Want workflows that run without chasing people?",
@@ -1161,31 +1185,31 @@
       }
     ],
     "seoLede": "We implement workflow automation with Make.com and n8n so your team stops repeating handoffs between CRM, inbox, and ops tools. XCLER designs reliable scenarios with retries, alerting, and clear ownership for Germany, DACH, the Netherlands, and Belgium — including Berlin, Munich, Frankfurt, Amsterdam, and Rotterdam — plus remote US clients in California, Florida, and Chicago.",
-    "citablePassage": "XCLER maps your process and builds Make.com and n8n workflow automation that replaces fragile spreadsheets and manual copy-paste. We add idempotent steps, retries, alerting, and CRM write-backs so failures are visible and recoverable. Berlin is our base for DACH delivery across Munich, Hamburg, and Frankfurt, and we also run remote automation for Amsterdam, Rotterdam, Utrecht, Brussels, California, Florida, and Chicago teams. When AI chatbots qualify intent, our automation layer routes the work into tickets, deals, or Slack queues without growing headcount linearly and with documented ownership. delivery milestones evaluation harnesses retrieval quality human escalation measurable outcomes Germany Netherlands Belgium. We document delivery milestones, evaluation harnesses, retrieval quality, human escalation paths, and measurable outcomes for Germany, Austria, Switzerland, the Netherlands, Belgium, California, Florida, and Chicago. We document delivery milestones, evaluation harnesses, retrieval quality, human escalation paths, and measurable outcomes for Germany, Austria, Switzerland, the Netherlands, Belgium, California, Florida, and Chicago.",
+    "citablePassage": "XCLER maps your process and builds Make.com and n8n workflow automation that replaces fragile spreadsheets and manual copy-paste. We add idempotent steps, retries, alerting, and CRM write-backs so failures are visible and recoverable. Berlin is our base for DACH delivery across Munich, Hamburg, and Frankfurt, and we also run remote automation for Amsterdam, Rotterdam, Utrecht, Brussels, California, Florida, and Chicago teams. When AI chatbots qualify intent, our automation layer routes the work into tickets, deals, or Slack queues without growing headcount linearly and with documented ownership.",
     "answerHeading": "How do we implement workflow automation?",
     "listTitle": "Automation outcomes we deliver",
     "listItems": [
-      "CRM and inbox sync without manual copy-paste",
-      "Lead routing from AI chatbots into deals and tickets",
-      "Retries, alerting, and idempotent scenario design",
-      "Make.com, n8n, Zapier, and GoHighLevel implementations",
-      "Runbooks so your team owns the system after launch"
+      "CRM and inbox sync without manual copy-paste.",
+      "Lead routing from AI chatbots into deals and tickets.",
+      "Retries, alerting, and idempotent scenario design.",
+      "Make.com, n8n, Zapier, and GoHighLevel implementations.",
+      "Runbooks so your team owns the system after launch."
     ],
     "extraSections": [
       {
         "id": "tools",
         "heading": "Which automation tools should you choose?",
-        "body": "We select Make.com for speed, n8n for self-hosting control, and Zapier when simple SaaS glue is enough. Across 50+ workflows and 3+ years we document every scenario. 24 hour triage targets keep operations responsive for DACH and remote US teams. delivery milestones evaluation harnesses retrieval quality human escalation measurable outcomes Germany Austria Switzerland California Florida Chicago Berlin Munich Hamburg without inventing local storefronts unsupported ranking claims production monitoring bilingual support sales operations delivery milestones evaluation harnesses retrieval quality human escalation measurable outcomes Germany Austria Switzerland California Florida Chicago Berlin Munich Hamburg without inventing local storefronts unsupported ranking claims production monitoring bilingual support sales operations delivery milestones evaluation harnesses retrieval quality"
+        "body": "We select Make.com for speed, n8n for self-hosting control, and Zapier when simple SaaS glue is enough. Across 50+ workflows and 3+ years we document every scenario. 24 hour triage targets keep operations responsive for DACH and remote US teams."
       },
       {
         "id": "ai-bridge",
         "heading": "How do automation and AI agents work together?",
-        "body": "AI chatbots qualify intent, then automation executes deterministic actions. 6 industries already combine both layers with XCLER so 98 percent of routine handoffs leave human queues. We keep permissions explicit and measurable. delivery milestones evaluation harnesses retrieval quality human escalation measurable outcomes Germany Austria Switzerland California Florida Chicago Berlin Munich Hamburg without inventing local storefronts unsupported ranking claims production monitoring bilingual support sales operations delivery milestones evaluation harnesses retrieval quality human escalation measurable outcomes Germany Austria Switzerland California Florida Chicago Berlin Munich Hamburg without inventing local storefronts unsupported ranking claims production monitoring bilingual support sales operations delivery milestones evaluation harnesses"
+        "body": "AI chatbots qualify intent, then automation executes deterministic actions. 6 industries already combine both layers with XCLER so 98 percent of routine handoffs leave human queues. We keep permissions explicit and measurable."
       }
     ]
   },
   "ServiceAiChatbotsPage": {
-    "metaTitle": "AI Chatbot Agency Germany | RAG Agents & Call AI",
+    "metaTitle": "AI Chatbot Agency Germany | RAG Agents & Voice AI | XCLER",
     "metaDescription": "AI chatbot agency in Germany for RAG agents, LLM assistants, and AI call agents. XCLER ships bilingual DE/EN production systems with CRM handoffs for DACH and remote US.",
     "backToServices": "All Services",
     "serviceLabel": "Service / 05",
@@ -1203,19 +1227,19 @@
     },
     "coreFeatures": [
       {
-        "title": "RAG Knowledge Architecture for Reliable Responses",
+        "title": "RAG Knowledge Architecture for Reliable Responses.",
         "description": "We connect LLMs to curated, versioned knowledge sources with retrieval controls and validation strategy. This improves factual accuracy and keeps responses aligned with your real business policies."
       },
       {
-        "title": "Agent Workflows with Controlled Tool Access",
+        "title": "Agent Workflows with Controlled Tool Access.",
         "description": "Agents operate through explicit permissions and bounded actions when connected to CRM, ticketing, or scheduling systems. This enables automation without uncontrolled side effects."
       },
       {
-        "title": "Lead Qualification and Support Orchestration",
+        "title": "Lead Qualification and Support Orchestration.",
         "description": "We design conversation pathways for qualification, routing, and escalation around actual buyer and support journeys. This improves speed-to-response and increases qualified handoffs to human teams."
       },
       {
-        "title": "Evaluation, Monitoring, and Continuous Optimization",
+        "title": "Evaluation, Monitoring, and Continuous Optimization.",
         "description": "We measure answer quality, intent accuracy, escalation behavior, and business outcomes to iteratively improve prompt strategy, retrieval quality, and workflow logic over time."
       }
     ],
@@ -1260,31 +1284,31 @@
       }
     ],
     "seoLede": "We build AI chatbots and agents for production teams that need grounded answers, retrieval quality, and clear escalation. XCLER delivers bilingual assistants with tool calling, evaluation, and CRM handoffs for Germany, DACH, the Netherlands, and Belgium — including Berlin, Munich, Hamburg, Amsterdam, and Rotterdam — plus remote US clients in California, Florida, and Chicago.",
-    "citablePassage": "XCLER builds production AI chatbots and agents with retrieval-augmented generation, tool calling, and evaluation harnesses so answers stay grounded in your knowledge base. We integrate assistants into support, sales, and operations stacks across Berlin, Munich, Hamburg, Amsterdam, and Rotterdam, and for remote teams in California, Florida, Chicago, and Brussels. Our AI engineering practice covers prompt design, guardrails, analytics, bilingual DE and EN experiences, and Make.com or n8n handoffs when a conversation must create tickets, deals, or ops tasks automatically. We publish runbooks, measure deflection rates, and keep a human takeover path for sensitive cases. delivery milestones evaluation harnesses retrieval quality human escalation measurable outcomes Germany Netherlands Belgium. We document delivery milestones, evaluation harnesses, retrieval quality, human escalation paths, and measurable outcomes for Germany, Austria, Switzerland, the Netherlands, Belgium, California, Florida, and Chicago. We document delivery milestones, evaluation harnesses, retrieval quality, human escalation paths, and measurable outcomes for Germany, Austria, Switzerland, the Netherlands, Belgium, California, Florida, and Chicago.",
+    "citablePassage": "XCLER builds production AI chatbots and agents with retrieval-augmented generation, tool calling, and evaluation harnesses so answers stay grounded in your knowledge base. We integrate assistants into support, sales, and operations stacks across Berlin, Munich, Hamburg, Amsterdam, and Rotterdam, and for remote teams in California, Florida, Chicago, and Brussels. Our AI engineering practice covers prompt design, guardrails, analytics, bilingual DE and EN experiences, and Make.com or n8n handoffs when a conversation must create tickets, deals, or ops tasks automatically. We publish runbooks, measure deflection rates, and keep a human takeover path for sensitive cases.",
     "answerHeading": "How do we build AI chatbots and agents?",
     "listTitle": "What we include in AI engineering",
     "listItems": [
-      "RAG pipelines with citations over your docs and FAQs",
-      "Tool calling into CRM, helpdesk, and workflow automation",
-      "Evaluation harnesses, guardrails, and human takeover paths",
-      "Bilingual DE and EN experiences for DACH and remote US teams",
-      "Make.com and n8n handoffs after lead qualification"
+      "RAG pipelines with citations over your docs and FAQs.",
+      "Tool calling into CRM, helpdesk, and workflow automation.",
+      "Evaluation harnesses, guardrails, and human takeover paths.",
+      "Bilingual DE and EN experiences for DACH and remote US teams.",
+      "Make.com and n8n handoffs after lead qualification."
     ],
     "extraSections": [
       {
         "id": "use-cases",
         "heading": "Where do AI agents create measurable ROI?",
-        "body": "We deploy AI chatbots for support deflection, sales qualification, and internal knowledge search. Across 50+ projects and 3+ years we have seen teams reclaim 24 hours per week of repetitive triage when retrieval quality and escalation rules are explicit. Numeric claims stay tied to your baselines during discovery. delivery milestones evaluation harnesses retrieval quality human escalation measurable outcomes Germany Austria Switzerland California Florida Chicago Berlin Munich Hamburg without inventing local storefronts unsupported ranking claims production monitoring bilingual support sales operations delivery milestones evaluation harnesses retrieval quality human escalation measurable outcomes Germany Austria Switzerland California Florida Chicago Berlin Munich Hamburg without inventing local storefronts unsupported ranking claims production monitoring bilingual support sales operations delivery milestones evaluation harnesses retrieval quality human escalation"
+        "body": "We deploy AI chatbots for support deflection, sales qualification, and internal knowledge search. Across 50+ projects and 3+ years we have seen teams reclaim 24 hours per week of repetitive triage when retrieval quality and escalation rules are explicit. Numeric claims stay tied to your baselines during discovery."
       },
       {
         "id": "stack",
         "heading": "Which AI stack does XCLER use?",
-        "body": "We combine LLM providers, embedding stores, Next.js operator UIs, and automation bridges. 98 percent of launches include monitoring hooks and 6 industries already run production assistants with our patterns for Germany and remote California Florida Chicago clients. delivery milestones evaluation harnesses retrieval quality human escalation measurable outcomes Germany Austria Switzerland California Florida Chicago Berlin Munich Hamburg without inventing local storefronts unsupported ranking claims production monitoring bilingual support sales operations delivery milestones evaluation harnesses retrieval quality human escalation measurable outcomes Germany Austria Switzerland California Florida Chicago Berlin Munich Hamburg without inventing local storefronts unsupported ranking claims production monitoring bilingual support sales operations delivery milestones evaluation harnesses retrieval quality human escalation measurable"
+        "body": "We combine LLM providers, embedding stores, Next.js operator UIs, and automation bridges. 98 percent of launches include monitoring hooks and 6 industries already run production assistants with our patterns for Germany and remote California Florida Chicago clients."
       },
       {
         "id": "process",
         "heading": "How do we ship AI systems safely?",
-        "body": "Discovery defines intents and forbidden topics. We prototype retrieval quality, then harden prompts, tools, and analytics. 24 hour response windows keep stakeholders unblocked while we iterate evaluation sets before go-live. delivery milestones evaluation harnesses retrieval quality human escalation measurable outcomes Germany Austria Switzerland California Florida Chicago Berlin Munich Hamburg without inventing local storefronts unsupported ranking claims production monitoring bilingual support sales operations delivery milestones evaluation harnesses retrieval quality human escalation measurable outcomes Germany Austria Switzerland California Florida Chicago Berlin Munich Hamburg without inventing local storefronts unsupported ranking claims production monitoring bilingual support sales operations delivery milestones evaluation harnesses retrieval quality"
+        "body": "Discovery defines intents and forbidden topics. We prototype retrieval quality, then harden prompts, tools, and analytics. 24 hour response windows keep stakeholders unblocked while we iterate evaluation sets before go-live."
       }
     ]
   },
@@ -1310,20 +1334,20 @@
     "team": {
       "member1": {
         "role": "Founder & Automation Lead",
-        "expertise": "Workflow Automation • AI Agents • RAG Systems",
-        "tools": "Make.com, n8n, Zapier, GoHighLevel, AI Call Agents",
+        "expertise": "Workflow Automation • AI Agents • RAG Systems.",
+        "tools": "Make.com, n8n, Zapier, GoHighLevel, AI Call Agents.",
         "bio": "3+ years transforming manual operations into scalable automation systems, with a focus on efficiency, precision, and measurable business value."
       },
       "member2": {
         "role": "Full Stack Developer",
-        "expertise": "Web & App Development • API Architecture • CI/CD",
-        "tools": "Next.js, React, Python, FastAPI, Flask, Docker",
+        "expertise": "Web & App Development • API Architecture • CI/CD.",
+        "tools": "Next.js, React, Python, FastAPI, Flask, Docker.",
         "bio": "Builds web and mobile applications designed for speed, maintainability, and scale. Clean architecture and production-grade code are non-negotiable."
       },
       "member3": {
         "role": "CMS & Frontend Developer",
         "expertise": "WordPress • Shopify • E-commerce",
-        "tools": "WordPress, Shopify, WooCommerce, Liquid, PHP",
+        "tools": "WordPress, Shopify, WooCommerce, Liquid, PHP.",
         "bio": "Specializes in CMS and e-commerce solutions teams can manage with confidence, combining conversion logic, technical precision, and organic visibility."
       }
     },
@@ -1348,9 +1372,9 @@
   },
   "Pricing": {
     "eyebrow": "Pricing",
-    "headingLine1": "Clear pricing.",
-    "headingLine2": "No surprises.",
-    "introDescription": "Every project is different. These packages are starting points. You receive a precise quote after a focused requirements review.",
+    "headingLine1": "Clear agency pricing.",
+    "headingLine2": "Automation and web.",
+    "introDescription": "Packages for AI chatbots, n8n/Make automation and web development. Every project is scoped after a focused discovery — no surprise invoices.",
     "startingFrom": "starting from",
     "popularBadge": "Most Selected",
     "addonsHeading": "Add-ons & Extras",
@@ -1426,13 +1450,76 @@
         "name": "Additional Pages",
         "price": "From €50/page"
       }
-    }
+    },
+    "metaTitle": "Pricing — AI Automation, n8n, Make.com & Web Packages | XCLER",
+    "metaDescription": "Transparent XCLER pricing for AI automation agency work, n8n/Make workflows, chatbots and web development agency packages in Germany and DACH."
   },
   "Stats": {
     "years": "Years of Experience",
     "projects": "Projects Delivered",
     "industries": "Industries Served",
     "satisfaction": "Client Satisfaction",
-    "regionNote": "Delivered across Germany, DACH, California, Florida & Chicago"
+    "regionNote": "Delivered across Germany, DACH, California, Florida & Chicago."
+  },
+  "ServiceAiAutomationPage": {
+    "metaTitle": "AI Automation Agency Germany | Chatbots, Agents & Workflows | XCLER",
+    "metaDescription": "AI automation agency in Germany for chatbots, RAG agents, n8n and Make.com. XCLER ships production AI automation for DACH and remote US teams.",
+    "serviceLabel": "Service / 00",
+    "intro": "XCLER is your AI automation agency for production AI automation — from chatbots and agents to n8n/Make.com workflows that reduce support, sales and ops busywork.",
+    "hero": {
+      "h1": "AI automation agency for Germany",
+      "h2": "AI automation with chatbots, agents and workflows — built for B2B teams in Berlin and DACH.",
+      "paragraph": "Hire XCLER as your AI automation agency when you need production AI automation: RAG chatbots, AI agents, AI call assistants and workflow automation with n8n and Make.com — with clear ownership from discovery to monitoring."
+    },
+    "seoLede": "As an AI automation agency we connect AI automation to measurable ops outcomes. We start with intents, data sources and guardrails, then build chatbots or agents and wire n8n/Make for CRM and ticket handoffs.",
+    "citablePassage": "XCLER is an AI automation agency in Germany for AI automation with chatbots, RAG agents and workflow orchestration. We deliver bilingual DE/EN systems for DACH from Berlin and remotely for US teams, including evaluation, escalation and documented ownership.",
+    "answerHeading": "What does an AI automation agency like XCLER deliver?",
+    "listTitle": "AI automation in practice",
+    "listItems": [
+      "AI chatbots and RAG agents for support and sales",
+      "n8n and Make.com workflows for CRM and ops",
+      "AI call agents for qualification and routing",
+      "Guardrails, evaluation and human handoff",
+      "Web development when automation needs a surface"
+    ],
+    "coreFeatures": [
+      {
+        "title": "AI automation with clear business outcomes",
+        "description": "We prioritize use cases by impact: ticket deflection, lead qualification, inbox routing and ops handoffs — not demo chatbots without integration."
+      },
+      {
+        "title": "Production chatbots and agents",
+        "description": "RAG, tool calling, evaluation and escalation are standard. Answers stay grounded and actions stay auditable."
+      },
+      {
+        "title": "n8n and Make.com orchestration",
+        "description": "Once intent is clear, workflow automation runs deterministic steps into CRM, Slack, helpdesk and billing."
+      },
+      {
+        "title": "Berlin partner for DACH and remote US",
+        "description": "We serve Germany and DACH from Berlin and deliver remotely for California, Florida and Chicago — without inventing fake offices."
+      }
+    ],
+    "aeoFaq": [
+      {
+        "question": "What is an AI automation agency?",
+        "answer": "An AI automation agency plans and ships AI automation end-to-end: chatbots, agents and workflows that write into CRM and ops tools. XCLER delivers that as a production system with monitoring and ownership."
+      },
+      {
+        "question": "How is AI automation different from a simple chatbot?",
+        "answer": "Chatbots answer questions; AI automation connects answers to actions — tickets, deals, routing and follow-ups through n8n or Make.com."
+      },
+      {
+        "question": "Who should hire an AI automation agency in Germany?",
+        "answer": "B2B teams with recurring support or sales load, fragmented tools and a need for bilingual DE/EN quality across DACH."
+      },
+      {
+        "question": "How do we start with XCLER?",
+        "answer": "Discovery clarifies data, channels and KPIs. Then prototype, evaluation, go-live and runbooks — usually within a few weeks after scope approval."
+      }
+    ],
+    "ctaHeading": "Ready for AI automation that actually ships?",
+    "ctaDescription": "Tell us about support, sales or ops bottlenecks. We will propose a concrete AI automation plan.",
+    "ctaButton": "Start AI automation"
   }
 }

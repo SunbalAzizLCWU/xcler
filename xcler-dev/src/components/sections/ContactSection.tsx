@@ -4,6 +4,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
+import { Link } from "@/navigation";
 
 export function ContactSection() {
   const t = useTranslations("CTA");
@@ -126,12 +127,12 @@ export function ContactSection() {
                   <p className="text-xs text-cream/55">
                     Email
                   </p>
-                  <a
-                    href="mailto:hello@xcler.dev"
+                  <Link
+                    href="/contact"
                     className="font-medium text-cream transition-colors hover:text-sage"
                   >
-                    hello@xcler.dev
-                  </a>
+                    hello [at] xcler.dev
+                  </Link>
                 </div>
               </div>
 

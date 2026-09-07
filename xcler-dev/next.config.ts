@@ -65,6 +65,12 @@ const nextConfig: NextConfig = {
         destination: "/leistungen/ki-chatbots-agenten",
         permanent: true,
       },
+      // Unprefixed /work/* is not a valid DE path — send to EN case studies (fixes hreflang 307)
+      {
+        source: "/work/:slug",
+        destination: "/en/work/:slug",
+        permanent: true,
+      },
       // Fix GSC 404: short Shopify URL → canonical DE service page
       {
         source: "/leistungen/shopify-entwicklung",

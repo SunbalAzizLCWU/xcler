@@ -5,7 +5,7 @@ import { Link } from "@/navigation";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { SeoAnswerBlock } from "@/components/seo/SeoAnswerBlock";
-import { getServiceSchema } from "@/lib/structuredData";
+import { getServiceSchema, getFaqSchema } from "@/lib/structuredData";
 import { buildPageLinkedDataGraph } from "@/lib/pageLinkedData";
 import { buildPageMetadata } from "@/lib/seoMeta";
 
@@ -84,10 +84,16 @@ export default async function WorkflowAutomationPage({
     name: hero.h1,
     description: t("metaDescription"),
   });
-  const { "@context": _ctx, ...serviceNode } = service as Record<string, unknown> & {
-    "@context"?: string;
+  const faq = aeoFaq.length
+    ? getFaqSchema(resolvedLocale, aeoFaq, "/services/workflow-automation")
+    : null;
+  const stripContext = (node: Record<string, unknown>) => {
+    const { "@context": _c, ...rest } = node;
+    void _c;
+    return rest;
   };
-  void _ctx;
+  const entities = [stripContext(service as Record<string, unknown>)];
+  if (faq) entities.push(stripContext(faq as Record<string, unknown>));
   const pageGraph = buildPageLinkedDataGraph({
     locale: resolvedLocale,
     path: "/services/workflow-automation",
@@ -98,7 +104,7 @@ export default async function WorkflowAutomationPage({
       { name: resolvedLocale === "de" ? "Leistungen" : "Services", path: "/services" },
       { name: hero.h1, path: "/services/workflow-automation" },
     ],
-    entities: [serviceNode],
+    entities,
   });
 
   return (
@@ -244,16 +250,24 @@ export default async function WorkflowAutomationPage({
                 <p className="mt-6 text-sm text-cream/55">
                   {resolvedLocale === "de" ? (
                     <>
-                      Verwandte Leistung:{" "}
+                      Verwandte Leistungen:{" "}
+                      <Link href="/services/ai-automation" className="text-sage underline-offset-2 hover:underline">
+                        KI-Automatisierungsagentur
+                      </Link>
+                      {" · "}
                       <Link href="/services/ai-chatbots-agents" className="text-sage underline-offset-2 hover:underline">
-                        KI-Chatbots und Agenten Deutschland
+                        KI-Chatbot-Agentur
                       </Link>
                     </>
                   ) : (
                     <>
-                      Related service:{" "}
+                      Related services:{" "}
+                      <Link href="/services/ai-automation" className="text-sage underline-offset-2 hover:underline">
+                        AI automation agency
+                      </Link>
+                      {" · "}
                       <Link href="/services/ai-chatbots-agents" className="text-sage underline-offset-2 hover:underline">
-                        AI chatbots and agents Germany
+                        AI chatbot agency
                       </Link>
                     </>
                   )}

@@ -39,6 +39,7 @@ const staticRouteConfig: Array<{
   { href: "/services/shopify-development-germany", changeFrequency: "monthly", priority: 0.8 },
   { href: "/services/workflow-automation", changeFrequency: "weekly", priority: 0.95 },
   { href: "/services/ai-chatbots-agents", changeFrequency: "weekly", priority: 0.95 },
+  { href: "/services/ai-automation", changeFrequency: "weekly", priority: 0.98 },
   { href: "/work", changeFrequency: "weekly", priority: 0.8 },
   { href: "/blog", changeFrequency: "weekly", priority: 0.8 },
   { href: "/pricing", changeFrequency: "monthly", priority: 0.8 },

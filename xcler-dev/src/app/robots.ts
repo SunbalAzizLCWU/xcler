@@ -34,13 +34,8 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ["/admin/", "/api/", "/studio/"],
       },
     ],
-    // Keep the index + locale sitemaps; drop redundant duplicates from crawl queue noise
-    sitemap: [
-      "https://xcler.dev/sitemap-index.xml",
-      "https://xcler.dev/sitemap.xml",
-      "https://xcler.dev/sitemap-de.xml",
-      "https://xcler.dev/sitemap-en.xml",
-    ],
+    // Single index entry — locale sitemaps are linked from the index
+    sitemap: ["https://xcler.dev/sitemap-index.xml"],
     host: "https://xcler.dev",
   };
 }

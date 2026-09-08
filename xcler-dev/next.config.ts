@@ -82,6 +82,17 @@ const nextConfig: NextConfig = {
         destination: "/en/services/shopify-development-germany",
         permanent: true,
       },
+      // Typo slug Google discovered (missing "s")
+      {
+        source: "/en/services/ai-chatbot-agents",
+        destination: "/en/services/ai-chatbots-agents",
+        permanent: true,
+      },
+      {
+        source: "/services/ai-chatbot-agents",
+        destination: "/en/services/ai-chatbots-agents",
+        permanent: true,
+      },
       // Privacy: DE used /privacy historically; canonical DE is /datenschutz
       {
         source: "/privacy",
@@ -96,6 +107,11 @@ const nextConfig: NextConfig = {
       // Stale assets / files Google still crawls
       {
         source: "/Cv.docx",
+        destination: "/ueber-uns",
+        permanent: true,
+      },
+      {
+        source: "/cv.docx",
         destination: "/ueber-uns",
         permanent: true,
       },

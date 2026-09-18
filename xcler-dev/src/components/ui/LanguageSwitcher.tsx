@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { motion } from "framer-motion";
 import { useLocale } from "next-intl";
 import { useParams } from "next/navigation";
@@ -14,19 +14,30 @@ export function LanguageSwitcher() {
   const pathname = usePathname();
   const router = useRouter();
   const params = useParams();
+  const [compact, setCompact] = useState(false);
+
+  useEffect(() => {
+    const mq = window.matchMedia("(max-width: 639px)");
+    const sync = () => setCompact(mq.matches);
+    sync();
+    mq.addEventListener("change", sync);
+    return () => mq.removeEventListener("change", sync);
+  }, []);
 
   const switchLocale = (nextLocale: Locale) => {
     router.replace({ pathname, params } as never, { locale: nextLocale });
   };
 
   const activeIndex = useMemo(() => Math.max(0, LOCALES.indexOf(locale)), [locale]);
+  const pillWidth = compact ? 40 : 50;
 
   return (
-    <div className="relative inline-flex items-center border border-cream/15 bg-charcoal/70 p-1 backdrop-blur-md">
+    <div className="relative inline-flex max-w-full shrink-0 items-center border border-cream/15 bg-charcoal/70 p-0.5 backdrop-blur-md sm:p-1">
       <motion.span
-        className="pointer-events-none absolute top-1 bottom-1 w-[50px] bg-sage"
+        className="pointer-events-none absolute top-0.5 bottom-0.5 bg-sage sm:top-1 sm:bottom-1"
+        style={{ width: pillWidth }}
         initial={false}
-        animate={{ x: activeIndex * 50 }}
+        animate={{ x: activeIndex * pillWidth }}
         transition={{ type: "spring", stiffness: 380, damping: 28 }}
       />
 
@@ -36,7 +47,7 @@ export function LanguageSwitcher() {
           <button
             key={item}
             onClick={() => switchLocale(item)}
-            className={`relative z-10 inline-flex h-8 w-[50px] items-center justify-center font-mono text-[11px] font-semibold tracking-wider uppercase transition-colors ${
+            className={`relative z-10 inline-flex h-8 w-10 items-center justify-center font-mono text-[10px] font-semibold tracking-wider uppercase transition-colors sm:w-[50px] sm:text-[11px] ${
               isActive ? "text-richblack" : "text-cream/70 hover:text-cream"
             }`}
             aria-current={isActive ? "true" : undefined}

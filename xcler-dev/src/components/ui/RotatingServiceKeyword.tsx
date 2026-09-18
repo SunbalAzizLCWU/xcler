@@ -31,8 +31,11 @@ export function RotatingServiceKeyword({
   }
 
   return (
-    <span className="relative inline-flex min-h-[1.1em] max-w-full items-center justify-center overflow-hidden text-center align-middle">
-      <span key={`${safeWords[index]}-${index}`} className="inline-block text-balance transition-opacity duration-300">
+    <span className="relative inline-flex min-h-[1.1em] w-full max-w-full items-center overflow-hidden text-left align-middle sm:justify-center sm:text-center">
+      <span
+        key={`${safeWords[index]}-${index}`}
+        className="inline-block max-w-full break-words text-balance transition-opacity duration-300"
+      >
         {safeWords[index]}
       </span>
     </span>

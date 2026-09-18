@@ -40,8 +40,8 @@ export function HeroExperience({
   const reduceMotion = useReducedMotion();
 
   return (
-    <section className="relative min-h-[100svh] overflow-hidden">
-      <div className="absolute inset-0" aria-hidden="true">
+    <section className="relative min-h-[100svh] max-w-[100vw] overflow-hidden">
+      <div className="absolute inset-0 overflow-hidden" aria-hidden="true">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(45,255,154,0.12),_transparent_55%),radial-gradient(ellipse_at_bottom_right,_rgba(255,77,28,0.14),_transparent_45%)]" />
         <div
           className="absolute inset-0 opacity-[0.35] md:opacity-40"
@@ -51,38 +51,38 @@ export function HeroExperience({
             backgroundSize: "64px 64px",
           }}
         />
-        {/* Static orbs — no infinite Framer loops on the LCP path */}
-        <div className="absolute -left-24 top-1/4 h-[22rem] w-[22rem] rounded-full bg-sage/10 blur-[100px] md:h-[28rem] md:w-[28rem]" />
-        <div className="absolute -right-16 bottom-0 h-[24rem] w-[24rem] rounded-full bg-terracotta/15 blur-[110px] md:h-[32rem] md:w-[32rem]" />
+        {/* Static orbs — clipped by parent; sized down on mobile to avoid sideways bleed */}
+        <div className="absolute -left-16 top-1/4 h-[14rem] w-[14rem] rounded-full bg-sage/10 blur-[80px] sm:-left-24 sm:h-[22rem] sm:w-[22rem] sm:blur-[100px] md:h-[28rem] md:w-[28rem]" />
+        <div className="absolute -right-12 bottom-0 h-[16rem] w-[16rem] rounded-full bg-terracotta/15 blur-[90px] sm:-right-16 sm:h-[24rem] sm:w-[24rem] sm:blur-[110px] md:h-[32rem] md:w-[32rem]" />
       </div>
 
-      <div className="container-custom relative z-10 flex min-h-[100svh] flex-col justify-center pb-16 pt-24 md:pb-20 md:pt-28">
-        <div className="mb-8 flex items-end justify-between gap-4 border-b border-cream/10 pb-5 md:mb-10 md:gap-6 md:pb-6">
-          <div className="font-mono text-[9px] uppercase tracking-[0.28em] text-stone-light sm:text-[10px] sm:tracking-[0.35em]">
+      <div className="container-custom relative z-10 flex min-h-[100svh] min-w-0 flex-col justify-center pb-16 pt-24 md:pb-20 md:pt-28">
+        <div className="mb-8 flex flex-col gap-3 border-b border-cream/10 pb-5 sm:mb-10 sm:flex-row sm:items-end sm:justify-between sm:gap-4 md:gap-6 md:pb-6">
+          <div className="min-w-0 font-mono text-[9px] uppercase tracking-[0.18em] text-stone-light sm:text-[10px] sm:tracking-[0.28em] md:tracking-[0.35em]">
             Berlin · DACH · Benelux · Remote US
           </div>
-          <div className="text-right">
-            <div className="font-mono text-[9px] uppercase tracking-[0.28em] text-sage md:text-[10px] md:tracking-[0.3em]">
+          <div className="min-w-0 sm:max-w-[55%] sm:text-right">
+            <div className="break-words font-mono text-[9px] uppercase tracking-[0.16em] text-sage sm:tracking-[0.22em] md:text-[10px] md:tracking-[0.3em]">
               {availabilityBadge}
             </div>
-            <div className="mt-2 ml-auto h-px w-16 bg-sage/70 md:w-24" />
+            <div className="mt-2 h-px w-16 bg-sage/70 sm:ml-auto md:w-24" />
           </div>
         </div>
 
-        <div className="grid items-end gap-8 lg:grid-cols-[1.35fr_0.65fr] lg:gap-10">
-          <div>
+        <div className="grid min-w-0 items-end gap-8 lg:grid-cols-[1.35fr_0.65fr] lg:gap-10">
+          <div className="min-w-0">
             {/* LCP elements: always visible on first paint — never opacity:0 */}
-            <h1 className="max-w-5xl text-balance font-heading text-[clamp(1.85rem,7.2vw,5.75rem)] font-bold leading-[0.95] tracking-[-0.04em] text-cream">
+            <h1 className="max-w-5xl text-balance break-words font-heading text-[clamp(1.75rem,7vw,5.75rem)] font-bold leading-[0.95] tracking-[-0.04em] text-cream">
               {headlineTop}
               {headlineBottom ? <> {headlineBottom}</> : null}
             </h1>
 
-            <div className="mt-4 max-w-2xl font-heading text-base leading-snug text-cream/80 sm:text-xl md:mt-5 md:text-2xl">
+            <div className="mt-4 max-w-2xl break-words font-heading text-base leading-snug text-cream/80 sm:text-xl md:mt-5 md:text-2xl">
               {supportLine}
             </div>
 
             <div
-              className="mt-5 inline-flex max-w-full overflow-hidden border-y border-sage/30 py-2 font-heading text-lg font-semibold text-sage sm:text-2xl md:mt-6 md:text-4xl"
+              className="mt-5 flex w-full max-w-full overflow-hidden border-y border-sage/30 py-2 font-heading text-base font-semibold text-sage sm:text-2xl md:mt-6 md:text-4xl"
               aria-hidden="true"
             >
               <RotatingServiceKeyword words={rotatingWords} />

@@ -1,5 +1,4 @@
-// src/app/layout.tsx
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { DM_Sans, IBM_Plex_Mono, Syne } from "next/font/google";
 import dynamic from "next/dynamic";
 import { NextIntlClientProvider } from "next-intl";
@@ -15,6 +14,13 @@ import "../globals.css";
 const WhatsAppButton = dynamic(
   () => import("@/components/ui/WhatsAppButton").then((module) => module.WhatsAppButton)
 );
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+  themeColor: "#07080c",
+};
 
 const dmSans = DM_Sans({
   subsets: ["latin", "latin-ext"],
@@ -321,7 +327,7 @@ export default async function RootLayout({
           >
             Skip to content
           </a>
-          <div className="relative z-10">
+          <div className="site-shell relative z-10 max-w-[100vw] overflow-x-clip">
             <SiteMotionChrome />
             <Navbar />
             <main id="main-content">{children}</main>

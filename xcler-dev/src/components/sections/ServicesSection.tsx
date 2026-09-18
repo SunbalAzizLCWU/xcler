@@ -97,10 +97,10 @@ export function ServicesSection() {
                       setActiveService(i);
                     }
                   }}
-                  className={`group cursor-pointer border-b border-cream/10 py-6 transition-all duration-300 hover:translate-x-1.5 ${
+                  className={`group cursor-pointer border-b border-cream/10 py-6 transition-all duration-300 md:hover:translate-x-1.5 ${
                     activeService === i
                       ? "border-l-2 border-l-sage pl-4"
-                      : "pl-0 hover:pl-4"
+                      : "pl-0 md:hover:pl-4"
                   }`}
                 >
                   <div className="flex items-start justify-between">

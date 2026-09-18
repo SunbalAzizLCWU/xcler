@@ -24,8 +24,8 @@ export function AnimatedSection({
   const directions = {
     up: { y: 28, x: 0 },
     down: { y: -28, x: 0 },
-    left: { y: 0, x: -28 },
-    right: { y: 0, x: 28 },
+    left: { y: 0, x: -12 },
+    right: { y: 0, x: 12 },
     none: { y: 0, x: 0 },
   };
 

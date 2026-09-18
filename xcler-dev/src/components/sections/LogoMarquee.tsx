@@ -21,7 +21,7 @@ export function LogoMarquee() {
 
   return (
     <section
-      className="relative overflow-hidden border-y border-cream/10 bg-charcoal/40 py-5"
+      className="relative max-w-[100vw] overflow-hidden border-y border-cream/10 bg-charcoal/40 py-5"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
       aria-label="Capabilities"

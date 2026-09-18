@@ -33,21 +33,35 @@ export function Navbar() {
   }, []);
 
   useEffect(() => {
-    document.body.style.overflow = isOpen ? "hidden" : "unset";
+    setIsOpen(false);
+  }, [pathname]);
+
+  useEffect(() => {
+    document.body.style.overflow = isOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
   }, [isOpen]);
 
   return (
     <>
       <nav
         className={cn(
-          "fixed left-0 right-0 top-0 z-[100] transition-all duration-500",
+          "fixed inset-x-0 top-0 z-[100] w-full max-w-[100vw] overflow-x-clip transition-all duration-500",
           scrolled
             ? "border-b border-cream/10 bg-richblack/80 backdrop-blur-xl"
             : "border-b border-transparent bg-transparent"
         )}
+        style={{
+          paddingTop: "env(safe-area-inset-top)",
+        }}
       >
-        <div className="container-custom flex h-[4.5rem] items-center justify-between">
-          <Link href="/" className="relative z-[101] group" aria-label="XCLER home">
+        <div className="container-custom flex h-[4.5rem] min-w-0 w-full items-center justify-between gap-2">
+          <Link
+            href="/"
+            className="relative z-[101] min-w-0 shrink group"
+            aria-label="XCLER home"
+          >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/logo-nav.webp"
@@ -55,11 +69,11 @@ export function Navbar() {
               width={152}
               height={40}
               decoding="async"
-              className="h-8 w-auto transition-opacity group-hover:opacity-90 md:h-9"
+              className="h-7 w-auto max-w-[7.5rem] transition-opacity group-hover:opacity-90 sm:h-8 sm:max-w-none md:h-9"
             />
           </Link>
 
-          <div className="hidden items-center gap-1 lg:flex">
+          <div className="hidden min-w-0 items-center gap-1 lg:flex">
             {navLinks.map((link) => (
               <Link
                 key={link.label}
@@ -81,12 +95,14 @@ export function Navbar() {
             </MagneticButton>
           </div>
 
-          <div className="flex items-center gap-3 lg:hidden">
+          <div className="flex shrink-0 items-center gap-2 sm:gap-3 lg:hidden">
             <LanguageSwitcher />
             <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="relative z-[101] flex h-10 w-10 items-center justify-center"
-              aria-label="Toggle menu"
+              type="button"
+              onClick={() => setIsOpen((open) => !open)}
+              className="relative z-[101] flex h-11 w-11 shrink-0 items-center justify-center touch-manipulation"
+              aria-label={isOpen ? "Close menu" : "Open menu"}
+              aria-expanded={isOpen}
             >
               <div className="flex flex-col gap-1.5">
                 <motion.span
@@ -113,20 +129,25 @@ export function Navbar() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[99] bg-richblack lg:hidden"
+            className="fixed inset-0 z-[99] overflow-y-auto overflow-x-hidden bg-richblack lg:hidden"
+            style={{
+              paddingTop: "calc(4.5rem + env(safe-area-inset-top))",
+              paddingBottom: "env(safe-area-inset-bottom)",
+            }}
           >
-            <div className="flex h-full flex-col items-start justify-center gap-5 px-8">
+            <div className="flex min-h-full flex-col items-start justify-center gap-4 px-6 py-10 sm:gap-5 sm:px-8">
               {navLinks.map((link, i) => (
                 <motion.div
                   key={link.label}
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: i * 0.06 }}
+                  className="w-full max-w-full"
                 >
                   <Link
                     href={link.href}
                     onClick={() => setIsOpen(false)}
-                    className="font-heading text-4xl font-bold text-cream transition-colors hover:text-sage"
+                    className="block break-words font-heading text-3xl font-bold text-cream transition-colors hover:text-sage sm:text-4xl"
                   >
                     {link.label}
                   </Link>
@@ -136,9 +157,15 @@ export function Navbar() {
                 initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4 }}
-                className="pt-4"
+                className="w-full pt-4"
               >
-                <MagneticButton href="/contact" variant="primary" size="lg" onClick={() => setIsOpen(false)}>
+                <MagneticButton
+                  href="/contact"
+                  variant="primary"
+                  size="lg"
+                  className="w-full sm:w-auto"
+                  onClick={() => setIsOpen(false)}
+                >
                   {t("contactBtn")}
                 </MagneticButton>
               </motion.div>

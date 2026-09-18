@@ -48,7 +48,7 @@ export async function Footer({ locale }: { locale: string }) {
     <footer className="border-t border-cream/10 bg-richblack text-cream">
       <AnimatedSection>
         <div className="section-padding text-center">
-          <h2 className="mb-6 font-heading text-4xl font-bold tracking-tight md:text-6xl lg:text-7xl">
+          <h2 className="mb-6 font-heading text-3xl font-bold tracking-tight sm:text-4xl md:text-6xl lg:text-7xl">
             {t("cta.headingLine1")}
             <br />
             <span className="text-gradient-signal">{t("cta.headingLine2")}</span>

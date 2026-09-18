@@ -55,20 +55,23 @@ export function SeoAnswerBlock({
       ) : null}
 
       {tableRows.length > 0 ? (
-        <div className="overflow-x-auto border border-cream/10 bg-charcoal/50">
+        <div className="overflow-x-auto overscroll-x-contain border border-cream/10 bg-charcoal/50 [-webkit-overflow-scrolling:touch]">
           {tableCaption ? (
             <p className="border-b border-cream/10 px-4 py-2 font-mono text-xs uppercase tracking-wider text-stone-light">
               {tableCaption}
             </p>
           ) : null}
-          <table className="min-w-full text-left text-sm">
+          <table className="w-full min-w-[18rem] text-left text-sm sm:min-w-full">
             <tbody>
               {tableRows.map((row) => (
                 <tr key={row.label} className="border-b border-cream/10 last:border-0">
-                  <th scope="row" className="px-4 py-3 font-medium text-cream">
+                  <th
+                    scope="row"
+                    className="align-top px-3 py-3 font-medium text-cream sm:px-4 sm:whitespace-nowrap"
+                  >
                     {row.label}
                   </th>
-                  <td className="px-4 py-3 text-cream/70">{row.value}</td>
+                  <td className="break-words px-3 py-3 text-cream/70 sm:px-4">{row.value}</td>
                 </tr>
               ))}
             </tbody>

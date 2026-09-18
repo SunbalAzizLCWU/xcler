@@ -95,7 +95,7 @@ export async function Pricing({ locale }: { locale: string }) {
           {packages.map((pkg, i) => (
             <AnimatedSection key={pkg.name} delay={i * 0.15} className="h-full">
               <div
-                className={`panel panel-hover relative flex h-full flex-col p-8 ${
+                className={`panel panel-hover relative flex h-full min-w-0 flex-col p-5 sm:p-8 ${
                   pkg.popular ? "border-sage/40 bg-sage/5" : ""
                 }`}
               >

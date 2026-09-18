@@ -75,13 +75,24 @@
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    max-width: 100%;
+    overflow-x: clip;
   }
 
   body {
     font-family: var(--font-body);
     background-color: var(--color-richblack);
     color: var(--color-cream);
-    overflow-x: hidden;
+    max-width: 100%;
+    overflow-x: clip;
+    position: relative;
+  }
+
+  /* Prevent any wide child from creating a sideways page scroll on mobile */
+  #main-content,
+  .site-shell {
+    max-width: 100%;
+    overflow-x: clip;
   }
 
   ::selection {
@@ -320,6 +331,16 @@
 
     .panel {
       backdrop-filter: blur(8px);
+    }
+
+    .container-custom {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+
+    .section-padding {
+      padding-left: 1rem;
+      padding-right: 1rem;
     }
   }
 

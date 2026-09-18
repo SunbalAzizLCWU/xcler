@@ -55,7 +55,7 @@ export async function ProcessSection({ locale }: { locale: string }) {
           <div className="space-y-12">
             {steps.map((step, i) => (
               <AnimatedSection key={step.number} delay={i * 0.15} direction="left">
-                <div className="flex items-start gap-8 md:gap-16">
+                <div className="flex items-start gap-4 md:gap-16">
                   <div className="relative hidden md:block">
                     <div className="flex h-16 w-16 items-center justify-center border border-cream/15 bg-richblack">
                       <span className="font-mono text-sm font-semibold text-sage">
@@ -64,17 +64,17 @@ export async function ProcessSection({ locale }: { locale: string }) {
                     </div>
                   </div>
 
-                  <div className="panel panel-hover flex-1 p-8">
-                    <div className="flex items-start justify-between">
-                      <div>
+                  <div className="panel panel-hover min-w-0 flex-1 p-5 sm:p-8">
+                    <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+                      <div className="min-w-0">
                         <span className="font-mono text-xs text-sage md:hidden">
                           {step.number}
                         </span>
-                        <h3 className="mt-1 font-heading text-2xl font-semibold">
+                        <h3 className="mt-1 break-words font-heading text-xl font-semibold sm:text-2xl">
                           {step.title}
                         </h3>
                       </div>
-                      <span className="border border-sage/25 bg-sage/10 px-3 py-1 font-mono text-xs text-sage">
+                      <span className="w-fit shrink-0 border border-sage/25 bg-sage/10 px-3 py-1 font-mono text-xs text-sage">
                         {step.duration}
                       </span>
                     </div>

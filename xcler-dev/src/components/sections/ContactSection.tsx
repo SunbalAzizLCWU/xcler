@@ -89,7 +89,7 @@ export function ContactSection() {
   return (
     <section className="section-padding" id="contact">
       <div className="container-custom">
-        <div className="grid grid-cols-1 gap-16 lg:grid-cols-2">
+        <div className="grid grid-cols-1 gap-10 lg:grid-cols-2 lg:gap-16">
           <AnimatedSection>
             <div className="mb-4 flex items-center gap-4">
               <div className="line-decoration" />
@@ -241,7 +241,7 @@ export function ContactSection() {
                     required
                     value={formData.name}
                     onChange={handleChange}
-                    className="w-full border border-cream/10 bg-charcoal/40 px-4 py-3 font-body text-sm text-cream outline-none transition-all placeholder:text-cream/30 focus:border-sage focus:ring-1 focus:ring-sage/20"
+                    className="w-full min-w-0 max-w-full border border-cream/10 bg-charcoal/40 px-4 py-3 font-body text-sm text-cream outline-none transition-all placeholder:text-cream/30 focus:border-sage focus:ring-1 focus:ring-sage/20"
                     placeholder={tForm("namePlaceholder")}
                   />
                 </div>
@@ -262,7 +262,7 @@ export function ContactSection() {
                     required
                     value={formData.email}
                     onChange={handleChange}
-                    className="w-full border border-cream/10 bg-charcoal/40 px-4 py-3 font-body text-sm text-cream outline-none transition-all placeholder:text-cream/30 focus:border-sage focus:ring-1 focus:ring-sage/20"
+                    className="w-full min-w-0 max-w-full border border-cream/10 bg-charcoal/40 px-4 py-3 font-body text-sm text-cream outline-none transition-all placeholder:text-cream/30 focus:border-sage focus:ring-1 focus:ring-sage/20"
                     placeholder={tForm("emailPlaceholder")}
                   />
                 </div>
@@ -282,7 +282,7 @@ export function ContactSection() {
                     autoComplete="organization"
                     value={formData.company}
                     onChange={handleChange}
-                    className="w-full border border-cream/10 bg-charcoal/40 px-4 py-3 font-body text-sm text-cream outline-none transition-all placeholder:text-cream/30 focus:border-sage focus:ring-1 focus:ring-sage/20"
+                    className="w-full min-w-0 max-w-full border border-cream/10 bg-charcoal/40 px-4 py-3 font-body text-sm text-cream outline-none transition-all placeholder:text-cream/30 focus:border-sage focus:ring-1 focus:ring-sage/20"
                     placeholder={tForm("companyPlaceholder")}
                   />
                 </div>
@@ -302,7 +302,7 @@ export function ContactSection() {
                     required
                     value={formData.service}
                     onChange={handleChange}
-                    className="w-full border border-cream/10 bg-charcoal/40 px-4 py-3 font-body text-sm text-cream outline-none transition-all focus:border-sage focus:ring-1 focus:ring-sage/20"
+                    className="w-full min-w-0 max-w-full border border-cream/10 bg-charcoal/40 px-4 py-3 font-body text-sm text-cream outline-none transition-all focus:border-sage focus:ring-1 focus:ring-sage/20"
                   >
                     <option value="" disabled>
                       {tForm("servicePlaceholder")}

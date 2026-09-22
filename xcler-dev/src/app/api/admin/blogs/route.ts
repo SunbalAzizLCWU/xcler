@@ -1,50 +1,9 @@
 import { NextResponse } from "next/server";
 import fs from "fs";
 import path from "path";
-import { groq } from "next-sanity";
-import { client } from "@/sanity/lib/client";
+import { getAllBlogMetas } from "@/lib/blog";
 
 const blogsFile = path.join(process.cwd(), "data", "blogs.json");
-
-type SanitySlug = {
-  current?: string;
-};
-
-type SanityAdminPost = {
-  id: string;
-  title: string;
-  excerpt: string;
-  content: string;
-  category: string;
-  tags: string[];
-  metaTitle: string;
-  metaDescription: string;
-  published: boolean;
-  createdAt: string;
-  updatedAt: string;
-  slug_de?: SanitySlug;
-  slug_en?: SanitySlug;
-  slug_legacy?: string;
-};
-
-const adminBlogsQuery = groq`
-  *[_type == "blogPost"] | order(_createdAt desc) {
-    "id": _id,
-    "title": coalesce(title_en, title_de, title, "Untitled"),
-    "excerpt": coalesce(pt::text(body_en)[0...180], pt::text(body_de)[0...180], pt::text(body)[0...180], ""),
-    "content": coalesce(pt::text(body_en), pt::text(body_de), pt::text(body), ""),
-    "category": "blog",
-    "tags": [],
-    "metaTitle": coalesce(title_en, title_de, title, "Untitled"),
-    "metaDescription": coalesce(pt::text(body_en)[0...160], pt::text(body_de)[0...160], pt::text(body)[0...160], ""),
-    "published": true,
-    "createdAt": _createdAt,
-    "updatedAt": _updatedAt,
-    "slug_de": {"current": coalesce(slug_de.current, slug.current, slug_en.current)},
-    "slug_en": {"current": coalesce(slug_en.current, slug.current, slug_de.current)},
-    "slug_legacy": slug.current
-  }
-`;
 
 type BlogRecord = {
   id: string;
@@ -74,13 +33,26 @@ function writeBlogs(blogs: BlogRecord[]) {
 }
 
 export async function GET() {
-  try {
-    const posts = await client.fetch<SanityAdminPost[]>(adminBlogsQuery);
-    return NextResponse.json({ posts });
-  } catch {
-    // Keep local file fallback for resilience when CMS is unreachable.
-    return NextResponse.json({ posts: readBlogs() });
-  }
+  const en = getAllBlogMetas("en");
+  const posts = en.map((post) => ({
+    id: post.id,
+    title: post.title,
+    excerpt: post.excerpt,
+    content: "",
+    category: "blog",
+    tags: post.tags,
+    metaTitle: post.seoTitle,
+    metaDescription: post.seoDescription,
+    published: true,
+    createdAt: post.publishedAt,
+    updatedAt: post.updatedAt || post.publishedAt,
+    slug_de: { current: post.slugDe },
+    slug_en: { current: post.slugEn },
+  }));
+
+  // Merge optional local admin drafts if present.
+  const local = readBlogs();
+  return NextResponse.json({ posts: [...posts, ...local] });
 }
 
 export async function POST(request: Request) {

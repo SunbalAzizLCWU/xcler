@@ -1,7 +1,6 @@
 import { getPathname } from "@/navigation";
 import { caseStudies } from "@/data/caseStudies";
-import { client } from "@/sanity/lib/client";
-import { groq } from "next-sanity";
+import { getBlogSitemapRows } from "@/lib/blog";
 
 export type Locale = "en" | "de";
 
@@ -13,13 +12,6 @@ export type SitemapEntry = {
   alternates: {
     languages: Record<string, string>;
   };
-};
-
-type BlogSitemapRow = {
-  slug_en?: string;
-  slug_de?: string;
-  updatedAt?: string;
-  createdAt?: string;
 };
 
 export const BASE_URL = "https://xcler.dev";
@@ -47,15 +39,6 @@ const staticRouteConfig: Array<{
   // Legal pages are intentionally noindex — do NOT list them in sitemaps
   // (conflicting sitemap+noindex → GSC "Discovered / Excluded by noindex").
 ];
-
-const blogSitemapQuery = groq`
-  *[_type == "blogPost" && (defined(slug.current) || defined(slug_en.current) || defined(slug_de.current))] {
-    "slug_en": coalesce(slug_en.current, slug.current),
-    "slug_de": coalesce(slug_de.current, slug.current),
-    "updatedAt": _updatedAt,
-    "createdAt": _createdAt
-  }
-`;
 
 export function toAbsoluteUrl(path: string) {
   if (path === "/") return BASE_URL;
@@ -132,47 +115,37 @@ export async function buildLocaleSitemap(locale: Locale): Promise<SitemapEntry[]
     });
   }
 
-  try {
-    const rows = await Promise.race([
-      client.fetch<BlogSitemapRow[]>(blogSitemapQuery),
-      new Promise<BlogSitemapRow[]>((_, reject) =>
-        setTimeout(() => reject(new Error("sitemap blog fetch timeout")), 2500)
-      ),
-    ]);
-    for (const row of rows) {
-      const lastModified = new Date(row.updatedAt ?? row.createdAt ?? now.toISOString());
+  for (const row of getBlogSitemapRows()) {
+    const lastModified = new Date(row.updatedAt ?? row.createdAt ?? now.toISOString());
 
-      // Never cross-publish EN slug on DE path (or vice versa) — causes GSC alternate/canonical mismatches
-      if (locale === "en" && row.slug_en) {
-        const enPath = getLocalizedPath("en", `/blog/${row.slug_en}`);
-        const dePath = row.slug_de
-          ? getLocalizedPath("de", `/blog/${row.slug_de}`)
-          : enPath;
-        entries.push({
-          url: toAbsoluteUrl(enPath),
-          lastModified,
-          changeFrequency: "weekly",
-          priority: 0.7,
-          alternates: languageAlternates(enPath, dePath),
-        });
-      }
-
-      if (locale === "de" && row.slug_de) {
-        const dePath = getLocalizedPath("de", `/blog/${row.slug_de}`);
-        const enPath = row.slug_en
-          ? getLocalizedPath("en", `/blog/${row.slug_en}`)
-          : dePath;
-        entries.push({
-          url: toAbsoluteUrl(dePath),
-          lastModified,
-          changeFrequency: "weekly",
-          priority: 0.7,
-          alternates: languageAlternates(enPath, dePath),
-        });
-      }
+    // Never cross-publish EN slug on DE path (or vice versa) — causes GSC alternate/canonical mismatches
+    if (locale === "en" && row.slug_en) {
+      const enPath = getLocalizedPath("en", `/blog/${row.slug_en}`);
+      const dePath = row.slug_de
+        ? getLocalizedPath("de", `/blog/${row.slug_de}`)
+        : enPath;
+      entries.push({
+        url: toAbsoluteUrl(enPath),
+        lastModified,
+        changeFrequency: "weekly",
+        priority: 0.7,
+        alternates: languageAlternates(enPath, dePath),
+      });
     }
-  } catch {
-    // CMS optional / timed out — keep static routes so Google still gets a 200.
+
+    if (locale === "de" && row.slug_de) {
+      const dePath = getLocalizedPath("de", `/blog/${row.slug_de}`);
+      const enPath = row.slug_en
+        ? getLocalizedPath("en", `/blog/${row.slug_en}`)
+        : dePath;
+      entries.push({
+        url: toAbsoluteUrl(dePath),
+        lastModified,
+        changeFrequency: "weekly",
+        priority: 0.7,
+        alternates: languageAlternates(enPath, dePath),
+      });
+    }
   }
 
   return entries;

@@ -1,49 +1,12 @@
 import type { Metadata } from "next";
-import { groq } from "next-sanity";
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/navigation";
-import { client } from "@/sanity/lib/client";
-import {
-  BLOG_IMAGE_ALT_BY_LOCALE,
-  BLOG_IMAGE_BY_LOCALE,
-  BLOG_SLUG_BY_LOCALE,
-  BLOG_TITLE_BY_LOCALE,
-} from "@/sanity/lib/blog";
-import { urlFor } from "@/sanity/lib/image";
+import { getAllBlogMetas } from "@/lib/blog";
 import { buildPageMetadata } from "@/lib/seoMeta";
 
-export const revalidate = 60;
-export const dynamic = "force-dynamic";
+export const revalidate = 3600;
 
-type BlogPostCard = {
-  _id: string;
-  title: string;
-  slug?: string;
-  slug_en?: string;
-  slug_de?: string;
-  slug_legacy?: string;
-  mainImage?: unknown;
-  imageAlt: string;
-  excerpt: string;
-  publishedAt: string;
-  authorName?: string;
-};
-
-const blogPostsQuery = groq`
-  *[_type == "blogPost"] | order(_createdAt desc) {
-    _id,
-    "title": ${BLOG_TITLE_BY_LOCALE},
-    "slug": ${BLOG_SLUG_BY_LOCALE},
-    "slug_en": coalesce(slug_en.current, slug.current, slug_de.current),
-    "slug_de": coalesce(slug_de.current, slug.current, slug_en.current),
-    "slug_legacy": slug.current,
-    "mainImage": ${BLOG_IMAGE_BY_LOCALE},
-    "imageAlt": ${BLOG_IMAGE_ALT_BY_LOCALE},
-    "excerpt": coalesce(select($locale == "de" => pt::text(body_de), pt::text(body_en)), pt::text(body), "")[0...180],
-    "publishedAt": _createdAt,
-    "authorName": author->name
-  }
-`;
+type Locale = "en" | "de";
 
 function BlogPageHeader({
   eyebrow,
@@ -91,17 +54,10 @@ export default async function BlogPage({
 }: {
   params: Promise<{ locale: string }>;
 }) {
-  const { locale } = await params;
+  const { locale: localeParam } = await params;
+  const locale = (localeParam === "en" ? "en" : "de") as Locale;
   const t = await getTranslations({ locale, namespace: "BlogPage" });
-  let posts: BlogPostCard[] = [];
-
-  try {
-    posts = await client.fetch<BlogPostCard[]>(blogPostsQuery, { locale });
-  } catch {
-    if (process.env.NODE_ENV !== "production") {
-      console.warn("[blog] Failed to fetch blog index posts.");
-    }
-  }
+  const posts = getAllBlogMetas(locale);
 
   const formatter = new Intl.DateTimeFormat(locale === "de" ? "de-DE" : "en-US", {
     day: "2-digit",
@@ -124,38 +80,20 @@ export default async function BlogPage({
           </div>
         ) : (
           <div className="mt-16 grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
-            {posts.map((post) => {
-              const postSlug = locale === "de" ? post.slug_de : post.slug_en;
-              const fallbackSlug = locale === "de" ? post.slug_en : post.slug_de;
-              const resolvedSlug = postSlug || fallbackSlug || post.slug_legacy;
-
-              if (!resolvedSlug) {
-                return (
-                  <article
-                    key={post._id}
-                    className="panel h-full overflow-hidden border-dashed p-6"
-                  >
-                    <p className="font-heading text-xl font-semibold">{post.title}</p>
-                    <p className="mt-3 text-sm text-cream/60">{post.excerpt}</p>
-                    <p className="mt-5 font-mono text-xs uppercase tracking-[0.2em] text-cream/40">Missing Slug</p>
-                  </article>
-                );
-              }
-
-              return (
-                <Link
-                  key={post._id}
-                  href={{ pathname: "/blog/[slug]", params: { slug: resolvedSlug } }}
-                  locale={locale as "en" | "de"}
-                  className="group block"
-                >
+            {posts.map((post) => (
+              <Link
+                key={post.id + post.slug}
+                href={{ pathname: "/blog/[slug]", params: { slug: post.slug } }}
+                locale={locale}
+                className="group block"
+              >
                 <article className="panel panel-hover h-full overflow-hidden">
                   <div className="relative h-52 w-full overflow-hidden bg-gradient-to-br from-stone/20 to-stone/5">
-                    {post.mainImage ? (
+                    {post.cover ? (
                       // eslint-disable-next-line @next/next/no-img-element
                       <img
-                        src={urlFor(post.mainImage).width(960).height(560).fit("crop").quality(80).url()}
-                        alt={post.imageAlt}
+                        src={post.cover}
+                        alt={post.coverAlt}
                         className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                         loading="lazy"
                       />
@@ -173,9 +111,9 @@ export default async function BlogPage({
                       <p className="text-xs uppercase tracking-[0.16em] text-cream/35">
                         {formatter.format(new Date(post.publishedAt))}
                       </p>
-                      {post.authorName && (
+                      {post.author && (
                         <p className="text-xs text-cream/40">
-                          {t("byLabel")} {post.authorName}
+                          {t("byLabel")} {post.author}
                         </p>
                       )}
                     </div>
@@ -192,9 +130,8 @@ export default async function BlogPage({
                     </p>
                   </div>
                 </article>
-                </Link>
-              );
-            })}
+              </Link>
+            ))}
           </div>
         )}
       </div>

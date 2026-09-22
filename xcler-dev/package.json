@@ -8,8 +8,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "test": "npm run lint",
-    "sanity:migrate:blog-localization": "sanity exec src/sanity/migrations/backfillBlogPostLocalization.ts --with-user-token"
+    "test": "npm run lint"
   },
   "browserslist": [
     "defaults",
@@ -20,9 +19,6 @@
   ],
   "dependencies": {
     "@next/mdx": "^16.2.3",
-    "@sanity/image-url": "^2.1.1",
-    "@sanity/table": "^2.0.1",
-    "@sanity/vision": "^5.20.0",
     "@vercel/speed-insights": "^2.0.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
@@ -31,15 +27,13 @@
     "lucide-react": "^1.8.0",
     "next": "16.2.3",
     "next-intl": "^4.9.1",
-    "next-sanity": "^12.1.1",
     "next-seo": "^7.2.0",
     "react": "19.2.4",
     "react-dom": "19.2.4",
     "remark": "^15.0.1",
+    "remark-gfm": "^4.0.1",
     "remark-html": "^16.0.1",
-    "sanity": "^5.14.1",
     "sharp": "^0.34.5",
-    "styled-components": "^6.4.0",
     "tailwind-merge": "^3.5.0"
   },
   "devDependencies": {

@@ -1,21 +1,6 @@
 import Image from "next/image";
-import { groq } from "next-sanity";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { getTranslations } from "next-intl/server";
-import { client } from "@/sanity/lib/client";
-import { urlFor } from "@/sanity/lib/image";
-
-type TeamMemberFromSanity = {
-  _id: string;
-  name?: string;
-  role?: string;
-  expertise?: string;
-  bio?: string;
-  tools?: string;
-  imagePosition?: "center" | "top" | "bottom" | "top-left" | "top-right";
-  image?: unknown;
-  imageAlt?: string;
-};
 
 type TeamMemberCard = {
   _id: string;
@@ -26,28 +11,7 @@ type TeamMemberCard = {
   tools: string;
   image: string;
   imageAlt?: string;
-  imageUrl?: string;
   imagePosition: string;
-};
-
-const teamMembersQuery = groq`
-  *[_type == "teamMember"] | order(_createdAt asc) {
-    _id,
-    name,
-    "role": select($locale == "de" => coalesce(role_de, role_en), coalesce(role_en, role_de)),
-    "expertise": select($locale == "de" => coalesce(speciality_de, speciality_en), coalesce(speciality_en, speciality_de)),
-    "bio": select($locale == "de" => coalesce(bio_de, bio_en), coalesce(bio_en, bio_de)),
-    "tools": select($locale == "de" => coalesce(technologies_de, technologies_en), coalesce(technologies_en, technologies_de)),
-    "imagePosition": coalesce(imagePosition, "center"),
-    image,
-    "imageAlt": coalesce(image.alt, name, "Team member")
-  }
-`;
-
-const localTeamImages: Record<string, string> = {
-  "musharraf aziz": "/team/musharraf.webp",
-  "abeel mehr": "/team/abeel.webp",
-  "mehru seemab": "/team/mehru.webp",
 };
 
 const objectPositionMap: Record<string, string> = {
@@ -68,19 +32,9 @@ const getInitials = (name: string) => {
 export async function TeamSection({ locale }: { locale: string }) {
   const t = await getTranslations({ locale, namespace: "Team" });
 
-  let sanityTeam: TeamMemberFromSanity[] = [];
-
-  try {
-    sanityTeam = await client.fetch<TeamMemberFromSanity[]>(teamMembersQuery, { locale });
-  } catch {
-    if (process.env.NODE_ENV !== "production") {
-      console.warn("[team] Failed to fetch team members from Sanity.");
-    }
-  }
-
-  const fallbackTeam: TeamMemberCard[] = [
+  const team: TeamMemberCard[] = [
     {
-      _id: "fallback-musharraf",
+      _id: "musharraf",
       name: "Musharraf Aziz",
       role: t("member1.role"),
       expertise: t("member1.expertise"),
@@ -88,10 +42,10 @@ export async function TeamSection({ locale }: { locale: string }) {
       tools: "Make.com, n8n, Zapier, GoHighLevel",
       image: "/team/musharraf.webp",
       imageAlt: "Musharraf Aziz, XCLER AI automation engineer for chatbots and workflows",
-      imagePosition: "center",
+      imagePosition: objectPositionMap.center,
     },
     {
-      _id: "fallback-abeel",
+      _id: "abeel",
       name: "Abeel Mehr",
       role: t("member2.role"),
       expertise: t("member2.expertise"),
@@ -99,10 +53,10 @@ export async function TeamSection({ locale }: { locale: string }) {
       tools: "Next.js, Python, FastAPI, Flask, CI/CD",
       image: "/team/abeel.webp",
       imageAlt: "Abeel Mehr, XCLER web and app development lead",
-      imagePosition: "center",
+      imagePosition: objectPositionMap.center,
     },
     {
-      _id: "fallback-mehru",
+      _id: "mehru",
       name: "Mehru Seemab",
       role: t("member3.role"),
       expertise: t("member3.expertise"),
@@ -110,35 +64,9 @@ export async function TeamSection({ locale }: { locale: string }) {
       tools: "WordPress, Shopify, WooCommerce, Liquid",
       image: "/team/mehru.webp",
       imageAlt: "Mehru Seemab, XCLER WordPress and Shopify commerce specialist",
-      imagePosition: "center",
+      imagePosition: objectPositionMap.center,
     },
   ];
-
-  const team: TeamMemberCard[] = sanityTeam.length
-    ? sanityTeam.map((member) => {
-        const name = member.name || "Team Member";
-        const localImage = localTeamImages[name.trim().toLowerCase()];
-        return {
-          _id: member._id,
-          name,
-          role: member.role || (locale === "de" ? "Teammitglied" : "Team Member"),
-          expertise: member.expertise || "",
-          bio: member.bio || (locale === "de" ? "Profil wird aktualisiert." : "Profile is being updated."),
-          tools: member.tools || "",
-          image: localImage || "/team/musharraf.webp",
-          imageAlt:
-            member.imageAlt ||
-            `${member.name}, XCLER team — AI automation, web and commerce`,
-          // Prefer local WebP so homepage image SEO checks stay next-gen.
-          imageUrl: localImage
-            ? undefined
-            : member.image
-              ? urlFor(member.image).width(900).height(980).fit("crop").format("webp").quality(80).url()
-              : undefined,
-          imagePosition: objectPositionMap[member.imagePosition || "center"] || objectPositionMap.center,
-        };
-      })
-    : fallbackTeam;
 
   return (
     <section className="section-padding" id="team">
@@ -170,36 +98,22 @@ export async function TeamSection({ locale }: { locale: string }) {
                       {getInitials(member.name)}
                     </span>
                   </div>
-                  {member.imageUrl ? (
-                    // eslint-disable-next-line @next/next/no-img-element
-                    <img
-                      src={member.imageUrl}
-                      alt={member.imageAlt || member.name}
-                      width={720}
-                      height={900}
-                      loading="lazy"
-                      className="h-full w-full object-cover contrast-[1.05] saturate-[0.85] transition duration-700 group-hover:scale-105 group-hover:saturate-100"
-                      style={{ objectPosition: member.imagePosition }}
-                    />
-                  ) : (
-                    <Image
-                      src={member.image}
-                      alt={member.imageAlt || member.name}
-                      width={720}
-                      height={900}
-                      loading="lazy"
-                      className="h-full w-full object-cover contrast-[1.05] saturate-[0.85] transition duration-700 group-hover:scale-105 group-hover:saturate-100"
-                      style={{ objectPosition: member.imagePosition }}
-                      sizes="(max-width: 768px) 100vw, 33vw"
-                    />
-                  )}
+                  <Image
+                    src={member.image}
+                    alt={member.imageAlt || member.name}
+                    width={720}
+                    height={900}
+                    loading="lazy"
+                    className="h-full w-full object-cover contrast-[1.05] saturate-[0.85] transition duration-700 group-hover:scale-105 group-hover:saturate-100"
+                    style={{ objectPosition: member.imagePosition }}
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                  />
                   <div
                     className="pointer-events-none absolute inset-0 bg-gradient-to-t from-richblack via-transparent to-sage/5 mix-blend-multiply"
                     aria-hidden="true"
                   />
                 </div>
 
-                {/* Info */}
                 <div className="flex flex-1 flex-col p-6">
                   <h3 className="font-heading text-xl font-semibold transition-colors group-hover:text-sage">
                     {member.name}

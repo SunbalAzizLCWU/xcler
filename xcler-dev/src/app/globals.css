@@ -309,6 +309,33 @@
     --tw-prose-bold: var(--color-cream);
     --tw-prose-quotes: var(--color-stone-light);
   }
+
+  .blog-table-wrap {
+    margin: 2rem 0;
+    overflow-x: auto;
+    border: 1px solid color-mix(in oklab, var(--color-cream) 12%, transparent);
+    border-radius: 1rem;
+  }
+
+  .blog-table-wrap table {
+    margin: 0;
+    width: 100%;
+    min-width: 32rem;
+    font-size: 0.95rem;
+  }
+
+  .blog-table-wrap th {
+    background: color-mix(in oklab, var(--color-sage) 10%, transparent);
+    color: var(--color-cream);
+    padding: 0.75rem 1rem;
+    text-align: left;
+  }
+
+  .blog-table-wrap td {
+    padding: 0.75rem 1rem;
+    border-top: 1px solid color-mix(in oklab, var(--color-cream) 8%, transparent);
+    vertical-align: top;
+  }
 }
 
 @layer utilities {

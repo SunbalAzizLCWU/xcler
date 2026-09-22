@@ -96,7 +96,7 @@ export default async function WebDevelopmentPage({
   const coreFeatures = getRaw<FeatureItem[]>("coreFeatures", getRaw<FeatureItem[]>("features", []));
   const architectureHighlight = getText("architectureHighlight", "");
   const aeoFaq = getRaw<FaqItem[]>("aeoFaq", []);
-  const ctaPrimary = getText("ctaPrimary", getText("ctaButton", "Start"));
+  const ctaPrimary = t.has("ctaPrimary") ? t("ctaPrimary") : getText("ctaButton", "Start");
   const ctaSecondary = getText("ctaSecondary", locale === "de" ? "Auf WhatsApp schreiben" : "Message us on WhatsApp");
 
   const schema = getServiceSchema({

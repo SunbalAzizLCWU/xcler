@@ -11,7 +11,7 @@ publishedAt: "2026-09-05T08:00:00.000Z"
 author: Mehru Seemab
 cover: /blog/blog-whatsapp-automation-cover.webp
 coverAlt: "WhatsApp Business Automatisierung mit KI verbindet Chats mit Kalender, CRM und Dokumenten"
-readingTime: 9
+readingTime: 6
 tags:
   - WhatsApp Automatisierung
   - WhatsApp Business API
@@ -58,6 +58,43 @@ Ist der Kunde unzufrieden, die Frage komplex oder die KI unsicher, wechselt das 
 5. **Ein gemeinsames Postfach**, in dem Ihr Team Gespräche übernimmt.
 6. **Protokollierung und Monitoring**, um Gespräche auszuwerten und schwache Antworten zu verbessern.
 
+## Beispielgespräch: Terminbuchung in einer Kfz-Werkstatt
+
+Ein Kunde schreibt einer Werkstatt am Sonntagabend:
+
+> **Kunde:** Hallo, mein Auto braucht die Jahresinspektion. Ist nächste Woche etwas frei?
+>
+> **Assistent:** Hallo! Ich bin der KI-Assistent der Werkstatt. Für eine Inspektion hätte ich Dienstag um 8:00, Mittwoch um 13:30 oder Freitag um 9:00. Was passt Ihnen? Schicken Sie mir bitte auch Ihr Kennzeichen.
+>
+> **Kunde:** Mittwoch. Kennzeichen M-AB 1234.
+>
+> **Assistent:** Gebucht: Jahresinspektion, Mittwoch 13:30, M-AB 1234. Am Vortag erhalten Sie eine Erinnerung. Kann ich sonst noch helfen?
+
+Im Hintergrund hat der Workflow die Absicht „Inspektion buchen“ erkannt, im Werkstattkalender Zeitfenster passender Länge gesucht, den Termin angelegt, das Kennzeichen im CRM gespeichert und eine Erinnerungsvorlage eingeplant. Hätte der Kunde geschrieben „Die Bremsen schleifen“, hätte der Assistent den frühesten Termin angeboten und die Buchung zur Prüfung durch einen Mechaniker markiert.
+
+## Einrichtung Schritt für Schritt
+
+1. **Geschäftsnummer registrieren**, die nicht in einem normalen WhatsApp-Konto genutzt wird, und das Unternehmen bei Meta verifizieren.
+2. **Zugang wählen**: direkt über Metas Cloud API oder über einen Business Solution Provider, der ein Team-Postfach und Werkzeuge ergänzt.
+3. **Die fünf häufigsten Anliegen festlegen** – anhand echter Nachrichten: Termine, Bestellstatus, Öffnungszeiten, Preise, Reklamationen.
+4. **Vorlagen schreiben und einreichen** für Nachrichten außerhalb des 24-Stunden-Fensters: Bestätigungen, Erinnerungen, Versandinfos.
+5. **Den Workflow bauen** in n8n oder einem ähnlichen Tool: Webhook für eingehende Nachrichten, Absichtserkennung, Integrationen, Antwort.
+6. **Die Wissensbasis anbinden** für Antworten zu Produkten und Regeln.
+7. **Die Übergabe einrichten** in ein gemeinsames Postfach mit vollständigem Verlauf.
+8. **Eine Woche mit Mitarbeitenden testen**, dann mit klarer KI-Kennzeichnung für Kunden starten.
+9. **Wöchentlich auswerten**: unbeantwortete Fragen, falsche Antworten, Übergabegründe.
+
+## Kennzahlen, die Sie verfolgen sollten
+
+| Kennzahl | Was sie zeigt |
+| --- | --- |
+| Automatische Lösungsquote | Anteil der Gespräche, die ohne Mitarbeitende gelöst werden |
+| Erste Reaktionszeit | Wie schnell Kunden eine Antwort erhalten |
+| Übergabequote und Gründe | Wo der Assistent besser werden muss |
+| Buchungen oder Bestellungen per Chat | Direkter geschäftlicher Nutzen |
+| Kundenbewertung | Ob Kunden mit dem Erlebnis zufrieden sind |
+| Abmeldungen | Ob proaktive Nachrichten zu häufig sind |
+
 ## Regeln, die Sie beachten müssen
 
 - **Opt-in.** Unternehmen dürfen Gespräche nur mit Personen beginnen, die einer Kontaktaufnahme per WhatsApp zugestimmt haben.
@@ -86,5 +123,14 @@ Das sollten sie. Kennzeichnen Sie den Assistenten klar und bieten Sie immer eine
 
 **Dürfen wir Marketingnachrichten versenden?**
 Nur an Kunden mit Opt-in, mit genehmigten Vorlagen und im Rahmen der Meta-Richtlinien.
+
+**Können wir unsere bestehende WhatsApp-Nummer behalten?**
+Oft ja, aber die Nummer muss von der normalen App auf die Business Platform umziehen und ist danach nicht mehr in der App nutzbar. Planen Sie den Wechsel sorgfältig oder nutzen Sie eine neue Nummer.
+
+**Worin unterscheidet sich das von einem Website-Chatbot?**
+Logik und Wissensbasis können identisch sein. WhatsApp bringt die Messaging-Regeln mit – Opt-in, 24-Stunden-Fenster, Vorlagen – und erreicht Kunden in einer App, die sie täglich nutzen.
+
+**Was passiert, wenn die KI eine Nachricht nicht versteht?**
+Sie sollte einmal nachfragen und dann an einen Menschen übergeben, statt zu raten.
 
 Wir entwickeln WhatsApp- und Web-Chat-Automatisierungen im Rahmen unserer Leistungen für [KI-Chatbots und Agenten](/leistungen/ki-chatbots-agenten), meist auf n8n. [Sagen Sie uns, welche Gespräche Sie automatisieren möchten](/kontakt).

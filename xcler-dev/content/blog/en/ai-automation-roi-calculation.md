@@ -11,7 +11,7 @@ publishedAt: "2026-09-07T08:00:00.000Z"
 author: Musharraf Aziz
 cover: /blog/blog-ai-automation-roi-cover.webp
 coverAlt: "AI automation ROI curve breaking through the break-even line"
-readingTime: 8
+readingTime: 6
 tags:
   - automation ROI
   - AI ROI
@@ -54,6 +54,48 @@ ROI in year one: (€30,600 − €12,000) ÷ €12,000 ≈ **155%**
 Payback: €12,000 ÷ €2,550 per month ≈ **4.7 months**
 
 Your numbers will differ. The structure stays the same.
+
+## Second example: lead qualification in sales
+
+A B2B software company receives about 400 inbound leads a month. A sales development rep spends roughly 15 minutes per lead researching the company, checking fit and writing a first reply.
+
+- Current time: 400 × 15 min = 100 hours per month
+- With automation (enrichment, AI fit scoring, drafted first reply, rep reviews): about 4 minutes per lead = roughly 27 hours per month
+- **Hours saved:** about 73 per month, 876 per year
+- Fully loaded cost: €50 per hour → **€43,800 per year**
+- Faster response: if replying within minutes instead of a day lifts conversion even slightly, the revenue effect can exceed the time saving — but keep it out of the base case until you have measured it.
+- Running costs (enrichment data, platform, model usage, maintenance): **€7,200 per year**
+- One-off build: **€15,000**
+
+Net annual benefit on time alone: €43,800 − €7,200 = **€36,600**
+Payback: €15,000 ÷ €3,050 per month ≈ **4.9 months**
+
+## Build a simple ROI sheet
+
+You do not need special software. A spreadsheet with these rows is enough:
+
+| Row | Example input |
+| --- | --- |
+| Cases per month | 800 |
+| Minutes per case today | 6 |
+| Minutes per case after automation | 1.5 |
+| Share of cases fully automated | 70% |
+| Fully loaded hourly cost | €45 |
+| Error cost avoided per month | €250 |
+| Running cost per month | €400 |
+| One-off investment | €12,000 |
+
+Calculate hours saved, monthly net benefit, payback months and year-one ROI from those rows. Then run three versions — pessimistic, realistic and optimistic — by changing the automation share and minutes saved. If the pessimistic case still pays back within a year, the project is low-risk.
+
+## Sensitivity: what moves the result most
+
+In most automation business cases, three inputs dominate:
+
+1. **Volume.** Double the cases and the benefit roughly doubles while running costs rise much less.
+2. **Automation share.** Going from 50% to 80% fully automated cases often matters more than any other improvement.
+3. **Minutes per case today.** Measure this honestly — people tend to underestimate how long routine work takes.
+
+Tooling and model costs rarely decide the case on their own. Be conservative on the benefit side and realistic on maintenance.
 
 ## Costs business cases forget
 
@@ -98,5 +140,14 @@ A little, because model usage varies. Cap it with limits and measure it from day
 
 **Should we automate everything at once?**
 No. Start with one high-ROI process, prove it, then reinvest the savings.
+
+**Do saved hours really turn into savings?**
+Only if the time is used for something valuable — more customers served, fewer overtime hours, no new hire needed, faster growth. Agree up front how freed capacity will be used.
+
+**How do we measure hours honestly?**
+Time a sample of real cases over a week instead of relying on estimates, and include interruptions, lookups and rework.
+
+**Which KPIs should we report?**
+Cases processed automatically, exceptions, time per case, error rate, cost per case and payback progress, reported monthly.
 
 We build business cases and automations together — see [AI automation](/en/services/ai-automation) and [workflow automation](/en/services/workflow-automation). [Send us one process](/en/contact) and we will estimate its ROI with you.

@@ -11,7 +11,7 @@ publishedAt: "2026-09-13T08:00:00.000Z"
 author: Musharraf Aziz
 cover: /blog/blog-ai-chatbot-cost-cover.webp
 coverAlt: "AI chatbot cost 2026 — pricing tiers for business chatbots"
-readingTime: 9
+readingTime: 7
 tags:
   - AI chatbot cost
   - chatbot pricing
@@ -87,6 +87,62 @@ Ask every vendor the same five questions:
 
 If a quote cannot answer these, the low price is not a saving.
 
+## Three example budgets
+
+To make the ranges concrete, here are three typical projects and how their budgets break down. Figures are illustrative project ranges, not quotes.
+
+### Example 1: Local service business
+A dental practice wants a website chatbot that answers opening hours, treatments and insurance questions, and books appointments into its calendar.
+
+- Scope: about 60 FAQ answers, one calendar integration, German and English.
+- Setup: roughly €3,000 – €6,000.
+- Monthly: roughly €80 – €250 for platform, model usage and hosting.
+- Main value: fewer phone calls at reception and bookings outside opening hours.
+
+### Example 2: B2B manufacturer support assistant
+A machinery manufacturer wants customers and field technicians to ask questions about manuals, spare parts and error codes.
+
+- Scope: a few thousand pages of technical documentation, part lookup from the ERP, ticket creation in the helpdesk, access rights by customer.
+- Setup: roughly €15,000 – €30,000.
+- Monthly: roughly €400 – €1,500 depending on traffic and hosting.
+- Main value: faster answers for technicians, fewer first-level tickets, consistent answers across languages.
+
+### Example 3: E-commerce customer service
+An online shop wants to handle order status, returns and product questions in chat and messaging.
+
+- Scope: shop and shipping integrations, returns workflow, product knowledge base, handoff to agents.
+- Setup: roughly €10,000 – €25,000.
+- Monthly: roughly €300 – €1,200 plus any messaging platform fees.
+- Main value: a large share of "where is my order?" contacts answered instantly.
+
+## How to estimate the return
+
+A chatbot pays off when it removes work people currently do. A simple way to estimate:
+
+1. Count monthly contacts of the types the bot could handle.
+2. Estimate the share the bot can resolve without help — start conservatively, for example 30–40%.
+3. Multiply resolved contacts by the minutes each takes today and your fully loaded hourly cost.
+4. Subtract running costs.
+
+For example, 2,000 routine contacts a month, 35% resolved by the bot, 6 minutes each and €40 per hour gives about 70 hours or €2,800 saved per month — before counting faster response times and extra bookings. For a structured approach, see our guide to [calculating automation ROI](/en/blog/ai-automation-roi-calculation).
+
+## A typical project timeline
+
+1. **Week 1 – discovery.** Goals, use cases, knowledge sources, integrations, compliance requirements.
+2. **Weeks 2–3 – knowledge and integrations.** Content cleanup, ingestion pipeline, first API connections.
+3. **Weeks 3–5 – conversation design and testing.** Tone, escalation rules, test set of real questions, evaluation.
+4. **Week 5–6 – soft launch.** Limited audience or hours, daily review of conversations.
+5. **Ongoing – improvement.** Weekly review of unanswered questions and feedback, content updates, monthly reporting.
+
+## Red flags in chatbot offers
+
+- A fixed monthly price with **no clarity on usage limits**.
+- **No test phase** or evaluation before going live.
+- The provider uses your conversations to **train its own models** by default.
+- **No human handoff** or only an email form as fallback.
+- **Vendor lock-in**: your knowledge base and conversation data cannot be exported.
+- Claims of "99% accuracy" without saying how it is measured.
+
 ## FAQ
 
 **Can I get an AI chatbot for free?**
@@ -97,5 +153,14 @@ A starter bot takes one to two weeks. A RAG assistant with integrations usually 
 
 **Does a chatbot replace support staff?**
 It removes repetitive questions so your team handles the complex cases. The best results come from bot plus human, not bot instead of human.
+
+**Which language model should the chatbot use?**
+It depends on quality needs, languages, data location and budget. A good setup lets you switch models later without rebuilding, so you are not locked into today's choice.
+
+**Can the chatbot work on WhatsApp too?**
+Yes. The same knowledge base and logic can serve web chat, WhatsApp and email. See our guide to [WhatsApp Business automation](/en/blog/whatsapp-business-automation-ai).
+
+**How do we know if the chatbot is working well?**
+Track resolution rate, handoff rate, customer satisfaction ratings, wrong-answer reports and time saved. Review a sample of conversations every week.
 
 We build [AI chatbots and agents](/en/services/ai-chatbots-agents) for companies across Germany and the EU. [Send us your use case](/en/contact) and we will give you a realistic range before any commitment.

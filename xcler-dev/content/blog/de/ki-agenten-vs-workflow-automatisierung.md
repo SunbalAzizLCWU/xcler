@@ -11,7 +11,7 @@ publishedAt: "2026-09-11T08:00:00.000Z"
 author: Musharraf Aziz
 cover: /blog/blog-ai-agents-vs-workflows-cover.webp
 coverAlt: "KI-Agenten im Vergleich zu deterministischer Workflow-Automatisierung"
-readingTime: 9
+readingTime: 6
 tags:
   - Agentic AI
   - KI-Agenten
@@ -74,6 +74,46 @@ So bleiben Kosten und Risiko im Griff, und KI wird genau dort genutzt, wo sie Me
 
 Ein deterministischer Workflow-Durchlauf kostet an Infrastruktur Bruchteile eines Cents. Ein Agenten-Durchlauf kann viele Modellaufrufe brauchen, Cent- bis Euro-Beträge kosten und von Lauf zu Lauf schwanken. Bei zehntausend Durchläufen im Monat macht das einen Unterschied – deshalb sollte der Agent nur den Teil übernehmen, den ein Workflow nicht kann.
 
+## Praxisbeispiel: Änderung einer Kundenbestellung
+
+Ein Großhändler erhält Änderungswünsche zu Bestellungen per E-Mail: Mengen ändern, ein Produkt tauschen, den Liefertermin verschieben, Positionen stornieren. So sieht derselbe Prozess in drei Varianten aus.
+
+### Reiner Workflow
+Der Workflow liest E-Mails mit festen Regeln aus. Das funktioniert bei Kunden, die ein Standardformular nutzen, und scheitert, sobald jemand schreibt: „Können Sie die blauen gegen die größere Variante tauschen und auf nächsten Freitag schieben, falls das einfacher ist?“ Solche E-Mails landen in einer manuellen Warteschlange – oft die meisten.
+
+### Reiner Agent
+Ein Agent liest jede E-Mail, sucht die Bestellung, entscheidet über die Änderung und aktualisiert das ERP. Er versteht unstrukturierte Sprache gut, doch die Kosten schwanken pro E-Mail, und ohne Leitplanken ändert er womöglich die falsche Position oder bestätigt einen Termin, den das Lager nicht halten kann.
+
+### Hybrid (unsere Empfehlung)
+1. Der Workflow empfängt die E-Mail, erkennt den Kunden und lädt die offenen Bestellungen nach festen Regeln.
+2. Ein KI-Schritt extrahiert die gewünschten Änderungen als **strukturierte Liste**: Position, Feld, neuer Wert, Konfidenz.
+3. Der Workflow prüft jede Änderung gegen Geschäftsregeln – Bestand, Annahmeschluss, Preisvereinbarungen.
+4. Gültige Änderungen mit hoher Konfidenz werden automatisch übernommen; alles andere geht mit vorbereiteter Zusammenfassung an einen Menschen.
+5. Ein Sprachmodell entwirft die Bestätigungs-E-Mail; ein Mensch gibt sie frei, bis die Fehlerquote nachweislich niedrig ist.
+
+Der agentische Teil übernimmt, was nur KI kann – Freitext verstehen –, während der Workflow die Kontrolle darüber behält, was sich in Ihren Systemen tatsächlich ändert.
+
+## Anzeichen für den falschen Ansatz
+
+**Sie haben einen Agenten gebaut, hätten aber einen Workflow gebraucht, wenn:**
+- die meisten Durchläufe demselben Weg folgen,
+- die Kosten pro Durchlauf ohne geschäftlichen Grund schwanken,
+- Sie dem Prompt immer mehr Regeln hinzufügen, um eine feste Reihenfolge zu erzwingen,
+- Prüfer oder Buchhaltung fragen, warum dieselbe Eingabe zu unterschiedlichen Ergebnissen führte.
+
+**Sie haben einen Workflow gebaut, brauchen aber einen Agenten-Schritt, wenn:**
+- ein großer Teil der Fälle in einer manuellen Ausnahme-Warteschlange landet,
+- Ihr Team Zeit damit verbringt, Eingaben zu lesen und zu interpretieren, bevor es handeln kann,
+- der Workflow Dutzende fragile Verzweigungen für Formulierungsvarianten hat.
+
+## So führen Sie Agenten sicher ein
+
+1. **Im Schattenbetrieb starten.** Der Agent schlägt Aktionen vor, während Menschen die Arbeit weiter erledigen. Vergleichen.
+2. **Drei Quoten messen:** richtig, falsch und eskaliert. Die Falschquote am genauesten beobachten.
+3. **Zuerst die einfache Hälfte automatisieren.** Automatische Ausführung nur für Fälle mit hoher Konfidenz und geringem Risiko freischalten.
+4. **Menschen bei unumkehrbaren Schritten behalten.** Zahlungen, Stornierungen, Kundenkommunikation.
+5. **Wöchentlich auswerten.** Fehlgeschlagene und eskalierte Fälle lesen und Tools, Prompts oder Regeln verbessern.
+
 ## FAQ
 
 **Sind KI-Agenten zuverlässig genug für den Produktivbetrieb?**
@@ -84,5 +124,14 @@ Ja. n8n hat einen AI-Agent-Node mit Tools, Gedächtnis und strukturierter Ausgab
 
 **Wo sollten wir anfangen?**
 Automatisieren Sie zuerst die vorhersehbaren 80 % mit Workflows. Dann ergänzen Sie einen Agenten dort, wo Menschen noch Zeit mit Einzelfallentscheidungen verbringen.
+
+**Was ist der Unterschied zwischen einem KI-Agenten und einem Chatbot?**
+Ein Chatbot beantwortet vor allem Fragen im Gespräch. Ein Agent verfolgt ein Ziel, indem er Tools aufruft und handelt – Daten abfragen, Systeme aktualisieren, Nachrichten senden.
+
+**Was bedeutet „Agentic AI“?**
+KI-Systeme, die mehrstufige Aufgaben mit einer gewissen Eigenständigkeit planen und ausführen, statt auf einen Prompt eine einzelne Antwort zu liefern.
+
+**Dürfen Agenten nach dem EU AI Act Entscheidungen treffen?**
+Viele Geschäftsanwendungen sind risikoarm. Entscheidungen über Menschen – Einstellung, Kredit, Zugang zu Leistungen – können jedoch in Hochrisiko-Kategorien fallen, mit strengen Anforderungen einschließlich menschlicher Aufsicht.
 
 Wir entwickeln beides – siehe [Workflow-Automatisierung](/leistungen/workflow-automatisierung) und [KI-Chatbots und Agenten](/leistungen/ki-chatbots-agenten). [Beschreiben Sie Ihren Prozess](/kontakt), und wir sagen Ihnen ehrlich, ob er einen Agenten braucht.

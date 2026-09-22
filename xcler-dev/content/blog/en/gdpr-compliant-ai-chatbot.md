@@ -11,7 +11,7 @@ publishedAt: "2026-09-06T08:00:00.000Z"
 author: Musharraf Aziz
 cover: /blog/blog-gdpr-ai-chatbot-cover.webp
 coverAlt: "GDPR-compliant AI chatbot protected by an EU data shield"
-readingTime: 9
+readingTime: 7
 tags:
   - GDPR chatbot
   - DSGVO
@@ -73,6 +73,50 @@ The EU AI Act requires that people know when they are interacting with an AI sys
 
 Keep a short record: purpose, data categories, providers, legal basis, retention, risk assessment and a data protection impact assessment where required. This is what auditors and customers will ask for.
 
+## Which legal basis applies?
+
+Every processing of personal data needs a legal basis under Article 6 GDPR. For chatbots, three are common:
+
+- **Contract (Art. 6(1)(b))** — when the chat is needed to handle an order, booking or existing customer relationship.
+- **Legitimate interest (Art. 6(1)(f))** — for general service enquiries, provided you balance your interest against the user's and document it.
+- **Consent (Art. 6(1)(a))** — for optional features, marketing follow-ups or where local rules on cookies and tracking require it.
+
+Separately, the German **TDDDG** (formerly TTDSG) and the EU ePrivacy rules require consent before storing or reading information on the user's device, unless it is strictly necessary. A chat widget that sets non-essential cookies or loads third-party scripts therefore often needs consent before it loads.
+
+Special categories of data — health, religion, trade union membership and others under Article 9 — need extra care. If users might share them, for example in a medical practice chatbot, warn them, minimise what you store and consider stricter hosting.
+
+## Example: a GDPR-friendly architecture
+
+A German insurance broker wants a chatbot that answers product questions and books consultations.
+
+1. **Widget** hosted on the broker's own domain, loaded only after consent; a short notice explains that answers are AI-generated.
+2. **Backend** on self-hosted n8n in a Frankfurt data centre receives messages.
+3. **Masking step** removes obvious personal identifiers such as policy numbers and IBANs before text reaches the model.
+4. **Language model** accessed through an EU endpoint under a business agreement with no training on customer data.
+5. **Knowledge base** in an EU-hosted vector database containing only product and FAQ content, no customer data.
+6. **Booking** via calendar API; only name, email and preferred time are stored, in the CRM, under the broker's retention rules.
+7. **Logs** kept for 30 days for quality review, then deleted automatically.
+8. **Human handoff** to a broker for any advice-related question.
+
+## When is a data protection impact assessment needed?
+
+A DPIA under Article 35 GDPR is required when processing is likely to result in a high risk to people's rights. For chatbots this often applies when:
+
+- sensitive data such as health or financial details is processed at scale,
+- the bot makes or prepares decisions that significantly affect people,
+- new technology is combined with large-scale processing or profiling.
+
+German data protection authorities publish lists of processing types that always require a DPIA. When in doubt, a short, documented assessment is better than none.
+
+## Common mistakes
+
+- Loading the chat widget before consent.
+- Using a consumer AI account instead of a business plan with a data processing agreement.
+- Keeping full conversation logs indefinitely.
+- Putting customer data into the knowledge base "for context".
+- No clear label that the user is talking to an AI.
+- Letting the bot give legal, medical or financial advice without a human in the loop.
+
 ## FAQ
 
 **Can we use ChatGPT on our website under the GDPR?**
@@ -83,5 +127,14 @@ Often yes if the bot processes sensitive data or large volumes of personal data.
 
 **Is self-hosting the model required?**
 No. Many companies use commercial models via EU endpoints with a DPA. Self-hosting makes sense for very sensitive data or strict internal policies.
+
+**What must the privacy policy say about the chatbot?**
+What data is processed, for which purposes, on which legal basis, which providers are involved and where, how long data is kept, and how users exercise their rights.
+
+**Can users ask for their chat history to be deleted?**
+Yes. Under the GDPR they have the right to erasure in most cases, so you need a way to find and delete a person's conversations.
+
+**Does the EU AI Act classify customer service chatbots as high-risk?**
+Usually not. Most customer service bots have transparency obligations — users must know they are dealing with AI — rather than high-risk requirements.
 
 We build [AI chatbots and agents](/en/services/ai-chatbots-agents) with EU hosting and data protection built in from day one. For costs, see [what an AI chatbot costs](/en/blog/ai-chatbot-cost-2026). [Talk to us about your use case](/en/contact).

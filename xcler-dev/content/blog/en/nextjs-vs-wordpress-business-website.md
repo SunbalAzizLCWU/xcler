@@ -11,7 +11,7 @@ publishedAt: "2026-09-09T08:00:00.000Z"
 author: Abeel Mehr
 cover: /blog/blog-nextjs-vs-wordpress-cover.webp
 coverAlt: "Next.js vs WordPress comparison for business websites"
-readingTime: 9
+readingTime: 6
 tags:
   - Next.js
   - WordPress
@@ -68,6 +68,37 @@ WordPress is usually cheaper to start. Next.js often becomes cheaper over time f
 
 **Choose headless (WordPress or another CMS + Next.js front end) if** you want editor comfort *and* top performance. Editors keep their familiar backend; visitors get a fast, secure front end.
 
+## Three scenarios and our recommendation
+
+### A consulting firm with a busy blog
+Twelve service pages, two to four articles a week, a marketing team that publishes independently, forms connected to a CRM.
+
+**Recommendation: WordPress** with a lean theme, a small, vetted plugin set and managed hosting. Editors stay independent, and performance is good if the setup is kept disciplined.
+
+### A SaaS or product company
+Marketing pages plus pricing calculator, customer login, documentation, integration with the product's API and very high performance targets.
+
+**Recommendation: Next.js**, with content from markdown or a headless CMS. The website and product share components, and technical SEO is under full control.
+
+### A mid-sized manufacturer going international
+Hundreds of product pages in several languages, a dealer locator, datasheet downloads, product data coming from a PIM or ERP, and an editorial team that updates news and events.
+
+**Recommendation: headless** — a CMS for editorial content, product data synced from the PIM, and a Next.js front end for speed, multilingual routing and search.
+
+## Hosting and operations
+
+| | WordPress | Next.js |
+| --- | --- | --- |
+| Typical hosting | Managed WordPress host or VPS | Edge or serverless platforms, containers or static hosting |
+| Caching | Plugins or host-level cache | Built into the rendering model |
+| Backups | Database plus files | Code in git, content in CMS or repo |
+| Staging | Depends on host | Preview deployments per change are common |
+| Updates | Core, theme and plugins, ideally monthly | Framework and dependencies, planned upgrades |
+
+## Accessibility and compliance
+
+From June 2025 the **European Accessibility Act** applies to many consumer-facing digital services, including e-commerce, in the EU. Both WordPress and Next.js can produce accessible sites — the result depends on the theme or components, not the platform. Check colour contrast, keyboard navigation, form labels and alternative text either way. German sites also need an imprint, a privacy policy and a cookie consent solution that actually blocks scripts before consent.
+
 ## Migration notes
 
 Moving from WordPress to Next.js is worth planning carefully:
@@ -87,5 +118,14 @@ Yes, with a headless CMS or a simple content workflow set up by your developers.
 
 **Is WordPress outdated?**
 No. It remains a strong choice for content-heavy sites with active editorial teams.
+
+**Can WordPress be used headless?**
+Yes. WordPress can serve content through its REST or GraphQL API to a Next.js front end, so editors keep the familiar backend.
+
+**Which is better for an online shop?**
+For small shops, WooCommerce on WordPress is a common start. For growing brands, Shopify — optionally headless with a Next.js front end — is often the better foundation.
+
+**How long does a migration take?**
+A typical corporate site migration takes four to ten weeks including content transfer, redirects, testing and a staged launch.
 
 We build both — see [web development](/en/services/web-development) and [WordPress & Shopify](/en/services/wordpress-shopify). [Tell us what your site needs to do](/en/contact) and we will recommend the stack.

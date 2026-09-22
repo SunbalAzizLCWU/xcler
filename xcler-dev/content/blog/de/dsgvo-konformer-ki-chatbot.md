@@ -11,7 +11,7 @@ publishedAt: "2026-09-06T08:00:00.000Z"
 author: Musharraf Aziz
 cover: /blog/blog-gdpr-ai-chatbot-cover.webp
 coverAlt: "DSGVO-konformer KI-Chatbot geschützt durch EU-Datenschutzschild"
-readingTime: 9
+readingTime: 6
 tags:
   - DSGVO Chatbot
   - Datenschutz KI
@@ -73,6 +73,50 @@ Der EU AI Act verlangt, dass Menschen wissen, wenn sie mit einem KI-System inter
 
 Führen Sie eine kurze Dokumentation: Zweck, Datenkategorien, Anbieter, Rechtsgrundlage, Speicherdauer, Risikobewertung und – wo nötig – eine Datenschutz-Folgenabschätzung. Genau danach fragen Prüfer und Kunden.
 
+## Welche Rechtsgrundlage gilt?
+
+Jede Verarbeitung personenbezogener Daten braucht eine Rechtsgrundlage nach Art. 6 DSGVO. Bei Chatbots sind drei üblich:
+
+- **Vertrag (Art. 6 Abs. 1 lit. b)** – wenn der Chat zur Abwicklung einer Bestellung, Buchung oder bestehenden Kundenbeziehung nötig ist.
+- **Berechtigtes Interesse (Art. 6 Abs. 1 lit. f)** – für allgemeine Serviceanfragen, sofern Sie Ihr Interesse gegen das des Nutzers abwägen und dokumentieren.
+- **Einwilligung (Art. 6 Abs. 1 lit. a)** – für optionale Funktionen, Marketing-Nachfassen oder wo Cookie- und Tracking-Regeln sie verlangen.
+
+Unabhängig davon verlangen das deutsche **TDDDG** (ehemals TTDSG) und die EU-ePrivacy-Regeln eine Einwilligung, bevor Informationen auf dem Endgerät gespeichert oder ausgelesen werden – außer es ist unbedingt erforderlich. Ein Chat-Widget, das nicht notwendige Cookies setzt oder Drittanbieter-Skripte lädt, braucht daher oft eine Einwilligung, bevor es geladen wird.
+
+Besondere Kategorien personenbezogener Daten – Gesundheit, Religion, Gewerkschaftszugehörigkeit und weitere nach Art. 9 – verlangen zusätzliche Sorgfalt. Könnten Nutzer solche Daten teilen, etwa beim Chatbot einer Arztpraxis, weisen Sie darauf hin, speichern Sie so wenig wie möglich und erwägen Sie strengeres Hosting.
+
+## Beispiel: eine datenschutzfreundliche Architektur
+
+Ein deutscher Versicherungsmakler möchte einen Chatbot, der Produktfragen beantwortet und Beratungstermine bucht.
+
+1. **Widget** auf der eigenen Domain des Maklers, erst nach Einwilligung geladen; ein kurzer Hinweis erklärt, dass Antworten KI-generiert sind.
+2. **Backend** auf selbst gehostetem n8n in einem Frankfurter Rechenzentrum empfängt die Nachrichten.
+3. **Maskierungsschritt** entfernt offensichtliche Kennungen wie Vertragsnummern und IBANs, bevor Text an das Modell geht.
+4. **Sprachmodell** über einen EU-Endpunkt mit Business-Vertrag, ohne Training mit Kundendaten.
+5. **Wissensbasis** in einer EU-gehosteten Vektordatenbank, nur mit Produkt- und FAQ-Inhalten, ohne Kundendaten.
+6. **Terminbuchung** über die Kalender-API; gespeichert werden nur Name, E-Mail und Wunschtermin im CRM, gemäß den Löschregeln des Maklers.
+7. **Protokolle** werden 30 Tage zur Qualitätsprüfung aufbewahrt und dann automatisch gelöscht.
+8. **Übergabe an einen Makler** bei jeder Frage mit Beratungsbezug.
+
+## Wann ist eine Datenschutz-Folgenabschätzung nötig?
+
+Eine DSFA nach Art. 35 DSGVO ist erforderlich, wenn eine Verarbeitung voraussichtlich ein hohes Risiko für die Rechte der Betroffenen birgt. Bei Chatbots trifft das häufig zu, wenn:
+
+- sensible Daten wie Gesundheits- oder Finanzangaben in großem Umfang verarbeitet werden,
+- der Bot Entscheidungen trifft oder vorbereitet, die Menschen erheblich betreffen,
+- neue Technologie mit umfangreicher Verarbeitung oder Profiling kombiniert wird.
+
+Die deutschen Datenschutzaufsichtsbehörden veröffentlichen Listen von Verarbeitungen, die stets eine DSFA erfordern. Im Zweifel ist eine kurze, dokumentierte Abschätzung besser als keine.
+
+## Typische Fehler
+
+- Das Chat-Widget vor der Einwilligung laden.
+- Ein privates KI-Konto statt eines Business-Tarifs mit Auftragsverarbeitungsvertrag nutzen.
+- Vollständige Gesprächsprotokolle unbegrenzt aufbewahren.
+- Kundendaten „für den Kontext“ in die Wissensbasis legen.
+- Keine klare Kennzeichnung, dass der Nutzer mit einer KI spricht.
+- Den Bot ohne menschliche Kontrolle rechtliche, medizinische oder finanzielle Beratung geben lassen.
+
 ## FAQ
 
 **Dürfen wir ChatGPT DSGVO-konform auf unserer Website nutzen?**
@@ -83,5 +127,14 @@ Häufig ja, wenn der Bot sensible Daten oder große Mengen personenbezogener Dat
 
 **Müssen wir das Modell selbst hosten?**
 Nein. Viele Unternehmen nutzen kommerzielle Modelle über EU-Endpunkte mit AVV. Selbsthosting lohnt sich bei sehr sensiblen Daten oder strengen internen Vorgaben.
+
+**Was muss die Datenschutzerklärung zum Chatbot enthalten?**
+Welche Daten zu welchen Zwecken auf welcher Rechtsgrundlage verarbeitet werden, welche Anbieter wo beteiligt sind, wie lange Daten gespeichert werden und wie Nutzer ihre Rechte ausüben.
+
+**Können Nutzer die Löschung ihres Chatverlaufs verlangen?**
+Ja. Nach der DSGVO besteht in den meisten Fällen ein Recht auf Löschung – Sie brauchen also einen Weg, die Gespräche einer Person zu finden und zu löschen.
+
+**Stuft der EU AI Act Kundenservice-Chatbots als Hochrisiko ein?**
+In der Regel nicht. Für die meisten Kundenservice-Bots gelten Transparenzpflichten – Nutzer müssen wissen, dass sie mit einer KI interagieren –, keine Hochrisiko-Anforderungen.
 
 Wir entwickeln [KI-Chatbots und Agenten](/leistungen/ki-chatbots-agenten) mit EU-Hosting und Datenschutz ab dem ersten Tag. Zu den Kosten siehe [Was kostet ein KI-Chatbot?](/blog/ki-chatbot-kosten-2026). [Sprechen Sie mit uns über Ihren Anwendungsfall](/kontakt).

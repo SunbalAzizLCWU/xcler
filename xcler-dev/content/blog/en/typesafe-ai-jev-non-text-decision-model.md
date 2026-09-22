@@ -1,79 +1,155 @@
 ---
 id: jev
-slug: "typesafe-ai-jev-non-text-decision-model"
-slug_en: "typesafe-ai-jev-non-text-decision-model"
-slug_de: "typesafe-ai-jev-nicht-text-entscheidungsmodell"
+slug: typesafe-ai-jev-non-text-decision-model
+slug_en: typesafe-ai-jev-non-text-decision-model
+slug_de: typesafe-ai-jev-nicht-text-entscheidungsmodell
 title: "Jev by TypeSafe AI: The Non-Text Decision Model Explained"
-excerpt: "Jev returns typed choices, scores and probabilities in one parallel pass — built for sub-second routing and agent decisions without LLM hallucinations."
-seoTitle: "Jev by TypeSafe AI: The Non-Text Decision Model Explained"
-seoDescription: "Jev TypeSafe AI explained: non-text decision model latency, pricing, routing use cases and how DACH teams deploy it with n8n agents."
+excerpt: "Jev returns typed choices, scores and probabilities in one parallel pass instead of generating text. What it is, where it fits, and how to test it on your own traffic."
+seoTitle: "Jev by TypeSafe AI Explained: The Non-Text Decision Model"
+seoDescription: "Jev by TypeSafe AI explained: a decision model that returns typed choices and scores instead of text. Latency, pricing, use cases, limits and a rollout plan."
 publishedAt: "2026-09-22T09:00:00.000Z"
-updatedAt: "2026-09-22T09:00:00.000Z"
+updatedAt: "2026-09-23T09:00:00.000Z"
 author: Musharraf Aziz
-cover: "/blog/blog-jev-decision-model-cover.webp"
-coverAlt: "Jev by TypeSafe AI: The Non-Text Decision Model Explained — XCLER AI insights cover"
-readingTime: 12
+cover: /blog/blog-jev-decision-model-cover.webp
+coverAlt: "Jev by TypeSafe AI — non-text decision model returning typed outputs"
+readingTime: 10
 tags:
   - Jev
   - TypeSafe AI
   - decision model
   - AI routing
-  - "KI-Automatisierung"
-  - agent decisions
-  - DACH AI
+  - AI agents
+  - structured output
+  - AI automation
 ---
 
-Jev is a transformer that **refuses to write text**. TypeSafe AI — led by former OpenAI RLHF researcher Diogo Almeida — describes it as a System 1 model: it scores a fixed question set against state in one parallel pass and returns choices, numeric scores and probabilities with a confidence rating.
+Most AI products today are built on models that write. You send a prompt, the model produces text one token at a time, and your code tries to pull a decision out of that text. **Jev**, from TypeSafe AI, takes a different route: it does not write at all.
 
-Public launch figures put latency in a **70–500 ms** band and input cost near **$0.042 per million tokens**, with outputs priced at zero because there is no completion stream. Treat those as vendor-reported. Measure them on your own traffic before you budget a product around them.
+Jev is a Transformer-based model that TypeSafe AI describes as a "System 1" decision engine. You give it a set of **predefined questions** and the current **state** — a support ticket, a game frame, a list of open tabs, a lead record — and it answers every question in **one parallel pass**. The answers come back as typed values: a choice from a fixed list, a number, a probability, each with a confidence rating.
 
-> Jev does not write. It classifies a fixed question set against state and returns typed primitives. That is why routing, game logic and sub-second agent steps fit — not emails or support replies.
+The company came out of stealth led by Diogo Almeida, a former OpenAI researcher who worked on reinforcement learning from human feedback (RLHF). The launch drew attention for three reasons: speed, price and the promise of no parsing failures.
 
-![Jev parallel decision pass flowchart](/blog/blog-jev-flowchart.webp)
+> In one sentence: Jev answers questions you wrote in advance with typed values, instead of writing a paragraph you then have to interpret.
 
-## Why non-text decisions matter for production agents
+![Jev decision flow: state data into a single parallel pass, returning choice, score and probability with confidence](/blog/blog-jev-flowchart.webp)
 
-Autoregressive chat models invent tokens. Every extra token is another sample, another chance to drift, and another parse step if you asked for JSON. Jev drops that loop. You define the questions. The model sees state — a router payload, a tool trace, a game frame — and answers every question in one forward pass. The return type is a primitive: a choice, a score, a probability, plus confidence. There is no sentence to regex.
+## What "non-text" actually means
 
-For **DACH and Benelux B2B teams** building voice or chat routers in German and English, that changes the failure mode. You can still pick the wrong queue. You cannot invent a fourth destination that was never on the menu.
+A normal large language model (LLM) is *autoregressive*. It predicts the next token, appends it, predicts the next one, and so on. If you ask it to pick a support queue, it may write "Billing", "billing", "The billing team", or "Billing — but it could also be technical support". Your code then has to parse that, and sometimes it fails.
 
-## The engineering framework
+Jev skips the writing step. The possible answers are fixed before the call. The model scores them against the state and returns the result as a data type your code already expects. That gives you three properties that matter in production:
 
-1. **Finite action set** — transfer to billing, retry the tool, abstain. If the correct behavior is a paragraph, keep a language model behind an explicit gate.
-2. **Stable questions** — product, legal and eval freeze the schema before traffic hits it.
-3. **Confidence as control** — low confidence falls through to a human, rules engine or slower model.
+1. **No invented options.** The model cannot return a queue that is not on your list, because there is no free-text channel to invent it in.
+2. **No parsing layer.** You do not need regular expressions, JSON repair or retries when the output format breaks.
+3. **Built-in uncertainty.** Every answer carries a confidence rating you can use to decide whether to act or hand over.
 
-XCLER ships this pattern inside [KI-Automatisierung](/en/services/ai-automation) and [KI-Chatbot](/en/services/ai-chatbots-agents) stacks: the decision model chooses the route; the LLM writes the sentence the customer hears.
+It is important to be precise about what this does *not* solve. Jev can still pick the **wrong** option from your list. It removes a class of formatting failures and made-up answers; it does not make every decision correct.
 
-## Latency, price and what to measure
+## The launch numbers — and how to treat them
 
-| Signal | Launch claim | What you should log |
-| --- | --- | --- |
-| Latency | 70–500 ms | p50 / p95 on *your* payload size and region |
-| Input price | ~$0.042 / MTok | tokens × real prompt size |
-| Outputs | free | confirm no hidden completion billing |
-| Confidence | rated | abstain rate vs wrong-route rate |
+TypeSafe AI's launch materials describe:
 
-## Open reproductions (OpenJev and friends)
+- **Latency of about 70–500 milliseconds** per call.
+- **Input pricing around $0.042 per million tokens.**
+- **Outputs described as free**, because no output tokens are generated.
 
-APUS OpenJev and similar sketches are useful for learning the interface: questions in, primitives out. They do not automatically copy calibration. A confidence number from one stack is not a probability from another until you measure it on the same traces.
+Those are vendor figures. They are useful as a sense of scale — this is priced and positioned far below frontier chat models — but they are not a promise about your workload. Latency depends on how much state you send, how many questions you ask, and which region you call from. A 70 ms median and a 500 ms tail describe two very different user experiences. Before you build a product plan around these numbers, measure your own p50 and p95 latency on real payloads.
 
-## Rollout week for operators
+"Free outputs" also deserves a second look. It only helps if your cost was the output. For many routing tasks the long part is the input — the ticket history, the page content, the account data. That is where you should do the maths.
 
-1. Freeze the question list and version it in git.
-2. Shadow-mode log state → primitive → confidence → latency.
-3. Enable abstain path before high-confidence steering.
-4. Flip one destination at a time during watched hours (CET for DACH desks).
+## Where a decision model fits
 
-### FAQ
+Jev is interesting wherever the next step is a **closed decision**: the set of valid answers is known before the call, and speed matters.
 
-**What is Jev?**  
-A transformer decision model that does not generate text. It evaluates predefined questions against state in one parallel pass.
+### High-frequency routing
+Every incoming email, chat message or call has to go somewhere: billing, scheduling, technical support, sales, a human, or "none of these". This is a classic closed decision. A decision model can make it in well under a second and return a confidence value you can threshold.
 
-**When should you use Jev instead of a chat model?**  
-When the next step is a closed decision: route, click, wait, score. Keep LLMs for prose.
+### Sub-second agent steps
+AI agents that operate a browser or desktop make dozens of small choices: click this button, scroll, wait, open the next tab, stop. Sending a full screenshot to a large multimodal model for each of those choices is slow and expensive. A fast decision model can handle the routine choices and leave the rare, open-ended ones to a larger model. We cover this split in detail in [decoupled architectures for computer-use agents](/en/blog/decoupled-architectures-computer-use-agents).
 
-**Are latency and price guaranteed?**  
-No. Confirm on your payload, region and question count.
+### Game logic and simulations
+Public demos have used Jev-style models to play games such as *Doom* and *Mario*: the model sees the current frame and picks an action from a legal set — move, jump, fire, wait. That is a good stress test for a non-text model precisely because the action set is closed and the loop is fast.
 
-If you are designing a sub-second router for Germany, Austria or Switzerland, [contact XCLER](/en/contact) with the action set — we will tell you whether it is actually closed.
+### Scoring and classification
+Lead scoring, fraud flags, content moderation labels, priority levels, sentiment bands. Any time you currently ask a chat model to "rate this from 1 to 5" and then parse the answer, a typed decision model is a more natural fit.
+
+## Where it does not fit
+
+Be equally clear about the limits:
+
+- **Anything that needs prose.** Emails, summaries, support replies, reports and explanations need a model that writes. Use Jev to decide *what* happens and an LLM to write *how* it is said.
+- **Open-ended questions.** If you cannot list the valid answers in advance, you do not have a decision problem yet.
+- **Questions that change every hour.** A decision model works best when the question set is stable, reviewed and versioned.
+- **Multi-step reasoning with new information.** Planning a sequence of actions that depends on what you discover along the way is still a job for an agent built on a reasoning model.
+
+## How it compares to other options
+
+| Approach | Output | Typical latency | Main failure mode | Best for |
+| --- | --- | --- | --- | --- |
+| Rules / if-else | Fixed | Instant | Breaks on unseen cases | Stable, simple logic |
+| Classic ML classifier | Label + score | Very fast | Needs labelled training data | High-volume, narrow tasks |
+| LLM with JSON output | Text parsed to data | Seconds | Format errors, invented values | Flexible, low volume |
+| Decision model (Jev-style) | Typed choice + confidence | Sub-second (vendor claim) | Wrong choice from valid set | Fast closed decisions without training data |
+
+The attractive part is the middle ground: you get the flexibility of "just describe the question" that LLMs offer, without training a custom classifier, while getting output that behaves like a classifier.
+
+## Designing good questions
+
+Most of the quality of a decision model comes from the question set, not the model. Some rules we apply:
+
+1. **Write every legal answer down.** If a stakeholder cannot name an option in a few words, it is probably prose, not a decision.
+2. **Always include an escape option** such as "none of these" or "needs a human". A model that is never allowed to abstain will guess.
+3. **Keep options mutually exclusive.** "Billing" and "Invoice question" as separate options will split probability and confuse your metrics.
+4. **Version the question set.** Store it in your repository with an ID, and log that ID next to every decision. Six months later it is the only way to explain why the system behaved differently.
+5. **Freeze before traffic.** Product, operations and — where relevant — legal should review the list before it goes live.
+
+## A safe rollout plan
+
+We recommend the same rollout for any new decision component, and it works well here:
+
+**Week 1 — shadow mode.** Keep your current router in charge. Send the same inputs to the decision model in parallel and log state, answer, confidence, latency and question-set version. Do not act on its answers yet.
+
+**Week 2 — compare.** Review disagreements with the person who owns the process, not just with the model. Some disagreements will reveal bugs in your old rules; others will reveal badly written questions. Fix the questions before you blame the model.
+
+**Week 3 — abstain path first.** Route low-confidence answers to your existing human or rules-based path. Keep high-confidence answers in shadow. You are testing the handover, not the headline accuracy.
+
+**Week 4 onwards — one destination at a time.** Let high-confidence answers steer a single destination during hours you can monitor. Expand only when the numbers hold.
+
+Track three rates separately: **correct**, **wrong** and **abstained**. Do not merge them into one accuracy figure — a system that never abstains can look accurate while being confidently wrong on the cases that matter.
+
+## Open reproductions: OpenJev and others
+
+After the launch, open-source reproductions appeared, including **APUS OpenJev**. They are useful for learning the interface — questions in, typed primitives out — and for running experiments without a bill. Keep two caveats in mind:
+
+- **Calibration does not transfer automatically.** A confidence of 0.9 from one implementation is not the same as 0.9 from another until you measure it on the same data.
+- **Latency and cost are different systems.** Self-hosting shifts cost from API fees to GPUs and operations.
+
+Treat a reproduction as a way to understand the pattern, and the hosted model you actually use as a separate system with its own measurements.
+
+## What this means for businesses in Germany and the EU
+
+For companies in the DACH region, a decision model can be an attractive building block for **customer service routing, lead qualification and internal ticket triage** — the processes where speed and predictability matter and where you would rather not have free text generated about customers at all. As with any AI service, check where data is processed, sign a data processing agreement, and minimise the personal data you send in the state.
+
+At XCLER we treat decision models as one component in a larger system: the decision model chooses the route, a workflow executes it, and a language model writes the message the customer sees. You can read more about how we combine these in [AI agents vs workflow automation](/en/blog/ai-agents-vs-workflow-automation) and on our [AI automation](/en/services/ai-automation) page.
+
+## FAQ
+
+**What is Jev?**
+Jev is a Transformer-based decision model from TypeSafe AI. Instead of generating text, it evaluates predefined questions against the current state in one parallel pass and returns typed answers — choices, scores and probabilities — with a confidence rating.
+
+**Who is behind TypeSafe AI?**
+The company launched out of stealth led by Diogo Almeida, a former OpenAI researcher who worked on RLHF.
+
+**Is Jev a replacement for ChatGPT or Claude?**
+No. It is a complement. Use a decision model for fast, closed choices and a language model when you need written output or open-ended reasoning.
+
+**Are the latency and price figures guaranteed?**
+No. The 70–500 ms latency and roughly $0.042 per million input tokens are launch figures from the vendor. Measure them on your own payloads, question counts and regions.
+
+**Does a decision model eliminate hallucinations?**
+It eliminates invented options and formatting failures, because it can only return values you defined. It can still choose the wrong option, so you need confidence thresholds and a human fallback.
+
+**What is OpenJev?**
+An open-source reproduction of the Jev approach. It is useful for learning and testing, but its calibration and performance are not identical to the hosted model.
+
+Planning a sub-second router for support, sales or operations? [Contact XCLER](/en/contact) with your list of possible outcomes. The first thing we will check is whether that list is truly closed.

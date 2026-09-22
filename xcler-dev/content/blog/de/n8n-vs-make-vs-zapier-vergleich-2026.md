@@ -11,7 +11,7 @@ publishedAt: "2026-09-14T08:00:00.000Z"
 author: Musharraf Aziz
 cover: /blog/blog-n8n-make-zapier-cover.webp
 coverAlt: "n8n vs. Make vs. Zapier Vergleich 2026 – Plattformen für Workflow-Automatisierung"
-readingTime: 10
+readingTime: 8
 tags:
   - n8n
   - Make.com
@@ -80,6 +80,54 @@ Zapiers Einfachheit ist zugleich seine Grenze: Komplexe Logik wird zu einer Kett
 
 Dreißig Zaps nach n8n zu migrieren ist typischerweise ein Projekt von zwei bis vier Wochen, kein Wochenendjob. Der eigentliche Gewinn ist nicht nur die Lizenzersparnis, sondern dass verstreute „Schatten-Automatisierungen“ in einer kontrollierten Plattform mit Logging und Alarmen landen. Solche Migrationen setzen wir im Rahmen unserer [Workflow-Automatisierung](/leistungen/workflow-automatisierung) um – alte und neue Flows laufen parallel, bis die Zahlen übereinstimmen.
 
+## Drei echte Workflows auf jeder Plattform
+
+Abstrakte Vergleiche helfen nur begrenzt. So verhalten sich drei typische B2B-Automatisierungen auf den einzelnen Tools.
+
+### 1. Lead-Eingang und Anreicherung
+Eine Formularanfrage von der Website wird mit Firmendaten angereichert, bewertet, ins CRM geschrieben, und der zuständige Vertriebsmitarbeiter wird in Slack oder Teams benachrichtigt.
+
+- **Zapier:** schnell gebaut mit fertigen Apps. Jeder Schritt zählt als Task – Anreicherung, Bewertung, CRM und Benachrichtigung summieren sich bei einigen hundert Leads pro Monat schnell.
+- **Make:** ein übersichtliches visuelles Szenario mit Router für verschiedene Lead-Typen. Pro Lauf günstiger als Zapier und für Marketing-Teams gut wartbar.
+- **n8n:** gleiche Logik, dazu ein KI-Node, der eine kurze Lead-Zusammenfassung für den Vertrieb schreibt. Eine Ausführung pro Lead, egal wie viele Schritte. Eigene Bewertungslogik lässt sich leicht als Code ergänzen.
+
+### 2. Rechnungsverarbeitung
+Eingehende PDF-Rechnungen werden gelesen, Felder extrahiert, mit Bestellungen abgeglichen und in die Buchhaltung übertragen; Ausnahmen gehen an einen Menschen.
+
+- **Zapier:** möglich, aber Dokumentenauslesung und Prüflogik werden über viele Zaps hinweg umständlich.
+- **Make:** gute Unterstützung für Iteratoren über Rechnungspositionen; Komplexität beherrschbar.
+- **n8n:** am besten geeignet – KI-Extraktion, Code-Nodes für Prüfregeln, Fehler-Workflows für Ausnahmen und Selbsthosting, damit Rechnungen Ihre Infrastruktur nie verlassen.
+
+### 3. Assistent im Kundenservice
+Eingehende Support-E-Mails werden klassifiziert, wenn möglich aus einer Wissensbasis beantwortet und sonst an das richtige Team geleitet.
+
+- **Zapier:** einfache Klassifizierung funktioniert, ein Assistent mit Wissensbasis ist eingeschränkt.
+- **Make:** machbar, wenn man ein LLM-Modul per HTTP mit einer Vektordatenbank verbindet.
+- **n8n:** native Nodes für KI-Agent, Gedächtnis und Vektorspeicher machen einen vollständigen [RAG-Assistenten](/blog/rag-chatbot-unternehmenswissen) zum regulären Workflow.
+
+## Was Selbsthosting von n8n tatsächlich bedeutet
+
+Selbsthosting ist der größte Vorteil von n8n – und die größte Verantwortung. Ein produktiver Betrieb umfasst typischerweise:
+
+1. **Einen Server oder eine Container-Plattform** in einem EU-Rechenzentrum – eine einzelne virtuelle Maschine für kleine Teams, Kubernetes oder ein gemanagter Container-Dienst für größere.
+2. **Eine PostgreSQL-Datenbank** statt der standardmäßigen dateibasierten Speicherung.
+3. **Queue-Modus mit Worker-Prozessen**, sobald viele Workflows parallel laufen, damit ein schwerer Job nicht alle anderen blockiert.
+4. **HTTPS, Single Sign-on und Benutzerrollen**, damit der Zugriff kontrolliert ist.
+5. **Backups** von Datenbank und Zugangsdaten – und getestete Wiederherstellung.
+6. **Monitoring und Alarme** für fehlgeschlagene Ausführungen, Queue-Länge und Serverressourcen.
+7. **Eine Update-Routine**, denn neue Versionen bringen Funktionen und Sicherheitskorrekturen.
+
+Will niemand im Team das übernehmen, ist n8n Cloud oder ein gemanagter Betrieb durch einen Partner die bessere Wahl. Preismodell und Funktionen bleiben, ohne dass Sie Server betreiben.
+
+## Typische Fehler bei der Plattformwahl
+
+- **Nur nach Anzahl der Apps entscheiden.** Die meisten Unternehmensautomatisierungen nutzen eine Handvoll Apps plus HTTP-Anfragen. Zuverlässigkeit, Fehlerbehandlung und Kosten zählen mehr als ein großes Verzeichnis.
+- **Fehlerbehandlung ignorieren.** Auf jeder Plattform scheitern Workflows stillschweigend, wenn Alarme und Wiederholungslogik fehlen.
+- **Keine Namens- oder Ordnerkonventionen.** Nach fünfzig Workflows weiß niemand mehr, welcher was tut.
+- **Persönliche Konten als Eigentümer.** Workflows am privaten Login eines Mitarbeitenden brechen, wenn diese Person das Unternehmen verlässt.
+- **Keine Dokumentation.** Halten Sie für jeden Workflow Zweck, Auslöser, berührte Systeme und Verantwortliche fest.
+- **Volumenwachstum unterschätzen.** Was bei 1.000 Läufen im Monat günstig ist, kann bei 50.000 teuer werden. Rechnen Sie die Kosten beim Dreifachen des heutigen Volumens durch.
+
 ## FAQ
 
 **Ist n8n kostenlos?**
@@ -93,5 +141,14 @@ Eindeutig n8n, weil Agent-, Memory- und Vektordatenbank-Nodes eingebaut sind.
 
 **Und Microsoft Power Automate?**
 Stark, wenn Ihr Unternehmen in Microsoft 365 lebt, schwächer außerhalb davon – und Premium-Konnektoren summieren sich.
+
+**Können wir mehrere Plattformen gleichzeitig nutzen?**
+Ja, das machen viele Unternehmen: Zapier oder Make für einfache Team-Automatisierungen, n8n für geschäftskritische, volumenstarke oder sensible Prozesse. Führen Sie nur eine Übersicht, was wo läuft.
+
+**Wie lange dauert es, n8n zu lernen?**
+Nicht-Entwickler bauen einfache Workflows innerhalb weniger Tage. Für komplexe Workflows mit Code-Nodes, Fehlerbehandlung und KI-Agenten sind Grundkenntnisse im Programmieren hilfreich.
+
+**Ist Make DSGVO-konform?**
+Make bietet EU-Hosting und einen Auftragsverarbeitungsvertrag, was viele Fälle abdeckt. Für hochsensible Daten gibt Ihnen selbst gehostetes n8n mehr Kontrolle.
 
 Sie wollen eine Empfehlung für Ihren Stack? [Kontaktieren Sie XCLER](/kontakt) mit Ihren aktuellen Tools und Ihrem monatlichen Volumen. Wir sagen Ihnen, welche Plattform passt – auch wenn die Antwort nicht n8n lautet.

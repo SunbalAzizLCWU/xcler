@@ -11,7 +11,7 @@ publishedAt: "2026-09-11T08:00:00.000Z"
 author: Musharraf Aziz
 cover: /blog/blog-ai-agents-vs-workflows-cover.webp
 coverAlt: "AI agents versus deterministic workflow automation comparison"
-readingTime: 9
+readingTime: 6
 tags:
   - agentic AI
   - AI agents
@@ -74,6 +74,46 @@ This keeps cost and risk under control while still using AI where it adds value.
 
 A deterministic workflow run costs fractions of a cent in infrastructure. An agent run can take many model calls and cost cents to euros, and the cost varies from run to run. At ten thousand runs a month that difference matters — which is why the agent should only do the part a workflow cannot.
 
+## Worked example: handling a customer order change
+
+A wholesaler receives order change requests by email: change quantities, swap a product, move the delivery date, cancel lines. Here is how the same process looks in three designs.
+
+### Pure workflow
+The workflow parses emails with fixed rules. It works for customers who use a standard form, and fails whenever someone writes "can you swap the blue ones for the larger size and push it to next Friday if that's easier?". Those emails fall into a manual queue — often most of them.
+
+### Pure agent
+An agent reads every email, looks up the order, decides what to change and updates the ERP. It handles messy language well, but costs vary per email, and without guardrails it might change the wrong line or confirm a date the warehouse cannot meet.
+
+### Hybrid (what we recommend)
+1. The workflow receives the email, identifies the customer and loads the open orders deterministically.
+2. An AI step extracts the requested changes into a **structured list**: line, field, new value, confidence.
+3. The workflow validates each change against business rules — stock, cut-off times, price agreements.
+4. Valid, high-confidence changes are applied automatically; everything else goes to a person with a prepared summary.
+5. A language model drafts the confirmation email; a person approves it until the error rate is proven low.
+
+The agentic part does what only AI can do — understand free text — while the workflow keeps control of what actually changes in your systems.
+
+## Signs you have chosen the wrong approach
+
+**You built an agent, but should have built a workflow if:**
+- Most runs follow the same path.
+- Costs per run vary for no business reason.
+- You keep adding rules to the prompt to force a fixed sequence.
+- Auditors or finance ask why the same input produced different outcomes.
+
+**You built a workflow, but need an agent step if:**
+- A large share of cases falls into a manual exception queue.
+- Your team spends time reading and interpreting inputs before they can act.
+- The workflow has dozens of fragile branches for wording variations.
+
+## How to introduce agents safely
+
+1. **Start in shadow mode.** Let the agent propose actions while people keep doing the work. Compare.
+2. **Measure three rates:** correct, wrong and escalated. Watch the wrong rate most closely.
+3. **Automate the easy half first.** Enable automatic execution only for high-confidence, low-risk cases.
+4. **Keep humans on irreversible steps.** Payments, cancellations, customer communication.
+5. **Review weekly.** Read failed and escalated cases and improve tools, prompts or rules.
+
 ## FAQ
 
 **Are AI agents reliable enough for production?**
@@ -84,5 +124,14 @@ Yes. n8n has an AI Agent node with tools, memory and structured output, so workf
 
 **Where should we start?**
 Automate the predictable 80% with workflows first. Then add an agent to the step where people still spend time making judgment calls.
+
+**What is the difference between an AI agent and a chatbot?**
+A chatbot mainly answers questions in a conversation. An agent pursues a goal by calling tools and taking actions — looking up data, updating systems, sending messages.
+
+**What does "agentic AI" mean?**
+AI systems that plan and carry out multi-step tasks with some autonomy, rather than producing a single answer to a single prompt.
+
+**Can agents make decisions under the EU AI Act?**
+Many business uses are low-risk, but decisions about people — hiring, credit, access to services — can fall into high-risk categories with strict requirements, including human oversight.
 
 We design both — see [workflow automation](/en/services/workflow-automation) and [AI chatbots and agents](/en/services/ai-chatbots-agents). [Describe your process](/en/contact) and we will tell you honestly whether it needs an agent.

@@ -11,7 +11,7 @@ publishedAt: "2026-09-14T08:00:00.000Z"
 author: Musharraf Aziz
 cover: /blog/blog-n8n-make-zapier-cover.webp
 coverAlt: "n8n vs Make vs Zapier 2026 comparison of workflow automation platforms"
-readingTime: 10
+readingTime: 8
 tags:
   - n8n
   - Make.com
@@ -80,6 +80,54 @@ Zapier's simplicity is also its ceiling: complex logic turns into a chain of Zap
 
 Moving thirty Zaps to n8n is typically a two-to-four-week project, not a weekend. The real win is not just the licence saving; it is pulling scattered "shadow" automations into one governed platform with logging and alerts. We run these migrations as part of [workflow automation](/en/services/workflow-automation) projects, with the old and new flows running in parallel until the numbers match.
 
+## Three real workflows, built on each platform
+
+Abstract comparisons only go so far. Here is how three typical B2B automations behave on each tool.
+
+### 1. Lead intake and enrichment
+A website form submission is enriched with company data, scored, written to the CRM, and the right salesperson is notified in Slack or Teams.
+
+- **Zapier:** quick to build with ready-made apps. Every step counts as a task, so enrichment plus scoring plus CRM plus notification quickly adds up at a few hundred leads a month.
+- **Make:** a clean visual scenario with a router for different lead types. Cheaper per run than Zapier, easy for marketing teams to maintain.
+- **n8n:** same logic, plus an AI node that writes a short lead summary for sales. One execution per lead regardless of steps. Easy to add custom scoring code.
+
+### 2. Invoice processing
+Incoming PDF invoices are read, fields are extracted, checked against purchase orders and pushed into accounting software; exceptions go to a person.
+
+- **Zapier:** possible, but document parsing and validation logic become awkward across many Zaps.
+- **Make:** good support for iterators over line items; complexity manageable.
+- **n8n:** strongest fit — AI extraction, code nodes for validation rules, error workflows for exceptions and self-hosting so invoices never leave your infrastructure.
+
+### 3. Customer support assistant
+Incoming support emails are classified, answered from a knowledge base where possible, and routed to the right team otherwise.
+
+- **Zapier:** simple classification works; a knowledge-base assistant is limited.
+- **Make:** doable by wiring an LLM module with a vector database via HTTP calls.
+- **n8n:** native AI Agent, memory and vector store nodes make a full [RAG assistant](/en/blog/rag-chatbot-company-knowledge) a first-class workflow.
+
+## What self-hosting n8n actually involves
+
+Self-hosting is n8n's biggest advantage and its biggest responsibility. A production setup typically includes:
+
+1. **A server or container platform** in an EU data centre — a single virtual machine for small teams, Kubernetes or a managed container service for larger ones.
+2. **A PostgreSQL database** instead of the default file-based storage.
+3. **Queue mode with worker processes** once you run many workflows in parallel, so one heavy job does not block the rest.
+4. **HTTPS, single sign-on and user roles** so access is controlled.
+5. **Backups** of the database and credentials, tested by actually restoring them.
+6. **Monitoring and alerting** on failed executions, queue length and server resources.
+7. **An update routine**, because new versions bring features and security fixes.
+
+If nobody on your team wants to own that, n8n Cloud or a managed setup from a partner is the better choice. You keep the pricing model and features without running servers.
+
+## Common mistakes when choosing a platform
+
+- **Choosing by app count alone.** Most business automations use a handful of apps plus HTTP requests. A big directory matters less than reliability, error handling and cost.
+- **Ignoring error handling.** Every platform lets a workflow fail silently if you do not configure alerts and retry logic.
+- **No naming or folder conventions.** After fifty workflows, nobody knows which one does what.
+- **Personal accounts as owners.** Workflows owned by an employee's personal login break when that person leaves.
+- **No documentation.** Record the purpose, trigger, systems touched and owner for every workflow.
+- **Underestimating volume growth.** A setup that is cheap at 1,000 runs a month may be expensive at 50,000. Model the cost at three times today's volume.
+
 ## FAQ
 
 **Is n8n free?**
@@ -93,5 +141,14 @@ n8n, clearly, because agent, memory and vector store nodes are built in.
 
 **What about Microsoft Power Automate?**
 Strong if your company lives in Microsoft 365, weaker outside it, and premium connectors add up.
+
+**Can we use more than one platform?**
+Yes, and many companies do: Zapier or Make for simple team-level automations, n8n for business-critical, high-volume or sensitive processes. Just keep an inventory of what runs where.
+
+**How long does it take to learn n8n?**
+Non-developers can build simple workflows within days. Complex workflows with code nodes, error handling and AI agents benefit from someone with basic programming experience.
+
+**Is Make GDPR-compliant?**
+Make offers EU hosting and a data processing agreement, which covers many use cases. For highly sensitive data, self-hosted n8n gives you more control.
 
 Want a recommendation for your stack? [Contact XCLER](/en/contact) with your current tools and monthly volume. We will tell you which platform fits — including when the answer is not n8n.

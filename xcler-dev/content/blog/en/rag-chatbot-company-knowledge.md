@@ -11,7 +11,7 @@ publishedAt: "2026-09-12T08:00:00.000Z"
 author: Musharraf Aziz
 cover: /blog/blog-rag-knowledge-chatbot-cover.webp
 coverAlt: "RAG chatbot turning company documents into cited AI answers"
-readingTime: 10
+readingTime: 6
 tags:
   - RAG
   - retrieval-augmented generation
@@ -64,6 +64,41 @@ For company knowledge, RAG is almost always the right starting point. Fine-tunin
 - **A weekly review** of unanswered and low-rated questions, which become new content or fixes.
 - **EU hosting** for embeddings, index and model where the data is sensitive.
 
+## A closer look at chunking
+
+Chunking decides what the model will see, so it deserves more attention than it usually gets.
+
+- **Chunk by structure, not by character count.** Split along headings, sections and list items so each chunk is about one thing.
+- **Keep context with every chunk.** Prefix each chunk with the document title and heading path, for example "Returns policy > International orders". Without it, a paragraph saying "within 14 days" loses its meaning.
+- **Handle tables separately.** Convert tables into rows with their column headers, or store them as structured data. Splitting a price table in half is a classic source of wrong answers.
+- **Use overlap carefully.** A small overlap between neighbouring chunks prevents answers from being cut in half; too much overlap fills the context with duplicates.
+- **Store metadata.** Source URL, document version, date, product, language and access level make filtering and citations possible.
+
+## How to evaluate a RAG system
+
+Before launch, build a test set of 50 to 200 real questions with the answer your team would give and the document it should come from. Then measure:
+
+| Metric | Question it answers |
+| --- | --- |
+| Retrieval hit rate | Did the right document appear in the retrieved chunks? |
+| Answer correctness | Is the answer factually right according to your team? |
+| Faithfulness | Is every claim supported by the retrieved text? |
+| Citation accuracy | Do the cited sources actually contain the answer? |
+| Abstention quality | Does the bot say "I don't know" when the answer is not in the sources? |
+| Latency and cost | How long does an answer take, and what does it cost? |
+
+Run the same test set after every change — new chunking, a different embedding model, a new prompt, a model upgrade. Without it, improvements are guesswork.
+
+## Keeping the knowledge base fresh
+
+RAG systems degrade quietly when content goes stale. Build maintenance into the design:
+
+1. **Automatic sync** from source systems (SharePoint, Confluence, help centre, product database) on a schedule or when documents change.
+2. **Version rules** so only the current version of a policy is retrievable.
+3. **Expiry dates** for time-bound content such as promotions or temporary rules.
+4. **Ownership**: every source has a person responsible for its accuracy.
+5. **Feedback loop**: unanswered or low-rated questions become tasks for content owners.
+
 ## Typical use cases
 
 - Customer support assistant that answers from your help centre and hands over to agents.
@@ -81,5 +116,14 @@ From a few dozen to millions. The hard part is keeping sources clean and current
 
 **Can it work in German and English?**
 Yes. Multilingual embedding models let users ask in one language and retrieve documents written in another.
+
+**Which vector database should we use?**
+For most companies, the choice matters less than chunking and evaluation. PGVector is convenient if you already run PostgreSQL; Qdrant, Weaviate and Pinecone are strong dedicated options. Choose based on hosting location, scale and your team's skills.
+
+**How much does a RAG chatbot cost?**
+It depends on document volume, integrations and access rules. See our breakdown of [AI chatbot costs](/en/blog/ai-chatbot-cost-2026) for typical ranges.
+
+**Can RAG respect user permissions?**
+Yes. Store access levels as metadata and filter retrieval by the logged-in user's rights, so people only get answers from documents they are allowed to see.
 
 We build RAG assistants as part of our [AI chatbots and agents](/en/services/ai-chatbots-agents) work, usually on n8n with EU-hosted vector storage. [Tell us which knowledge you want to unlock](/en/contact) and we will outline the pipeline.

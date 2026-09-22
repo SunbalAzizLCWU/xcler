@@ -11,7 +11,7 @@ publishedAt: "2026-09-08T08:00:00.000Z"
 author: Abeel Mehr
 cover: /blog/blog-website-cost-germany-cover.webp
 coverAlt: "Was kostet eine Website 2026 – Preisspannen und Kostenaufteilung in Deutschland"
-readingTime: 9
+readingTime: 6
 tags:
   - Website Kosten
   - Was kostet eine Website
@@ -70,6 +70,41 @@ Ein typisches Projekt für eine Unternehmenswebsite verteilt sich grob so:
 
 Faustregel: Planen Sie **10–20 % des Erstellungspreises pro Jahr** für Pflege und Weiterentwicklung ein.
 
+## Rechenbeispiel: Unternehmenswebsite für einen Mittelständler
+
+Ein Ingenieurdienstleister mit 120 Mitarbeitenden in Deutschland möchte eine neue Website: 25 Seiten auf Deutsch und Englisch, Referenzprojekte, ein Karrierebereich mit Stellenanzeigen, ein Kontaktformular mit CRM-Anbindung und ein Blog, den das Marketing selbst pflegt.
+
+Ein realistisches Budget könnte so aussehen:
+
+| Posten | Anteil | Beispielbetrag |
+| --- | --- | --- |
+| Strategie, Seitenstruktur, Keyword-Recherche | 10 % | 1.800 € |
+| UX- und visuelles Design, Designsystem | 15 % | 2.700 € |
+| Entwicklung, CMS, Formulare, CRM-Anbindung | 40 % | 7.200 € |
+| Texte und Übersetzungsunterstützung | 10 % | 1.800 € |
+| Technische SEO, strukturierte Daten, Weiterleitungen | 10 % | 1.800 € |
+| Launch, Schulung, Pflege im ersten Jahr | 15 % | 2.700 € |
+| **Summe** | | **18.000 €** |
+
+Ändert sich der Umfang, verschiebt sich die Summe: Ohne Übersetzung und Karrierebereich läge sie eher bei 12.000 €; mit Produktkonfigurator und Partnerportal könnte sie 35.000 € übersteigen.
+
+## Versteckte Kosten, nach denen Sie fragen sollten
+
+- **Stockfotos und Schriften** – Lizenzen sind nicht immer enthalten.
+- **Drittanbieter-Tools** – Formulardienste, Consent-Tools, Newsletter-Plattformen, Jobbörsen.
+- **Inhaltsmigration** – Hunderte alte Seiten zu übertragen und zu bereinigen kostet Zeit.
+- **Rechtstexte** – Impressum, Datenschutzerklärung und AGB kommen meist von Anwälten oder spezialisierten Generator-Diensten, nicht von der Agentur.
+- **Barrierefreiheit** – Das Barrierefreiheitsstärkungsgesetz (BFSG) gilt seit Juni 2025 für viele Angebote an Verbraucher, etwa Onlineshops.
+- **Änderungswünsche** – Neue Ideen nach der Designfreigabe sind normal; vereinbaren Sie, wie sie abgerechnet werden.
+
+## So behalten Sie die Kosten im Griff
+
+1. **Ein kurzes Briefing schreiben.** Ziele, Zielgruppen, unverzichtbare Seiten und Funktionen, Integrationen, Beispiele, die Ihnen gefallen.
+2. **Konsequent priorisieren.** Mit dem starten, was Anfragen bringt, den Rest in Phase zwei ergänzen.
+3. **Inhalte früh liefern.** Warten auf Texte und Bilder ist der häufigste Grund für Verzögerungen.
+4. **Bewährtes wiederverwenden.** Ein erprobtes Komponentensystem ist schneller und günstiger, als jede Seite neu zu gestalten.
+5. **Klären, wer pflegt.** Braucht das Marketing volle Unabhängigkeit, budgetieren Sie CMS-Einrichtung und Schulung.
+
 ## So vergleichen Sie Angebote
 
 Fragen Sie jede Agentur:
@@ -96,5 +131,14 @@ Landingpages zwei bis vier Wochen, Unternehmenswebsites sechs bis zwölf Wochen,
 
 **Können wir klein anfangen und später wachsen?**
 Ja. Eine solide technische Basis erlaubt den Start mit den Kernseiten und spätere Erweiterungen ohne Neubau.
+
+**Reicht ein Baukasten wie Wix oder Jimdo?**
+Für ein sehr kleines Unternehmen mit wenigen Seiten oft ja. Sobald Sie mehrere Sprachen, Integrationen, starke SEO oder individuelle Funktionen brauchen, ist eine professionell entwickelte Website meist die bessere Investition.
+
+**Gibt es Förderung für Websites in Deutschland?**
+Einige Bundesländer und Programme fördern Digitalisierungsprojekte kleiner und mittlerer Unternehmen. Die Bedingungen ändern sich regelmäßig – prüfen Sie aktuelle Programme bei Ihrer IHK oder Landesförderbank, bevor Sie unterschreiben.
+
+**Was sorgt dafür, dass eine Website Anfragen bringt?**
+Klare Positionierung, schnelle Seiten, starke Leistungsseiten, die echte Fragen beantworten, Vertrauenssignale wie Referenzen und einfache Kontaktwege. Design allein erzeugt keine Leads.
 
 Wir entwickeln schnelle, SEO-fähige Websites für Unternehmen in ganz Deutschland – siehe [Webentwicklung](/leistungen/webentwicklung) und [Preise](/preise). [Senden Sie uns Ihr Briefing](/kontakt) für eine Schätzung mit festem Umfang.

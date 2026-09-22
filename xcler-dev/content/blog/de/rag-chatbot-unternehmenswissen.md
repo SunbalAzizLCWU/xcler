@@ -11,7 +11,7 @@ publishedAt: "2026-09-12T08:00:00.000Z"
 author: Musharraf Aziz
 cover: /blog/blog-rag-knowledge-chatbot-cover.webp
 coverAlt: "RAG-Chatbot macht Unternehmensdokumente zu KI-Antworten mit Quellenangabe"
-readingTime: 10
+readingTime: 6
 tags:
   - RAG
   - Retrieval-Augmented Generation
@@ -64,6 +64,41 @@ Für Unternehmenswissen ist RAG fast immer der richtige Einstieg. Fine-Tuning lo
 - **Wöchentliche Auswertung** unbeantworteter und schlecht bewerteter Fragen, die zu neuen Inhalten oder Korrekturen werden.
 - **EU-Hosting** für Embeddings, Index und Modell bei sensiblen Daten.
 
+## Chunking genauer betrachtet
+
+Chunking entscheidet, was das Modell zu sehen bekommt – es verdient mehr Aufmerksamkeit, als es meist erhält.
+
+- **Nach Struktur teilen, nicht nach Zeichenzahl.** Entlang von Überschriften, Abschnitten und Listenpunkten trennen, damit jeder Abschnitt ein Thema hat.
+- **Kontext an jedem Abschnitt mitführen.** Jeden Abschnitt mit Dokumenttitel und Überschriftenpfad beginnen, etwa „Rückgaberichtlinie > Auslandsbestellungen“. Ohne das verliert ein Satz wie „innerhalb von 14 Tagen“ seine Bedeutung.
+- **Tabellen gesondert behandeln.** Tabellen in Zeilen mit Spaltenüberschriften umwandeln oder als strukturierte Daten speichern. Eine halbierte Preistabelle ist ein Klassiker für falsche Antworten.
+- **Überlappung mit Bedacht.** Eine kleine Überlappung benachbarter Abschnitte verhindert halbierte Antworten; zu viel füllt den Kontext mit Dopplungen.
+- **Metadaten speichern.** Quell-URL, Dokumentversion, Datum, Produkt, Sprache und Zugriffsebene ermöglichen Filter und Quellenangaben.
+
+## So evaluieren Sie ein RAG-System
+
+Erstellen Sie vor dem Start ein Testset aus 50 bis 200 echten Fragen – mit der Antwort, die Ihr Team geben würde, und dem Dokument, aus dem sie stammen sollte. Messen Sie dann:
+
+| Kennzahl | Beantwortete Frage |
+| --- | --- |
+| Trefferquote beim Abruf | War das richtige Dokument unter den gefundenen Abschnitten? |
+| Antwortkorrektheit | Ist die Antwort laut Ihrem Team sachlich richtig? |
+| Quellentreue | Ist jede Aussage durch den gefundenen Text gedeckt? |
+| Genauigkeit der Quellenangaben | Enthalten die zitierten Quellen tatsächlich die Antwort? |
+| Qualität der Enthaltung | Sagt der Bot „Das weiß ich nicht“, wenn die Antwort nicht in den Quellen steht? |
+| Latenz und Kosten | Wie lange dauert eine Antwort, und was kostet sie? |
+
+Führen Sie dasselbe Testset nach jeder Änderung aus – neues Chunking, anderes Embedding-Modell, neuer Prompt, Modell-Upgrade. Ohne Testset sind Verbesserungen reines Raten.
+
+## Die Wissensbasis aktuell halten
+
+RAG-Systeme verschlechtern sich unbemerkt, wenn Inhalte veralten. Planen Sie die Pflege von Anfang an ein:
+
+1. **Automatische Synchronisierung** aus Quellsystemen (SharePoint, Confluence, Hilfe-Center, Produktdatenbank) nach Zeitplan oder bei Änderungen.
+2. **Versionsregeln**, damit nur die aktuelle Fassung einer Richtlinie abrufbar ist.
+3. **Ablaufdaten** für zeitgebundene Inhalte wie Aktionen oder befristete Regeln.
+4. **Verantwortlichkeit**: Für jede Quelle ist eine Person für die Richtigkeit zuständig.
+5. **Feedback-Schleife**: Unbeantwortete oder schlecht bewertete Fragen werden zu Aufgaben für die Verantwortlichen.
+
 ## Typische Einsatzfälle
 
 - Kundenservice-Assistent, der aus Ihrem Hilfe-Center antwortet und an Mitarbeitende übergibt.
@@ -81,5 +116,14 @@ Von einigen Dutzend bis zu Millionen. Schwierig ist nicht die Menge, sondern Que
 
 **Funktioniert das auf Deutsch und Englisch?**
 Ja. Mehrsprachige Embedding-Modelle erlauben Fragen in einer Sprache und Treffer in Dokumenten einer anderen.
+
+**Welche Vektordatenbank sollten wir nutzen?**
+Für die meisten Unternehmen zählt die Wahl weniger als Chunking und Evaluierung. PGVector ist praktisch, wenn Sie ohnehin PostgreSQL betreiben; Qdrant, Weaviate und Pinecone sind starke spezialisierte Optionen. Entscheiden Sie nach Hosting-Standort, Größenordnung und Kenntnissen im Team.
+
+**Was kostet ein RAG-Chatbot?**
+Das hängt von Dokumentenmenge, Integrationen und Zugriffsregeln ab. Typische Spannen finden Sie in unserer Übersicht [Was kostet ein KI-Chatbot?](/blog/ki-chatbot-kosten-2026).
+
+**Kann RAG Benutzerrechte berücksichtigen?**
+Ja. Speichern Sie Zugriffsebenen als Metadaten und filtern Sie den Abruf nach den Rechten des angemeldeten Nutzers – so erhalten Personen nur Antworten aus Dokumenten, die sie sehen dürfen.
 
 Wir bauen RAG-Assistenten im Rahmen unserer Leistungen für [KI-Chatbots und Agenten](/leistungen/ki-chatbots-agenten), meist auf n8n mit Vektorspeicher in der EU. [Sagen Sie uns, welches Wissen Sie nutzbar machen wollen](/kontakt) – wir skizzieren die Pipeline.

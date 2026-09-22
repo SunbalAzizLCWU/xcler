@@ -11,7 +11,7 @@ publishedAt: "2026-09-09T08:00:00.000Z"
 author: Abeel Mehr
 cover: /blog/blog-nextjs-vs-wordpress-cover.webp
 coverAlt: "Next.js vs. WordPress Vergleich für Unternehmenswebsites"
-readingTime: 9
+readingTime: 5
 tags:
   - Next.js
   - WordPress
@@ -68,6 +68,37 @@ WordPress ist meist günstiger im Einstieg. Next.js wird bei individuellen Funkt
 
 **Headless (WordPress oder ein anderes CMS + Next.js-Frontend)**, wenn Sie Komfort für die Redaktion *und* Spitzen-Performance wollen. Redakteure behalten ihr gewohntes Backend, Besucher bekommen ein schnelles, sicheres Frontend.
 
+## Drei Szenarien und unsere Empfehlung
+
+### Eine Beratung mit aktivem Blog
+Zwölf Leistungsseiten, zwei bis vier Artikel pro Woche, ein Marketing-Team, das selbstständig veröffentlicht, Formulare mit CRM-Anbindung.
+
+**Empfehlung: WordPress** mit schlankem Theme, kleinem, geprüftem Plugin-Set und Managed Hosting. Die Redaktion bleibt unabhängig, und die Performance stimmt, wenn das Setup diszipliniert gepflegt wird.
+
+### Ein SaaS- oder Produktunternehmen
+Marketingseiten plus Preisrechner, Kunden-Login, Dokumentation, Anbindung an die Produkt-API und sehr hohe Performance-Ziele.
+
+**Empfehlung: Next.js**, mit Inhalten aus Markdown oder einem Headless-CMS. Website und Produkt teilen Komponenten, und die technische SEO liegt vollständig in Ihrer Hand.
+
+### Ein Mittelständler auf dem Weg ins Ausland
+Hunderte Produktseiten in mehreren Sprachen, Händlersuche, Datenblatt-Downloads, Produktdaten aus PIM oder ERP und eine Redaktion, die News und Termine pflegt.
+
+**Empfehlung: Headless** – ein CMS für redaktionelle Inhalte, Produktdaten per Synchronisierung aus dem PIM und ein Next.js-Frontend für Geschwindigkeit, mehrsprachiges Routing und Suche.
+
+## Hosting und Betrieb
+
+| | WordPress | Next.js |
+| --- | --- | --- |
+| Typisches Hosting | Managed-WordPress-Hoster oder VPS | Edge- oder Serverless-Plattformen, Container oder statisches Hosting |
+| Caching | Plugins oder Cache beim Hoster | Im Rendering-Modell eingebaut |
+| Backups | Datenbank plus Dateien | Code in Git, Inhalte im CMS oder Repository |
+| Staging | Abhängig vom Hoster | Vorschau-Deployments pro Änderung sind üblich |
+| Updates | Core, Theme und Plugins, idealerweise monatlich | Framework und Abhängigkeiten, geplante Upgrades |
+
+## Barrierefreiheit und Rechtliches
+
+Seit Juni 2025 gilt in der EU der **European Accessibility Act**, in Deutschland umgesetzt durch das **Barrierefreiheitsstärkungsgesetz (BFSG)**, für viele digitale Angebote an Verbraucher, darunter Onlineshops. WordPress und Next.js können beide barrierefreie Seiten liefern – das Ergebnis hängt vom Theme oder den Komponenten ab, nicht von der Plattform. Prüfen Sie in beiden Fällen Farbkontraste, Tastaturbedienung, Formularbeschriftungen und Alternativtexte. Deutsche Websites brauchen zudem Impressum, Datenschutzerklärung und ein Cookie-Consent, das Skripte vor der Einwilligung tatsächlich blockiert.
+
 ## Hinweise zur Migration
 
 Ein Umzug von WordPress zu Next.js will gut geplant sein:
@@ -87,5 +118,14 @@ Ja, mit einem Headless-CMS oder einem einfachen Content-Workflow, den Ihre Entwi
 
 **Ist WordPress veraltet?**
 Nein. Für inhaltsstarke Seiten mit aktiver Redaktion bleibt es eine starke Wahl.
+
+**Lässt sich WordPress headless nutzen?**
+Ja. WordPress kann Inhalte über seine REST- oder GraphQL-API an ein Next.js-Frontend liefern, sodass die Redaktion ihr gewohntes Backend behält.
+
+**Was ist besser für einen Onlineshop?**
+Für kleine Shops ist WooCommerce auf WordPress ein häufiger Einstieg. Für wachsende Marken ist Shopify – optional headless mit Next.js-Frontend – oft die bessere Grundlage.
+
+**Wie lange dauert eine Migration?**
+Eine typische Migration einer Unternehmenswebsite dauert vier bis zehn Wochen inklusive Inhaltsübernahme, Weiterleitungen, Tests und gestaffeltem Launch.
 
 Wir entwickeln beides – siehe [Webentwicklung](/leistungen/webentwicklung) und [WordPress & Shopify](/leistungen/wordpress-shopify). [Sagen Sie uns, was Ihre Website können muss](/kontakt), und wir empfehlen den passenden Stack.

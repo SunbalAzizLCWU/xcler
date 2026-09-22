@@ -11,7 +11,7 @@ publishedAt: "2026-09-08T08:00:00.000Z"
 author: Abeel Mehr
 cover: /blog/blog-website-cost-germany-cover.webp
 coverAlt: "Business website cost in Germany 2026 — price ranges and breakdown"
-readingTime: 9
+readingTime: 6
 tags:
   - website cost
   - web design cost Germany
@@ -70,6 +70,41 @@ A typical corporate project splits roughly like this:
 
 A good rule is to budget **10–20% of the build price per year** for care and improvement.
 
+## Worked example: a corporate site for a mid-sized company
+
+A 120-person engineering services company in Germany wants a new website: 25 pages in German and English, case studies, a careers section with job listings, a contact form connected to its CRM, and a blog the marketing team can maintain.
+
+A realistic budget might look like this:
+
+| Item | Share | Example amount |
+| --- | --- | --- |
+| Strategy, sitemap, keyword research | 10% | €1,800 |
+| UX and visual design, design system | 15% | €2,700 |
+| Development, CMS, forms, CRM integration | 40% | €7,200 |
+| Copywriting and translation support | 10% | €1,800 |
+| Technical SEO, structured data, redirects | 10% | €1,800 |
+| Launch, training, first-year care | 15% | €2,700 |
+| **Total** | | **€18,000** |
+
+Change the scope and the total moves: drop translation and the careers section and it could land around €12,000; add a product configurator and a partner portal and it could pass €35,000.
+
+## Hidden costs to ask about
+
+- **Stock photos and fonts** — licences are not always included.
+- **Third-party tools** — form services, cookie consent tools, newsletter platforms, job boards.
+- **Content migration** — moving and cleaning up hundreds of old pages takes time.
+- **Legal texts** — imprint, privacy policy and terms usually need a lawyer or a specialised generator service, not the agency.
+- **Accessibility work** — the European Accessibility Act, implemented in Germany by the Barrierefreiheitsstärkungsgesetz, applies from June 2025 to many consumer-facing services such as online shops.
+- **Change requests** — new ideas after design sign-off are normal; agree how they are priced.
+
+## How to keep costs under control
+
+1. **Write a short brief.** Goals, audiences, must-have pages and features, integrations, examples you like.
+2. **Prioritise ruthlessly.** Launch with what drives enquiries and add the rest in phase two.
+3. **Provide content early.** Delays waiting for texts and images are the most common reason projects overrun.
+4. **Reuse what works.** A proven component system is faster and cheaper than designing every page from scratch.
+5. **Decide who edits.** If marketing needs full independence, budget for a CMS setup and training.
+
 ## How to compare quotes
 
 Ask every agency:
@@ -96,5 +131,14 @@ Landing pages take two to four weeks, corporate sites six to twelve weeks, platf
 
 **Can we start small and grow?**
 Yes. A solid technical base lets you start with core pages and add features later without rebuilding.
+
+**Is a website builder like Wix or Squarespace enough?**
+For a very small business with a few pages, often yes. Once you need multiple languages, integrations, strong SEO or custom features, a professionally built site is usually the better investment.
+
+**Are there subsidies for websites in Germany?**
+Some federal states and programmes support digitalisation projects for small and mid-sized companies. Conditions change regularly, so check current programmes with your chamber of commerce (IHK) or regional development bank before signing.
+
+**What makes a website bring in enquiries?**
+Clear positioning, fast pages, strong service pages that answer real questions, trust signals such as case studies, and simple contact paths. Design alone does not generate leads.
 
 We build fast, SEO-ready websites for companies across Germany — see [web development](/en/services/web-development) and [pricing](/en/pricing). [Send us your brief](/en/contact) for a fixed-scope estimate.

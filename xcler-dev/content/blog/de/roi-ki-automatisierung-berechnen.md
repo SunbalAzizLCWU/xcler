@@ -11,7 +11,7 @@ publishedAt: "2026-09-07T08:00:00.000Z"
 author: Musharraf Aziz
 cover: /blog/blog-ai-automation-roi-cover.webp
 coverAlt: "ROI-Kurve der KI-Automatisierung durchbricht die Break-even-Linie"
-readingTime: 8
+readingTime: 6
 tags:
   - ROI Automatisierung
   - KI ROI
@@ -54,6 +54,48 @@ ROI im ersten Jahr: (30.600 € − 12.000 €) ÷ 12.000 € ≈ **155 %**
 Amortisation: 12.000 € ÷ 2.550 € pro Monat ≈ **4,7 Monate**
 
 Ihre Zahlen werden abweichen. Die Struktur bleibt gleich.
+
+## Zweites Beispiel: Lead-Qualifizierung im Vertrieb
+
+Ein B2B-Softwareunternehmen erhält rund 400 eingehende Leads pro Monat. Ein Mitarbeiter im Vertriebsinnendienst braucht pro Lead etwa 15 Minuten, um das Unternehmen zu recherchieren, die Passung zu prüfen und eine erste Antwort zu schreiben.
+
+- Aktueller Aufwand: 400 × 15 Min. = 100 Stunden pro Monat
+- Mit Automatisierung (Anreicherung, KI-Bewertung der Passung, Antwortentwurf, Prüfung durch den Mitarbeiter): etwa 4 Minuten pro Lead = rund 27 Stunden pro Monat
+- **Eingesparte Stunden:** etwa 73 pro Monat, 876 pro Jahr
+- Vollkosten: 50 € pro Stunde → **43.800 € pro Jahr**
+- Schnellere Reaktion: Steigt die Abschlussquote durch Antworten innerhalb von Minuten statt nach einem Tag auch nur leicht, kann der Umsatzeffekt die Zeitersparnis übertreffen – lassen Sie ihn aber aus dem Basisszenario, bis Sie ihn gemessen haben.
+- Laufende Kosten (Anreicherungsdaten, Plattform, Modellnutzung, Wartung): **7.200 € pro Jahr**
+- Einmalige Umsetzung: **15.000 €**
+
+Jährlicher Nettonutzen allein aus Zeitersparnis: 43.800 € − 7.200 € = **36.600 €**
+Amortisation: 15.000 € ÷ 3.050 € pro Monat ≈ **4,9 Monate**
+
+## Eine einfache ROI-Tabelle anlegen
+
+Sie brauchen keine Spezialsoftware. Eine Tabelle mit diesen Zeilen genügt:
+
+| Zeile | Beispielwert |
+| --- | --- |
+| Fälle pro Monat | 800 |
+| Minuten pro Fall heute | 6 |
+| Minuten pro Fall nach Automatisierung | 1,5 |
+| Anteil vollautomatisierter Fälle | 70 % |
+| Vollkosten-Stundensatz | 45 € |
+| Vermiedene Fehlerkosten pro Monat | 250 € |
+| Laufende Kosten pro Monat | 400 € |
+| Einmalinvestition | 12.000 € |
+
+Berechnen Sie daraus eingesparte Stunden, monatlichen Nettonutzen, Amortisationsmonate und ROI im ersten Jahr. Rechnen Sie dann drei Varianten – pessimistisch, realistisch, optimistisch –, indem Sie Automatisierungsanteil und eingesparte Minuten verändern. Amortisiert sich selbst die pessimistische Variante innerhalb eines Jahres, ist das Projekt risikoarm.
+
+## Sensitivität: Was das Ergebnis am stärksten bewegt
+
+In den meisten Business Cases für Automatisierung dominieren drei Eingaben:
+
+1. **Volumen.** Doppelt so viele Fälle verdoppeln ungefähr den Nutzen, während die laufenden Kosten deutlich weniger steigen.
+2. **Automatisierungsanteil.** Der Sprung von 50 % auf 80 % vollautomatisierte Fälle wiegt oft schwerer als jede andere Verbesserung.
+3. **Minuten pro Fall heute.** Messen Sie das ehrlich – Routinearbeit wird meist unterschätzt.
+
+Tool- und Modellkosten entscheiden selten allein über den Business Case. Seien Sie beim Nutzen vorsichtig und bei der Wartung realistisch.
 
 ## Kosten, die Business Cases vergessen
 
@@ -98,5 +140,14 @@ Etwas, weil die Modellnutzung schwankt. Begrenzen Sie sie mit Limits und messen 
 
 **Sollten wir alles auf einmal automatisieren?**
 Nein. Starten Sie mit einem Prozess mit hohem ROI, belegen Sie den Erfolg und investieren Sie die Einsparungen neu.
+
+**Werden eingesparte Stunden wirklich zu Einsparungen?**
+Nur wenn die Zeit sinnvoll genutzt wird – mehr Kunden betreut, weniger Überstunden, keine Neueinstellung nötig, schnelleres Wachstum. Vereinbaren Sie vorab, wofür die frei werdende Kapazität genutzt wird.
+
+**Wie messen wir Stunden ehrlich?**
+Stoppen Sie eine Woche lang echte Fälle, statt zu schätzen – inklusive Unterbrechungen, Nachschlagen und Nacharbeit.
+
+**Welche Kennzahlen sollten wir berichten?**
+Automatisch bearbeitete Fälle, Ausnahmen, Zeit pro Fall, Fehlerquote, Kosten pro Fall und Fortschritt der Amortisation – monatlich.
 
 Wir entwickeln Business Cases und Automatisierungen gemeinsam mit Ihnen – siehe [KI-Automatisierung](/leistungen/ki-automatisierung) und [Workflow-Automatisierung](/leistungen/workflow-automatisierung). [Schicken Sie uns einen Prozess](/kontakt), und wir schätzen den ROI mit Ihnen ab.

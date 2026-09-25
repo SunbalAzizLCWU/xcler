@@ -25,6 +25,7 @@
     "speaking": "XCLER is speaking",
     "thinking": "Looking that up…",
     "error": "Something went wrong. Try again or email hello@xcler.dev.",
+    "rateLimit": "Too many messages. Wait a moment, then try again.",
     "citations": "Sources",
     "switchToText": "Text",
     "switchToVoice": "Voice",

@@ -25,6 +25,7 @@
     "speaking": "XCLER spricht",
     "thinking": "Ich suche das nach…",
     "error": "Etwas ist schiefgelaufen. Bitte erneut versuchen oder hello@xcler.dev schreiben.",
+    "rateLimit": "Zu viele Nachrichten. Bitte kurz warten und erneut versuchen.",
     "citations": "Quellen",
     "switchToText": "Text",
     "switchToVoice": "Sprache",

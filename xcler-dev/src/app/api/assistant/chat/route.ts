@@ -1,15 +1,46 @@
 import { NextResponse } from "next/server";
+import {
+  degradedMessage,
+  filterAssistantOutput,
+  looksLikeInjection,
+  MAX_HISTORY_TURNS,
+  refusalMessage,
+  sanitizeUserText,
+} from "@/lib/rag/guardrails";
 import { buildSystemPrompt, uniqueCitations } from "@/lib/rag/prompt";
 import { clientIp, rateLimit } from "@/lib/rag/rate-limit";
 import { retrieveChunks } from "@/lib/rag/retrieve";
 import { logChatTurn, requireSession } from "@/lib/rag/session";
 import { isSessionEnded } from "@/lib/rag/transcript-email";
-import { readSseTokens, streamChatCompletion, type ChatMessage } from "@/lib/rag/groq";
+import {
+  classifyPromptAttack,
+  readSseTokens,
+  streamChatCompletion,
+  type ChatMessage,
+} from "@/lib/rag/groq";
 
 export const runtime = "nodejs";
-export const maxDuration = 60;
+export const maxDuration = 30;
+export const dynamic = "force-dynamic";
 
 type IncomingMessage = { role: "user" | "assistant"; content: string };
+
+const SSE_HEADERS = {
+  "Content-Type": "text/event-stream; charset=utf-8",
+  "Cache-Control": "no-cache, no-store, no-transform",
+  Connection: "keep-alive",
+  "X-Content-Type-Options": "nosniff",
+};
+
+function sseText(text: string, citations: Array<{ title: string; heading: string; url: string }> = []) {
+  const encoder = new TextEncoder();
+  const body = [
+    `data: ${JSON.stringify({ type: "meta", citations })}\n\n`,
+    `data: ${JSON.stringify({ type: "token", token: text })}\n\n`,
+    `data: ${JSON.stringify({ type: "done", text })}\n\n`,
+  ].join("");
+  return new Response(encoder.encode(body), { headers: SSE_HEADERS });
+}
 
 export async function POST(request: Request) {
   const session = await requireSession(request);
@@ -20,9 +51,10 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Chat ended", ended: true }, { status: 410 });
   }
 
+  const burst = rateLimit(`chat-burst:${session.id}`, 8, 60 * 1000);
   const limited = rateLimit(`chat:${session.id}`, 40, 60 * 60 * 1000);
   const ipLimited = rateLimit(`chat-ip:${clientIp(request)}`, 80, 60 * 60 * 1000);
-  if (!limited.ok || !ipLimited.ok) {
+  if (!burst.ok || !limited.ok || !ipLimited.ok) {
     return NextResponse.json({ error: "Rate limit exceeded" }, { status: 429 });
   }
 
@@ -35,8 +67,12 @@ export async function POST(request: Request) {
 
   const history = (body.messages ?? [])
     .filter((msg) => msg && (msg.role === "user" || msg.role === "assistant") && typeof msg.content === "string")
-    .map((msg) => ({ role: msg.role, content: msg.content.slice(0, 4000) }))
-    .slice(-12);
+    .map((msg) => ({
+      role: msg.role,
+      content: sanitizeUserText(msg.content),
+    }))
+    .filter((msg) => msg.content)
+    .slice(-MAX_HISTORY_TURNS);
 
   const lastUser = [...history].reverse().find((msg) => msg.role === "user");
   if (!lastUser?.content.trim()) {
@@ -45,29 +81,52 @@ export async function POST(request: Request) {
 
   const started = Date.now();
   const voice = Boolean(body.voice);
+  const locale = session.locale;
+
+  if (looksLikeInjection(lastUser.content)) {
+    const text = refusalMessage(locale);
+    void logChatTurn({ sessionId: session.id, role: "user", content: lastUser.content });
+    void logChatTurn({ sessionId: session.id, role: "assistant", content: text, latencyMs: Date.now() - started });
+    return sseText(text);
+  }
+
   let chunks;
+  let guard: "allow" | "block" = "allow";
   try {
-    chunks = await retrieveChunks(lastUser.content, voice ? 6 : 8);
+    const [retrieved, verdict] = await Promise.all([
+      retrieveChunks(lastUser.content, voice ? 5 : 6),
+      classifyPromptAttack(lastUser.content),
+    ]);
+    chunks = retrieved;
+    guard = verdict;
   } catch (error) {
     console.error("retrieve failed:", error);
-    return NextResponse.json({ error: "Retrieval failed" }, { status: 502 });
+    chunks = await retrieveChunks(lastUser.content, 4).catch(() => []);
   }
-  const citations = uniqueCitations(chunks);
+
+  if (guard === "block") {
+    const text = refusalMessage(locale);
+    void logChatTurn({ sessionId: session.id, role: "user", content: lastUser.content });
+    void logChatTurn({ sessionId: session.id, role: "assistant", content: text, latencyMs: Date.now() - started });
+    return sseText(text);
+  }
+
+  const citations = uniqueCitations(chunks ?? []);
 
   const messages: ChatMessage[] = [
     {
       role: "system",
       content: buildSystemPrompt({
-        locale: session.locale,
+        locale,
         visitorName: session.name,
         voice,
-        chunks,
+        chunks: chunks ?? [],
       }),
     },
     ...history,
   ];
 
-  await logChatTurn({
+  void logChatTurn({
     sessionId: session.id,
     role: "user",
     content: lastUser.content,
@@ -75,14 +134,12 @@ export async function POST(request: Request) {
 
   let stream: ReadableStream<Uint8Array>;
   try {
-    ({ stream } = await streamChatCompletion(messages, { maxTokens: voice ? 280 : 700 }));
+    ({ stream } = await streamChatCompletion(messages, { maxTokens: voice ? 220 : 420 }));
   } catch (error) {
     console.error("Groq chat failed:", error);
-    return NextResponse.json(
-      { error: error instanceof Error ? error.message : "Chat failed" },
-      { status: 502 }
-    );
+    return sseText(degradedMessage(locale), citations);
   }
+
   const encoder = new TextEncoder();
   let full = "";
 
@@ -97,8 +154,10 @@ export async function POST(request: Request) {
           full += token;
           send({ type: "token", token });
         }
+        full = filterAssistantOutput(full, locale);
+        if (!full) full = refusalMessage(locale);
         send({ type: "done", text: full });
-        await logChatTurn({
+        void logChatTurn({
           sessionId: session.id,
           role: "assistant",
           content: full,
@@ -116,11 +175,5 @@ export async function POST(request: Request) {
     },
   });
 
-  return new Response(sse, {
-    headers: {
-      "Content-Type": "text/event-stream; charset=utf-8",
-      "Cache-Control": "no-cache, no-transform",
-      Connection: "keep-alive",
-    },
-  });
+  return new Response(sse, { headers: SSE_HEADERS });
 }

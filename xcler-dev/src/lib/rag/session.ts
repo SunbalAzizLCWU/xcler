@@ -1,5 +1,6 @@
 import { createHmac, randomUUID, timingSafeEqual } from "node:crypto";
-import { getSessionSecret } from "./env";
+import { getSessionSecret, useRemoteSupabaseRag } from "./env";
+import { isValidVisitorName, sanitizeUserText } from "./guardrails";
 import { getServiceSupabase } from "./supabase";
 
 export type AssistantSession = {
@@ -18,8 +19,7 @@ export function isValidEmail(email: string) {
 }
 
 export function isValidName(name: string) {
-  const trimmed = name.trim();
-  return trimmed.length >= 2 && trimmed.length <= 80;
+  return isValidVisitorName(name);
 }
 
 function encode(payload: AssistantSession) {
@@ -62,24 +62,26 @@ export async function createAssistantSession(input: {
 }) {
   const session: AssistantSession = {
     id: randomUUID(),
-    name: input.name.trim(),
-    email: input.email.trim().toLowerCase(),
+    name: sanitizeUserText(input.name).slice(0, 80),
+    email: input.email.trim().toLowerCase().slice(0, 180),
     locale: input.locale,
     exp: Date.now() + SESSION_TTL_MS,
   };
 
-  try {
-    const supabase = getServiceSupabase();
-    const { error } = await supabase.from("chat_sessions").insert({
-      id: session.id,
-      locale: session.locale,
-      channel: "text",
-      visitor_name: session.name,
-      visitor_email: session.email,
-    });
-    if (error) console.error("chat_sessions insert skipped:", error.message);
-  } catch (error) {
-    console.error("chat_sessions insert skipped:", error);
+  if (useRemoteSupabaseRag()) {
+    try {
+      const supabase = getServiceSupabase();
+      const { error } = await supabase.from("chat_sessions").insert({
+        id: session.id,
+        locale: session.locale,
+        channel: "text",
+        visitor_name: session.name,
+        visitor_email: session.email,
+      });
+      if (error) console.error("chat_sessions insert skipped:", error.message);
+    } catch (error) {
+      console.error("chat_sessions insert skipped:", error);
+    }
   }
 
   return { session, token: encode(session) };
@@ -99,6 +101,7 @@ export async function logChatTurn(input: {
   citations?: unknown;
   latencyMs?: number;
 }) {
+  if (!useRemoteSupabaseRag()) return;
   try {
     const supabase = getServiceSupabase();
     await supabase.from("chat_messages").insert({

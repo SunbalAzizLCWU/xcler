@@ -342,6 +342,9 @@ export function AssistantWidget() {
       await endChat("idle");
       throw new Error("ended");
     }
+    if (response.status === 429) {
+      throw new Error("rate");
+    }
     if (!response.ok || !response.body) {
       throw new Error("chat failed");
     }
@@ -393,9 +396,12 @@ export function AssistantWidget() {
         } else if (payload.type === "done" && payload.text) {
           full = payload.text;
           apply(full, citations);
+        } else if (payload.type === "error" && !full) {
+          throw new Error("chat failed");
         }
       }
     }
+    if (!full.trim()) throw new Error("chat failed");
     return full;
   }
 
@@ -472,9 +478,10 @@ export function AssistantWidget() {
       }
     } catch (error) {
       if (error instanceof Error && error.message === "ended") return;
+      const content = error instanceof Error && error.message === "rate" ? t("rateLimit") : t("error");
       setMessages((prev) => [
         ...prev,
-        { id: `e-${Date.now()}`, role: "assistant", content: t("error") },
+        { id: `e-${Date.now()}`, role: "assistant", content },
       ]);
     } finally {
       setBusy(false);

@@ -1,8 +1,9 @@
-import { getRagEnv } from "./env";
+import { getJinaApiKey } from "./env";
 
 const JINA_URL = "https://api.jina.ai/v1/embeddings";
 const MODEL = "jina-embeddings-v3";
 const DIMENSIONS = 1024;
+const TIMEOUT_MS = 280;
 
 type JinaTask = "retrieval.passage" | "retrieval.query";
 
@@ -13,7 +14,10 @@ type JinaResponse = {
 
 export async function embedTexts(texts: string[], task: JinaTask) {
   if (texts.length === 0) return [];
-  const { jinaApiKey } = getRagEnv();
+  const jinaApiKey = getJinaApiKey();
+  if (!jinaApiKey) {
+    throw new Error("Jina API key not configured");
+  }
   const embeddings: number[][] = [];
 
   for (let i = 0; i < texts.length; i += 24) {
@@ -30,6 +34,7 @@ export async function embedTexts(texts: string[], task: JinaTask) {
         dimensions: DIMENSIONS,
         input: batch,
       }),
+      signal: AbortSignal.timeout(TIMEOUT_MS),
     });
 
     if (!response.ok) {

@@ -8,12 +8,29 @@ function required(name: string, fallbackNames: string[] = []) {
   return value;
 }
 
+export function getGroqApiKey() {
+  return required("GROQ_API_KEY");
+}
+
+export function getJinaApiKey() {
+  return process.env.JINA_API_KEY?.trim() || "";
+}
+
+export function getSupabaseConfig() {
+  const url = process.env.SUPABASE_URL?.trim();
+  const serviceKey =
+    process.env.SUPABASE_SERVICE_KEY?.trim() || process.env.SUPABASE_SERVICE_ROLE_KEY?.trim();
+  if (!url || !serviceKey) return null;
+  return { url, serviceKey };
+}
+
 export function getRagEnv() {
+  const supabase = getSupabaseConfig();
   return {
-    groqApiKey: required("GROQ_API_KEY"),
-    jinaApiKey: required("JINA_API_KEY"),
-    supabaseUrl: required("SUPABASE_URL"),
-    supabaseServiceKey: required("SUPABASE_SERVICE_KEY", ["SUPABASE_SERVICE_ROLE_KEY"]),
+    groqApiKey: getGroqApiKey(),
+    jinaApiKey: getJinaApiKey(),
+    supabaseUrl: supabase?.url || "",
+    supabaseServiceKey: supabase?.serviceKey || "",
   };
 }
 
@@ -25,4 +42,8 @@ export function getSessionSecret() {
     process.env.GROQ_API_KEY?.trim() ||
     "xcler-assistant-dev-secret"
   );
+}
+
+export function useRemoteSupabaseRag() {
+  return process.env.RAG_USE_SUPABASE === "1";
 }

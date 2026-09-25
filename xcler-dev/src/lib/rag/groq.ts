@@ -1,10 +1,15 @@
-import { getRagEnv } from "./env";
+import { getGroqApiKey } from "./env";
+import { promptGuardShouldBlock } from "./guardrails";
 
 const GROQ_CHAT = "https://api.groq.com/openai/v1/chat/completions";
 const GROQ_STT = "https://api.groq.com/openai/v1/audio/transcriptions";
 const GROQ_TTS = "https://api.groq.com/openai/v1/audio/speech";
 
-export const CHAT_MODELS = ["openai/gpt-oss-120b", "openai/gpt-oss-20b", "qwen/qwen3.6-27b"] as const;
+/** Latest Qwen on Groq. Instruct mode (`reasoning_effort: none`) for sub-second replies. */
+export const CHAT_MODELS = ["qwen/qwen3.8-27b"] as const;
+export const CHAT_MODEL = CHAT_MODELS[0];
+const AVAILABILITY_FALLBACK = "openai/gpt-oss-20b";
+export const PROMPT_GUARD_MODEL = "meta-llama/llama-prompt-guard-2-22m";
 export const STT_MODEL = "whisper-large-v3-turbo";
 
 export type ChatMessage = {
@@ -13,38 +18,69 @@ export type ChatMessage = {
 };
 
 function groqHeaders(json = true) {
-  const { groqApiKey } = getRagEnv();
   return {
-    Authorization: `Bearer ${groqApiKey}`,
+    Authorization: `Bearer ${getGroqApiKey()}`,
     ...(json ? { "Content-Type": "application/json" } : {}),
   };
 }
 
 export async function streamChatCompletion(messages: ChatMessage[], options?: { maxTokens?: number }) {
   let lastError = "";
+  const attempts: Array<{ model: string; extra: Record<string, unknown> }> = [
+    {
+      model: CHAT_MODEL,
+      extra: { reasoning_effort: "none", reasoning_format: "hidden", top_p: 0.8 },
+    },
+    { model: AVAILABILITY_FALLBACK, extra: {} },
+  ];
 
-  for (const model of CHAT_MODELS) {
+  for (const attempt of attempts) {
     const response = await fetch(GROQ_CHAT, {
       method: "POST",
       headers: groqHeaders(),
       body: JSON.stringify({
-        model,
+        model: attempt.model,
         messages,
-        temperature: 0.25,
-        max_tokens: options?.maxTokens ?? 700,
+        temperature: 0.3,
+        max_tokens: options?.maxTokens ?? 500,
         stream: true,
+        ...attempt.extra,
       }),
+      signal: AbortSignal.timeout(12_000),
     });
 
     if (response.ok && response.body) {
-      return { model, stream: response.body };
+      return { model: attempt.model, stream: response.body };
     }
 
     lastError = await response.text();
-    // Try the next model on deprecation / access errors.
   }
 
   throw new Error(`Groq chat failed: ${lastError.slice(0, 400)}`);
+}
+
+export async function classifyPromptAttack(text: string) {
+  try {
+    const response = await fetch(GROQ_CHAT, {
+      method: "POST",
+      headers: groqHeaders(),
+      body: JSON.stringify({
+        model: PROMPT_GUARD_MODEL,
+        messages: [{ role: "user", content: text.slice(0, 1500) }],
+        temperature: 0,
+        max_tokens: 8,
+      }),
+      signal: AbortSignal.timeout(400),
+    });
+    if (!response.ok) return "allow" as const;
+    const json = (await response.json()) as {
+      choices?: Array<{ message?: { content?: string } }>;
+    };
+    const raw = json.choices?.[0]?.message?.content ?? "0";
+    return promptGuardShouldBlock(raw) ? ("block" as const) : ("allow" as const);
+  } catch {
+    return "allow" as const;
+  }
 }
 
 export async function transcribeAudio(file: Blob, filename: string, language?: "de" | "en") {
@@ -58,6 +94,7 @@ export async function transcribeAudio(file: Blob, filename: string, language?: "
     method: "POST",
     headers: groqHeaders(false),
     body: form,
+    signal: AbortSignal.timeout(20_000),
   });
 
   if (!response.ok) {
@@ -88,6 +125,7 @@ export async function synthesizeSpeech(text: string) {
         input: text.slice(0, 1400),
         response_format: "wav",
       }),
+      signal: AbortSignal.timeout(15_000),
     });
 
     if (response.ok) {
@@ -108,6 +146,7 @@ export async function* readSseTokens(stream: ReadableStream<Uint8Array>) {
   const reader = stream.getReader();
   const decoder = new TextDecoder();
   let buffer = "";
+  let inThink = false;
 
   while (true) {
     const { done, value } = await reader.read();
@@ -123,9 +162,19 @@ export async function* readSseTokens(stream: ReadableStream<Uint8Array>) {
       if (data === "[DONE]") return;
       try {
         const json = JSON.parse(data) as {
-          choices?: Array<{ delta?: { content?: string } }>;
+          choices?: Array<{ delta?: { content?: string | null } }>;
         };
-        const token = json.choices?.[0]?.delta?.content;
+        let token = json.choices?.[0]?.delta?.content;
+        if (!token) continue;
+        if (token.includes("<think>")) inThink = true;
+        if (inThink) {
+          if (token.includes("</think>")) {
+            inThink = false;
+            token = token.slice(token.indexOf("</think>") + "</think>".length);
+          } else {
+            continue;
+          }
+        }
         if (token) yield token;
       } catch {
         // ignore malformed SSE fragments

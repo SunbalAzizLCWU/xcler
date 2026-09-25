@@ -12,6 +12,14 @@ const nextConfig: NextConfig = {
       "./src/lib/rag/kb-index.json",
       "./src/lib/rag/behavior.md",
     ],
+    "/src/app/api/assistant/**/*": [
+      "./src/lib/rag/kb-index.json",
+      "./src/lib/rag/behavior.md",
+    ],
+    "/api/assistant/chat": [
+      "./src/lib/rag/kb-index.json",
+      "./src/lib/rag/behavior.md",
+    ],
   },
   images: {
     formats: ["image/avif", "image/webp"],

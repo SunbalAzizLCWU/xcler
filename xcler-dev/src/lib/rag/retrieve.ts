@@ -1,6 +1,10 @@
 import { readFileSync } from "node:fs";
+import { join } from "node:path";
 import { fileURLToPath } from "node:url";
+import { useRemoteSupabaseRag } from "./env";
+import { isGreeting } from "./guardrails";
 import { embedQuery } from "./jina";
+import { KB_SEED_CHUNKS } from "./kb-seed";
 import { getServiceSupabase } from "./supabase";
 
 export type RetrievedChunk = {
@@ -34,21 +38,38 @@ function decodeEmbedding(b64: string) {
   return new Float32Array(buf.buffer, buf.byteOffset, buf.byteLength / 4);
 }
 
+function indexCandidates() {
+  const fromMeta = () => fileURLToPath(new URL("./kb-index.json", import.meta.url));
+  return [
+    fromMeta,
+    () => join(process.cwd(), "src/lib/rag/kb-index.json"),
+    () => join(process.cwd(), "lib/rag/kb-index.json"),
+  ];
+}
+
 function loadLocalIndex(): LocalChunk[] {
   if (cachedIndex) return cachedIndex;
-  try {
-    const file = fileURLToPath(new URL("./kb-index.json", import.meta.url));
-    const parsed = JSON.parse(readFileSync(file, "utf8")) as LocalIndex;
-    if (Array.isArray(parsed.chunks)) {
-      cachedIndex = parsed.chunks.map((chunk) => ({
-        ...chunk,
-        embedding: decodeEmbedding(chunk.embedding_b64),
-      }));
-      return cachedIndex;
+  for (const candidate of indexCandidates()) {
+    try {
+      const parsed = JSON.parse(readFileSync(candidate(), "utf8")) as LocalIndex;
+      if (Array.isArray(parsed.chunks) && parsed.chunks.length > 0) {
+        cachedIndex = parsed.chunks.map((chunk) => {
+          try {
+            return {
+              ...chunk,
+              embedding: chunk.embedding_b64 ? decodeEmbedding(chunk.embedding_b64) : undefined,
+            };
+          } catch {
+            return { ...chunk, embedding: undefined };
+          }
+        });
+        return cachedIndex;
+      }
+    } catch {
+      // try next path
     }
-  } catch (error) {
-    console.error("Failed to read local KB index:", error);
   }
+  console.error("Failed to read local KB index from all candidate paths");
   cachedIndex = [];
   return cachedIndex;
 }
@@ -76,7 +97,7 @@ function sanitizeQuery(query: string) {
 let remoteDisabled = false;
 
 async function matchRemote(embedding: number[], query: string, matchCount: number) {
-  if (remoteDisabled) return null;
+  if (remoteDisabled || !useRemoteSupabaseRag()) return null;
   try {
     const supabase = getServiceSupabase();
     const attempts = [
@@ -108,9 +129,50 @@ async function matchRemote(embedding: number[], query: string, matchCount: numbe
   return null;
 }
 
-function localHybridSearch(embedding: number[], query: string, matchCount: number) {
+function lexicalScore(chunk: LocalChunk, terms: string[]) {
+  const heading = chunk.heading.toLowerCase();
+  const title = (chunk.title ?? "").toLowerCase();
+  const content = chunk.content.toLowerCase();
+  let score = 0;
+  for (const term of terms) {
+    if (heading.includes(term)) score += 4;
+    if (title.includes(term)) score += 2;
+    if (content.includes(term)) score += 1;
+  }
+  if (/what xcler is|about xcler/.test(heading) || /about xcler/.test(title)) score += 6;
+  if (/starter package|pricing/.test(heading)) score += 2;
+  return score;
+}
+
+function toRetrieved(chunk: LocalChunk, score: number): RetrievedChunk {
+  return {
+    id: chunk.id,
+    heading: chunk.heading,
+    content: chunk.content,
+    sourceUrl: chunk.source_url ?? "",
+    title: chunk.title ?? chunk.heading,
+    score,
+  };
+}
+
+function localLexicalSearch(query: string, matchCount: number) {
   const chunks = loadLocalIndex();
   if (chunks.length === 0) return [];
+  const terms = query.toLowerCase().split(/\s+/).filter((term) => term.length > 2);
+  if (terms.length === 0) return chunks.slice(0, matchCount).map((chunk) => toRetrieved(chunk, 0.1));
+
+  return chunks
+    .map((chunk) => ({ chunk, rank: lexicalScore(chunk, terms) }))
+    .filter((row) => row.rank > 0)
+    .sort((a, b) => b.rank - a.rank)
+    .slice(0, matchCount)
+    .map((row) => toRetrieved(row.chunk, row.rank));
+}
+
+function localHybridSearch(embedding: number[] | null, query: string, matchCount: number) {
+  const chunks = loadLocalIndex();
+  if (chunks.length === 0) return [];
+  if (!embedding) return localLexicalSearch(query, matchCount);
 
   const terms = query.toLowerCase().split(/\s+/).filter((term) => term.length > 2);
   const semantic = chunks
@@ -122,11 +184,7 @@ function localHybridSearch(embedding: number[], query: string, matchCount: numbe
     .slice(0, matchCount * 2);
 
   const lexical = chunks
-    .map((chunk) => {
-      const hay = `${chunk.heading} ${chunk.content}`.toLowerCase();
-      const hits = terms.reduce((sum, term) => sum + (hay.includes(term) ? 1 : 0), 0);
-      return { chunk, rank: hits };
-    })
+    .map((chunk) => ({ chunk, rank: lexicalScore(chunk, terms) }))
     .filter((row) => row.rank > 0)
     .sort((a, b) => b.rank - a.rank)
     .slice(0, matchCount * 2);
@@ -152,36 +210,46 @@ function localHybridSearch(embedding: number[], query: string, matchCount: numbe
   return [...scores.values()]
     .sort((a, b) => b.score - a.score)
     .slice(0, matchCount)
-    .map((row) => ({
-      id: row.chunk.id,
-      heading: row.chunk.heading,
-      content: row.chunk.content,
-      sourceUrl: row.chunk.source_url ?? "",
-      title: row.chunk.title ?? row.chunk.heading,
-      score: row.score,
-    }));
+    .map((row) => toRetrieved(row.chunk, row.score));
 }
 
-export async function retrieveChunks(rawQuery: string, matchCount = 8): Promise<RetrievedChunk[]> {
-  const query = sanitizeQuery(rawQuery);
-  if (!query) return [];
-  const embedding = await embedQuery(query);
+let jinaDisabledUntil = 0;
 
-  try {
-    const remote = await matchRemote(embedding, query, matchCount);
-    if (remote && remote.length > 0) {
-      return remote.map((row) => ({
-        id: row.id,
-        heading: row.heading || row.metadata?.heading || "",
-        content: row.content,
-        sourceUrl: row.metadata?.source_url ?? "",
-        title: row.metadata?.title ?? row.heading ?? "XCLER",
-        score: row.score,
-      }));
+export async function retrieveChunks(rawQuery: string, matchCount = 8): Promise<RetrievedChunk[]> {
+  if (isGreeting(rawQuery)) return KB_SEED_CHUNKS.slice(0, matchCount);
+
+  const query = sanitizeQuery(rawQuery);
+  if (!query) return KB_SEED_CHUNKS.slice(0, matchCount);
+
+  let embedding: number[] | null = null;
+  if (Date.now() >= jinaDisabledUntil) {
+    try {
+      embedding = await embedQuery(query);
+    } catch (error) {
+      jinaDisabledUntil = Date.now() + 5 * 60 * 1000;
+      console.error("Jina embed failed, using lexical retrieval:", error);
     }
-  } catch (error) {
-    console.error("Supabase retrieval failed, using local index:", error);
   }
 
-  return localHybridSearch(embedding, query, matchCount);
+  if (embedding) {
+    try {
+      const remote = await matchRemote(embedding, query, matchCount);
+      if (remote && remote.length > 0) {
+        return remote.map((row) => ({
+          id: row.id,
+          heading: row.heading || row.metadata?.heading || "",
+          content: row.content,
+          sourceUrl: row.metadata?.source_url ?? "",
+          title: row.metadata?.title ?? row.heading ?? "XCLER",
+          score: row.score,
+        }));
+      }
+    } catch (error) {
+      console.error("Supabase retrieval failed, using local index:", error);
+    }
+  }
+
+  const local = localHybridSearch(embedding, query, matchCount);
+  if (local.length > 0) return local;
+  return KB_SEED_CHUNKS.slice(0, matchCount);
 }

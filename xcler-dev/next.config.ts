@@ -7,20 +7,6 @@ const nextConfig: NextConfig = {
   turbopack: {
     root: process.cwd(),
   },
-  outputFileTracingIncludes: {
-    "/api/assistant/**/*": [
-      "./src/lib/rag/kb-index.json",
-      "./src/lib/rag/behavior.md",
-    ],
-    "/src/app/api/assistant/**/*": [
-      "./src/lib/rag/kb-index.json",
-      "./src/lib/rag/behavior.md",
-    ],
-    "/api/assistant/chat": [
-      "./src/lib/rag/kb-index.json",
-      "./src/lib/rag/behavior.md",
-    ],
-  },
   images: {
     formats: ["image/avif", "image/webp"],
     deviceSizes: [640, 750, 828, 1080, 1200, 1600],

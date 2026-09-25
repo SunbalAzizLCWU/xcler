@@ -18,9 +18,22 @@ export type ChatMessage = {
 };
 
 function groqHeaders(json = true) {
+  const key = getGroqApiKey();
+  if (!key) {
+    throw new Error("Missing environment variable GROQ_API_KEY");
+  }
   return {
-    Authorization: `Bearer ${getGroqApiKey()}`,
+    Authorization: `Bearer ${key}`,
     ...(json ? { "Content-Type": "application/json" } : {}),
+  };
+}
+
+function abortAfter(ms: number) {
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), ms);
+  return {
+    signal: controller.signal,
+    dispose: () => clearTimeout(timer),
   };
 }
 
@@ -35,31 +48,40 @@ export async function streamChatCompletion(messages: ChatMessage[], options?: { 
   ];
 
   for (const attempt of attempts) {
-    const response = await fetch(GROQ_CHAT, {
-      method: "POST",
-      headers: groqHeaders(),
-      body: JSON.stringify({
-        model: attempt.model,
-        messages,
-        temperature: 0.3,
-        max_tokens: options?.maxTokens ?? 500,
-        stream: true,
-        ...attempt.extra,
-      }),
-      signal: AbortSignal.timeout(12_000),
-    });
+    const timeout = abortAfter(12_000);
+    try {
+      const response = await fetch(GROQ_CHAT, {
+        method: "POST",
+        headers: groqHeaders(),
+        body: JSON.stringify({
+          model: attempt.model,
+          messages,
+          temperature: 0.3,
+          max_tokens: options?.maxTokens ?? 500,
+          stream: true,
+          ...attempt.extra,
+        }),
+        signal: timeout.signal,
+      });
 
-    if (response.ok && response.body) {
-      return { model: attempt.model, stream: response.body };
+      if (response.ok && response.body) {
+        timeout.dispose();
+        return { model: attempt.model, stream: response.body };
+      }
+
+      lastError = await response.text();
+    } catch (error) {
+      lastError = error instanceof Error ? error.message : "fetch failed";
+    } finally {
+      timeout.dispose();
     }
-
-    lastError = await response.text();
   }
 
   throw new Error(`Groq chat failed: ${lastError.slice(0, 400)}`);
 }
 
 export async function classifyPromptAttack(text: string) {
+  const timeout = abortAfter(400);
   try {
     const response = await fetch(GROQ_CHAT, {
       method: "POST",
@@ -70,7 +92,7 @@ export async function classifyPromptAttack(text: string) {
         temperature: 0,
         max_tokens: 8,
       }),
-      signal: AbortSignal.timeout(400),
+      signal: timeout.signal,
     });
     if (!response.ok) return "allow" as const;
     const json = (await response.json()) as {
@@ -80,6 +102,8 @@ export async function classifyPromptAttack(text: string) {
     return promptGuardShouldBlock(raw) ? ("block" as const) : ("allow" as const);
   } catch {
     return "allow" as const;
+  } finally {
+    timeout.dispose();
   }
 }
 
@@ -90,20 +114,25 @@ export async function transcribeAudio(file: Blob, filename: string, language?: "
   form.set("response_format", "json");
   if (language) form.set("language", language);
 
-  const response = await fetch(GROQ_STT, {
-    method: "POST",
-    headers: groqHeaders(false),
-    body: form,
-    signal: AbortSignal.timeout(20_000),
-  });
+  const timeout = abortAfter(20_000);
+  try {
+    const response = await fetch(GROQ_STT, {
+      method: "POST",
+      headers: groqHeaders(false),
+      body: form,
+      signal: timeout.signal,
+    });
 
-  if (!response.ok) {
-    const detail = await response.text();
-    throw new Error(`Groq STT failed (${response.status}): ${detail.slice(0, 400)}`);
+    if (!response.ok) {
+      const detail = await response.text();
+      throw new Error(`Groq STT failed (${response.status}): ${detail.slice(0, 400)}`);
+    }
+
+    const json = (await response.json()) as { text?: string };
+    return (json.text ?? "").trim();
+  } finally {
+    timeout.dispose();
   }
-
-  const json = (await response.json()) as { text?: string };
-  return (json.text ?? "").trim();
 }
 
 const TTS_ATTEMPTS = [
@@ -116,27 +145,32 @@ export async function synthesizeSpeech(text: string) {
   let lastError = "";
 
   for (const attempt of TTS_ATTEMPTS) {
-    const response = await fetch(GROQ_TTS, {
-      method: "POST",
-      headers: groqHeaders(),
-      body: JSON.stringify({
-        model: attempt.model,
-        voice: attempt.voice,
-        input: text.slice(0, 1400),
-        response_format: "wav",
-      }),
-      signal: AbortSignal.timeout(15_000),
-    });
+    const timeout = abortAfter(15_000);
+    try {
+      const response = await fetch(GROQ_TTS, {
+        method: "POST",
+        headers: groqHeaders(),
+        body: JSON.stringify({
+          model: attempt.model,
+          voice: attempt.voice,
+          input: text.slice(0, 1400),
+          response_format: "wav",
+        }),
+        signal: timeout.signal,
+      });
 
-    if (response.ok) {
-      return {
-        buffer: Buffer.from(await response.arrayBuffer()),
-        contentType: response.headers.get("content-type") || "audio/wav",
-        engine: "groq" as const,
-      };
+      if (response.ok) {
+        return {
+          buffer: Buffer.from(await response.arrayBuffer()),
+          contentType: response.headers.get("content-type") || "audio/wav",
+          engine: "groq" as const,
+        };
+      }
+
+      lastError = `${attempt.model}/${attempt.voice} ${response.status}: ${(await response.text()).slice(0, 220)}`;
+    } finally {
+      timeout.dispose();
     }
-
-    lastError = `${attempt.model}/${attempt.voice} ${response.status}: ${(await response.text()).slice(0, 220)}`;
   }
 
   throw new Error(`Groq TTS failed: ${lastError.slice(0, 400)}`);

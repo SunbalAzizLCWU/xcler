@@ -9,7 +9,7 @@ function required(name: string, fallbackNames: string[] = []) {
 }
 
 export function getGroqApiKey() {
-  return required("GROQ_API_KEY");
+  return process.env.GROQ_API_KEY?.trim() || "";
 }
 
 export function getJinaApiKey() {

@@ -10,7 +10,7 @@
     "lint": "eslint",
     "test": "npm run lint",
     "kb:setup": "node scripts/setup_kb_schema.mjs",
-    "kb:ingest": "node scripts/ingest_knowledge_base.mjs"
+    "kb:ingest": "node scripts/ingest_knowledge_base.mjs && node scripts/build_kb_lite.mjs"
   },
   "browserslist": [
     "defaults",

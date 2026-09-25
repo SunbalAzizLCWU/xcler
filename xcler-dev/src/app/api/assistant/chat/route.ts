@@ -14,10 +14,12 @@ import { logChatTurn, requireSession } from "@/lib/rag/session";
 import { isSessionEnded } from "@/lib/rag/transcript-email";
 import {
   classifyPromptAttack,
+  CHAT_MODEL,
   readSseTokens,
   streamChatCompletion,
   type ChatMessage,
 } from "@/lib/rag/groq";
+import { getGroqApiKey } from "@/lib/rag/env";
 
 export const runtime = "nodejs";
 export const maxDuration = 30;
@@ -42,7 +44,24 @@ function sseText(text: string, citations: Array<{ title: string; heading: string
   return new Response(encoder.encode(body), { headers: SSE_HEADERS });
 }
 
+export async function GET() {
+  return NextResponse.json({
+    ok: true,
+    model: CHAT_MODEL,
+    groq: Boolean(getGroqApiKey()),
+  });
+}
+
 export async function POST(request: Request) {
+  try {
+    return await handleChat(request);
+  } catch (error) {
+    console.error("assistant chat crashed:", error);
+    return sseText(degradedMessage("en"));
+  }
+}
+
+async function handleChat(request: Request) {
   const session = await requireSession(request);
   if (!session) {
     return NextResponse.json({ error: "Session required" }, { status: 401 });

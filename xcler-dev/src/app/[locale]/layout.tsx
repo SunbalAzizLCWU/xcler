@@ -15,6 +15,10 @@ const WhatsAppButton = dynamic(
   () => import("@/components/ui/WhatsAppButton").then((module) => module.WhatsAppButton)
 );
 
+const AssistantWidget = dynamic(
+  () => import("@/components/assistant/AssistantWidget").then((module) => module.AssistantWidget)
+);
+
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
@@ -332,6 +336,7 @@ export default async function RootLayout({
             <Navbar />
             <main id="main-content">{children}</main>
             <Footer locale={locale} />
+            <AssistantWidget />
             <WhatsAppButton />
           </div>
         </NextIntlClientProvider>

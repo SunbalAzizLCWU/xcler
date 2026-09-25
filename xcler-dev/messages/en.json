@@ -7,6 +7,35 @@
   "Common": {
     "whatsAppHover": "Chat with us"
   },
+  "Assistant": {
+    "launcherLabel": "Ask XCLER",
+    "close": "Close chat",
+    "eyebrow": "XCLER assistant",
+    "title": "Ask about services, pricing, or process.",
+    "gateIntro": "Share your name and email first — then chat or talk with the assistant.",
+    "nameLabel": "Name",
+    "emailLabel": "Email",
+    "start": "Start conversation",
+    "privacy": "Chats are kept for 30 days to improve answers. Audio is not stored.",
+    "placeholder": "Ask about a chatbot, workflow, or project…",
+    "send": "Send",
+    "voice": "Tap to talk",
+    "voiceStop": "Stop & send",
+    "listening": "Listening",
+    "speaking": "XCLER is speaking",
+    "thinking": "Looking that up…",
+    "error": "Something went wrong. Try again or email hello@xcler.dev.",
+    "citations": "Sources",
+    "switchToText": "Text",
+    "switchToVoice": "Voice",
+    "gateInvalid": "Please enter a valid name and email.",
+    "statusIdle": "Ready when you are",
+    "welcome": "Hi {name}. What do you want to automate or build?",
+    "endChat": "End chat",
+    "ending": "Ending…",
+    "endedIdle": "This chat ended after 10 minutes of inactivity. Start again if you still need help.",
+    "endedManual": "Chat ended. Start a new conversation whenever you like."
+  },
   "Footer": {
     "cta": {
       "headingLine1": "Tell us what you want",

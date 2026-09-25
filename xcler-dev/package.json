@@ -8,7 +8,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "test": "npm run lint"
+    "test": "npm run lint",
+    "kb:setup": "node scripts/setup_kb_schema.mjs",
+    "kb:ingest": "node scripts/ingest_knowledge_base.mjs"
   },
   "browserslist": [
     "defaults",
@@ -19,6 +21,7 @@
   ],
   "dependencies": {
     "@next/mdx": "^16.2.3",
+    "@supabase/supabase-js": "^2.117.2",
     "@vercel/speed-insights": "^2.0.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",

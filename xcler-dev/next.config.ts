@@ -7,6 +7,12 @@ const nextConfig: NextConfig = {
   turbopack: {
     root: process.cwd(),
   },
+  outputFileTracingIncludes: {
+    "/api/assistant/**/*": [
+      "./src/lib/rag/kb-index.json",
+      "./src/lib/rag/behavior.md",
+    ],
+  },
   images: {
     formats: ["image/avif", "image/webp"],
     deviceSizes: [640, 750, 828, 1080, 1200, 1600],
@@ -25,7 +31,7 @@ const nextConfig: NextConfig = {
           {
             key: "Content-Security-Policy",
             value:
-              "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://consent.cookiebot.com https://va.vercel-scripts.com; style-src 'self' 'unsafe-inline' https://consent.cookiebot.com; img-src 'self' data: blob: https:; font-src 'self' data:; connect-src 'self' https:; frame-src https://consentcdn.cookiebot.com https://www.googletagmanager.com; base-uri 'self'",
+              "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://consent.cookiebot.com https://va.vercel-scripts.com; style-src 'self' 'unsafe-inline' https://consent.cookiebot.com; img-src 'self' data: blob: https:; font-src 'self' data:; connect-src 'self' https:; media-src 'self' blob:; frame-src https://consentcdn.cookiebot.com https://www.googletagmanager.com; base-uri 'self'",
           },
         ],
       },

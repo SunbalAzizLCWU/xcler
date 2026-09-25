@@ -7,6 +7,35 @@
   "Common": {
     "whatsAppHover": "Chatten Sie mit uns"
   },
+  "Assistant": {
+    "launcherLabel": "XCLER fragen",
+    "close": "Chat schliessen",
+    "eyebrow": "XCLER Assistent",
+    "title": "Fragen zu Leistungen, Preisen oder Ablauf.",
+    "gateIntro": "Bitte Name und E-Mail angeben — danach koennen Sie chatten oder sprechen.",
+    "nameLabel": "Name",
+    "emailLabel": "E-Mail",
+    "start": "Gespraech starten",
+    "privacy": "Chats werden 30 Tage gespeichert, um Antworten zu verbessern. Audio wird nicht gespeichert.",
+    "placeholder": "Fragen Sie nach Chatbot, Workflow oder Projekt…",
+    "send": "Senden",
+    "voice": "Zum Sprechen tippen",
+    "voiceStop": "Stopp & senden",
+    "listening": "Ich hoere zu",
+    "speaking": "XCLER spricht",
+    "thinking": "Ich suche das nach…",
+    "error": "Etwas ist schiefgelaufen. Bitte erneut versuchen oder hello@xcler.dev schreiben.",
+    "citations": "Quellen",
+    "switchToText": "Text",
+    "switchToVoice": "Sprache",
+    "gateInvalid": "Bitte einen gueltigen Namen und eine E-Mail angeben.",
+    "statusIdle": "Bereit, wenn Sie es sind",
+    "welcome": "Hallo {name}. Was moechten Sie automatisieren oder bauen?",
+    "endChat": "Chat beenden",
+    "ending": "Wird beendet…",
+    "endedIdle": "Dieser Chat wurde nach 10 Minuten Inaktivitaet beendet. Starten Sie erneut, wenn Sie weiter Hilfe brauchen.",
+    "endedManual": "Chat beendet. Starten Sie jederzeit ein neues Gespraech."
+  },
   "Footer": {
     "cta": {
       "headingLine1": "Sagen Sie uns, was Sie",
